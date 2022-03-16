@@ -1,0 +1,72 @@
+#Grid {
+    display: grid;
+    height: 1080px;
+    grid-template-columns: 5% repeat(6, 15%) 5%;
+    grid-template-rows: 10% 5% 70% 15%;
+    grid-template-areas: 
+        ". h h h h h h ."
+        ". b b b b b b ."
+        ". t t t t t t ."
+        ". f f f f f f .";
+}
+
+#head {
+    display: grid;
+    grid-area: h;
+    grid-template-areas: 
+        ". hl hl hl hl hr hr .";
+    grid-template-columns: 2% repeat(6, 16%) 2%;
+}
+#headLeft {
+    display: grid;
+    grid-area: hl;
+    grid-template-areas: 
+        "l n n n";
+    grid-template-columns: repeat(4, 25%);
+}
+#logo {
+    grid-area: l;
+}
+#name {
+    grid-area: n;
+}
+#headRight {
+    display: grid;
+    grid-area: hr;
+}
+
+#bar {
+    grid-area: b;
+}
+#text {
+    grid-area: t;
+}
+#foot {
+    grid-area: f;
+}
+
+body {
+    margin: 0;
+}
+div {
+    float: left;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    border-style: solid;
+}
+img {
+    display: block;
+    width: 80%;
+    height: 80%;
+}
+h1{
+    color:#5B8DC6;
+    font-style: italic;
+    font-size: 100%;
+}
