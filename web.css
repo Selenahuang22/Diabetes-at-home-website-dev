@@ -30,12 +30,21 @@
 }
 #headRight {
     grid-area: hr;
-    grid-template-columns: 20% 50% 10% 20%;
-    grid-template-rows: 35% 30% 35% ;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 35% 30% 35%;
     grid-template-areas:
-        ". . . ."
-        ". s ss ."
-        ". . . .";
+        ". . ."
+        ". sb ."
+        ". . .";
+}
+.searchBar {
+    grid-area: sb;
+    grid-template-columns: 80% 20%;
+    grid-template-areas: 
+        "s ss";
+    border: 1px solid #5D8ED7;
+    border-radius: 10px;
+    border-right: 0px;
 }
 .search {
     grid-area: s;
@@ -44,9 +53,15 @@
     grid-area: ss;
 }
 .look {
-    width: 100%;
-    height: 100%;
-    background: url(.\images\whitesearchtool.png) #5B8DC6 no-repeat;
+    background-image: url(images/whitesearchtool.png);
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    border: 1px solid #5D8ED7;
+    background-color: #5B8DC6;
+}
+.look:focus {
+    background-color: #9ab7e2;
 }
 
 #bar {
@@ -89,13 +104,18 @@ h1{
 input {
     width: 100%;
     height: 100%;
-    border: 1px solid #5D8ED7;
+    border: 0px;
+    border-radius: 10px;
 }
 
 @media screen and (max-width: 860px) {
     /*h1 length: px * 3.1746*/
     h1{
         font-size: 1.5em;
+    }
+    .look {
+        width: 35px;
+        height: 35px;
     }
 }
 @media screen and (max-width: 644px) {
