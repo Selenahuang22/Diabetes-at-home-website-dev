@@ -46,6 +46,7 @@
     grid-area: hn;
     justify-items: left;
     font-style: italic;
+    font-family: "Times New Roman";
 }
 #headRight {
     grid-area: hr;
@@ -95,6 +96,7 @@
 }
 .fontWhite {
     color: #fff;
+    font-weight: bold;
 }
 #barLeft {
     grid-area: bl;
