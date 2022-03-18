@@ -7,10 +7,11 @@
         ". h ."
         "b b b"
         "m m m"
-        ". t ."
+        ". jw ."
         ". j ."
         "f f f";
 }
+
 /*web about this website*/
 #diabetesInfo {
     grid-template-columns: 5% 90% 5%;
@@ -156,45 +157,97 @@
 }
 #mr1 {
     grid-area: mr1;
-
 }
 #mr2 {
     grid-area: mr2;
 }
 
 /*div text*/
-#text {
-    grid-area: t;
+#jWeb {
+    grid-area: jw;
+    grid-template-rows: 5% 10% 5% 40% 5% 30% 5%;
+    grid-template-areas: 
+        "."
+        "jwh"
+        "."
+        "jwt"
+        "."
+        "jb3"
+        ".";
+}
+.jwHead {
+    grid-area: jwh;
+    grid-template-columns: 40% 20% 40%;
+    grid-template-areas:
+        ". jwhm .";
+}
+.jwhMiddle {
+    grid-area: jwhm;
+    grid-template-columns: 10% 80% 10%;
+}
+.jwText {
+    grid-area: jwt;
+}
+#jBottom3 {
+    grid-area: jb3;
+    grid-template-columns: 30% 5% 30% 5% 30%;
 }
 
 /*div join*/
 #join {
     grid-area: j;
     border-top: 1px #578AD6 solid;
-    grid-template-rows: 5% 10% 5% 30% 10% 40%;
+    grid-template-rows: 5% 10% 5% 30% 10% 35% 5%;
     grid-template-areas: 
         "."
         "jh"
         "."
         "jt"
         "."
-        "jb";
+        "jb2"
+        ".";
 }
-#jHead {
+.jHead {
     grid-area: jh;
-    /*grid-template-columns: 25% 50% 25%;
-    grid-template-areas: 
-        ". jhm .";*/
+    grid-template-columns: 40% 20% 40%;
+    grid-template-areas:
+        ". jhm .";
 }
-/*#jhMiddle {
+.jhMiddle {
     grid-area: jhm;
     grid-template-columns: 10% 80% 10%;
-}*/
-#jText {
+}
+.jText {
     grid-area: jt;
 }
-#jBottpm {
-    grid-area: jb;
+#jBottom2 {
+    grid-area: jb2;
+    grid-template-columns: 45% 10% 45%;
+}
+.Jbot {
+    border-radius: 10px;
+    border: 1px #578AD6 solid;
+    grid-template-columns: 5% 30% 50% 10% 5%;
+    grid-template-rows: 5% 60% 30% 5%;
+    grid-template-areas: 
+        ". . . . ."
+        ". Jim Jim Jim ."
+        ". Jte . Jar ."
+        ". . . . .";
+}
+.Jimg {
+    grid-area: Jim;
+}
+.Jtex {
+    grid-area: Jte;
+    color: #578AD6;
+}
+.Jarr {
+    grid-area: Jar;
+}
+.divA {
+    width: 100%;
+    height: 100%;
 }
 
 /*div foot*/
