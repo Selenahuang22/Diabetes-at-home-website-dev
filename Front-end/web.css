@@ -1,8 +1,10 @@
 /*web*/
 /*web about this website*/
 #aboutWeb {
+    font-family: 'Roboto';
     grid-template-columns: 5% 90% 5%;
-    grid-template-rows: 100px 50px 600px 400px 300px 200px;
+    grid-template-rows: 12vh 7vh 72vh 80vh 65vh 28vh;
+    /* grid-template-rows: 100px 50px 600px 400px 300px 200px; */
     grid-template-areas:
         ". h ."
         "b b b"
@@ -14,12 +16,13 @@
 
 /*web about this website*/
 #diabetesInfo {
+    font-family: 'Roboto';
     grid-template-columns: 5% 90% 5%;
-    grid-template-rows: 100px 50px 500px 300px 200px;
+    grid-template-rows: 12vh 7vh 150vh 65vh 28vh;
     grid-template-areas:
         ". h ."
         "b b b"
-        ". t ."
+        "t t t"
         ". j ."
         "f f f";
 }
@@ -45,8 +48,9 @@
 #name {
     grid-area: hn;
     justify-items: left;
+    font-size: 2.1vh;
     font-style: italic;
-    font-family: "Times New Roman";
+    font-family: 'Roboto';
 }
 #headRight {
     grid-area: hr;
@@ -60,20 +64,21 @@
 #searchBar {
     grid-area: hsb;
     grid-template-columns: 80% 20%;
-    border: 1px solid #5D8ED7;
+    border: 0.1vh solid #5D8ED7;
     border-radius: 10px;
     border-right: 0px;
 }
 #look {
-    height: 31px;
+    height: 3.1vh;
+    width: 4.5vw;
     background-image: url(images/whitesearchtool.png);
     background-repeat: no-repeat;
-    background-size: 40%;
+    background-size: 3vh;
     background-position: center;
     display: inline-block;
     background-color: #5B8DC6;
 }
-#look:focus {
+#look:hover {
     background-color: #9ab7e2;
 }
 
@@ -87,9 +92,10 @@
         "bg bg bg bg"
         ". bl br .";
     background-color: #578AD6;
-    font-size: 0.8em;
+    font-size: 1em;
     font-weight: bolder;
 }
+
 #barGap {
     grid-area: bg;
     background-color: #FFFFFF;
@@ -102,6 +108,10 @@
     grid-area: bl;
     grid-template-columns: repeat(4, 25%);
 }
+#barLeft div:hover, #barRight:hover{
+    background-color: #507fc5;
+    border-radius: 1.5vh;
+}
 #barRight {
     grid-area: br;
 }
@@ -111,7 +121,7 @@
     grid-area: m;
     background-image: url(images/chemicalbackdrop.png);
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     background-position: center;
     grid-template-columns: 5% 55% 5% 30% 5%;
     grid-template-rows: 10% 80% 10%;
@@ -127,8 +137,17 @@
     grid-template-areas: 
         ". mt mt mt ."
         ". . . . . "
-        ". mlc . mlp .";
+        ". mlc mlText mlp .";
 }
+.inLineLink:hover {
+    background-color: #578ad654;
+    border-radius: 1vh;
+}
+#signInText{
+    font-size: 3.5em;
+    font-weight: 900;
+}
+
 #mtext {
     grid-area: mt;
     grid-template-rows: repeat(5, 20%);
@@ -137,17 +156,32 @@
     color: #578AD6;
     font-weight: bolder;
 }
+.fontRed {
+    color: red;
+}
+#mlText {
+    grid-area: mlText;
+    font: 1.6em sans-serif;
+}
 #logInClinican {
     grid-area: mlc;
     background: #578AD6;
-    font-size: 1.5em;
-    border-radius: 10px;
+    font-size: 1.9vh;
+    border-radius: 1.5vh;
+    width: 15vw;
+    height: 8vh
+    
 }
 #logInPatient {
     grid-area: mlp;
     background: #578AD6;
-    font-size: 1.5em;
-    border-radius: 10px;
+    font-size: 1.9vh;
+    border-radius: 1.5vh;
+    width: 15vw;
+    height: 8vh;
+}
+#logInPatient:hover, #logInClinican:hover{
+    background: #4979c2;
 }
 #mezzanineRight {
     grid-area: mr;
@@ -159,9 +193,11 @@
 }
 #mr1 {
     grid-area: mr1;
+    height: 135%;
 }
 #mr2 {
     grid-area: mr2;
+    height: 135%;
 }
 
 /*div text*/
@@ -189,6 +225,10 @@
 }
 .jwText {
     grid-area: jwt;
+    /* Using pixel sizing so that user can zoom up to get better read*/
+    line-height: 40px;
+    font-size: 25px;
+
 }
 #jBottom3 {
     grid-area: jb3;
@@ -221,14 +261,18 @@
 }
 .jText {
     grid-area: jt;
+    /* Using pixel sizing so that user can zoom up to get better read*/
+    line-height: 40px;
+    font-size: 25px;
 }
 #jBottom2 {
     grid-area: jb2;
-    grid-template-columns: 45% 10% 45%;
+    grid-template-columns: 45% 1% 45%;
 }
 .Jbot {
-    border-radius: 10px;
-    border: 1px #578AD6 solid;
+    border-radius: 1.5vh;
+    border: 4px #578AD6 solid;
+    height: 20vh;
     grid-template-columns: 5% 30% 50% 10% 5%;
     grid-template-rows: 5% 60% 30% 5%;
     grid-template-areas: 
@@ -237,12 +281,18 @@
         ". Jte . Jar ."
         ". . . . .";
 }
+.Jbot:hover {
+    background-color: #b1c6e9;
+}
+
 .Jimg {
     grid-area: Jim;
+    height: 10vh;
 }
 .Jtex {
     grid-area: Jte;
     color: #578AD6;
+    font-size: 3vh;
 }
 .Jarr {
     grid-area: Jar;
@@ -254,6 +304,7 @@
 
 /*div foot*/
 #foot {
+    margin-top: 8vh;
     grid-area: f;
     grid-template-columns: 5% 90% 5%;
     grid-template-rows: 90% 10%;
@@ -261,6 +312,17 @@
         ". fc ."
         "fb fb fb";
 }
+
+#footHeader1, #footHeader2, #footHeader3 {
+    margin-top: 8vh;
+    font-size: 2vh;
+} 
+
+#cline1>p, #cline2 p, #cline3 p{
+    margin-top: 4vh;
+    font-size: 1.3vh;
+}
+
 #contact {
     grid-area: fc;
     grid-template-columns: 33% 33% 34%;
@@ -270,15 +332,15 @@
 }
 #cline1 {
     grid-area: fcl1;
-    grid-template-rows: 25% repeat(6, 12.5%);
+    grid-template-rows: 45% repeat(6, 12.5%);
 }
 #cline2 {
     grid-area: fcl2;
-    grid-template-rows: 25% repeat(6, 12.5%);
+    grid-template-rows: 45% repeat(6, 12.5%);
 }
 #cline3 {
     grid-area: fcl3;
-    grid-template-rows: 25% repeat(6, 12.5%);
+    grid-template-rows: 45% repeat(6, 12.5%);
 }
 #bottom {
     grid-area: fb;
@@ -289,7 +351,7 @@
 }
 #bMiddle {
     grid-area: fbm;
-    grid-template-columns: repeat(4, 10%) 60%;
+    grid-template-columns: repeat(4, 6vh) 50%;
     color: #fff;
 }
 
@@ -300,6 +362,7 @@ body {
     padding: 0px;
     border: 0px;
 }
+/* Div element and all special category of this div*/
 div {
     display: grid;
     float: left;
@@ -312,6 +375,7 @@ div {
     justify-content: center;
     justify-items: center;
 }
+
 img {
     display: block;
     margin: 0;
@@ -320,11 +384,31 @@ img {
     max-height: 90%;
     max-width: 90%;
 }
+
+/* Readjust the button in the foot, and add some on hover visualisation*/
+#bottom img {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 1vh;
+    max-height: 2.5vh;
+    max-width: 2.5vh;
+    opacity: 0.8;
+}
+
+#bottom img:hover {
+    border: 0.5vh;
+    max-height: 3.1vh;
+    max-width: 3.1vh;
+    opacity: 1;
+}
+
 input {
     width: 100%;
     height: 100%;
     border: 0px;
-    border-radius: 10px;
+    border-radius: 1vh;
+    opacity: 0.8;
 }
 a {
     text-decoration: none;
@@ -335,23 +419,98 @@ h1 {
 }
 h2 {
     font-weight: normal;
+    font-size: 2.2em;
 }
 
 
+/* Info*/
+#info {
+    grid-area: t;
+    grid-template-columns: 5% 90% 5%;
+    grid-template-rows: 15vh 65vh 70vh;
+    grid-template-areas: 
+    ". th ."
+    "tInfo tInfo tInfo"
+    ". embedVid .";
+}
+
+#infoHeader {
+    grid-area: th;
+    grid-template-rows: 30% 70%;
+    grid-template-areas: 
+    "iHpath"
+    "iHHeader";
+}
+div#infoHeader {
+    justify-items: left;
+}
+
+#textPath1, #textPath2 {
+    font-style:italic;
+    text-decoration: underline;
+}
+
+#infoText {
+    grid-area: tInfo;
+    background-color: #DEEBF5;
+    grid-template-columns: 5% 90% 5%;
+    grid-template-rows: 7% 86% 7%;
+    grid-template-areas: 
+        ". . ."
+        ". infoTextImg ."
+        ". . .";
+}
+#infoTextImg {
+    grid-area: infoTextImg;
+    grid-template-columns: 65% 35%;
+    grid-template-areas: 
+        "textP infoImg";
+}
+
+#infoTextP {
+    grid-area: textP;
+    font-size: 10vh;
+}
+
+#infoImg {
+    grid-area: infoImg;
+}
+
+#infoEmbededVid {
+    grid-area: embedVid;
+    grid-template-columns: 10% 35% 10% 35% 10%;
+    grid-template-rows: 30% 65% 5%;
+    grid-template-areas: 
+        ". . . . ."
+        ". vid1 . vid2 .";
+
+}
+
+#vid1{
+    grid-area: vid1;
+}
+#vid2{
+    grid-area: vid2;
+}
+
+.vidBG{
+    margin: 10vh;
+    background-color: #DEEBF5;
+    border-radius: 2vh;
+}
 /*responsive*/
 @media screen and (max-width: 860px) {
     /*h1 length: px * 3.1746*/
     h1{
         font-size: 1.5em;
     }
-    #look {
-        width: 35px;
-    }
     
 }
 @media screen and (max-width: 640px) {
+
     /*h1 length: px * 3.1746*/
     h1{
-        font-size: 0.8em;
+        font-size: 1.8em;
+        text-align: center;
     }
 }
