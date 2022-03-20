@@ -161,7 +161,7 @@ h2 {
 
 #name p {
   font-weight: normal;
-  font-size: 45px;
+  font-size: 3vw;
   color: #578ad6;
 }
 
@@ -329,12 +329,6 @@ input::placeholder {
   font-weight: bolder;
 }
 
-.smallTitle {
-  color: #578ad6;
-  font-size: 23px;
-  letter-spacing: 2px;
-  font-weight: 600;
-}
 
 .fontRed {
   color: red;
@@ -402,7 +396,6 @@ input::placeholder {
 }
 .jHead {
   grid-area: jh;
-  grid-template-columns: 40% 20% 40%;
   grid-template-areas: ". jhm .";
 }
 .jhMiddle {
@@ -492,36 +485,19 @@ div#infoHeader {
   grid-template-areas: "textP infoImg";
 }
 
-#infoTextP {
-  grid-area: textP;
-  font-size: 25px;
-  line-height: 50px;
-}
 
 #infoImg {
   grid-area: infoImg;
 }
 
-#infoEmbededVid {
-  grid-area: embedVid;
-  grid-template-columns: 10% 35% 10% 35% 10%;
-  grid-template-rows: 20% 70% 10%;
-  grid-template-areas:
-    ". . . . ."
-    ". vid1 . vid2 .";
-}
+
 
 #vid1 {
   grid-area: vid1;
 }
+
 #vid2 {
   grid-area: vid2;
-}
-
-.vidBG {
-  margin: 10vh;
-  background-color: #deebf5;
-  border-radius: 2vh;
 }
 
 /*responsive*/
@@ -588,6 +564,35 @@ div#infoHeader {
   .Jtex {
     font-size: 25px;
   }
+
+  #infoTextP {
+    grid-area: textP;
+    font-size: 25px;
+    line-height: 50px;
+  }
+  #infoEmbededVid {
+    grid-area: embedVid;
+    grid-template-columns: 10% 35% 10% 35% 10%;
+    grid-template-rows: 20% 70% 10%;
+    grid-template-areas:
+      ". . . . ."
+      ". vid1 . vid2 .";
+  }
+  .vidBG {
+    margin: 10vh;
+    background-color: #deebf5;
+    border-radius: 2vh;
+  }
+  .smallTitle {
+    color: #578ad6;
+    font-size: 23px;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+  .jHead {
+    grid-template-columns: 40% 20% 40%;
+  }
+  
 }
 @media screen and (max-width: 1024px) and (min-width: 641px) {
   #aboutWeb {
@@ -652,6 +657,45 @@ div#infoHeader {
   .Jtex {
     font-size: 20px;
   }
+  #infoTextP {
+    grid-area: textP;
+    font-size: 18px;
+    line-height: 20px;
+  }
+  
+
+  iframe{
+      height: 200px;
+      width: 300px
+  }
+
+  #infoEmbededVid {
+    grid-area: embedVid;
+    grid-template-columns: 10% 35% 10% 35% 10%;
+    grid-template-rows: 20% 70% 10%;
+    grid-template-areas:
+      ". . . . ."
+      ". vid1 . vid2 .";
+  }
+  .vidBG {
+    margin: 10vh;
+    background-color: #deebf5;
+    border-radius: 2vh;
+  }
+
+  .smallTitle {
+    color: #578ad6;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+  .jHead {
+    grid-template-columns: 35% 30% 35%;
+  }
+
+  .jwHead {
+    grid-template-columns: 35% 30% 35%;
+}
 }
 @media screen and (max-width: 640px) {
   #aboutWeb {
@@ -716,4 +760,57 @@ div#infoHeader {
   .Jtex {
     font-size: 10px;
   }
+  #infoTextP {
+    grid-area: textP;
+    font-size: 15px;
+    line-height: 20px;
+  }
+  #infoEmbededVid {
+    grid-area: embedVid;
+    grid-template-columns: 10% 10% 60% 10% 10%;
+    grid-template-rows: 10% 35% 10% 35% 10%;
+    grid-template-areas:
+      " . . . . ."
+      ". . vid2 . ."
+      ". . . . ."
+      ". . vid1 . .";
+  }
+  iframe{
+    height: 200px;
+    width: 300px
+    }
+
+    .smallTitle {
+        color: #578ad6;
+        font-size: 18px;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+    }
+    
+    .jHead {
+      grid-template-columns: 10% 80% 10%;
+    }
+
+    .jwHead {
+        grid-template-columns: 10% 80% 10%;
+    }
+
+    #cline1 > p,
+    #cline2 p,
+    #cline3 p {
+        margin-top: 3.4vh;
+        font-size: 1.2vh;
+    }
+
+    #footHeader1,
+    #footHeader2,
+    #footHeader3 {
+        margin-top: 7.8vh;
+        font-size: 1.7vh;
+    }
+    #name p {
+        font-weight: normal;
+        font-size: 4vw;
+        color: #578ad6;
+      }
 }
