@@ -70,7 +70,7 @@ h2 {
 
 /*web about this website*/
 #diabetesInfo {
-  font-family: "Roboto";
+  font-family: "Source Sans Prj";
   grid-template-columns: 5% 90% 5%;
   grid-template-rows: 12vh 7vh 150vh 65vh 28vh;
   grid-template-areas:
@@ -460,7 +460,7 @@ input::placeholder {
 
 #infoHeader {
   grid-area: th;
-  grid-template-rows: 30% 70%;
+  grid-template-rows: 35% 65%;
   grid-template-areas:
     "iHpath"
     "iHHeader";
@@ -471,8 +471,9 @@ div#infoHeader {
 
 #textPath1,
 #textPath2 {
-  font-style: italic;
   text-decoration: underline;
+  font-size: 21px;
+  color: #5d8ed7;
 }
 
 #infoText {
@@ -493,8 +494,8 @@ div#infoHeader {
 
 #infoTextP {
   grid-area: textP;
-  font-size: 30px;
-  line-height: 60px;
+  font-size: 25px;
+  line-height: 50px;
 }
 
 #infoImg {
