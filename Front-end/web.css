@@ -58,7 +58,7 @@ h2 {
 /*web about this website*/
 #aboutWeb {
   font-family: "Source Sans Prj";
-  grid-template-columns: 5% 90% 5%;
+  grid-template-columns: 7% 86% 7%;
   grid-template-areas:
     ". h ."
     "b b b"
@@ -71,7 +71,7 @@ h2 {
 /*web about this website*/
 #diabetesInfo {
   font-family: "Source Sans Prj";
-  grid-template-columns: 5% 90% 5%;
+  grid-template-columns: 7% 86% 7%;
   grid-template-rows: 12vh 7vh 150vh 65vh 28vh;
   grid-template-areas:
     ". h ."
@@ -86,10 +86,11 @@ h2 {
 #foot {
   margin-top: 15vh;
   grid-area: f;
-  grid-template-columns: 5% 90% 5%;
-  grid-template-rows: 90% 10%;
+  grid-template-columns: 7% 86% 7%;
+  grid-template-rows: 80% 10% 10%;
   grid-template-areas:
     ". fc ."
+    ". . ."
     "fb fb fb";
 }
 #footHeader1,
@@ -103,7 +104,7 @@ h2 {
 #cline2 p,
 #cline3 p {
   margin-top: 3.5vh;
-  font-size: 1.7vh;
+  font-size: 1.8vh;
 }
 
 #contact {
@@ -116,14 +117,26 @@ h2 {
 #cline1 {
   grid-area: fcl1;
   grid-template-rows: 45% repeat(6, 12.5%);
+  align-items: initial;
+  align-content: initial;
+  justify-content: space-between;
+  justify-items: stretch;
 }
 #cline2 {
   grid-area: fcl2;
   grid-template-rows: 45% repeat(6, 12.5%);
+  align-items: initial;
+  align-content: initial;
+  justify-content: space-between;
+  justify-items: stretch;
 }
 #cline3 {
   grid-area: fcl3;
   grid-template-rows: 45% repeat(6, 12.5%);
+  align-items: initial;
+  align-content: initial;
+  justify-content: space-between;
+  justify-items: stretch;
 }
 #bottom {
   grid-area: fb;
@@ -145,7 +158,7 @@ h2 {
 
 #headLeft {
   grid-area: hl;
-  grid-template-columns: 25% 5% 70%;
+  grid-template-columns: 15% 3% 82%;
   grid-template-areas: "hl . hn";
 }
 #logo {
@@ -329,7 +342,6 @@ input::placeholder {
   font-weight: bolder;
 }
 
-
 .fontRed {
   color: red;
 }
@@ -367,7 +379,7 @@ input::placeholder {
 }
 .jwHead {
   grid-area: jwh;
-  grid-template-columns: 40% 20% 40%;
+  grid-template-columns: 30% 40% 30%;
   grid-template-areas: ". jwhm .";
 }
 .jwhMiddle {
@@ -384,7 +396,7 @@ input::placeholder {
 #join {
   grid-area: j;
   border-top: 1px #578ad6 solid;
-  grid-template-rows: 5% 10% 5% 30% 10% 35% 5%;
+  grid-template-rows: 5% 10% 10% 20% 10% 35% 5%;
   grid-template-areas:
     "."
     "jh"
@@ -396,6 +408,7 @@ input::placeholder {
 }
 .jHead {
   grid-area: jh;
+  grid-template-columns: 30% 40% 30%;
   grid-template-areas: ". jhm .";
 }
 .jhMiddle {
@@ -406,6 +419,10 @@ input::placeholder {
 #jBottom2 {
   grid-area: jb2;
   grid-template-columns: 45% 1% 45%;
+  align-items: initial;
+  align-content: initial;
+  justify-content: space-between;
+  justify-items: stretch;
 }
 .Jbot {
   border-radius: 1.5vh;
@@ -443,7 +460,7 @@ input::placeholder {
 /* Info*/
 #info {
   grid-area: t;
-  grid-template-columns: 5% 90% 5%;
+  grid-template-columns: 7% 86% 7%;
   grid-template-rows: 15vh 65vh 70vh;
   grid-template-areas:
     ". th ."
@@ -472,7 +489,7 @@ div#infoHeader {
 #infoText {
   grid-area: tInfo;
   background-color: #deebf5;
-  grid-template-columns: 5% 90% 5%;
+  grid-template-columns: 7% 86% 7%;
   grid-template-rows: 7% 86% 7%;
   grid-template-areas:
     ". . ."
@@ -485,12 +502,9 @@ div#infoHeader {
   grid-template-areas: "textP infoImg";
 }
 
-
 #infoImg {
   grid-area: infoImg;
 }
-
-
 
 #vid1 {
   grid-area: vid1;
@@ -554,12 +568,20 @@ div#infoHeader {
     /* Using pixel sizing so that user can zoom up to get better read*/
     line-height: 40px;
     font-size: 25px;
+    align-items: initial;
+    align-content: initial;
+    justify-content: space-between;
+    justify-items: stretch;
   }
   .jText {
     grid-area: jt;
     /* Using pixel sizing so that user can zoom up to get better read*/
-    line-height: 40px;
+    line-height: 45px;
     font-size: 25px;
+    align-items: initial;
+    align-content: initial;
+    justify-content: space-between;
+    justify-items: stretch;
   }
   .Jtex {
     font-size: 25px;
@@ -572,7 +594,7 @@ div#infoHeader {
   }
   #infoEmbededVid {
     grid-area: embedVid;
-    grid-template-columns: 10% 35% 10% 35% 10%;
+    grid-template-columns: 5% 35% 15% 35% 10%;
     grid-template-rows: 20% 70% 10%;
     grid-template-areas:
       ". . . . ."
@@ -585,14 +607,13 @@ div#infoHeader {
   }
   .smallTitle {
     color: #578ad6;
-    font-size: 23px;
-    letter-spacing: 2px;
-    font-weight: 600;
+    font-size: 30px;
+    letter-spacing: 3px;
+    font-weight: 500;
   }
   .jHead {
-    grid-template-columns: 40% 20% 40%;
+    grid-template-columns: 30% 40% 30%;
   }
-  
 }
 @media screen and (max-width: 1024px) and (min-width: 641px) {
   #aboutWeb {
@@ -647,12 +668,20 @@ div#infoHeader {
     /* Using pixel sizing so that user can zoom up to get better read*/
     line-height: 30px;
     font-size: 20px;
+    align-items: initial;
+    align-content: initial;
+    justify-content: space-between;
+    justify-items: stretch;
   }
   .jText {
     grid-area: jt;
     /* Using pixel sizing so that user can zoom up to get better read*/
     line-height: 30px;
     font-size: 20px;
+    align-items: initial;
+    align-content: initial;
+    justify-content: space-between;
+    justify-items: stretch;
   }
   .Jtex {
     font-size: 20px;
@@ -662,16 +691,15 @@ div#infoHeader {
     font-size: 18px;
     line-height: 20px;
   }
-  
 
-  iframe{
-      height: 200px;
-      width: 300px
+  iframe {
+    height: 200px;
+    width: 300px;
   }
 
   #infoEmbededVid {
     grid-area: embedVid;
-    grid-template-columns: 10% 35% 10% 35% 10%;
+    grid-template-columns: 5% 35% 15% 35% 10%;
     grid-template-rows: 20% 70% 10%;
     grid-template-areas:
       ". . . . ."
@@ -695,7 +723,7 @@ div#infoHeader {
 
   .jwHead {
     grid-template-columns: 35% 30% 35%;
-}
+  }
 }
 @media screen and (max-width: 640px) {
   #aboutWeb {
@@ -750,12 +778,20 @@ div#infoHeader {
     /* Using pixel sizing so that user can zoom up to get better read*/
     line-height: 18px;
     font-size: 14px;
+    align-items: initial;
+    align-content: initial;
+    justify-content: space-between;
+    justify-items: stretch;
   }
   .jText {
     grid-area: jt;
     /* Using pixel sizing so that user can zoom up to get better read*/
     line-height: 20px;
     font-size: 14px;
+    align-items: initial;
+    align-content: initial;
+    justify-content: space-between;
+    justify-items: stretch;
   }
   .Jtex {
     font-size: 10px;
@@ -775,42 +811,42 @@ div#infoHeader {
       ". . . . ."
       ". . vid1 . .";
   }
-  iframe{
+  iframe {
     height: 200px;
-    width: 300px
-    }
+    width: 300px;
+  }
 
-    .smallTitle {
-        color: #578ad6;
-        font-size: 18px;
-        letter-spacing: 1.5px;
-        font-weight: 600;
-    }
-    
-    .jHead {
-      grid-template-columns: 10% 80% 10%;
-    }
+  .smallTitle {
+    color: #578ad6;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+  }
 
-    .jwHead {
-        grid-template-columns: 10% 80% 10%;
-    }
+  .jHead {
+    grid-template-columns: 10% 80% 10%;
+  }
 
-    #cline1 > p,
-    #cline2 p,
-    #cline3 p {
-        margin-top: 3.4vh;
-        font-size: 1.2vh;
-    }
+  .jwHead {
+    grid-template-columns: 10% 80% 10%;
+  }
 
-    #footHeader1,
-    #footHeader2,
-    #footHeader3 {
-        margin-top: 7.8vh;
-        font-size: 1.7vh;
-    }
-    #name p {
-        font-weight: normal;
-        font-size: 4vw;
-        color: #578ad6;
-      }
+  #cline1 > p,
+  #cline2 p,
+  #cline3 p {
+    margin-top: 3.4vh;
+    font-size: 1.2vh;
+  }
+
+  #footHeader1,
+  #footHeader2,
+  #footHeader3 {
+    margin-top: 7.8vh;
+    font-size: 1.7vh;
+  }
+  #name p {
+    font-weight: normal;
+    font-size: 4vw;
+    color: #578ad6;
+  }
 }
