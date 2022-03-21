@@ -628,7 +628,7 @@ div#infoHeader {
     max-width: 90%;
   }
   h2 {
-    font-size: 2.1em;
+    font-size: 1.8em;
   }
   #head {
     grid-area: h;
@@ -667,7 +667,7 @@ div#infoHeader {
     grid-area: jwt;
     /* Using pixel sizing so that user can zoom up to get better read*/
     line-height: 30px;
-    font-size: 20px;
+    font-size: 19px;
     align-items: initial;
     align-content: initial;
     justify-content: space-between;
@@ -688,8 +688,13 @@ div#infoHeader {
   }
   #infoTextP {
     grid-area: textP;
-    font-size: 18px;
-    line-height: 20px;
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  #textPath1,
+  #textPath2 {
+    font-size: 19px;
   }
 
   iframe {
@@ -715,14 +720,18 @@ div#infoHeader {
     color: #578ad6;
     font-size: 20px;
     letter-spacing: 2px;
-    font-weight: 600;
+    font-weight: 500;
   }
   .jHead {
-    grid-template-columns: 35% 30% 35%;
+    grid-template-columns: 30% 40% 30%;
   }
 
   .jwHead {
-    grid-template-columns: 35% 30% 35%;
+    grid-template-columns: 30% 40% 30%;
+  }
+
+  #bMiddle > p {
+    font-size: 1.8vh;
   }
 }
 @media screen and (max-width: 640px) {
@@ -796,11 +805,42 @@ div#infoHeader {
   .Jtex {
     font-size: 10px;
   }
+
+  #infoText {
+    grid-area: tInfo;
+    background-color: #deebf5;
+    grid-template-columns: 5% 90% 5%;
+    grid-template-rows: 5% 90% 5%;
+    grid-template-areas:
+      ". . ."
+      ". infoTextImg ."
+      ". . .";
+  }
+
+  #infoTextImg {
+    grid-area: infoTextImg;
+    grid-template-rows: 40% 60%;
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "infoImg"
+      "textP";
+  }
+
   #infoTextP {
     grid-area: textP;
-    font-size: 15px;
-    line-height: 20px;
+    font-size: 14px;
+    line-height: 15px;
   }
+
+  #textPath1,
+  #textPath2 {
+    font-size: 17px;
+  }
+
+  #join {
+    grid-template-rows: 5% 10% 5% 25% 10% 35% 5%;
+  }
+
   #infoEmbededVid {
     grid-area: embedVid;
     grid-template-columns: 10% 10% 60% 10% 10%;
@@ -820,7 +860,7 @@ div#infoHeader {
     color: #578ad6;
     font-size: 18px;
     letter-spacing: 1.5px;
-    font-weight: 600;
+    font-weight: 500;
   }
 
   .jHead {
@@ -835,15 +875,22 @@ div#infoHeader {
   #cline2 p,
   #cline3 p {
     margin-top: 3.4vh;
-    font-size: 1.2vh;
+    font-size: 0.1vh;
+  }
+
+  #cline1,
+  #cline2,
+  #cline3 {
+    grid-template-rows: 20% repeat(6, 17%);
   }
 
   #footHeader1,
   #footHeader2,
   #footHeader3 {
-    margin-top: 7.8vh;
-    font-size: 1.7vh;
+    margin-top: 3vh;
+    font-size: 1.2vh;
   }
+
   #name p {
     font-weight: normal;
     font-size: 4vw;
