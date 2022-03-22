@@ -51,13 +51,14 @@ h1 {
   color: #5b8dc6;
 }
 h2 {
+  text-align: center;
   font-weight: normal;
 }
 
 /*web*/
 /*web about this website*/
 #aboutWeb {
-  font-family: "Source Sans Prj";
+  font-family: sans-serif;
   grid-template-columns: 7% 86% 7%;
   grid-template-areas:
     ". h ."
@@ -70,7 +71,7 @@ h2 {
 
 /*web about this website*/
 #diabetesInfo {
-  font-family: "Source Sans Prj";
+  font-family: sans-serif;
   grid-template-columns: 7% 86% 7%;
   grid-template-rows: 12vh 7vh 150vh 65vh 28vh;
   grid-template-areas:
@@ -164,12 +165,16 @@ h2 {
 #logo {
   grid-area: hl;
 }
+#logo img{
+  width: 80%;
+  height: 80%;
+}
 #name {
   grid-area: hn;
   justify-items: left;
   font-size: 1.6vw;
   font-style: italic;
-  font-family: "Roboto";
+  font-family: sans-serif;
 }
 
 #name p {
@@ -233,6 +238,18 @@ input::placeholder {
 
 /*div mezzanine*/
 
+.plussign img{
+  width: 35px;
+  height: 35px;
+}
+.vidP{
+  display: inline;
+  grid-area:vidP;
+  text-align: left;
+  text-indent: 40px;
+  font-size: 30px;
+}
+
 @media screen and (min-width: 881px) {
   #mezzanine {
     grid-area: m;
@@ -240,7 +257,7 @@ input::placeholder {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    grid-template-columns: 5% 55% 5% 30% 5%;
+    grid-template-columns: 7% 55% 1% 30% 7%;
     grid-template-rows: 10% 80% 10%;
     grid-template-areas:
       ". . . . ."
@@ -265,6 +282,7 @@ input::placeholder {
       "mr2";
   }
   #logInClinican {
+    text-align: center;
     grid-area: mlc;
     background: #578ad6;
     font-size: 1.9vh;
@@ -273,6 +291,7 @@ input::placeholder {
     height: 8vh;
   }
   #logInPatient {
+    text-align: center;
     grid-area: mlp;
     background: #578ad6;
     font-size: 1.9vh;
@@ -437,7 +456,7 @@ input::placeholder {
     ". . . . .";
 }
 .Jbot:hover {
-  background-color: #b1c6e9;
+  background-color: #ecf3ff;
 }
 
 .Jimg {
@@ -508,10 +527,18 @@ div#infoHeader {
 
 #vid1 {
   grid-area: vid1;
+  grid-template-rows: 80% 20%;
+  grid-template-areas:
+    "."
+    "vidP";
 }
 
 #vid2 {
   grid-area: vid2;
+  grid-template-rows: 80% 20%;
+  grid-template-areas:
+    "."
+    "vidP";
 }
 
 /*responsive*/
@@ -528,7 +555,7 @@ div#infoHeader {
     max-width: 90%;
   }
   h2 {
-    font-size: 2.5em;
+    font-size: 2em;
   }
   #head {
     grid-area: h;
@@ -545,7 +572,7 @@ div#infoHeader {
       ". . .";
   }
   #look {
-    height: 3.4vh;
+    height: 3.6vh;
     width: 4.5vw;
     background-image: url(images/whitesearchtool.png);
     background-repeat: no-repeat;
@@ -556,7 +583,7 @@ div#infoHeader {
   }
   #bar {
     grid-template-columns: 5% 60% 30% 5%;
-    font-size: 1.2vw;
+    font-size: 1vw;
     font-weight: bold;
   }
   #signInText {
@@ -595,7 +622,7 @@ div#infoHeader {
   #infoEmbededVid {
     grid-area: embedVid;
     grid-template-columns: 5% 35% 15% 35% 10%;
-    grid-template-rows: 20% 70% 10%;
+    grid-template-rows: 25% 65% 20%;
     grid-template-areas:
       ". . . . ."
       ". vid1 . vid2 .";
@@ -661,7 +688,7 @@ div#infoHeader {
   }
   #signInText {
     font-size: 3.5em;
-    font-weight: 900;
+    font-weight: normal;
   }
   .jwText {
     grid-area: jwt;
@@ -705,7 +732,7 @@ div#infoHeader {
   #infoEmbededVid {
     grid-area: embedVid;
     grid-template-columns: 5% 35% 15% 35% 10%;
-    grid-template-rows: 20% 70% 10%;
+    grid-template-rows: 25% 65% 20%;
     grid-template-areas:
       ". . . . ."
       ". vid1 . vid2 .";
@@ -735,6 +762,38 @@ div#infoHeader {
   }
 }
 @media screen and (max-width: 640px) {
+  .plussign img{
+    width: 20px;
+    height: 20px;
+  }
+  #mezzanine {
+    grid-area: m;
+    background-image: url(images/chemicalbackdrop.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    grid-template-columns: 5% 40% 10% 40% 5%;
+    grid-template-rows: 5% 15% 70% 5%;
+    grid-template-areas:
+      ". . . . ."
+      ". mr mr mr ."
+      ". ml ml ml ."
+      ". . . . .";
+  }
+  #mezzanineLeft {
+    grid-area: ml;
+    grid-template-columns: 25% 10% 30% 10% 25%;
+    grid-template-rows: 70% 10% 20%;
+    grid-template-areas:
+      ". mt mt mt ."
+      ". . . . . "
+      ". mlc mlText mlp .";
+  }
+  #mezzanineRight {
+    grid-area: mr;
+    grid-template-columns: 40% 20% 40%;
+    grid-template-areas: "mr1 . mr2";
+  }
   #aboutWeb {
     grid-template-rows: 12vh 27vh 72vh 110vh 70vh 28vh;
   }
@@ -792,7 +851,7 @@ div#infoHeader {
     grid-template-rows: repeat(4, 25%);
   }
   #signInText {
-    font-size: 2.5em;
+    font-size: 1.5em;
     font-weight: 900;
   }
   .jwText {
@@ -870,6 +929,7 @@ div#infoHeader {
   }
 
   .smallTitle {
+    text-align: center;
     color: #578ad6;
     font-size: 18px;
     letter-spacing: 1.5px;
