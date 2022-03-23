@@ -88,7 +88,7 @@ h2 {
   margin-top: 15vh;
   grid-area: f;
   grid-template-columns: 7% 86% 7%;
-  grid-template-rows: 80% 10% 10%;
+  grid-template-rows: 70% 10% 20%;
   grid-template-areas:
     ". fc ."
     ". . ."
@@ -823,7 +823,7 @@ div#infoHeader {
     font: 1em sans-serif;
   }
   #aboutWeb {
-    grid-template-rows: 12vh 24vh 42vh 110vh 70vh 28vh;
+    grid-template-rows: 12vh 24vh 42vh 110vh 70vh 120vh;
     grid-template-columns: 5% 90% 5%;
   }
   #diabetesInfo {
@@ -1007,14 +1007,14 @@ div#infoHeader {
   }
   #jBottom2 {
     grid-area: jb2;
-    grid-template-rows: 45% 5% 45%;
+    grid-template-rows: 48% 4% 48%;
     grid-template-columns: none;
   }
   .Jbot {
     border-radius: 5vh;
     border: 3px #578ad6 solid;
     height: 14vh;
-    grid-template-columns: 3% 18% 3% 56% 4% 10% 4%;
+    grid-template-columns: 3% 18% 9% 50% 4% 10% 4%;
     grid-template-rows: 100%;
     grid-template-areas:
       ". Jim . Jte . Jar .";
@@ -1023,12 +1023,23 @@ div#infoHeader {
     grid-area: Jim;
     height: 8vh;
   }
-
+  
   #cline1 > p,
   #cline2 p,
   #cline3 p {
-    margin-top: 3.4vh;
+    margin-top: 1vh;
     font-size: 0.1vh;
+  }
+
+  #foot {
+    margin-top: 15vh;
+    grid-area: f;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-rows: 90% 2% 8%;
+    grid-template-areas:
+      ". fc ."
+      ". . ."
+      "fb fb fb";
   }
 
   #cline1,
@@ -1047,13 +1058,57 @@ div#infoHeader {
   #contact {
     grid-area: fc;
     grid-template-columns: none;
-    grid-template-rows: 33% 33% 33%;
+    grid-template-rows: 33% 33% 34%;
     grid-template-areas: 
     "fcl1"
     "fcl2"
     "fcl3";
     border-top: 1px #578ad6 solid;
-    margin-bottom: 15vh;
+    margin-bottom: 8vh;
+  }
+  #cline1 {
+    grid-area: fcl1;
+    grid-template-rows: none;
+    align-items: initial;
+    align-content: initial;
+    justify-content: space-between;
+    justify-items: stretch;
+  }
+  #cline2 {
+    grid-area: fcl2;
+    grid-template-rows: none;
+    align-items: initial;
+    align-content: initial;
+    justify-content: space-between;
+    justify-items: stretch;
+  }
+  #cline3 {
+    grid-area: fcl3;
+    grid-template-rows: none;
+    align-items: initial;
+    align-content: initial;
+    justify-content: space-between;
+    justify-items: stretch;
+  }
+  #bottom {
+    grid-area: fb;
+    background-color: #578ad6;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-areas: ". fbm .";
+  }
+  #bMiddle {
+    grid-area: fbm;
+    grid-template-columns: repeat(4, 6vh);
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+    "img1 img2 img3 img4"
+    "p p p p";
+    color: #fff;
+  }
+  #bMiddle > p {
+    grid-area: p;
+    white-space: nowrap;
+    font-size: 1vh;
   }
 
   #name p {
