@@ -588,8 +588,8 @@ div#infoHeader {
     font-weight: bold;
   }
   #signInText {
-    font-size: 3.5em;
-    font-weight: 800;
+    font-size: 3.3em;
+    font-weight: 600;
   }
   .jwText {
     grid-area: jwt;
