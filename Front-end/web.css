@@ -40,8 +40,8 @@ input {
   width: 100%;
   height: 100%;
   border: 0px;
-  border-radius: 1vh;
-  opacity: 0.8;
+  border-radius: 2vh;
+  opacity: 1;
 }
 a {
   text-decoration: none;
@@ -188,7 +188,7 @@ h2 {
   grid-area: hsb;
   grid-template-columns: 80% 20%;
   border: 0.1vh solid #5d8ed7;
-  border-radius: 1vh;
+  border-radius: 2vh;
   border-right: 0vh;
 }
 input::placeholder {
@@ -798,6 +798,7 @@ div#infoHeader {
       ". mlc mlText mlp .";
   }
   #mezzanineRight {
+    display: none;
     grid-area: mr;
     grid-template-columns: 40% 20% 40%;
     grid-template-areas: "mr1 . mr2";
@@ -841,13 +842,13 @@ div#infoHeader {
   }
   #look {
     height: 3.75vh;
-    width: 7.5vw;
+    width: 11.5vw;
     background-image: url(images/whitesearchtool.png);
     background-repeat: no-repeat;
     background-size: 2vh;
     background-position: center;
     display: inline-block;
-    background-color: #5b8dc6;
+    background-color: #578ad6;
   }
   #bar {
     font-size: 2.7vw;
