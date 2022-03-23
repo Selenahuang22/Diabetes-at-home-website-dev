@@ -186,7 +186,7 @@ h2 {
 
 #searchBar {
   grid-area: hsb;
-  grid-template-columns: 65% 35%;
+  grid-template-columns: 80% 20%;
   border: 0.3vh solid #5d8ed7;
   border-radius: 2vh;
   border-right: 0vh;
@@ -589,7 +589,7 @@ div#infoHeader {
   }
   #signInText {
     font-size: 3.5em;
-    font-weight: 900;
+    font-weight: 800;
   }
   .jwText {
     grid-area: jwt;
@@ -882,6 +882,9 @@ div#infoHeader {
       "bl"
       "br";
   }
+  #searchBar {
+    grid-template-columns: 65% 35%;
+  }
 
   #barLeft {
     grid-template-columns: none;
@@ -1011,10 +1014,10 @@ div#infoHeader {
     border-radius: 5vh;
     border: 3px #578ad6 solid;
     height: 14vh;
-    grid-template-columns: 30% 5% 40% 5% 10% 10%;
+    grid-template-columns: 3% 18% 3% 56% 4% 10% 4%;
     grid-template-rows: 100%;
     grid-template-areas:
-      "Jim . Jte . Jar .";
+      ". Jim . Jte . Jar .";
   }
   .Jimg {
     grid-area: Jim;
@@ -1040,6 +1043,17 @@ div#infoHeader {
     margin-top: 3vh;
     font-size: 1.2vh;
     text-align: left;
+  }
+  #contact {
+    grid-area: fc;
+    grid-template-columns: none;
+    grid-template-rows: 33% 33% 33%;
+    grid-template-areas: 
+    "fcl1"
+    "fcl2"
+    "fcl3";
+    border-top: 1px #578ad6 solid;
+    margin-bottom: 15vh;
   }
 
   #name p {
