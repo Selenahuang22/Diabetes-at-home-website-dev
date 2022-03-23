@@ -186,8 +186,8 @@ h2 {
 
 #searchBar {
   grid-area: hsb;
-  grid-template-columns: 80% 20%;
-  border: 0.1vh solid #5d8ed7;
+  grid-template-columns: 65% 35%;
+  border: 0.3vh solid #5d8ed7;
   border-radius: 2vh;
   border-right: 0vh;
 }
@@ -573,7 +573,7 @@ div#infoHeader {
       ". . .";
   }
   #look {
-    height: 3.6vh;
+    height: 3.8vh;
     width: 4.5vw;
     background-image: url(images/whitesearchtool.png);
     background-repeat: no-repeat;
@@ -781,10 +781,9 @@ div#infoHeader {
     background-size: cover;
     background-position: center;
     grid-template-columns: 5% 40% 10% 40% 5%;
-    grid-template-rows: 5% 15% 70% 5%;
+    grid-template-rows: 15% 70% 15%;
     grid-template-areas:
       ". . . . ."
-      ". mr mr mr ."
       ". ml ml ml ."
       ". . . . .";
   }
@@ -804,11 +803,11 @@ div#infoHeader {
     grid-template-areas: "mr1 . mr2";
   }
   #aboutWeb {
-    grid-template-rows: 12vh 27vh 72vh 110vh 70vh 28vh;
+    grid-template-rows: 12vh 24vh 42vh 110vh 70vh 28vh;
     grid-template-columns: 5% 90% 5%;
   }
   #diabetesInfo {
-    grid-template-rows: 12vh 27vh 150vh 65vh 28vh;
+    grid-template-rows: 12vh 24vh 150vh 65vh 28vh;
     grid-template-columns: 5% 90% 5%;
   }
   #logo img {
@@ -833,7 +832,7 @@ div#infoHeader {
   }
   #headRight {
     grid-area: hr;
-    grid-template-columns: 15% 75% 10%;
+    grid-template-columns: 15% 80% 5%;
     grid-template-rows: 35% 30% 35%;
     grid-template-areas:
       ". . ."
@@ -841,8 +840,8 @@ div#infoHeader {
       ". . .";
   }
   #look {
-    height: 3.75vh;
-    width: 11.5vw;
+    height: 3.76vh;
+    width: 12.5vw;
     background-image: url(images/whitesearchtool.png);
     background-repeat: no-repeat;
     background-size: 2vh;
