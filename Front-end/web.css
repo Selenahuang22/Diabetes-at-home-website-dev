@@ -99,6 +99,7 @@ h2 {
 #footHeader3 {
   margin-top: 7.8vh;
   font-size: 2vh;
+  text-align: left;
 }
 
 #cline1 > p,
@@ -823,7 +824,6 @@ div#infoHeader {
   }
   h2 {
     font-size: 1em;
-    text-align: left;
   }
   #head {
     grid-area: h;
@@ -984,6 +984,7 @@ div#infoHeader {
   #footHeader3 {
     margin-top: 3vh;
     font-size: 1.2vh;
+    text-align: left;
   }
 
   #name p {
