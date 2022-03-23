@@ -165,7 +165,7 @@ h2 {
 #logo {
   grid-area: hl;
 }
-#logo img{
+#logo img {
   width: 80%;
   height: 80%;
 }
@@ -238,13 +238,13 @@ input::placeholder {
 
 /*div mezzanine*/
 
-.plussign img{
+.plussign img {
   width: 35px;
   height: 35px;
 }
-.vidP{
+.vidP {
   display: inline;
-  grid-area:vidP;
+  grid-area: vidP;
   text-align: left;
   text-indent: 40px;
   font-size: 30px;
@@ -671,6 +671,10 @@ div#infoHeader {
       ". hsb ."
       ". . .";
   }
+  #logo img {
+    width: 100%;
+    height: 60%;
+  }
   #look {
     height: 3.85vh;
     width: 5.5vw;
@@ -742,7 +746,10 @@ div#infoHeader {
     background-color: #deebf5;
     border-radius: 2vh;
   }
-
+  .vidP {
+    font-size: 20px;
+    text-indent: 20px;
+  }
   .smallTitle {
     color: #578ad6;
     font-size: 20px;
@@ -762,7 +769,7 @@ div#infoHeader {
   }
 }
 @media screen and (max-width: 640px) {
-  .plussign img{
+  .plussign img {
     width: 20px;
     height: 20px;
   }
@@ -796,6 +803,15 @@ div#infoHeader {
   }
   #aboutWeb {
     grid-template-rows: 12vh 27vh 72vh 110vh 70vh 28vh;
+    grid-template-columns: 5% 90% 5%;
+  }
+  #diabetesInfo {
+    grid-template-rows: 12vh 27vh 150vh 65vh 28vh;
+    grid-template-columns: 5% 90% 5%;
+  }
+  #logo img {
+    height: auto;
+    width: auto;
   }
   img {
     display: block;
@@ -807,10 +823,11 @@ div#infoHeader {
   }
   h2 {
     font-size: 1em;
+    text-align: left;
   }
   #head {
     grid-area: h;
-    grid-template-columns: 40% 1% 59%;
+    grid-template-columns: 50% 1% 49%;
     grid-template-areas: "hl . hr";
   }
   #headRight {
@@ -854,11 +871,15 @@ div#infoHeader {
     font-size: 1.5em;
     font-weight: 900;
   }
+  .vidP {
+    font-size: 20px;
+    text-indent: 0px;
+  }
   .jwText {
     grid-area: jwt;
     /* Using pixel sizing so that user can zoom up to get better read*/
-    line-height: 18px;
-    font-size: 14px;
+    line-height: 19px;
+    font-size: 15px;
     align-items: initial;
     align-content: initial;
     justify-content: space-between;
@@ -876,6 +897,7 @@ div#infoHeader {
   }
   .Jtex {
     font-size: 10px;
+    margin-inline-start: 2em;
   }
 
   #infoText {
