@@ -1,10 +1,46 @@
-/*main*/
+/*@ static Web, Layout**********************************************/
+/* h: header banner
+   b: navigation bar section
+   jw: aboutWebDetailSection
+   j: joinLinkSection
+   f: foot link + bottom banner
+*/
+#aboutWeb {
+  font-family: sans-serif;
+  grid-template-columns: 7% 86% 7%;
+  grid-template-areas:
+    ". h ."
+    "b b b"
+    "m m m"
+    ". jw ."
+    ". j ."
+    "f f f";
+}
+
+/* h: header banner
+   b: navigation bar section
+   t: information section
+   j: joinLinkSection
+   f: foot link + bottom banner
+*/
+#diabetesInfo {
+  font-family: sans-serif;
+  grid-template-columns: 7% 86% 7%;
+  grid-template-rows: 12vh 7vh 150vh 65vh 28vh;
+  grid-template-areas:
+    ". h ."
+    "b b b"
+    "t t t"
+    ". j ."
+    "f f f";
+}
+
+/*General tag customize **********************************************/
 body {
   margin: 0px;
   padding: 0px;
   border: 0px;
 }
-/* Div element and all special category of this div*/
 div {
   display: grid;
   float: left;
@@ -17,25 +53,6 @@ div {
   justify-content: center;
   justify-items: center;
 }
-
-/* Readjust the button in the foot, and add some on hover visualisation*/
-#bottom img {
-  display: block;
-  margin: 0;
-  padding: 0;
-  border: 1vh;
-  max-height: 2.5vh;
-  max-width: 2.5vh;
-  opacity: 0.8;
-}
-
-#bottom img:hover {
-  border: 0.5vh;
-  max-height: 3.1vh;
-  max-width: 3.1vh;
-  opacity: 1;
-}
-
 input {
   width: 100%;
   height: 100%;
@@ -55,32 +72,69 @@ h2 {
   font-weight: normal;
 }
 
-/*web*/
-/*web about this website*/
-#aboutWeb {
-  font-family: sans-serif;
-  grid-template-columns: 7% 86% 7%;
-  grid-template-areas:
-    ". h ."
-    "b b b"
-    "m m m"
-    ". jw ."
-    ". j ."
-    "f f f";
+
+/* Readjust the button in the foot, and add some on hover visualisation*/
+#bottom img {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 1vh;
+  max-height: 2.5vh;
+  max-width: 2.5vh;
+  opacity: 0.8;
 }
 
-/*web about this website*/
-#diabetesInfo {
-  font-family: sans-serif;
-  grid-template-columns: 7% 86% 7%;
-  grid-template-rows: 12vh 7vh 150vh 65vh 28vh;
-  grid-template-areas:
-    ". h ."
-    "b b b"
-    "t t t"
-    ". j ."
-    "f f f";
+#bottom img:hover {
+  border: 0.5vh;
+  max-height: 3.1vh;
+  max-width: 3.1vh;
+  opacity: 1;
 }
+
+
+
+/*header band styling************************************************
+    */
+    /* Contain the LOGO + Name of website (diabetes@Home) */
+    #headLeft {
+      grid-area: hl;
+      grid-template-columns: 15% 3% 82%;
+      grid-template-areas: "hl . hn";
+    }
+    #logo {
+      grid-area: hl;
+    }
+    #logo img {
+      width: 70%;
+      height: 70%;
+    }
+
+    #name {
+      grid-area: hn;
+      justify-items: left;
+      font-size: 1.6vw;
+      font-style: italic;
+      font-family: sans-serif;
+    }
+    #name p {
+      font-weight: normal;
+      font-size: 3vw;
+      color: #578ad6;
+    }
+    
+    #searchBar {
+      grid-area: hsb;
+      grid-template-columns: 80% 20%;
+      border: 0.3vh solid #5d8ed7;
+      border-radius: 2vh;
+      border-right: 0vh;
+    }
+    input::placeholder {
+      font-size: 2vh;
+    }
+    #look:hover {
+      background-color: #9ab7e2;
+    }
 
 /* Foot link that will not be change regardless of screen size ********************************************************/
 
@@ -155,49 +209,6 @@ h2 {
   font-size: 2vh;
 }
 
-/*header band styling, this will be same size regard screen************************************************
-    */
-
-#headLeft {
-  grid-area: hl;
-  grid-template-columns: 15% 3% 82%;
-  grid-template-areas: "hl . hn";
-}
-#logo {
-  grid-area: hl;
-}
-#logo img {
-  width: 70%;
-  height: 70%;
-}
-#name {
-  grid-area: hn;
-  justify-items: left;
-  font-size: 1.6vw;
-  font-style: italic;
-  font-family: sans-serif;
-}
-
-#name p {
-  font-weight: normal;
-  font-size: 3vw;
-  color: #578ad6;
-}
-
-#searchBar {
-  grid-area: hsb;
-  grid-template-columns: 80% 20%;
-  border: 0.3vh solid #5d8ed7;
-  border-radius: 2vh;
-  border-right: 0vh;
-}
-input::placeholder {
-  font-size: 2vh;
-}
-
-#look:hover {
-  background-color: #9ab7e2;
-}
 
 /*div bar*/
 #bar {
@@ -653,6 +664,7 @@ div#infoHeader {
   #aboutWeb {
     grid-template-rows: 12vh 7vh 72vh 80vh 65vh 28vh;
   }
+  /*Adjust General tag styling*****************************/
   img {
     display: block;
     margin: 0;
