@@ -88,7 +88,6 @@ h2 {
   font-weight: normal;
 }
 
-
 /* Readjust the button in the foot, and add some on hover visualisation*/
 #bottom img {
   display: block;
@@ -107,11 +106,9 @@ h2 {
   opacity: 1;
 }
 
-
-
 /*header band styling************************************************
     */
-    /* Contain the LOGO + Name of website (diabetes@Home) */
+/* Contain the LOGO + Name of website (diabetes@Home) */
 #headLeft {
   grid-area: hl;
   grid-template-columns: 15% 3% 82%;
@@ -120,9 +117,9 @@ h2 {
 #logo {
   grid-area: hl;
 }
-  #logo img {
-    width: 70%;
-    height: 70%;
+#logo img {
+  width: 70%;
+  height: 70%;
 }
 
 #name {
@@ -137,7 +134,7 @@ h2 {
   font-size: 3vw;
   color: #578ad6;
 }
-    
+
 #searchBar {
   grid-area: hsb;
   grid-template-columns: 80% 20%;
@@ -148,7 +145,7 @@ h2 {
 input::placeholder {
   font-size: 2vh;
 }
-  #look:hover {
+#look:hover {
   background-color: #9ab7e2;
 }
 
@@ -640,7 +637,7 @@ div#infoHeader {
       ". . arrow . ."
       ". vid1 . vid2 .";
   }
-  #arrowImg{
+  #arrowImg {
     grid-area: arrow;
     height: 60px;
     width: 57px;
@@ -761,7 +758,7 @@ div#infoHeader {
       ". . arrow . ."
       ". vid1 . vid2 .";
   }
-  #arrowImg{
+  #arrowImg {
     grid-area: arrow;
     height: 60px;
     width: 57px;
@@ -795,7 +792,7 @@ div#infoHeader {
   }
 }
 @media screen and (max-width: 640px) {
-  h1{
+  h1 {
     font-size: 5vw;
   }
   .plussign img {
@@ -1000,7 +997,7 @@ div#infoHeader {
       ". . . . ."
       ". . vid1 . .";
   }
-  #arrowImg{
+  #arrowImg {
     grid-area: arrow;
     height: 40px;
     width: 19px;
@@ -1049,19 +1046,18 @@ div#infoHeader {
     grid-template-columns: none;
   }
   .Jbot {
-    border-radius: 5vh;
+    border-radius: 3vh;
     border: 3px #578ad6 solid;
     height: 14vh;
     grid-template-columns: 3% 18% 9% 50% 4% 10% 4%;
     grid-template-rows: 100%;
-    grid-template-areas:
-      ". Jim . Jte . Jar .";
+    grid-template-areas: ". Jim . Jte . Jar .";
   }
   .Jimg {
     grid-area: Jim;
     height: 8vh;
   }
-  
+
   #cline1 > p,
   #cline2 p,
   #cline3 p {
@@ -1095,12 +1091,12 @@ div#infoHeader {
   }
   #contact {
     grid-area: fc;
-    grid-template-columns: none;
+    grid-template-columns: 100%;
     grid-template-rows: 33% 33% 34%;
-    grid-template-areas: 
-    "fcl1"
-    "fcl2"
-    "fcl3";
+    grid-template-areas:
+      "fcl1"
+      "fcl2"
+      "fcl3";
     border-top: 1px #578ad6 solid;
     margin-bottom: 8vh;
   }
@@ -1139,8 +1135,8 @@ div#infoHeader {
     grid-template-columns: repeat(4, 6vh);
     grid-template-rows: 50% 50%;
     grid-template-areas:
-    "img1 img2 img3 img4"
-    "p p p p";
+      "img1 img2 img3 img4"
+      "p p p p";
     color: #fff;
   }
   #bMiddle > p {
@@ -1172,5 +1168,4 @@ div#infoHeader {
       "tInfo tInfo tInfo"
       ". embedVid .";
   }
-  
 }
