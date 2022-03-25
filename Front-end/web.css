@@ -214,7 +214,7 @@ input::placeholder {
   grid-area: bg;
   background-color: #ffffff;
 }
-.fontWhite {
+.fontWhiteBold {
   color: #fff;
   font-weight: 900;
 }
