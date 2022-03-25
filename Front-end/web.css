@@ -265,7 +265,7 @@ input::placeholder {
       ". ml . mr ."
       ". . . . .";
   }
-  #mezzanineLeft {
+  #mezzanineTextButtonHolder {
     grid-area: ml;
     grid-template-columns: 10% 35% 10% 35% 10%;
     grid-template-rows: 70% 10% 20%;
@@ -274,7 +274,7 @@ input::placeholder {
       ". . . . . "
       ". mlc mlText mlp .";
   }
-  #mezzanineRight {
+  #mezzanineImgHolder {
     grid-area: mr;
     grid-template-rows: 40% 20% 40%;
     grid-template-areas:
@@ -317,7 +317,7 @@ input::placeholder {
       ". ml ml ml ."
       ". . . . .";
   }
-  #mezzanineLeft {
+  #mezzanineTextButtonHolder {
     grid-area: ml;
     grid-template-columns: 25% 10% 30% 10% 25%;
     grid-template-rows: 70% 10% 20%;
@@ -326,7 +326,7 @@ input::placeholder {
       ". . . . . "
       ". mlc mlText mlp .";
   }
-  #mezzanineRight {
+  #mezzanineImgHolder {
     grid-area: mr;
     grid-template-columns: 40% 20% 40%;
     grid-template-areas: "mr1 . mr2";
@@ -385,7 +385,7 @@ input::placeholder {
 }
 
 /*div text*/
-#jWeb {
+#webDetailSection {
   grid-area: jw;
   grid-template-rows: 5% 10% 5% 40% 5% 30% 5%;
   grid-template-areas:
@@ -397,23 +397,23 @@ input::placeholder {
     "jb3"
     ".";
 }
-.jwHead {
+.webDetailHeader {
   grid-area: jwh;
   grid-template-columns: 30% 40% 30%;
   grid-template-areas: ". jwhm .";
 }
-.jwhMiddle {
+.webDetailHeaderDisplayBox {
   grid-area: jwhm;
   grid-template-columns: 10% 80% 10%;
 }
 
-#jBottom3 {
+#webDetailButtonHolder {
   grid-area: jb3;
   grid-template-columns: 30% 5% 30% 5% 30%;
 }
 
-/*div join*/
-#join {
+/*div joinSection*/
+#joinSection {
   grid-area: j;
   border-top: 1px #578ad6 solid;
   grid-template-rows: 5% 10% 10% 20% 10% 35% 5%;
@@ -426,17 +426,17 @@ input::placeholder {
     "jb2"
     ".";
 }
-.jHead {
+.joinHeader {
   grid-area: jh;
   grid-template-columns: 30% 40% 30%;
   grid-template-areas: ". jhm .";
 }
-.jhMiddle {
+.joinHeaderDisplayBox {
   grid-area: jhm;
   grid-template-columns: 10% 80% 10%;
 }
 
-#jBottom2 {
+#joinButtonHolder {
   grid-area: jb2;
   grid-template-columns: 45% 1% 45%;
   align-items: initial;
@@ -464,7 +464,7 @@ input::placeholder {
   grid-area: Jim;
   height: 10vh;
 }
-.Jtex {
+.ButtonAText {
   grid-area: Jte;
   color: #578ad6;
   font-weight: 900;
@@ -472,7 +472,7 @@ input::placeholder {
 .Jarr {
   grid-area: Jar;
 }
-.divA {
+.reDirectButtonA {
   width: 100%;
   height: 100%;
 }
@@ -591,7 +591,7 @@ div#infoHeader {
     font-size: 3.3em;
     font-weight: 600;
   }
-  .jwText {
+  .webDetailBody {
     grid-area: jwt;
     /* Using pixel sizing so that user can zoom up to get better read*/
     line-height: 40px;
@@ -601,7 +601,7 @@ div#infoHeader {
     justify-content: space-between;
     justify-items: stretch;
   }
-  .jText {
+  .joinSectionBody {
     grid-area: jt;
     /* Using pixel sizing so that user can zoom up to get better read*/
     line-height: 45px;
@@ -611,7 +611,7 @@ div#infoHeader {
     justify-content: space-between;
     justify-items: stretch;
   }
-  .Jtex {
+  .ButtonAText {
     font-size: 25px;
   }
 
@@ -645,7 +645,7 @@ div#infoHeader {
     letter-spacing: 3px;
     font-weight: 500;
   }
-  .jHead {
+  .joinHeader {
     grid-template-columns: 30% 40% 30%;
   }
 }
@@ -701,7 +701,7 @@ div#infoHeader {
     font-size: 3.5em;
     font-weight: normal;
   }
-  .jwText {
+  .webDetailBody {
     grid-area: jwt;
     /* Using pixel sizing so that user can zoom up to get better read*/
     line-height: 30px;
@@ -711,7 +711,7 @@ div#infoHeader {
     justify-content: space-between;
     justify-items: stretch;
   }
-  .jText {
+  .joinSectionBody {
     grid-area: jt;
     /* Using pixel sizing so that user can zoom up to get better read*/
     line-height: 30px;
@@ -721,7 +721,7 @@ div#infoHeader {
     justify-content: space-between;
     justify-items: stretch;
   }
-  .Jtex {
+  .ButtonAText {
     font-size: 20px;
   }
   #infoTextP {
@@ -769,11 +769,11 @@ div#infoHeader {
     letter-spacing: 2px;
     font-weight: 500;
   }
-  .jHead {
+  .joinHeader {
     grid-template-columns: 30% 40% 30%;
   }
 
-  .jwHead {
+  .webDetailHeader {
     grid-template-columns: 30% 40% 30%;
   }
 
@@ -802,7 +802,7 @@ div#infoHeader {
       ". ml ml ml ."
       ". . . . .";
   }
-  #mezzanineLeft {
+  #mezzanineTextButtonHolder {
     grid-area: ml;
     grid-template-columns: 25% 10% 30% 10% 25%;
     grid-template-rows: 70% 10% 20%;
@@ -811,7 +811,7 @@ div#infoHeader {
       ". . . . . "
       ". mlc mlText mlp .";
   }
-  #mezzanineRight {
+  #mezzanineImgHolder {
     display: none;
     grid-area: mr;
     grid-template-columns: 40% 20% 40%;
@@ -918,7 +918,7 @@ div#infoHeader {
     font-size: 15px;
     text-indent: 6vw;
   }
-  .jwText {
+  .webDetailBody {
     grid-area: jwt;
     /* Using pixel sizing so that user can zoom up to get better read*/
     line-height: 19px;
@@ -928,7 +928,7 @@ div#infoHeader {
     justify-content: space-between;
     justify-items: stretch;
   }
-  .jText {
+  .joinSectionBody {
     grid-area: jt;
     /* Using pixel sizing so that user can zoom up to get better read*/
     line-height: 20px;
@@ -938,7 +938,7 @@ div#infoHeader {
     justify-content: space-between;
     justify-items: stretch;
   }
-  .Jtex {
+  .ButtonAText {
     justify-self: left;
     font-size: 15px;
   }
@@ -973,7 +973,7 @@ div#infoHeader {
     font-size: 17px;
   }
 
-  #join {
+  #joinSection {
     grid-template-rows: 3% 10% 3% 21% 10% 45% 3%;
   }
 
@@ -1006,14 +1006,14 @@ div#infoHeader {
     font-weight: 500;
   }
 
-  .jHead {
+  .joinHeader {
     grid-template-columns: 10% 80% 10%;
   }
 
-  .jwHead {
+  .webDetailHeader {
     grid-template-columns: 10% 80% 10%;
   }
-  #jWeb {
+  #webDetailSection {
     grid-area: jw;
     grid-template-rows: 2% 10% 2% 36% 5% 40% 5%;
     grid-template-areas:
@@ -1025,12 +1025,12 @@ div#infoHeader {
       "jb3"
       ".";
   }
-  #jBottom3 {
+  #webDetailButtonHolder {
     grid-area: jb3;
     grid-template-rows: 30% 5% 30% 5% 30%;
     grid-template-columns: none;
   }
-  #jBottom2 {
+  #joinButtonHolder {
     grid-area: jb2;
     grid-template-rows: 48% 4% 48%;
     grid-template-columns: none;
