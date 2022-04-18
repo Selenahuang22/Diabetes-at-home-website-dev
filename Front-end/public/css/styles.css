@@ -1,0 +1,1290 @@
+/*@ static Web, Layout**********************************************/
+/* h: header banner
+   b: navigation bar section
+   jw: aboutWebDetailSection
+   j: joinLinkSection
+   f: foot link + bottom banner
+*/
+#aboutWeb {
+    font-family: sans-serif;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-areas:
+        ". h ."
+        "b b b"
+        "m m m"
+        ". jw ."
+        ". j ."
+        "f f f";
+}
+
+/* h: header banner
+   b: navigation bar section
+   t: information section
+   j: joinLinkSection
+   f: foot link + bottom banner
+*/
+#diabetesInfo {
+    font-family: sans-serif;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-rows: 12vh 7vh 150vh 65vh 28vh;
+    grid-template-areas:
+        ". h ."
+        "b b b"
+        "t t t"
+        ". j ."
+        "f f f";
+}
+
+/*General tag customize **********************************************/
+.fontWhiteBold {
+    color: #fff;
+    font-weight: 900;
+}
+
+.fontWhiteNormal {
+    color: #fff;
+    font-weight: 500;
+}
+
+.fontBlue {
+    color: #578ad6;
+    font-weight: bolder;
+}
+
+.fontRed {
+    color: red;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+div {
+    display: grid;
+    float: left;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+input {
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    border-radius: 2vh;
+    opacity: 1;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+h1 {
+    color: #5b8dc6;
+}
+
+h2 {
+    text-align: center;
+    font-weight: normal;
+}
+
+/* Readjust the button in the foot, and add some on hover visualisation*/
+#bottom img {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 1vh;
+    max-height: 2.5vh;
+    max-width: 2.5vh;
+    opacity: 0.8;
+}
+
+#bottom img:hover {
+    border: 0.5vh;
+    max-height: 3.1vh;
+    max-width: 3.1vh;
+    opacity: 1;
+}
+
+/*header band styling************************************************
+    */
+/* Contain the LOGO + Name of website (diabetes@Home) */
+#headLeft {
+    grid-area: hl;
+    grid-template-columns: 15% 3% 82%;
+    grid-template-areas: "hl . hn";
+}
+
+#logo {
+    grid-area: hl;
+}
+
+#logo img {
+    width: 70%;
+    height: 70%;
+}
+
+#name {
+    grid-area: hn;
+    justify-items: left;
+    font-size: 1.6vw;
+    font-style: italic;
+    font-family: sans-serif;
+}
+
+#name p {
+    font-weight: normal;
+    font-size: 3vw;
+    color: #578ad6;
+}
+
+#searchBar {
+    grid-area: hsb;
+    grid-template-columns: 80% 20%;
+    border: 0.3vh solid #5d8ed7;
+    border-radius: 2vh;
+    border-right: 0vh;
+}
+
+input::placeholder {
+    font-size: 2vh;
+}
+
+#look:hover {
+    background-color: #9ab7e2;
+}
+
+/*Navigation Bar*********************************************************************************************************/
+#bar {
+    grid-area: b;
+    grid-template-rows: 6% 14% 80%;
+    grid-template-areas:
+        ". . . ."
+        "bg bg bg bg"
+        ". bl br .";
+    background-color: #578ad6;
+}
+
+#barGap {
+    grid-area: bg;
+    background-color: #ffffff;
+}
+
+#barLeft {
+    grid-area: bl;
+    grid-template-columns: repeat(4, 25%);
+}
+
+#barLeft div:hover,
+#barRight:hover {
+    background-color: #507fc5;
+    border-radius: 1.5vh;
+}
+
+#barRight {
+    grid-area: br;
+}
+
+/* Foot link that will not be change regardless of screen size ********************************************************/
+
+#foot {
+    margin-top: 15vh;
+    grid-area: f;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-rows: 70% 10% 20%;
+    grid-template-areas:
+        ". fc ."
+        ". . ."
+        "fb fb fb";
+}
+
+#footHeader1,
+#footHeader2,
+#footHeader3 {
+    margin-top: 7.8vh;
+    font-size: 2vh;
+    text-align: left;
+}
+
+#cline1>p,
+#cline2 p,
+#cline3 p {
+    margin-top: 3.5vh;
+    font-size: 1.8vh;
+}
+
+#contact {
+    grid-area: fc;
+    grid-template-columns: 33% 33% 34%;
+    grid-template-areas: "fcl1 fcl2 fcl3";
+    border-top: 1px #578ad6 solid;
+    margin-bottom: 15vh;
+}
+
+#cline1 {
+    grid-area: fcl1;
+    grid-template-rows: 45% repeat(6, 12.5%);
+    align-items: initial;
+    align-content: initial;
+    justify-content: space-between;
+    justify-items: stretch;
+}
+
+#cline2 {
+    grid-area: fcl2;
+    grid-template-rows: 45% repeat(6, 12.5%);
+    align-items: initial;
+    align-content: initial;
+    justify-content: space-between;
+    justify-items: stretch;
+}
+
+#cline3 {
+    grid-area: fcl3;
+    grid-template-rows: 45% repeat(6, 12.5%);
+    align-items: initial;
+    align-content: initial;
+    justify-content: space-between;
+    justify-items: stretch;
+}
+
+#bottom {
+    grid-area: fb;
+    background-color: #578ad6;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-areas: ". fbm .";
+}
+
+#bMiddle {
+    grid-area: fbm;
+    grid-template-columns: repeat(4, 6vh) 50%;
+    color: #fff;
+}
+
+#bMiddle>p {
+    font-size: 2vh;
+}
+
+/*div mezzanine*/
+
+.plussign img {
+    width: 35px;
+    height: 35px;
+}
+
+.vidP {
+    display: inline;
+    grid-area: vidP;
+    text-align: left;
+    text-indent: 40px;
+    font-size: 30px;
+}
+
+@media screen and (min-width: 881px) {
+    #mezzanine {
+        grid-area: m;
+        background-image: url(images/chemicalbackdrop.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        grid-template-columns: 7% 55% 1% 30% 7%;
+        grid-template-rows: 10% 80% 10%;
+        grid-template-areas:
+            ". . . . ."
+            ". ml . mr ."
+            ". . . . .";
+    }
+
+    #mezzanineTextButtonHolder {
+        grid-area: ml;
+        grid-template-columns: 10% 35% 10% 35% 10%;
+        grid-template-rows: 70% 10% 20%;
+        grid-template-areas:
+            ". mt mt mt ."
+            ". . . . . "
+            ". mlc mlText mlp .";
+    }
+
+    #mezzanineImgHolder {
+        grid-area: mr;
+        grid-template-rows: 40% 20% 40%;
+        grid-template-areas:
+            "mr1"
+            "."
+            "mr2";
+    }
+
+    #logInClinican {
+        text-align: center;
+        grid-area: mlc;
+        background: #578ad6;
+        font-size: 1.9vh;
+        border-radius: 1.5vh;
+        width: 15vw;
+        height: 8vh;
+    }
+
+    #logInPatient {
+        text-align: center;
+        grid-area: mlp;
+        background: #578ad6;
+        font-size: 1.9vh;
+        border-radius: 1.5vh;
+        width: 15vw;
+        height: 8vh;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    #mezzanine {
+        grid-area: m;
+        background-image: url(images/chemicalbackdrop.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        grid-template-columns: 5% 40% 10% 40% 5%;
+        grid-template-rows: 10% 10% 70% 10%;
+        grid-template-areas:
+            ". . . . ."
+            ". mr mr mr ."
+            ". ml ml ml ."
+            ". . . . .";
+    }
+
+    #mezzanineTextButtonHolder {
+        grid-area: ml;
+        grid-template-columns: 25% 10% 30% 10% 25%;
+        grid-template-rows: 70% 10% 20%;
+        grid-template-areas:
+            ". mt mt mt ."
+            ". . . . . "
+            ". mlc mlText mlp .";
+    }
+
+    #mezzanineImgHolder {
+        grid-area: mr;
+        grid-template-columns: 40% 20% 40%;
+        grid-template-areas: "mr1 . mr2";
+    }
+
+    #logInClinican {
+        grid-area: mlc;
+        background: #578ad6;
+        font-size: 1.9vh;
+        border-radius: 1.5vh;
+        width: 25vw;
+        height: 8vh;
+    }
+
+    #logInPatient {
+        grid-area: mlp;
+        background: #578ad6;
+        font-size: 1.9vh;
+        border-radius: 1.5vh;
+        width: 25vw;
+        height: 8vh;
+    }
+}
+
+.inLineLink:hover {
+    /*Color effect*/
+    /* background-color: #578ad654;
+  border-radius: 1vh; */
+
+    /* underline effect */
+    text-decoration: underline;
+}
+
+#mtext {
+    grid-area: mt;
+    grid-template-rows: repeat(5, 20%);
+}
+
+#mlText {
+    grid-area: mlText;
+    font: 2em sans-serif;
+}
+
+#logInPatient:hover,
+#logInClinican:hover {
+    background: #4979c2;
+}
+
+#mr1 {
+    grid-area: mr1;
+    height: 135%;
+}
+
+#mr2 {
+    grid-area: mr2;
+    height: 135%;
+}
+
+/*div text*/
+#webDetailSection {
+    grid-area: jw;
+    grid-template-rows: 5% 10% 5% 40% 5% 30% 5%;
+    grid-template-areas:
+        "."
+        "jwh"
+        "."
+        "jwt"
+        "."
+        "jb3"
+        ".";
+}
+
+.webDetailHeader {
+    grid-area: jwh;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-areas: ". jwhm .";
+}
+
+.webDetailHeaderDisplayBox {
+    grid-area: jwhm;
+    grid-template-columns: 10% 80% 10%;
+}
+
+#webDetailButtonHolder {
+    grid-area: jb3;
+    grid-template-columns: 30% 5% 30% 5% 30%;
+}
+
+/*div joinSection*/
+#joinSection {
+    grid-area: j;
+    border-top: 1px #578ad6 solid;
+    grid-template-rows: 5% 10% 10% 20% 10% 35% 5%;
+    grid-template-areas:
+        "."
+        "jh"
+        "."
+        "jt"
+        "."
+        "jb2"
+        ".";
+}
+
+.joinHeader {
+    grid-area: jh;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-areas: ". jhm .";
+}
+
+.joinHeaderDisplayBox {
+    grid-area: jhm;
+    grid-template-columns: 10% 80% 10%;
+}
+
+#joinButtonHolder {
+    grid-area: jb2;
+    grid-template-columns: 45% 1% 45%;
+    align-items: initial;
+    align-content: initial;
+    justify-content: space-between;
+    justify-items: stretch;
+}
+
+.Jbot {
+    border-radius: 1.5vh;
+    border: 4px #578ad6 solid;
+    height: 20vh;
+    grid-template-columns: 5% 30% 50% 10% 5%;
+    grid-template-rows: 5% 60% 30% 5%;
+    grid-template-areas:
+        ". . . . ."
+        ". Jim Jim Jim ."
+        ". Jte . Jar ."
+        ". . . . .";
+}
+
+.Jbot:hover {
+    background-color: #ecf3ff;
+}
+
+.Jimg {
+    grid-area: Jim;
+    height: 10vh;
+}
+
+.ButtonAText {
+    grid-area: Jte;
+    color: #578ad6;
+    font-weight: 900;
+}
+
+.Jarr {
+    grid-area: Jar;
+}
+
+.reDirectButtonA {
+    width: 100%;
+    height: 100%;
+}
+
+/* Info*/
+#info {
+    grid-area: t;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-rows: 15vh 65vh 70vh;
+    grid-template-areas:
+        ". th ."
+        "tInfo tInfo tInfo"
+        ". embedVid .";
+}
+
+#infoHeader {
+    grid-area: th;
+    grid-template-rows: 35% 65%;
+    grid-template-areas:
+        "iHpath"
+        "iHHeader";
+}
+
+div#infoHeader {
+    justify-items: left;
+}
+
+#textPath1,
+#textPath2 {
+    text-decoration: underline;
+    font-size: 21px;
+    color: #5d8ed7;
+}
+
+#infoText {
+    grid-area: tInfo;
+    background-color: #deebf5;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-rows: 7% 86% 7%;
+    grid-template-areas:
+        ". . ."
+        ". infoTextImg ."
+        ". . .";
+}
+
+#infoTextImg {
+    grid-area: infoTextImg;
+    grid-template-columns: 65% 35%;
+    grid-template-areas: "textP infoImg";
+}
+
+#infoImg {
+    grid-area: infoImg;
+}
+
+#vid1 {
+    grid-area: vid1;
+    grid-template-rows: 80% 20%;
+    grid-template-areas:
+        "."
+        "vidP";
+}
+
+#vid2 {
+    grid-area: vid2;
+    grid-template-rows: 80% 20%;
+    grid-template-areas:
+        "."
+        "vidP";
+}
+
+/*responsive*/
+@media screen and (max-width: 1921px) and (min-width: 1025px) {
+    #aboutWeb {
+        grid-template-rows: 12vh 7vh 72vh 80vh 65vh 28vh;
+    }
+
+    img {
+        display: block;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        max-height: 90%;
+        max-width: 90%;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    #head {
+        grid-area: h;
+        grid-template-columns: 50% 10% 40%;
+        grid-template-areas: "hl . hr";
+    }
+
+    #headRight {
+        grid-area: hr;
+        grid-template-columns: 30% 60% 10%;
+        grid-template-rows: 35% 30% 35%;
+        grid-template-areas:
+            ". . ."
+            ". hsb ."
+            ". . .";
+    }
+
+    #look {
+        height: 3.8vh;
+        width: 4.5vw;
+        background-image: url(images/whitesearchtool.png);
+        background-repeat: no-repeat;
+        background-size: 3vh;
+        background-position: center;
+        display: inline-block;
+        background-color: #5b8dc6;
+    }
+
+    #bar {
+        grid-template-columns: 5% 60% 30% 5%;
+        font-size: 1vw;
+        font-weight: bold;
+    }
+
+    #signInText {
+        font-size: 3.3em;
+        font-weight: 600;
+    }
+
+    .webDetailBody {
+        grid-area: jwt;
+        /* Using pixel sizing so that user can zoom up to get better read*/
+        line-height: 40px;
+        font-size: 25px;
+        align-items: initial;
+        align-content: initial;
+        justify-content: space-between;
+        justify-items: stretch;
+    }
+
+    .joinSectionBody {
+        grid-area: jt;
+        /* Using pixel sizing so that user can zoom up to get better read*/
+        line-height: 45px;
+        font-size: 25px;
+        align-items: initial;
+        align-content: initial;
+        justify-content: space-between;
+        justify-items: stretch;
+    }
+
+    .ButtonAText {
+        font-size: 25px;
+    }
+
+    #infoTextP {
+        grid-area: textP;
+        font-size: 25px;
+        line-height: 50px;
+    }
+
+    #infoEmbededVid {
+        grid-area: embedVid;
+        grid-template-columns: 5% 35% 15% 35% 10%;
+        grid-template-rows: 30% 65% 15%;
+        grid-template-areas:
+            ". . arrow . ."
+            ". vid1 . vid2 .";
+    }
+
+    #arrowImg {
+        grid-area: arrow;
+        height: 60px;
+        width: 57px;
+        grid-template-rows: 50% 50%;
+    }
+
+    .vidBG {
+        margin: 10vh;
+        background-color: #deebf5;
+        border-radius: 2vh;
+    }
+
+    .smallTitle {
+        color: #578ad6;
+        font-size: 30px;
+        letter-spacing: 3px;
+        font-weight: 500;
+    }
+
+    .joinHeader {
+        grid-template-columns: 30% 40% 30%;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 641px) {
+    #aboutWeb {
+        grid-template-rows: 12vh 7vh 72vh 80vh 65vh 28vh;
+    }
+
+    /*Adjust General tag styling*****************************/
+    img {
+        display: block;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        max-height: 90%;
+        max-width: 90%;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    #head {
+        grid-area: h;
+        grid-template-columns: 40% 5% 55%;
+        grid-template-areas: "hl . hr";
+    }
+
+    #headRight {
+        grid-area: hr;
+        grid-template-columns: 30% 60% 10%;
+        grid-template-rows: 35% 30% 35%;
+        grid-template-areas:
+            ". . ."
+            ". hsb ."
+            ". . .";
+    }
+
+    #logo img {
+        width: 100%;
+        height: 60%;
+    }
+
+    #look {
+        height: 3.85vh;
+        width: 5.5vw;
+        background-image: url(images/whitesearchtool.png);
+        background-repeat: no-repeat;
+        background-size: 3vh;
+        background-position: center;
+        display: inline-block;
+        background-color: #5b8dc6;
+    }
+
+    #bar {
+        grid-template-columns: 5% 60% 30% 5%;
+        font-size: 1em;
+        font-weight: bolder;
+    }
+
+    #signInText {
+        font-size: 3.5em;
+        font-weight: normal;
+    }
+
+    .webDetailBody {
+        grid-area: jwt;
+        /* Using pixel sizing so that user can zoom up to get better read*/
+        line-height: 30px;
+        font-size: 19px;
+        align-items: initial;
+        align-content: initial;
+        justify-content: space-between;
+        justify-items: stretch;
+    }
+
+    .joinSectionBody {
+        grid-area: jt;
+        /* Using pixel sizing so that user can zoom up to get better read*/
+        line-height: 30px;
+        font-size: 20px;
+        align-items: initial;
+        align-content: initial;
+        justify-content: space-between;
+        justify-items: stretch;
+    }
+
+    .ButtonAText {
+        font-size: 20px;
+    }
+
+    #infoTextP {
+        grid-area: textP;
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    #textPath1,
+    #textPath2 {
+        font-size: 19px;
+    }
+
+    iframe {
+        height: 200px;
+        width: 300px;
+    }
+
+    #infoEmbededVid {
+        grid-area: embedVid;
+        grid-template-columns: 5% 35% 15% 35% 10%;
+        grid-template-rows: 25% 65% 20%;
+        grid-template-areas:
+            ". . arrow . ."
+            ". vid1 . vid2 .";
+    }
+
+    #arrowImg {
+        grid-area: arrow;
+        height: 60px;
+        width: 57px;
+        grid-template-rows: 50% 50%;
+    }
+
+    .vidBG {
+        margin: 10vh;
+        background-color: #deebf5;
+        border-radius: 2vh;
+    }
+
+    .vidP {
+        font-size: 20px;
+        text-indent: 20px;
+    }
+
+    .smallTitle {
+        color: #578ad6;
+        font-size: 20px;
+        letter-spacing: 2px;
+        font-weight: 500;
+    }
+
+    .joinHeader {
+        grid-template-columns: 30% 40% 30%;
+    }
+
+    .webDetailHeader {
+        grid-template-columns: 30% 40% 30%;
+    }
+
+    #bMiddle>p {
+        font-size: 1.8vh;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    h1 {
+        font-size: 5vw;
+    }
+
+    .plussign img {
+        width: 20px;
+        height: 20px;
+    }
+
+    #mezzanine {
+        grid-area: m;
+        background-image: url(images/chemicalbackdrop.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        grid-template-columns: 5% 40% 10% 40% 5%;
+        grid-template-rows: 15% 70% 15%;
+        grid-template-areas:
+            ". . . . ."
+            ". ml ml ml ."
+            ". . . . .";
+    }
+
+    #mezzanineTextButtonHolder {
+        grid-area: ml;
+        grid-template-columns: 25% 10% 30% 10% 25%;
+        grid-template-rows: 70% 10% 20%;
+        grid-template-areas:
+            ". mt mt mt ."
+            ". . . . . "
+            ". mlc mlText mlp .";
+    }
+
+    #mezzanineImgHolder {
+        display: none;
+        grid-area: mr;
+        grid-template-columns: 40% 20% 40%;
+        grid-template-areas: "mr1 . mr2";
+    }
+
+    #logInClinican {
+        grid-area: mlc;
+        background: #578ad6;
+        font-size: 1.5vh;
+        border-radius: 3vh;
+        width: 26vw;
+        height: 6vh;
+    }
+
+    #logInPatient {
+        grid-area: mlp;
+        background: #578ad6;
+        font-size: 1.5vh;
+        border-radius: 3vh;
+        width: 26vw;
+        height: 6vh;
+    }
+
+    #mlText {
+        grid-area: mlText;
+        font: 1em sans-serif;
+    }
+
+    #aboutWeb {
+        grid-template-rows: 12vh 24vh 42vh 110vh 70vh 120vh;
+        grid-template-columns: 5% 90% 5%;
+    }
+
+    #diabetesInfo {
+        grid-template-rows: 12vh 24vh 175vh 65vh 120vh;
+        grid-template-columns: 5% 90% 5%;
+    }
+
+    #logo img {
+        height: auto;
+        width: auto;
+    }
+
+    img {
+        display: block;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        max-height: 110%;
+        max-width: 110%;
+    }
+
+    h2 {
+        font-size: 1em;
+    }
+
+    #head {
+        grid-area: h;
+        grid-template-columns: 50% 1% 49%;
+        grid-template-areas: "hl . hr";
+    }
+
+    #headRight {
+        grid-area: hr;
+        grid-template-columns: 15% 80% 5%;
+        grid-template-rows: 40% 20% 40%;
+        grid-template-areas:
+            ". . ."
+            ". hsb ."
+            ". . .";
+    }
+
+    #look {
+        height: 2.7vh;
+        width: 12.5vw;
+        background-image: url(images/whitesearchtool.png);
+        background-repeat: no-repeat;
+        background-size: 2vh;
+        background-position: center;
+        display: inline-block;
+        background-color: #578ad6;
+    }
+
+    #bar {
+        font-size: 2.7vw;
+        font-weight: lighter;
+        grid-template-rows: 1% 4% 19% 19% 19% 19% 19%;
+        grid-template-areas:
+            ". "
+            "bg"
+            "bl"
+            "bl"
+            "bl"
+            "bl"
+            "br";
+    }
+
+    #searchBar {
+        grid-template-columns: 65% 35%;
+    }
+
+    #barLeft {
+        grid-template-columns: none;
+        grid-template-rows: repeat(4, 25%);
+    }
+
+    #signInText {
+        font-size: 1.5em;
+        font-weight: 900;
+    }
+
+    .vidBG {
+        margin: 10vh;
+        background-color: #deebf5;
+        border-radius: 2vh;
+    }
+
+    .vidP {
+        font-size: 15px;
+        text-indent: 6vw;
+    }
+
+    .webDetailBody {
+        grid-area: jwt;
+        /* Using pixel sizing so that user can zoom up to get better read*/
+        line-height: 19px;
+        font-size: 15px;
+        align-items: initial;
+        align-content: initial;
+        justify-content: space-between;
+        justify-items: stretch;
+    }
+
+    .joinSectionBody {
+        grid-area: jt;
+        /* Using pixel sizing so that user can zoom up to get better read*/
+        line-height: 20px;
+        font-size: 14px;
+        align-items: initial;
+        align-content: initial;
+        justify-content: space-between;
+        justify-items: stretch;
+    }
+
+    .ButtonAText {
+        justify-self: left;
+        font-size: 15px;
+    }
+
+    #infoText {
+        grid-area: tInfo;
+        background-color: #deebf5;
+        grid-template-columns: 5% 90% 5%;
+        grid-template-rows: 90% 10%;
+        grid-template-areas:
+            ". infoTextImg ."
+            ". . .";
+    }
+
+    #infoTextImg {
+        grid-area: infoTextImg;
+        grid-template-rows: 60% 40%;
+        grid-template-columns: 100%;
+        grid-template-areas:
+            "textP"
+            "infoImg";
+    }
+
+    #infoTextP {
+        grid-area: textP;
+        font-size: 14px;
+        line-height: 15px;
+    }
+
+    #textPath1,
+    #textPath2 {
+        font-size: 17px;
+    }
+
+    #joinSection {
+        grid-template-rows: 3% 10% 3% 21% 10% 45% 3%;
+    }
+
+    #infoEmbededVid {
+        grid-area: embedVid;
+        grid-template-columns: 3% 3% 88% 3% 3%;
+        grid-template-rows: 20% 35% 5% 35% 5%;
+        grid-template-areas:
+            " . . arrow . ."
+            ". . vid2 . ."
+            ". . . . ."
+            ". . vid1 . .";
+    }
+
+    #arrowImg {
+        grid-area: arrow;
+        height: 40px;
+        width: 19px;
+        grid-template-rows: 50% 50%;
+    }
+
+    iframe {
+        height: 35vw;
+        width: 32vh;
+    }
+
+    .smallTitle {
+        text-align: center;
+        color: #578ad6;
+        font-size: 18px;
+        letter-spacing: 1.5px;
+        font-weight: 500;
+    }
+
+    .joinHeader {
+        grid-template-columns: 10% 80% 10%;
+    }
+
+    .webDetailHeader {
+        grid-template-columns: 10% 80% 10%;
+    }
+
+    #webDetailSection {
+        grid-area: jw;
+        grid-template-rows: 2% 10% 2% 36% 5% 40% 5%;
+        grid-template-areas:
+            "."
+            "jwh"
+            "."
+            "jwt"
+            "."
+            "jb3"
+            ".";
+    }
+
+    #webDetailButtonHolder {
+        grid-area: jb3;
+        grid-template-rows: 30% 5% 30% 5% 30%;
+        grid-template-columns: none;
+    }
+
+    #joinButtonHolder {
+        grid-area: jb2;
+        grid-template-rows: 48% 4% 48%;
+        grid-template-columns: none;
+    }
+
+    .Jbot {
+        border-radius: 3vh;
+        border: 3px #578ad6 solid;
+        height: 14vh;
+        grid-template-columns: 3% 18% 9% 50% 4% 10% 4%;
+        grid-template-rows: 100%;
+        grid-template-areas: ". Jim . Jte . Jar .";
+    }
+
+    .Jimg {
+        grid-area: Jim;
+        height: 8vh;
+    }
+
+    #cline1>p,
+    #cline2 p,
+    #cline3 p {
+        margin-top: 1vh;
+        font-size: 1vh;
+    }
+
+    #foot {
+        margin-top: 15vh;
+        grid-area: f;
+        grid-template-columns: 7% 86% 7%;
+        grid-template-rows: 90% 2% 8%;
+        grid-template-areas:
+            ". fc ."
+            ". . ."
+            "fb fb fb";
+    }
+
+    #cline1,
+    #cline2,
+    #cline3 {
+        grid-template-rows: 20% repeat(6, 17%);
+    }
+
+    #footHeader1,
+    #footHeader2,
+    #footHeader3 {
+        margin-top: 3vh;
+        font-size: 1.2vh;
+        text-align: left;
+    }
+
+    #contact {
+        grid-area: fc;
+        grid-template-columns: 100%;
+        grid-template-rows: 33% 33% 34%;
+        grid-template-areas:
+            "fcl1"
+            "fcl2"
+            "fcl3";
+        border-top: 1px #578ad6 solid;
+        margin-bottom: 8vh;
+    }
+
+    #cline1 {
+        grid-area: fcl1;
+        grid-template-rows: none;
+        align-items: initial;
+        align-content: initial;
+        justify-content: space-between;
+        justify-items: stretch;
+    }
+
+    #cline2 {
+        grid-area: fcl2;
+        grid-template-rows: none;
+        align-items: initial;
+        align-content: initial;
+        justify-content: space-between;
+        justify-items: stretch;
+    }
+
+    #cline3 {
+        grid-area: fcl3;
+        grid-template-rows: none;
+        align-items: initial;
+        align-content: initial;
+        justify-content: space-between;
+        justify-items: stretch;
+    }
+
+    #bottom {
+        grid-area: fb;
+        background-color: #578ad6;
+        grid-template-columns: 10% 80% 10%;
+        grid-template-areas: ". fbm .";
+    }
+
+    #bMiddle {
+        grid-area: fbm;
+        grid-template-columns: repeat(4, 6vh);
+        grid-template-rows: 50% 50%;
+        grid-template-areas:
+            "img1 img2 img3 img4"
+            "p p p p";
+        color: #fff;
+    }
+
+    #bMiddle>p {
+        grid-area: p;
+        white-space: nowrap;
+        font-size: 1vh;
+    }
+
+    #name p {
+        font-weight: normal;
+        font-size: 4vw;
+        color: #578ad6;
+    }
+
+    /* Info*/
+
+    #infoHeader {
+        grid-area: th;
+        grid-template-rows: 30% 70%;
+        grid-template-areas:
+            "iHpath"
+            "iHHeader";
+    }
+
+    #info {
+        grid-area: t;
+        grid-template-columns: 5% 90% 5%;
+        grid-template-rows: 10vh 85vh 80vh;
+        grid-template-areas:
+            ". th ."
+            "tInfo tInfo tInfo"
+            ". embedVid .";
+    }
+}

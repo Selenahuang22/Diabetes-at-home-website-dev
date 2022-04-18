@@ -22,7 +22,7 @@ app.set('view engine', 'hbs')
 
 // send HTTP requests to router
 app.get('/', async (req, res) => {
-    res.sendFile(path.join(__dirname, 'aboutWeb.html'))
+    res.render('index.hbs');
 })
 
 
