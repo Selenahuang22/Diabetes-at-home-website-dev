@@ -5,7 +5,6 @@ var path = require('path')
 //app.use(express.json())  
 app.use(express.urlencoded({ extended: true })) // replaces body-parser
 app.use(express.static('public'))	// define where static assets live
-app.use(express.static(__dirname + '/images'));
 
 // Handlebars stuff
 const exphbs = require('express-handlebars')
