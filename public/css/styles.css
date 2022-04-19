@@ -61,7 +61,7 @@ body {
     border: 0px;
 }
 
-div {
+div, header, section, footer {
     display: grid;
     float: left;
     width: 100%;
@@ -97,7 +97,7 @@ h2 {
 }
 
 /* Readjust the button in the foot, and add some on hover visualisation*/
-#bottom img {
+footer img {
     display: block;
     margin: 0;
     padding: 0;
@@ -107,7 +107,7 @@ h2 {
     opacity: 0.8;
 }
 
-#bottom img:hover {
+footer img:hover {
     border: 0.5vh;
     max-height: 3.1vh;
     max-width: 3.1vh;
@@ -119,8 +119,8 @@ h2 {
 /* Contain the LOGO + Name of website (diabetes@Home) */
 #headLeft {
     grid-area: hl;
-    grid-template-columns: 7% 15% 3% 75%;
-    grid-template-areas: ". hl . hn";
+    grid-template-columns: 15% 3% 82%;
+    grid-template-areas: "hl . hn";
 }
 
 #logo {
@@ -140,7 +140,7 @@ h2 {
     font-family: sans-serif;
 }
 
-#name p {
+#name h1 {
     font-weight: normal;
     font-size: 3vw;
     color: #578ad6;
@@ -257,7 +257,7 @@ input::placeholder {
     justify-items: stretch;
 }
 
-#bottom {
+footer {
     height: 20%;
     grid-area: fb;
     background-color: #578ad6;
@@ -618,11 +618,11 @@ div#infoHeader {
         font-size: 2em;
     }
 
-    #head {
+    header {
         height: 12vh;
         grid-area: h;
-        grid-template-columns: 50% 10% 40%;
-        grid-template-areas: "hl . hr";
+        grid-template-columns: 7% 43% 8.6% 34.4% 7%;
+        grid-template-areas: ". hl . hr .";
     }
 
     #headRight {
@@ -742,11 +742,11 @@ div#infoHeader {
         font-size: 1.8em;
     }
 
-    #head {
+    header {
         height: 12vh;
         grid-area: h;
-        grid-template-columns: 40% 5% 55%;
-        grid-template-areas: "hl . hr";
+        grid-template-columns: 7% 34.4% 4.3% 47.3% 7%;
+        grid-template-areas: ". hl . hr .";
     }
 
     #headRight {
@@ -967,11 +967,11 @@ div#infoHeader {
         font-size: 1em;
     }
 
-    #head {
+    header {
         height: 12vh;
         grid-area: h;
-        grid-template-columns: 50% 1% 49%;
-        grid-template-areas: "hl . hr";
+        grid-template-columns: 7% 43% 0.86% 42.14% 7%;
+        grid-template-areas: ". hl . hr .";
     }
 
     #headRight {
@@ -1244,7 +1244,7 @@ div#infoHeader {
         justify-items: stretch;
     }
 
-    #bottom {
+    footer {
         grid-area: fb;
         background-color: #578ad6;
         grid-template-columns: 10% 80% 10%;
