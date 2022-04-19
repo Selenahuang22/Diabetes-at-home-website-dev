@@ -3,7 +3,7 @@
     
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="web.css">
+        <link rel="stylesheet" href="public/css/styles.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -13,38 +13,37 @@
         <link rel = "icon" href = "images/homelogo.png">
     </head>
     <body>
-        <div id="diabetesInfo">
-            <!-- Header -->
-            <div id="head">
-                <!-- left -->
-                <div id="headLeft">
-                    <div id="logo">
-                        <img src="images/homelogo.png" alt="red-cross-bounded-@home">
-                    </div>
-                    <div id="name">
-                        <p>Diabetes@Home</p>
-                    </div>
+        <header>
+            <!-- left -->
+            <div id="headLeft">
+                <div id="logo">
+                    <img src="images/homelogo.png" alt="red-cross-bounded-@home">
                 </div>
-                <!-- right -->
-                <div id="headRight">
-                    <div id="searchBar">
-                        <div>
-                            <input type="search" placeholder="Search">
-                        </div>
-                        <div>
-                            <input type="submit" id="look" value="">
-                        </div>
+                <div id="name">
+                    <p>Diabetes@Home</p>
+                </div>
+            </div>
+            <!-- right -->
+            <div id="headRight">
+                <div id="searchBar">
+                    <div>
+                        <input type="search" placeholder="Search">
+                    </div>
+                    <div>
+                        <input type="submit" id="look" value="">
                     </div>
                 </div>
             </div>
+        </header>
 
-            <!-- Guide bar -->
+        <section id="diabetesInfo">
+            <!-- Navigation bar -->
             <div id="bar">
                 <div id="barGap"></div>
                 <div id="barLeft">
-                    <div> <a href="aboutWeb.html" class="fontWhiteNormal">About Website</a></div>
+                    <div><a href="aboutWeb.html" class="fontWhiteNormal">About Website</a></div>
                     <div><a href="" class="fontWhiteNormal">Covid-19</a></div>
-                    <div><a href="" class="fontWhiteNormal">Healthcare Professionals</a></div>
+                    <div><a href="" class="fontWhiteNormal">Healthcare</a></div>
                     <div><a href="" class="fontWhiteNormal">Our Services</a></div>
                 </div>
                 <div id="barRight"><a href="#" class="fontWhiteNormal">MyDiabetes Account</a></div>
@@ -52,9 +51,8 @@
 
             <div id="info">
                 <div id="infoHeader">
-                    
-                    <h1 class="fontBlue" id="iHHeader">
-                        <br> <br> 
+                    <div></div>
+                    <h1>
                         What is Diabetes?
                     </h1>
                 </div>
@@ -87,29 +85,28 @@
                         <img src="images/bluearrow.png" alt="blue-SmallerSign">
                         <img src="images/bluearrow.png" alt="blue-SmallerSign">
                     </div>
-                    <div id="vid1" class="vidBG">
+                    <div id="vid1">
                         <iframe width="500" height="280" src="https://www.youtube.com/embed/-OmaH3dCyq8" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div class="vidP"><p>What Causes Diabetes</p></div>
                     </div>
-                    <div id="vid2" class="vidBG">
+                    <div id="vid2">
                         <iframe width="500" height="280" src="https://www.youtube.com/embed/AM5MgWN5C8c" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div class="vidP"><p>5 Diet Tips For Diabetes</p></div>
                     </div>
                 </div>
-
             </div>
 
             <!-- join -->
             <div id="joinSection">
-                <div class="joinHeader">
-                    <div class="joinHeaderDisplayBox">
+                <div id="joinHeader">
+                    <div id="joinHeaderDisplayBox">
                         <div class="plussign"><img src="images/plussign.png" alt="plussign"></div>
                         <p class="smallTitle">Join As A Member</p>
                         <div class="plussign"><img src="images/plussign.png" alt="plussign"></div>
                     </div>
                     
                 </div>
-                <div class="joinSectionBody">Both patients and clinicians need to log in in order to access more functions for managing patients&#39; 
+                <div id="joinSectionBody">Both patients and clinicians need to log in in order to access more functions for managing patients&#39; 
                     diabetes in the convenience of their own home, recording data that can be monitored remotely body clinicians. Therefore, 
                     log in and join as a member in order to access full records of your own health. </div>
                 <div id="joinButtonHolder">
@@ -127,47 +124,54 @@
                 </div>
             </div>
 
-           <!-- foot -->
-           <div id="foot">
-            <div id="contact">
-                <div id="cline1">
-                    <h2 id="footHeader1" class="fontBlue">Diabetes@Home</h2>
-                    <p> <a class="inLineLink" href="aboutWeb.html">About Us</a> </p>
-                    <p> <a class="inLineLink" href="diabetesInfo.html">About Diabetes</a> </p>
-                    <p> <a class="inLineLink" href="">Covid-19</a> </p>
-                    <p> <a class="inLineLink" href="">Our Services</a></p>
-                    <p> <a class="inLineLink" href="">Privacy</a> </p>
-                    <p> <a class="inLineLink" href="">Terms of Use</a> </p>
-                </div>
-                <div id="cline2">
-                    <h2 id="footHeader2" class="fontBlue">Healthcare Professionals</h2>
-                    <p> <a class="inLineLink" href="">General Practice</a> </p>
-                    <p> <a class="inLineLink" href="">Community Pharmacy</a> </p>
-                    <p> <a class="inLineLink" href="">Specialist Practice</a> </p>
-                    <p> <a class="inLineLink" href="">Hospitals</a> </p>
-                    <p> <a class="inLineLink" href="">Healthcare Professional Information's</a> </p>
-                    <p> <a class="inLineLink" href="">Careers</a> </p>
-                </div>
-                <div id="cline3">
-                    <h2 id="footHeader3" class="fontBlue">Need Help?</h2>
-                    <p class="fontRed">Contact the Help Line 24/7: 9988 8866</p>
-                    <p> <a class="inLineLink" href="">Contacts for Healthcare Professionals</a> </p>
-                    <p> <a class="inLineLink" href="">Sitemap</a> </p>
-                    <p> <a class="inLineLink" href="">Acessibility</a> </p>
-                    <p> <a class="inLineLink" href="">Copyright</a> </p>
-                    <p> <a class="inLineLink" href="">Sitemap</a> </p>
-                </div>
-            </div>
-            <div id="bottom">
-                <div id="bMiddle">
-                    <div><img src="images/whitefb.png" alt="fb icon"></div>
-                    <div><img src="images/whitetwitter.png" alt="twitter icon"></div>
-                    <div><img src="images/whiteig.png" alt="instagram icon"></div>
-                    <div><img src="images/whitegoogle.png" alt="google plus icon"></div>
-                    <p>©Australian Diabetes@Home Health Agency</p>
+            <!-- foot -->
+            <div id="foot">
+                <div id="contact">
+                    <div id="cline1">
+                        <p></p>
+                        <h2 id="footHeader1" class="fontBlue">Diabetes@Home</h2>
+                        <p> <a class="inLineLink" href="aboutWeb.html">About Us</a> </p>
+                        <p> <a class="inLineLink" href="diabetesInfo.html">About Diabetes</a> </p>
+                        <p> <a class="inLineLink" href="">Covid-19</a> </p>
+                        <p> <a class="inLineLink" href="">Our Services</a></p>
+                        <p> <a class="inLineLink" href="">Privacy</a> </p>
+                        <p> <a class="inLineLink" href="">Terms of Use</a> </p>
+                        <p></p>
+                    </div>
+                    <div id="cline2">
+                        <p></p>
+                        <h2 id="footHeader2" class="fontBlue">Healthcare Professionals</h2>
+                        <p> <a class="inLineLink" href="">General Practice</a> </p>
+                        <p> <a class="inLineLink" href="">Community Pharmacy</a> </p>
+                        <p> <a class="inLineLink" href="">Specialist Practice</a> </p>
+                        <p> <a class="inLineLink" href="">Hospitals</a> </p>
+                        <p> <a class="inLineLink" href="">Healthcare Professional Information's</a> </p>
+                        <p> <a class="inLineLink" href="">Careers</a> </p>
+                        <p></p>
+                    </div>
+                    <div id="cline3">
+                        <p></p>
+                        <h2 id="footHeader3" class="fontBlue">Need Help?</h2>
+                        <p class="fontRed">Contact the Help Line 24/7: 9988 8866</p>
+                        <p> <a class="inLineLink" href="">Contacts for Healthcare Professionals</a> </p>
+                        <p> <a class="inLineLink" href="">Sitemap</a> </p>
+                        <p> <a class="inLineLink" href="">Acessibility</a> </p>
+                        <p> <a class="inLineLink" href="">Copyright</a> </p>
+                        <p> <a class="inLineLink" href="">Sitemap</a> </p>
+                        <p></p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</body>
+        </section>
+
+        <footer>
+            <div id="fMiddle">
+                <div><img src="images/whitefb.png" alt="fb icon"></div>
+                <div><img src="images/whitetwitter.png" alt="twitter icon"></div>
+                <div><img src="images/whiteig.png" alt="instagram icon"></div>
+                <div><img src="images/whitegoogle.png" alt="google plus icon"></div>
+                <p>©Australian Diabetes@Home Health Agency</p>
+            </div>
+        </footer>
+    </body>
 </html>

@@ -3,7 +3,7 @@
     
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="web.css">
+        <link rel="stylesheet" href="public/css/styles.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -13,38 +13,37 @@
         <link rel = "icon" href = "images/homelogo.png">
     </head>
     <body>
-        <div id="aboutWeb">
-            <!-- Header -->
-            <div id="head">
-                <!-- left -->
-                <div id="headLeft">
-                    <div id="logo">
-                        <img src="images/homelogo.png" alt="red-cross-bounded-@home">
-                    </div>
-                    <div id="name">
-                        <p>Diabetes@Home</p>
-                    </div>
+        <header>
+            <!-- left -->
+            <div id="headLeft">
+                <div id="logo">
+                    <img src="images/homelogo.png" alt="red-cross-bounded-@home">
                 </div>
-                <!-- right -->
-                <div id="headRight">
-                    <div id="searchBar">
-                        <div>
-                            <input type="search" placeholder="Search">
-                        </div>
-                        <div>
-                            <input type="submit" id="look" value="">
-                        </div>
+                <div id="name">
+                    <p>Diabetes@Home</p>
+                </div>
+            </div>
+            <!-- right -->
+            <div id="headRight">
+                <div id="searchBar">
+                    <div>
+                        <input type="search" placeholder="Search">
+                    </div>
+                    <div>
+                        <input type="submit" id="look" value="">
                     </div>
                 </div>
             </div>
+        </header>
 
-            <!-- Guide bar -->
+        <section id="aboutWeb">
+            <!-- Navigation bar -->
             <div id="bar">
                 <div id="barGap"></div>
                 <div id="barLeft">
-                    <div> <a href="diabetesInfo.html" class="fontWhiteNormal">About Diabetes</a></div>
+                    <div><a href="diabetesInfo.html" class="fontWhiteNormal">About Diabetes</a></div>
                     <div><a href="" class="fontWhiteNormal">Covid-19</a></div>
-                    <div><a href="" class="fontWhiteNormal">Healthcare Professionals</a></div>
+                    <div><a href="" class="fontWhiteNormal">Healthcare</a></div>
                     <div><a href="" class="fontWhiteNormal">Our Services</a></div>
                 </div>
                 <div id="barRight"><a href="#" class="fontWhiteNormal">MyDiabetes Account</a></div>
@@ -74,14 +73,14 @@
 
             <!-- text -->
             <div id="webDetailSection">
-                <div class="webDetailHeader">
-                    <div class="webDetailHeaderDisplayBox">
+                <div id="webDetailHeader">
+                    <div id="webDetailHeaderDisplayBox">
                         <div class="plussign"><img src="images/plussign.png" alt="plussign"></div>
                         <p class="smallTitle">About This Website</p>
                         <div class="plussign"><img src="images/plussign.png" alt="plussign"></div>
                     </div>
                 </div>
-                <div class="webDetailBody">Diabetes@Home is a digital health solution software built by 5 students studying in the University of 
+                <div id="webDetailBody">Diabetes@Home is a digital health solution software built by 5 students studying in the University of 
                     Melbourne. This website aims to help patients manage their diabetes at home and help clinicians to monitored the 
                     situations of their patients remotely. Patients can record health data, view data they have recorded and add comments. 
                     Clinicians can track their patients by monitoring their health data, encourage their patients by sending messages to 
@@ -112,15 +111,15 @@
 
             <!-- join -->
             <div id="joinSection">
-                <div class="joinHeader">
-                    <div class="joinHeaderDisplayBox">
+                <div id="joinHeader">
+                    <div id="joinHeaderDisplayBox">
                         <div class="plussign"><img src="images/plussign.png" alt="plussign"></div>
                         <p class="smallTitle">Join As A Member</p>
                         <div class="plussign"><img src="images/plussign.png" alt="plussign"></div>
                     </div>
                     
                 </div>
-                <div class="joinSectionBody">Both patients and clinicians need to log in in order to access more functions for managing patients&#39; 
+                <div id="joinSectionBody">Both patients and clinicians need to log in in order to access more functions for managing patients&#39; 
                     diabetes in the convenience of their own home, recording data that can be monitored remotely body clinicians. Therefore, 
                     log in and join as a member in order to access full records of your own health. </div>
                 <div id="joinButtonHolder">
@@ -142,6 +141,7 @@
             <div id="foot">
                 <div id="contact">
                     <div id="cline1">
+                        <p></p>
                         <h2 id="footHeader1" class="fontBlue">Diabetes@Home</h2>
                         <p> <a class="inLineLink" href="aboutWeb.html">About Us</a> </p>
                         <p> <a class="inLineLink" href="diabetesInfo.html">About Diabetes</a> </p>
@@ -149,8 +149,10 @@
                         <p> <a class="inLineLink" href="">Our Services</a></p>
                         <p> <a class="inLineLink" href="">Privacy</a> </p>
                         <p> <a class="inLineLink" href="">Terms of Use</a> </p>
+                        <p></p>
                     </div>
                     <div id="cline2">
+                        <p></p>
                         <h2 id="footHeader2" class="fontBlue">Healthcare Professionals</h2>
                         <p> <a class="inLineLink" href="">General Practice</a> </p>
                         <p> <a class="inLineLink" href="">Community Pharmacy</a> </p>
@@ -158,8 +160,10 @@
                         <p> <a class="inLineLink" href="">Hospitals</a> </p>
                         <p> <a class="inLineLink" href="">Healthcare Professional Information's</a> </p>
                         <p> <a class="inLineLink" href="">Careers</a> </p>
+                        <p></p>
                     </div>
                     <div id="cline3">
+                        <p></p>
                         <h2 id="footHeader3" class="fontBlue">Need Help?</h2>
                         <p class="fontRed">Contact the Help Line 24/7: 9988 8866</p>
                         <p> <a class="inLineLink" href="">Contacts for Healthcare Professionals</a> </p>
@@ -167,18 +171,20 @@
                         <p> <a class="inLineLink" href="">Acessibility</a> </p>
                         <p> <a class="inLineLink" href="">Copyright</a> </p>
                         <p> <a class="inLineLink" href="">Sitemap</a> </p>
-                    </div>
-                </div>
-                <div id="bottom">
-                    <div id="bMiddle">
-                        <div><img src="images/whitefb.png" alt="fb icon"></div>
-                        <div><img src="images/whitetwitter.png" alt="twitter icon"></div>
-                        <div><img src="images/whiteig.png" alt="instagram icon"></div>
-                        <div><img src="images/whitegoogle.png" alt="google plus icon"></div>
-                        <p>©Australian Diabetes@Home Health Agency</p>
+                        <p></p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <footer>
+            <div id="fMiddle">
+                <div><img src="images/whitefb.png" alt="fb icon"></div>
+                <div><img src="images/whitetwitter.png" alt="twitter icon"></div>
+                <div><img src="images/whiteig.png" alt="instagram icon"></div>
+                <div><img src="images/whitegoogle.png" alt="google plus icon"></div>
+                <p>©Australian Diabetes@Home Health Agency</p>
+            </div>
+        </footer>
     </body>
 </html>
