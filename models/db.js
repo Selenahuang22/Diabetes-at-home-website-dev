@@ -4,10 +4,8 @@ const mongoose = require("mongoose")
 
 mongoose.connect( process.env.MONGO_URL || 'mongodb://localhost', {
   useNewUrlParser: true,
-  useCreateIndex: true,
   useUnifiedTopology: true,
-  useFindAndModify: false,
-  dbName: "demo"
+  dbName: "d1"
 })
 
 const db = mongoose.connection
@@ -21,4 +19,4 @@ db.once("open", async () => {
   console.log("Mongo connection started on " + db.host + ":" + db.port)
 })
 
-//require("./food")
+require("./patient")

@@ -1,25 +1,29 @@
 {
-  "name": "front-end",
+  "name": "info30005-project",
   "version": "1.0.0",
   "description": "All three screen sizes for 2 static pages have been implemented.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.3",
-    "express-handlebars": "^6.0.5"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Selenahuang22/INFO30005-project-19.18.git"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Selenahuang22/INFO30005-project-19.18/issues"
   },
-  "homepage": "https://github.com/Selenahuang22/INFO30005-project-19.18#readme"
+  "homepage": "https://github.com/Selenahuang22/INFO30005-project-19.18#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.5",
+    "express-validator": "^6.14.0",
+    "mongoose": "^6.3.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.0"
+  }
 }
