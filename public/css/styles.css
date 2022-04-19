@@ -119,8 +119,8 @@ h2 {
 /* Contain the LOGO + Name of website (diabetes@Home) */
 #headLeft {
     grid-area: hl;
-    grid-template-columns: 15% 3% 82%;
-    grid-template-areas: "hl . hn";
+    grid-template-columns: 7% 15% 3% 75%;
+    grid-template-areas: ". hl . hn";
 }
 
 #logo {
@@ -160,6 +160,7 @@ input::placeholder {
 
 #look:hover {
     background-color: #9ab7e2;
+    cursor: pointer;
 }
 
 /*Navigation Bar*********************************************************************************************************/
@@ -257,6 +258,7 @@ input::placeholder {
 }
 
 #bottom {
+    height: 20%;
     grid-area: fb;
     background-color: #578ad6;
     grid-template-columns: 20% 60% 20%;
@@ -617,6 +619,7 @@ div#infoHeader {
     }
 
     #head {
+        height: 12vh;
         grid-area: h;
         grid-template-columns: 50% 10% 40%;
         grid-template-areas: "hl . hr";
@@ -635,7 +638,7 @@ div#infoHeader {
     #look {
         height: 3.8vh;
         width: 4.5vw;
-        background-image: url(images/whitesearchtool.png);
+        background-image: url('/whitesearchtool.png');
         background-repeat: no-repeat;
         background-size: 3vh;
         background-position: center;
@@ -740,6 +743,7 @@ div#infoHeader {
     }
 
     #head {
+        height: 12vh;
         grid-area: h;
         grid-template-columns: 40% 5% 55%;
         grid-template-areas: "hl . hr";
@@ -763,7 +767,7 @@ div#infoHeader {
     #look {
         height: 3.85vh;
         width: 5.5vw;
-        background-image: url(images/whitesearchtool.png);
+        background-image: url('/whitesearchtool.png');
         background-repeat: no-repeat;
         background-size: 3vh;
         background-position: center;
@@ -964,6 +968,7 @@ div#infoHeader {
     }
 
     #head {
+        height: 12vh;
         grid-area: h;
         grid-template-columns: 50% 1% 49%;
         grid-template-areas: "hl . hr";
@@ -982,7 +987,7 @@ div#infoHeader {
     #look {
         height: 2.7vh;
         width: 12.5vw;
-        background-image: url(images/whitesearchtool.png);
+        background-image: url('/whitesearchtool.png');
         background-repeat: no-repeat;
         background-size: 2vh;
         background-position: center;
