@@ -207,7 +207,7 @@ header {
 #look {
     height: 3.8vh;
     width: 4.5vw;
-    background-image: url(../../images/whitesearchtool.png);
+    background-image: url(../whitesearchtool.png);
     background-repeat: no-repeat;
     background-size: 3vh;
     background-position: center;
@@ -303,7 +303,7 @@ footer img:hover {
 /* Mezzanine */
 #mezzanine {
     grid-area: m;
-    background-image: url(../../images/chemicalbackdrop.png);
+    background-image: url(../chemicalbackdrop.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
