@@ -17,13 +17,16 @@ app.engine('hbs', exphbs.engine({
 app.set('view engine', 'hbs')
 
 // connect to database
-require('./models/db.js') 
+//require('./models/db.js') 
 
 // connect to router
-const patientRouter = require('./routes/patientRouter.js')
+//const patientRouter = require('./routes/patientRouter.js')
 
-app.use('/', patientRouter)
+//app.use('/', patientRouter)
 
+app.get('/', async (req, res) => {
+    res.render('index.hbs');
+})
 
 //app.all('*', (req, res) => {  // 'default' route to catch user errors
 	//res.status(404).render('error', {errorCode: '404', message: 'That route is invalid.'})
