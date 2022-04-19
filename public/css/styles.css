@@ -5,6 +5,14 @@
    j: joinLinkSection
    f: foot link + bottom banner
 */
+#mainWeb {
+    font-family: sans-serif;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-areas:
+        ". h ."
+        ". . ."
+        "f f f";
+}
 #aboutWeb {
     font-family: sans-serif;
     grid-template-columns: 7% 86% 7%;
