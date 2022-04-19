@@ -4,6 +4,7 @@
   "description": "All three screen sizes for 2 static pages have been implemented.",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
