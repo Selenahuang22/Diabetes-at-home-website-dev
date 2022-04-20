@@ -24,10 +24,6 @@ app.get('/diabetesInfo.hbs', async (req, res) => {
     res.render('diabetesInfo.hbs');
 })
 
-app.get('/aboutWeb.hbs', async (req, res) => {
-    res.render('aboutWeb.hbs');
-})
-
 // connect to database
 require('./models/db.js') 
 
