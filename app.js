@@ -4,7 +4,7 @@ const app = express()
 const port = process.env.PORT || 3000
 var path = require('path')
 app.use(express.json())  
-app.use(express.urlencoded({ extended: false })) // replaces body-parser
+app.use(express.urlencoded({ extended: false }))
 app.use(express.static('public'))	// define where static assets live
 app.use(express.static(__dirname + '/images')); // static images
 
