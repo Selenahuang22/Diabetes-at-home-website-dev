@@ -22,7 +22,7 @@ require('./models/db.js')
 // connect to router
 const patientRouter = require('./routes/patientRouter.js')
 
-app.use('/', patientRouter)
+app.use('/clinicianDashboard', patientRouter)
 
 //app.get('/', async (req, res) => {
     //res.render('index.hbs');

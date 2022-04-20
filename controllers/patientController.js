@@ -9,6 +9,7 @@ const getAllPatients = async (req, res) => {
     }
 }
 
+
 module.exports = {
     getAllPatients,
 }
