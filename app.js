@@ -16,6 +16,18 @@ app.engine('hbs', exphbs.engine({
 }))
 app.set('view engine', 'hbs')
 
+app.get('/', async (req, res) => {
+    res.render('aboutWeb.hbs');
+})
+
+app.get('/diabetesInfo.hbs', async (req, res) => {
+    res.render('diabetesInfo.hbs');
+})
+
+app.get('/aboutWeb.hbs', async (req, res) => {
+    res.render('aboutWeb.hbs');
+})
+
 // connect to database
 require('./models/db.js') 
 
@@ -24,9 +36,7 @@ const patientRouter = require('./routes/patientRouter.js')
 
 app.use('/clinicianDashboard', patientRouter)
 
-app.get('/', async (req, res) => {
-    res.render('aboutWeb.hbs');
-})
+
 
 //app.all('*', (req, res) => {  // 'default' route to catch user errors
 	//res.status(404).render('error', {errorCode: '404', message: 'That route is invalid.'})
