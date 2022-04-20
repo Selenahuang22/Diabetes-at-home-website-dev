@@ -449,6 +449,7 @@ footer img:hover {
 
 #profileInfo {
     grid-area: proI;
+    border-radius: 1.5vh;
     background-color: #fff;
     grid-template-columns: 7% 7% 3% 15% 41% 20% 7%;
     grid-template-rows: 5% 90% 5%;
@@ -472,6 +473,10 @@ footer img:hover {
 
 #dashboardText {
     grid-area: dt;
+    align-items: left;
+    align-content: left;
+    justify-content: left;
+    justify-items: left;
 }
 
 /* div text */
