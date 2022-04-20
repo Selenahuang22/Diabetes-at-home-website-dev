@@ -20,7 +20,7 @@ app.get('/', async (req, res) => {
     res.render('aboutWeb.hbs');
 })
 
-app.get('/diabetesInfo.hbs', async (req, res) => {
+app.get('/diabetesInfo', async (req, res) => {
     res.render('diabetesInfo.hbs');
 })
 
