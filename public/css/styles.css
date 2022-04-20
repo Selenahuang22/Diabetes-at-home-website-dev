@@ -69,6 +69,10 @@ img {
     font-weight: bolder;
 }
 
+.fontBlueNormal {
+    color: #578ad6;
+}
+
 .fontRed {
     color: red;
 }
@@ -405,6 +409,71 @@ footer img:hover {
     grid-area: dm;
 }
 
+#clinicianInfo {
+    grid-area: ci;
+    grid-template-rows: 5% 4% 60% 31%;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-areas: 
+        ". . ."
+        "bl bl bl"
+        "prof prof prof"
+        ". dt .";
+}
+
+#blueLine {
+    grid-area: bl;
+    background-color: #578ad6;
+}
+
+#profile {
+    grid-area: prof;
+    grid-template-rows: 15% 10% 15% 40% 20%;
+    grid-template-columns: 7% 86% 7%;
+    background-color: #deebf5;
+    grid-template-areas:
+        ". . ."
+        ". proP ."
+        ". . ."
+        ". proI ."
+        ". . .";
+}
+
+#directP {
+    grid-area: proP;
+    align-items: left;
+    align-content: left;
+    justify-content: left;
+    justify-items: left;
+    /*font-size: ; */
+}
+
+#profileInfo {
+    grid-area: proI;
+    background-color: #fff;
+    grid-template-columns: 7% 7% 3% 15% 41% 20% 7%;
+    grid-template-rows: 5% 90% 5%;
+    grid-template-areas:
+        ". . . . . . ."
+        ". cImg . cName . userName ."
+        ". . . . . . ."
+}
+
+#profileInfo img {
+    grid-area: cImg;
+}
+
+#cliName {
+    grid-area: cName;
+}
+
+#userName {
+    grid-area: userName;
+}
+
+#dashboardText {
+    grid-area: dt;
+}
+
 /* div text */
 #webDetailSection {
     grid-area: jw;
@@ -651,9 +720,9 @@ footer img:hover {
 #clinicianHome { 
     font-family: sans-serif;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 30vh 90vh 50vh;
+    grid-template-rows: 40vh 90vh 50vh;
     grid-template-areas:
-        ". . ."
+        "ci ci ci"
         ". . ."
         ". ds .";  
 }
