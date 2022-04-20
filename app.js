@@ -25,7 +25,7 @@ const patientRouter = require('./routes/patientRouter.js')
 app.use('/clinicianDashboard', patientRouter)
 
 app.get('/', async (req, res) => {
-    res.render('index.hbs');
+    res.render('aboutWeb.hbs');
 })
 
 //app.all('*', (req, res) => {  // 'default' route to catch user errors
