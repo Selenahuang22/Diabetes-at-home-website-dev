@@ -34,6 +34,11 @@ const patientRouter = require('./routes/patientRouter.js')
 app.use('/', patientRouter)
 
 
+app.get('/record', async (req, res) => {
+    res.render('dataEnter.hbs');
+})
+
+
 
 
 //app.all('*', (req, res) => {  // 'default' route to catch user errors
