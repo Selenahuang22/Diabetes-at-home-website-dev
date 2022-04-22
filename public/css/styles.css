@@ -420,7 +420,7 @@ footer img:hover {
         ". dt .";
 }
 
-#blueLine {
+.blueLine {
     grid-area: bl;
     background-color: #578ad6;
 }
@@ -527,6 +527,60 @@ footer img:hover {
     background-color: #5f8acb;
     color: #ffffff;
 }
+
+/*patient home*/
+#patientHome {
+    font-family: sans-serif;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-rows: 40vh 90vh 50vh;
+    grid-template-areas:
+        "pi pi pi"
+        ". . ."
+        ". . .";
+}
+
+#patientInfo {
+    grid-area: pi;
+    grid-template-rows: 5% 4% 91%;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-areas: 
+        ". . ."
+        "bl bl bl"
+        "pProf pProf pProf";
+
+}
+
+.blueLine {
+    grid-area: bl;
+    background-color: #578ad6;
+}
+
+#patProfile {
+    grid-area: pProf;
+    grid-template-rows: 15% 70% 15%;
+    grid-template-columns: 7% 86% 7%;
+    background-color: #deebf5;
+    grid-template-areas:
+        ". . ."
+        ". ppi ."
+        ". . .";
+       
+}
+
+#patProfileInfo {
+    grid-area: ppi;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 1.5vh;
+    background-color: #fff;
+    grid-template-columns: 5% 10% 25% 5% 25% 5% 20% 5%;
+    grid-template-rows: 5% 90% 5%;
+    grid-template-areas: 
+    ". . . . . . . ."
+    ". . . . . . . ."
+    ". . . . . . . .";
+}
+
 
 /* div text */
 #webDetailSection {
