@@ -24,13 +24,15 @@ app.get('/diabetesInfo', async (req, res) => {
     res.render('diabetesInfo.hbs');
 })
 
+
 // connect to database
 require('./models/db.js') 
 
 // connect to router
 const patientRouter = require('./routes/patientRouter.js')
 
-app.use('/clinicianDashboard', patientRouter)
+app.use('/', patientRouter)
+
 
 
 
