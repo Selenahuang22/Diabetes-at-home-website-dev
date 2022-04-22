@@ -449,14 +449,16 @@ footer img:hover {
 
 #profileInfo {
     grid-area: proI;
+    margin: 0px;
+    padding: 0px;
     border-radius: 1.5vh;
     background-color: #fff;
-    grid-template-columns: 7% 7% 3% 15% 41% 20% 7%;
+    grid-template-columns: 7% 5% 1% 9% 56% 15% 7%;
     grid-template-rows: 5% 90% 5%;
     grid-template-areas:
         ". . . . . . ."
         ". cImg . cName . userName ."
-        ". . . . . . ."
+        ". . . . . . .";
 }
 
 #profileInfo img {
@@ -465,6 +467,10 @@ footer img:hover {
 
 #cliName {
     grid-area: cName;
+    align-items: left;
+    align-content: left;
+    justify-content: left;
+    justify-items: left;
 }
 
 #userName {
@@ -477,6 +483,49 @@ footer img:hover {
     align-content: left;
     justify-content: left;
     justify-items: left;
+}
+
+#allPatients {
+    background-color: #deebf5;
+    align-items: start;
+    grid-area: allP;
+    grid-template-rows: 10% 80% 10%;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-areas:
+        ". . ."
+        ". pl ."
+        ". . .";
+}
+
+#patientList {
+    grid-area: pl;
+	width: 100%;
+	border-collapse: collapse;
+    border: 1.5px solid #5f8acb;
+    border-radius: 2vh;
+}
+
+#patientList td,
+#patientList th {
+    width: 45px;
+    height: 40px;
+    font-size: 1em;
+    border: 0px;
+    padding: 3px 7px 2px 7px;
+    background-color: #fff;
+    border-bottom-style: solid;
+    border-bottom-color: #5f8acb;
+    border-bottom-width: 2.5px;
+}
+
+#patientList th {
+    font-size: 1.1em;
+    font-weight: normal;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #5f8acb;
+    color: #ffffff;
 }
 
 /* div text */
@@ -728,7 +777,7 @@ footer img:hover {
     grid-template-rows: 40vh 90vh 50vh;
     grid-template-areas:
         "ci ci ci"
-        ". . ."
+        ". allP ."
         ". ds .";  
 }
 

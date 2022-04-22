@@ -16,13 +16,97 @@
         </section>
     </section>
 
-    <h1>Displaying patients</h1> 
- 
-    <ul> 
-        {{#each patient}} 
-        <li> {{this.fist_name}}, {{this.last_name}} </li> 
-        {{/each}}
-    </ul>
+    <section id="allPatients">
+        
+            <table id="patientList">
+                <tr>
+                    <th>Patient List</th>
+                    <th>Blood Glucose Level
+                        (in mmol/L)</th>
+                    <th>Weight (in kg)</th>
+                    <th>Number of Insulin
+                        Doses Taken</th>
+                    <th>Exercises
+                        (step count)</th>
+                </tr>
+
+                {{#each patient}}
+                <tr>
+                    <td class="fontBlueNormal">{{this.fist_name}} {{this.last_name}}</td>
+                    <td>{{this.blood_glucose_level}}</td>
+                    <td>{{this.weight}}</td>
+                    <td>{{this.insulin_take}}</td>
+                    <td>{{this.exercises}}</td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <td class="fontBlueNormal">Austin Hunter</td>
+                    <td>8.4</td>
+                    <td class="fontBlueNormal">-</td>
+                    <td>1</td>
+                    <td class="fontBlueNormal">-</td>
+                </tr>
+                <tr>
+                    <td class="fontBlueNormal">Vicky Hamilton</td>
+                    <td class="fontBlueNormal">-</td>
+                    <td class="fontRed">76.2</td>
+                    <td>1</td>
+                    <td class="fontBlueNormal">-</td>
+                </tr>
+                <tr>
+                    <td class="fontBlueNormal">Norma Shaffer</td>
+                    <td>7.9</td>
+                    <td>78.4</td>
+                    <td>N/A</td>
+                    <td class="fontBlueNormal">-</td>
+                </tr>
+                <tr>
+                    <td class="fontBlueNormal">Amani Lacey</td>
+                    <td>8.1</td>
+                    <td>58.2</td>
+                    <td>1</td>
+                    <td class="fontBlueNormal">-</td>
+                </tr>
+                <tr>
+                    <td class="fontBlueNormal">Logan Smith</td>
+                    <td>7.8</td>
+                    <td class="fontBlueNormal">-</td>
+                    <td>N/A</td>
+                    <td class="fontBlueNormal">-</td>
+                </tr>
+                <tr>
+                    <td class="fontBlueNormal">Sherry Marsh</td>
+                    <td>8.3</td>
+                    <td>67.9</td>
+                    <td>1</td>
+                    <td class="fontBlueNormal">-</td>
+                </tr>
+                <tr>
+                    <td class="fontBlueNormal">Katy Wynn</td>
+                    <td class="fontBlueNormal">-</td>
+                    <td class="fontBlueNormal">-</td>
+                    <td class="fontBlueNormal">-</td>
+                    <td class="fontBlueNormal">-</td>
+                </tr>
+                <tr>
+                    <td class="fontBlueNormal">Daid Anderson</td>
+                    <td class="fontBlueNormal">-</td>
+                    <td>72.8</td>
+                    <td>N/A</td>
+                    <td class="fontBlueNormal">-</td>
+                </tr>
+                <tr>
+                    <td class="fontBlueNormal">Evan Britton</td>
+                    <td class="fontRed">11.0</td>
+                    <td class="fontRed">85.8</td>
+                    <td class="fontBlueNormal">-</td>
+                    <td class="fontBlueNormal">-</td>
+                </tr>
+            </table>
+        
+
+    </section>
+
 
     <section id="directSection">
         <section id="directHeader">   
