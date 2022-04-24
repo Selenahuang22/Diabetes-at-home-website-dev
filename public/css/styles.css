@@ -81,10 +81,11 @@ img {
     color: green;
 }
 
-/* customize image */
-.plussign img {
-    width: 35px;
-    height: 35px;
+.titleBlack {
+    color: black;
+    font-size: 25px;
+    letter-spacing: 3px;
+    font-weight: 500;
 }
 
 .smallTitle {
@@ -92,6 +93,12 @@ img {
     font-size: 30px;
     letter-spacing: 3px;
     font-weight: 500;
+}
+
+/* customize image */
+.plussign img {
+    width: 35px;
+    height: 35px;
 }
 
 /* application for customize buttons */
@@ -525,11 +532,6 @@ footer img:hover {
 
 }
 
-.blueLine {
-    grid-area: bl;
-    background-color: #578ad6;
-}
-
 #patProfile {
     grid-area: pProf;
     grid-template-rows: 15% 70% 15%;
@@ -960,15 +962,74 @@ footer img:hover {
 
 /*@ clinicanHome, Layout**********************************************/
 #clinicianHome { 
-    font-family: sans-serif;
     grid-template-columns: 7% 86% 7%;
     grid-template-rows: 40vh 90vh 50vh;
     grid-template-areas:
         "ci ci ci"
         ". allP ."
-        ". ds .";  
+        ". ds .";
 }
 
+
+/* dataEnter, layout**************************************************/
+#patientEnter {
+    grid-template-columns: 7% 86% 7%;
+    grid-template-rows: 2vh 2vh 24vh 30vh auto 50vh;
+    grid-template-areas:
+        ". . ."
+        "bl bl bl"
+        "prof prof prof"
+        ". rdt ."
+        ". rbs ."
+        ". ds .";
+}
+
+#recordDataText {
+    grid-area: rdt;
+    grid-template-rows: 10% 20% 50% 20%;
+    justify-items: left;
+}
+#recordBars {
+    grid-area: rbs;
+    grid-template-areas: "RB";
+}
+.RecordBar {
+    grid-area: RB;
+    height: 50vh;
+    grid-template-rows: 10% 90%;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-areas: 
+        ". . ."
+        ". RBB .";
+}
+.RecordBlueBar {
+    grid-area: RBB;
+    grid-template-rows: 10% 80% 10%;
+    grid-template-areas: 
+        "."
+        "RIB"
+        ".";
+}
+.RecordInnerBar {
+    grid-area: RIB;
+    grid-template-rows: 20% 20% 20% 40%;
+    grid-template-columns: 35% 35% 20%;
+    column-gap: 5%;
+}
+.RecordInnerBar input {
+    border: #578ad6 3px solid;
+    font-size: large;
+}
+.RecordBotton {
+    align-items: flex-start;
+    justify-items: left;
+}
+.RecordBotton input {
+    background: #578ad6;
+    width: 150px;
+    height: 75px;
+    font-size: larger;
+}
 /* part 4 --------------------------------------------------------- responsive design for different size*/
 @media screen and (max-width: 880px) {
     #mezzanine {
