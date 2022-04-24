@@ -201,9 +201,12 @@ header {
     justify-items: left;
     font-style: italic;
     font-family: sans-serif;
+    color: #578ad6;
+}
+
+#name h1 {
     font-weight: normal;
     font-size: 2vw;
-    color: #578ad6;
 }
 
 #headRight {
@@ -251,7 +254,11 @@ footer {
     grid-area: fm;
     grid-template-columns: repeat(4, 6vh) 50%;
     color: #fff;
-    font-size: 1.8vh;
+}
+
+#fMiddle h5 {
+    font-size: 2vh;
+    font-weight: normal;
 }
 
 footer img {
@@ -1303,7 +1310,7 @@ footer img:hover {
         font-size: 20px;
         letter-spacing: 2px;
     }
-    #fMiddle {
+    #fMiddle h5{
         font-size: 1.6vh;
     }
   }
@@ -1525,7 +1532,7 @@ footer img:hover {
           "img1 img2 img3 img4"
           "p p p p";
       }
-    #fMiddle > p {
+    #fMiddle > h5 {
         grid-area: p;
         white-space: nowrap;
         font-size: 1vh;
