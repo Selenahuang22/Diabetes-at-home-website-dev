@@ -77,6 +77,11 @@ img {
     color: red;
 }
 
+.fontRedBold {
+    color: red;
+    font-weight: bolder;
+}
+
 .fontGreen {
     color: green;
 }
@@ -128,7 +133,7 @@ img {
     grid-area: Jte;
     color: #578ad6;
     font-weight: 900;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .Jarr {
@@ -217,11 +222,10 @@ header {
     border: 0.3vh solid #5d8ed7;
     border-radius: 2vh;
     border-right: 0vh;
+    background-color: white;
 }
 
 #look {
-    height: 3.8vh;
-    width: 4.5vw;
     background-image: url(../whitesearchtool.png);
     background-repeat: no-repeat;
     background-size: 3vh;
@@ -518,13 +522,13 @@ footer img:hover {
 #patientHome {
     font-family: sans-serif;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 40vh 55vh 100vh 70vh 50vh;
+    grid-template-rows: 40vh 55vh 100vh 100vh 50vh;
     grid-template-areas:
         "pi pi pi"
         "dd dd dd"
         "support support support"
         "leaderBoard leaderBoard leaderBoard"
-        ". . .";
+        ". ds .";
 }
 
 #patientInfo {
@@ -601,7 +605,7 @@ footer img:hover {
         ". . .";
 }
 
-#editProfile div {
+#editProfile p {
     grid-area: editPText;
 }
 
@@ -815,7 +819,7 @@ footer img:hover {
 
 #leaderBoard {
     grid-area: leaderBoard;
-    grid-template-rows: 15% 7% 15% 63%;
+    grid-template-rows: 7% 5% 7% 81%;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
         ". . ."
@@ -835,7 +839,7 @@ footer img:hover {
 
 #rank {
     grid-area: rank;
-    grid-template-rows: 10% 15% 8% 52% 15%;
+    grid-template-rows: 5% 15% 5% 68% 7%;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
         ". . ."
@@ -848,16 +852,28 @@ footer img:hover {
 
 #boardHead {
     grid-area: boardHead;
+    grid-template-rows: none;
+}
+
+#boardHead p {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-block-start: 0.5em;
+    margin-block-end: 0em;
 }
 
 #top5 {
     grid-area: top5;
-    grid-template-rows: 20% 5% 10% 5% 10% 5% 10% 5% 10% 20%;
+    grid-template-rows: 20% 5% 15% 5% 15% 5% 15% 5% 15%;
     grid-template-areas: 
         "first"
+        "."
         "second"
+        "."
         "third"
+        "."
         "forth"
+        "."
         "fifth";
 }
 
@@ -865,20 +881,29 @@ footer img:hover {
     grid-area: first;
 }
 
+#No1 {
+    color: orange;
+    font-size: 1.5em;
+}
+
 #secondRank {
     grid-area: second;
+    width: 90%;
 }
 
 #thirdRank {
     grid-area: third;
+    width: 90%;
 }
 
 #forthRank {
     grid-area: forth;
+    width: 90%;
 }
 
 #fifthRank {
     grid-area: fifth;
+    width: 90%;
 }
 
 
