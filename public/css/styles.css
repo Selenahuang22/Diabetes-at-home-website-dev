@@ -458,7 +458,7 @@ footer img:hover {
     /*font-size: ; */
 }
 
-#profileInfo {
+.profileInfo {
     grid-area: proI;
     margin: 0px;
     padding: 0px;
@@ -468,24 +468,28 @@ footer img:hover {
     grid-template-rows: 5% 90% 5%;
     grid-template-areas:
         ". . . . . . ."
-        ". cImg . cName . userName ."
+        ". cImg . cName . rightContent ."
         ". . . . . . .";
 }
 
-#profileInfo img {
+.profileInfo img {
     grid-area: cImg;
 }
 
-#cliName {
+.proName {
     grid-area: cName;
     align-items: left;
     align-content: left;
     justify-content: left;
     justify-items: left;
+    color: #578ad6;
+    font-weight: bolder;
 }
 
-#userName {
-    grid-area: userName;
+.rightContent {
+    grid-area: rightContent;
+    color: #578ad6;
+    font-weight: bolder;
 }
 
 #dashboardText {
@@ -514,10 +518,12 @@ footer img:hover {
 #patientHome {
     font-family: sans-serif;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 40vh 90vh 50vh;
+    grid-template-rows: 40vh 55vh 100vh 70vh 50vh;
     grid-template-areas:
         "pi pi pi"
         "dd dd dd"
+        "support support support"
+        "leaderBoard leaderBoard leaderBoard"
         ". . .";
 }
 
@@ -621,7 +627,7 @@ footer img:hover {
 
 #dailyData {
     grid-area: dd;
-    grid-template-rows: 15% 5% 10% 70%;
+    grid-template-rows: 15% 7% 15% 63%;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas: 
         ". . ."
@@ -630,8 +636,9 @@ footer img:hover {
         "todayData todayData todayData";
 }
 
-#dailyData h1 {
+#dailyDataText {
     grid-area: dailyDataText;
+    font-weight: 500;
     align-items: left;
     align-content: left;
     justify-content: left;
@@ -640,7 +647,8 @@ footer img:hover {
 
 #todayData {
     grid-area: todayData;
-    grid-template-rows: 15% 5% 1% 64% 15%;
+    align-items: start;
+    grid-template-rows: 20% 7% 8% 50% 15%;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas: 
         ". . ."
@@ -653,29 +661,48 @@ footer img:hover {
 
 #tableHead {
     grid-area: tableHead;
-    grid-template-columns: 7% 5% 3% 10% 58% 10% 7%;
-    grid-template-areas: ". today . recordData . viewAll .";    
+    grid-template-columns: 5% 3% 10% 72% 10%;
+    grid-template-areas: "today . recordData . viewAll";    
 }
 
 #today {
     grid-area: today;
+    font-size: 1.3em;
 }
 
 #recordData {
     grid-area: recordData;
+    font-size: 1.3em;
+    
+}
+
+#recordData a {
+    text-decoration: underline;
+    color: #578ad6;
 }
 
 #viewAll {
     grid-area: viewAll;
+    text-decoration: underline;
     align-items: right;
     align-content: right;
     justify-content: right;
     justify-items: right;
+    font-size: 1.3em;
+}
+
+#viewAll a {
+    text-decoration: underline;
+    color:green;
 }
 
 #onePatTodayTable {
     grid-area: onePatTodayTable;
    
+}
+
+#onePatTodayTable td {
+    height: 50px;
 }
 
 .tableClass{
@@ -687,7 +714,7 @@ footer img:hover {
 
 .tableClass td, 
 .tableClass th{
-    width: 45px;
+    width: 30px;
     height: 40px;
     font-size: 1em;
     border: 0px;
@@ -716,6 +743,143 @@ footer img:hover {
     border-bottom-width: 2.5px;
 }
 
+#supportMessages {
+    grid-area: support;
+    grid-template-rows: 8% 5% 8% 79%;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-areas:
+        ". . ."
+        ". supportMessagesText ."
+        ". . ."
+        "allMessages allMessages allMessages";
+}
+
+#supportMessagesText {
+    grid-area: supportMessagesText;
+    font-weight: 500;
+    align-items: left;
+    align-content: left;
+    justify-content: left;
+    justify-items: left;
+}
+
+#allMessages {
+    grid-area: allMessages;
+    align-items: start;
+    grid-template-rows: 8% 82% 10%;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-areas: 
+        ". . ."
+        ". onePatMessageTable ."
+        ". . .";
+
+    background-color: #deebf5;
+}
+
+#displaySelection {
+    grid-area: selectionForm;
+    width: 100%;
+    font-size: 1.3em;
+    align-items: left;
+    align-content: left;
+    justify-content: left;
+    justify-items: left;
+}
+
+#displaySelection select {
+    width: 70%;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+}
+
+#onePatMessageTable {
+    grid-area: onePatMessageTable;
+}
+
+#onePatMessageTable td,
+#onePatMessageTable th {
+    border-bottom-style: solid;
+    border-bottom-color: #5f8acb;
+    border-bottom-width: 2.5px;
+}
+
+#onePatMessageTable td img {
+    max-height: 70%;
+}
+
+.supmessageTime {
+    font-weight: bold;
+    text-align: center;
+}
+
+#leaderBoard {
+    grid-area: leaderBoard;
+    grid-template-rows: 15% 7% 15% 63%;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-areas:
+        ". . ."
+        ". leaderBoardText ."
+        ". . ."
+        "rank rank rank";
+}
+
+#leaderBoardText {
+    grid-area: leaderBoardText;
+    font-weight: 500;
+    align-items: left;
+    align-content: left;
+    justify-content: left;
+    justify-items: left;
+}
+
+#rank {
+    grid-area: rank;
+    grid-template-rows: 10% 15% 8% 52% 15%;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-areas:
+        ". . ."
+        ". boardHead ."
+        ". . ."
+        ". top5 ."
+        ". . .";
+    background-color: #deebf5;
+}
+
+#boardHead {
+    grid-area: boardHead;
+}
+
+#top5 {
+    grid-area: top5;
+    grid-template-rows: 20% 5% 10% 5% 10% 5% 10% 5% 10% 20%;
+    grid-template-areas: 
+        "first"
+        "second"
+        "third"
+        "forth"
+        "fifth";
+}
+
+#firstRank {
+    grid-area: first;
+}
+
+#secondRank {
+    grid-area: second;
+}
+
+#thirdRank {
+    grid-area: third;
+}
+
+#forthRank {
+    grid-area: forth;
+}
+
+#fifthRank {
+    grid-area: fifth;
+}
 
 
 /* div text */
