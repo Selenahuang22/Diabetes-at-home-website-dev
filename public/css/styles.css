@@ -21,10 +21,29 @@ input {
     border: 0px;
     border-radius: 2vh;
     opacity: 1;
+    font-size: 2vh;
+}
+
+input[type="submit"] {
+    background-color: #5b8dc6;
 }
 
 input::placeholder {
     font-size: 2vh;
+}
+
+input:hover[type="submit"] {
+    background-color: #9ab7e2;
+    cursor: pointer;
+}
+
+textarea {
+    height: 100%;
+    width: 100%;
+    border: 3px #5b8dc6 solid;
+    border-radius: 2vh;
+    font-size: 2vh;
+    font-family: sans-serif;
 }
 
 a {
@@ -234,13 +253,8 @@ header {
     background-size: 3vh;
     background-position: center;
     display: inline-block;
-    background-color: #5b8dc6;
 }
 
-#look:hover {
-    background-color: #9ab7e2;
-    cursor: pointer;
-}
 /* footer band styling */
 footer {
     display: grid;
@@ -489,8 +503,6 @@ footer img:hover {
 
 .proName {
     grid-area: cName;
-    align-items: left;
-    align-content: left;
     justify-content: left;
     justify-items: left;
     color: #578ad6;
@@ -1190,10 +1202,9 @@ footer img:hover {
 }
 #recordBars {
     grid-area: rbs;
-    grid-template-areas: "RB";
+    display: block;
 }
 .RecordBar {
-    grid-area: RB;
     height: 50vh;
     grid-template-rows: 10% 90%;
     grid-template-areas: 
@@ -1229,6 +1240,10 @@ footer img:hover {
     width: 150px;
     height: 75px;
     font-size: larger;
+}
+.fixed {
+    background-color: #ccc;
+    pointer-events: none;
 }
 /* part 4 --------------------------------------------------------- responsive design for different size*/
 @media screen and (max-width: 880px) {
@@ -1544,4 +1559,74 @@ footer img:hover {
         grid-template-columns: 5% 90% 5%;
         grid-template-rows: 10vh 85vh 80vh;
     }
+}
+
+/* part 5 --------------------------------------------------------- referenced application*/
+/* switch application changed from referenced */
+.SwitchIcon {
+    margin: 200px auto;
+}
+
+#toggle-button {
+    display: none;
+}
+
+.button-label {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    background-color: #5b8dc6;
+    box-shadow: #ccc 0px 0px 0px 2px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.button-label .text {
+    line-height: 30px;
+    font-size: 18px;
+    text-shadow: 0 0 2px #ddd;
+}
+
+.on {
+    color: #fff;
+    display: inline-block;
+    text-indent: 10px;
+}
+
+.off {
+    color: #fff;
+    display: none;
+    text-indent: 34px;
+}
+
+.button-label .circle {
+    left: 50px;
+    transition: all 0.3s;
+}
+
+#toggle-button:checked + label.button-label .circle {
+    left: 0px;
+}
+
+#toggle-button:checked + label.button-label .on {
+    display: none;
+}
+
+#toggle-button:checked + label.button-label .off {
+    display: inline-block;
+}
+
+#toggle-button:checked + label.button-label {
+    background-color: #ccc;
 }
