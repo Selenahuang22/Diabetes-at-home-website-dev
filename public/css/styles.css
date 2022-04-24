@@ -980,7 +980,7 @@ footer img:hover {
         "bl bl bl"
         "prof prof prof"
         ". rdt ."
-        ". rbs ."
+        "rbs rbs rbs"
         ". ds .";
 }
 
@@ -997,18 +997,19 @@ footer img:hover {
     grid-area: RB;
     height: 50vh;
     grid-template-rows: 10% 90%;
+    grid-template-areas: 
+        "."
+        "RBB";
+}
+.RecordBlueBar {
+    background: #DEEBF5;
+    grid-area: RBB;
+    grid-template-rows: 10% 80% 10%;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas: 
         ". . ."
-        ". RBB .";
-}
-.RecordBlueBar {
-    grid-area: RBB;
-    grid-template-rows: 10% 80% 10%;
-    grid-template-areas: 
-        "."
-        "RIB"
-        ".";
+        ". RIB ."
+        ". . .";
 }
 .RecordInnerBar {
     grid-area: RIB;
