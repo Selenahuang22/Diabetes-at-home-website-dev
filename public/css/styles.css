@@ -186,8 +186,7 @@ body {
     border: 0px;
     font-family: sans-serif;
     grid-template-rows: 12vh auto 6vh;
-    grid-template-areas:
-        "h"
+    grid-template-areas: "h"
         "."
         "f";
 }
@@ -553,10 +552,9 @@ footer img:hover {
 
 #patientInfo {
     grid-area: pi;
-    grid-template-rows: 5% 4% 91%;
+    grid-template-rows:  5% 95%;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas: 
-        ". . ."
         "bl bl bl"
         "pProf pProf pProf";
 
@@ -1186,9 +1184,8 @@ footer img:hover {
 #patientEnter {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 2vh 2vh 24vh 38vh auto 50vh;
+    grid-template-rows: 2vh 24vh 38vh auto 50vh;
     grid-template-areas:
-        ". . ."
         "bl bl bl"
         "prof prof prof"
         ". rdt ."
@@ -1348,7 +1345,8 @@ footer img:hover {
   }
 
 @media screen and (max-width: 640px) {
-    h1 {
+    #name h1 {
+        font-weight: normal;
         font-size: 5vw;
     }
     .plussign img {
@@ -1402,7 +1400,7 @@ footer img:hover {
         font-size: 1em;
     }
     header {
-        grid-template-columns: 4% 50% 1% 45%;
+        grid-template-columns: 4% 55% 1% 40%;
         grid-template-areas: ". hl . hr";
     }
     #headRight {
@@ -1411,7 +1409,7 @@ footer img:hover {
     }
     #look {
         height: 2.7vh;
-        width: 15vw;
+        width: 12.5vw;
         background-size: 2vh;
     }
     #bar {
@@ -1500,8 +1498,11 @@ footer img:hover {
     }
     .smallTitle {
         text-align: center;
-        font-size: 18px;
+        font-size: 1em;
         letter-spacing: 1.5px;
+    }
+    .titleBlack {
+        font-size: 1em;
     }
     #joinHeader {
         grid-template-columns: 10% 80% 10%;
@@ -1575,6 +1576,104 @@ footer img:hover {
     #info {
         grid-template-columns: 5% 90% 5%;
         grid-template-rows: 10vh 85vh 80vh;
+    }
+
+    #directSection {
+        grid-area: ds;
+        grid-template-rows: 5% 8% 5% 67% 15%;
+        grid-template-areas:
+            "."
+            "dh"
+            "."
+            "jb3"
+            ".";
+    }
+
+    #directHeader{
+        grid-template-columns: 75% 25%;
+    }
+
+    /*patient home*/
+    #patientHome {
+        font-size: 1.4em;
+    }
+
+    /* dataEnter, layout**************************************************/
+    #patientEnter {
+        font-size: 1em;
+        float: left;
+        grid-template-rows: 2vh 24vh 38vh auto 68vh;
+    }
+
+    .RecordBar {
+        height: 80vh;
+        grid-template-rows: 2% 96% 2%;
+        grid-template-areas: 
+            "."
+            "RBB"
+            ".";
+    }
+    .RecordBlueBar {
+        background: #DEEBF5;
+        grid-area: RBB;
+        grid-template-rows: 2% 96% 2%;
+        grid-template-columns: 7% 86% 7%;
+        grid-template-areas: 
+            ". . ."
+            ". RIB ."
+            ". . .";
+    }
+    .RecordInnerBar {
+        grid-area: RIB;
+        grid-template-rows: 5% 70% 20% 5%;
+        grid-template-columns: 40% 60%;
+        row-gap: 5%;
+        grid-template-areas: 
+        ". ."
+        "recordArea recordArea"
+        "SwitchIcon SwitchIcon"
+        ". .";
+    }
+
+    #recordArea {
+        grid-area: recordArea;
+    }
+
+    .SwitchIcon {
+        grid-area: SwitchIcon;
+        grid-template-rows: none;
+    }
+
+    .RecordInnerBar input {
+        border: #578ad6 3px solid;
+        font-size: large;
+        margin-top: 13px;
+        height: 45px;
+    }
+
+    .RecordBotton {
+        align-items: flex-start;
+        justify-items: left;
+    }
+    .RecordBotton input {
+        background: #578ad6;
+        width: 150px;
+        height: 75px;
+        font-size: larger;
+    }
+    .fixed {
+        background-color: #ccc;
+        pointer-events: none;
+    }
+
+    .profileInfo {
+        grid-template-columns: 1% 40% 3% 55% 1%;
+        grid-template-rows: 10% 40% 40% 10%;
+        grid-template-areas:
+            ". . . . ."
+            ". cImg . cName ."
+            ". cImg . rightContent ."
+            ". . . . .";
     }
 }
 
