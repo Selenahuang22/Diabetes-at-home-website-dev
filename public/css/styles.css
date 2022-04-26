@@ -1523,7 +1523,7 @@ footer img:hover {
     }
     .Jbot {
         border-radius: 3vh;
-        border: 3px #578ad6 solid;
+        border: 2px #578ad6 solid;
         height: 14vh;
         grid-template-columns: 3% 18% 9% 50% 4% 10% 4%;
         grid-template-rows: 100%;
@@ -1580,7 +1580,7 @@ footer img:hover {
 
     #directSection {
         grid-area: ds;
-        grid-template-rows: 5% 8% 5% 67% 15%;
+        grid-template-rows: 2% 8% 5% 77% 8%;
         grid-template-areas:
             "."
             "dh"
@@ -1602,7 +1602,7 @@ footer img:hover {
     #patientEnter {
         font-size: 1em;
         float: left;
-        grid-template-rows: 2vh 24vh 38vh auto 68vh;
+        grid-template-rows: 2vh 24vh 38vh auto 58vh;
     }
 
     .RecordBar {
