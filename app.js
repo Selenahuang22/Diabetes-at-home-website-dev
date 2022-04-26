@@ -14,7 +14,12 @@ app.engine('hbs', exphbs.engine({
 	defaultlayout: 'main',
 	extname: 'hbs',
     helpers: {
-       is_blood_glucose: x => x == "blood glucose level"
+       is_blood_glucose: x => x == "blood glucose level",
+       is_insulin_take: x => x == "insulin take",
+       is_weight: x => x == "weight",
+       is_exercises: x => x == "exercises",
+       is_today: (x, today) => x == today,
+       is_in_dangRange: x => x <3.9 || x>10
     }
 }))
 app.set('view engine', 'hbs')

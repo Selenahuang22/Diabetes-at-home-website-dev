@@ -35,10 +35,10 @@
                 <tr>
                     <td class="fontBlueNormal">{{this.first_name}} {{this.last_name}}</td>
                     {{#each health_data}}
-                    <td>{{#if blood_glucose_level}}{{blood_glucose_level}}{{else}}-{{/if}}</td>
-                    <td>{{#if weight}}{{weight}}{{else}}-{{/if}}</td>
-                    <td>{{#if insulin_take}}{{insulin_take}}{{else}}-{{/if}}</td>
-                    <td>{{#if exercises}}{{exercises}}{{else}}-{{/if}}</td>
+                    <td>{{#if (is_blood_glucose this.data_name)}}{{this.value}}{{else}}-{{/if}}</td>
+                    <td>{{#if (is_insulin_take this.data_name)}}{{this.value}}{{else}}-{{/if}}</td>
+                    <td>{{#if (is_weight this.data_name)}}{{this.value}}{{else}}-{{/if}}</td>
+                    <td>{{#if (is_exercises this.data_name)}}{{this.value}}{{else}}-{{/if}}</td>
                     {{/each}}
                 </tr>
                 
