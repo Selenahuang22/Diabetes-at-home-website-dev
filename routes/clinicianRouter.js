@@ -17,7 +17,7 @@ clinicianRouter.get(
             // }
             res.render("clinicianHome", 
                 {
-                    patient: result.data
+                    patient: result.data.data
                 })
         }else{
             res.sendStatus(404)
