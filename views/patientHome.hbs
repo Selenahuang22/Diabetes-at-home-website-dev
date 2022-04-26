@@ -5,18 +5,18 @@
             <section id="patProfileInfo">
                 <section id="pImg">
                     <img src="/vickyhamilton.png" alt="default patient img">
-                    <p class="fontBlue">Pat Health</p>
+                    <p class="fontBlue">{{thispatient.first_name}} {{thispatient.last_name}}</p>
                 </section>
                 
                 <section id="perInfo1"> 
-                    <p><b>Username:</b> patH123</p>
-                    <p><b>Email:</b> patH123@gmail.com</p>
-                    <p><b>D.O.B:</b> 12/03/1973</p>
+                    <p><b>Username:</b> {{thispatient.user_name}}</p>
+                    <p><b>Email:</b> {{thispatient.email}}</p>
+                    <p><b>D.O.B:</b> {{thispatient.DOB}}</p>
                 </section>
 
                 <section id="perInfo2"> 
                     <p><b>Clinician In Charge:</b> Chris Brown</p>
-                    <p><b>Biography:</b> I enjoy travelling around the world and engage with other cultures</p>
+                    <p><b>Biography:</b> {{thispatient.biography}}</p>
                 </section>
 
                 <section id="editProfile">
@@ -40,7 +40,7 @@
         <section id="todayData">
             <section id="tableHead">
                 <div id="today"><p>Today</p></div>
-                <div id="recordData"><p><a href="dataEnter">Record Data</a></p></div>
+                <div id="recordData"><p><a href="record">Record Data</a></p></div>
                 <div id="viewAll"><p><a href="">View All</a></p></div>
             </section>
             
@@ -57,11 +57,18 @@
                         (step count)</th>
                 </tr> 
                 <tr>
-                    <td class="fontBlueNormal">17/03/2022</td>
-                    <td>-</td>
-                    <td>76.2</td>
-                    <td>1</td>
-                    <td>-</td>
+                    <td class="fontBlueNormal">
+                        <script>
+                            date = new Date().toLocaleDateString();
+                            document.write(date);
+                        </script>
+                    </td>
+                    {{#each thispatient.health_data}}
+                    <td>{{#if blood_glucose_level}}{{blood_glucose_level}}{{else}}-{{/if}}</td>
+                    <td>{{#if weight}}{{weight}}{{else}}-{{/if}}</td>
+                    <td>{{#if insulin_take}}{{insulin_take}}{{else}}-{{/if}}</td>
+                    <td>{{#if exercises}}{{exercises}}{{else}}-{{/if}}</td>
+                    {{/each}}
                 </tr>
             </table>
         </section>

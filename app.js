@@ -12,7 +12,10 @@ app.use(express.static(__dirname + '/images')); // static images
 const exphbs = require('express-handlebars')
 app.engine('hbs', exphbs.engine({
 	defaultlayout: 'main',
-	extname: 'hbs'
+	extname: 'hbs',
+    helpers: {
+       is_blood_glucose: x => x == "blood glucose level"
+    }
 }))
 app.set('view engine', 'hbs')
 
@@ -32,11 +35,6 @@ require('./models/db.js')
 const patientRouter = require('./routes/patientRouter.js')
 
 app.use('/', patientRouter)
-
-
-app.get('/record', async (req, res) => {
-    res.render('dataEnter.hbs');
-})
 
 
 

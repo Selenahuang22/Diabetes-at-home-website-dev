@@ -107,7 +107,7 @@ img {
 
 .titleBlack {
     color: black;
-    font-size: 25px;
+    font-size: 35px;
     letter-spacing: 3px;
     font-weight: 500;
 }
@@ -1224,14 +1224,30 @@ footer img:hover {
 }
 .RecordInnerBar {
     grid-area: RIB;
-    grid-template-rows: 20% 20% 20% 40%;
-    grid-template-columns: 35% 35% 20%;
+    grid-template-rows: 5% 95%;
+    grid-template-columns: 50% 50%;
     column-gap: 5%;
+    grid-template-areas: 
+    ". ."
+    "recordArea SwitchIcon";
 }
+
+#recordArea {
+    grid-area: recordArea;
+}
+
+.SwitchIcon {
+    grid-area: SwitchIcon;
+    grid-template-rows: none;
+}
+
 .RecordInnerBar input {
     border: #578ad6 3px solid;
     font-size: large;
+    margin-top: 13px;
+    height: 45px;
 }
+
 .RecordBotton {
     align-items: flex-start;
     justify-items: left;
@@ -1564,9 +1580,6 @@ footer img:hover {
 
 /* part 5 --------------------------------------------------------- referenced application*/
 /* switch application changed from referenced */
-.SwitchIcon {
-    margin: 200px auto;
-}
 
 #toggle-button {
     display: none;
