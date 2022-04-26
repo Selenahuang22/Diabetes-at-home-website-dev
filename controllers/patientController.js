@@ -1,25 +1,32 @@
-const { Patient } = require("../models/patient")
+const Patient = require("../models/patient")
 
-
-const getAllPatients = async (req, res) => {
-    try {
-        const patients = await Patient.find().lean()
-        return res.render('clinicianHome', { patient: patients })
-    } catch (err) {
-        console.log(err)
+/**
+ * 
+ * @param {String} email email of a clinician
+ * @returns an array of patients manage buy this clinician
+ */
+const getAllPatientOfClinician = async (email) => {
+    
+    return {status:true, data: await Patient
+        .find(
+            {clinician_email: email}
+        ).lean()
     }
 }
 
-const getOnePatient =  async (req, res) => { // get one food, and render it
-	try {
-		const patient = await Patient.findOne( {_id: req.params.id} ).lean()
-		return res.render('patientHome', {"thispatient": patient})	
-	} catch (err) {
-		console.log(err)
-	}
+/**
+ * 
+ * @param {String} id the string local id of the patient as in the mongo db
+ * @returns JSON object with attribute as stored in the DB
+ */
+const getOnePatient = async (id) => {
+    return { 
+        status: true, 
+        data: await Patient.findOne({_id: id}).lean()
+    }
 }
 
 module.exports = {
-    getAllPatients,
-    getOnePatient,
+    getAllPatientOfClinician,
+    getOnePatient
 }

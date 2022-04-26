@@ -1,7 +1,7 @@
 
 const mongoose = require("mongoose")
 
-cosnt clinicianSchema = new mongoose.Schema(
+const clinicianSchema = new mongoose.Schema(
     {
         // personal detail
         first_name: String,
@@ -13,3 +13,7 @@ cosnt clinicianSchema = new mongoose.Schema(
         password: { type: String, require: true},
     }
 )
+
+const Clinician = mongoose.model("Clinician", clinicianSchema)
+
+module.exports = Clinician

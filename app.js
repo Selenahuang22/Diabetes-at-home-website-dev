@@ -38,10 +38,12 @@ require('./models/db.js')
 
 // connect to router
 const patientRouter = require('./routes/patientRouter.js')
+const clinicianRouter = require('./routes/clinicianRouter')
+const healthDataRouter = require('./routes/healthDataRouter')
 
-app.use('/', patientRouter)
-
-
+app.use('/patient/', patientRouter)
+app.use("/clinician/", clinicianRouter)
+app.use('/health_data/', healthDataRouter)
 
 
 //app.all('*', (req, res) => {  // 'default' route to catch user errors

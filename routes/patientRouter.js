@@ -7,13 +7,29 @@ const patientRouter = express.Router()
 const patientController = require('../controllers/patientController.js')
 const healthDataController = require('../controllers/healthDataController.js')
 
-// add a route to handle the GET request for all demo data
-patientRouter.get('/clinician/Chris/dashboard', (req, res) => patientController.getAllPatients(req, res))
-patientRouter.get('/patient/:id/home', (req, res) => patientController.getOnePatient(req, res))
-patientRouter.get('/patient/:id/record', (req, res) => res.render('dataEnter'))
 
-// add a new JSON object to the database
-patientRouter.post('/patient/:id/record', (req, res) => healthDataController.insertData(req, res))
+patientRouter.get(
+    '/:id/home',
+    async (req, res) => {
+        let result = await patientController.getOnePatient(req.params.id)
+
+        if(result.status){
+            console.log(result.data);
+            return res.render('patientHome', {"thispatient": result.data})
+        } else{
+            res.sendStatus(404)
+        }
+    }
+)
+
+patientRouter.get(
+    '/:id/record',
+    (req, res) => {
+        res.render('dataEnter')
+    }
+)
+
+
 
 // export the router
 module.exports = patientRouter

@@ -9,7 +9,9 @@ const healthDataSchema = new mongoose.Schema({  // declare a Mongoose schema
   comment: String,
 
   // this will be referencing the email of patient
-  owner: {type: email, require: true}
+  owner: {type: String, require: true}
 })
 
 const HealthData = mongoose.model("HealthData", healthDataSchema) // compile the schema into a model
+
+module.exports = HealthData
