@@ -34,7 +34,7 @@ patientRouter.get(
             for(var i of checkResult.data.latest_log){
                 logged.push(i.name)
             }
-
+        
         res.render('dataEnter', {
             id: req.params.id, 
             need_log_glucose: !("blood glucose level" in logged)

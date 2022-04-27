@@ -5,7 +5,7 @@ First install express, express-handlebars, mongoose, dotev..
 Now pages open:
 clinician dashboard: localhost:3000/clinician/62681f79228c6586c1a5b583/dashboard
 Patient home: localhost:3000/patient/625e79ce43e41e6e83e2014b/home
-Patient record data: localhost:3000/625e79ce43e41e6e83e2014b/record
+Patient record data: localhost:3000/patient/625e79ce43e41e6e83e2014b/record
 
 
 references

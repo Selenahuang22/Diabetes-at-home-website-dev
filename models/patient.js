@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const patientSchema = new mongoose.Schema({  // declare a Mongoose schema
   // personal detail
@@ -42,7 +42,7 @@ const patientSchema = new mongoose.Schema({  // declare a Mongoose schema
 
   // this is the  email of the doctor who in charge of this patient
   clinician_email: {type: String, require: true}
-})
+});
 
 const Patient = mongoose.model("Patient", patientSchema); // compile the schema into a model
 
