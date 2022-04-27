@@ -13,10 +13,10 @@ patientRouter.get(
     async (req, res) => {
         var result = await patientController.getOnePatient(req.params.id)
 
-        console.log(result.data.last_active_date);
-        console.log((new Date(result.data.last_active_date)).toLocaleDateString());
+        console.log(result.data);
         if(result.status)
             res.render('patientHome', {
+                "id": req.params.id,
                 "thispatient": result.data,
                 'time': new Date(Number(result.data.last_active_date)).toLocaleDateString()
             })
