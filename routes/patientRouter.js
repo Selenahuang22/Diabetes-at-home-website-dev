@@ -53,29 +53,31 @@ patientRouter.get(
 patientRouter.post(
     '/:id/submit_log',
     async (req, res) => {
-        console.log(req.params.id);
         // we need to check for cache expiration again
         let checkResult = await patientController.checkCacheLog(req.params.id)
+        let directPath = '/patient/'+req.params.id+'/home'
         let result = false
         // we can perform data interity check here
 
         // cache the log value
         if(req.body.value != "" && req.body.date != ""){
-
+            console.log("1");
             // ensure the log is not exit in the cache
-            console.log(checkResult.data);
             if(! checkResult.data.latest_log.includes(req.body.data_name)){
-                result = patientController.cacheTheLog(req.body.data_name, req.body.value, checkResult.data);
+                console.log(req.body);
+                result = await patientController.cacheTheLog(req.body.data_name, req.body.value, checkResult.data);
             
                 // if the caching successfull we can add the data to db
                 if(result.status) {
-                    result = healthDataController.insert(checkResult._id, req.body.date, req.body.name, req.body.comment)
+                    console.log("3");
+                    result = await healthDataController.insert(req.params.id, req.body.date, req.body.name, req.body.comment, req.body.value)
+                    console.log("insert data");
                 }
             }
             
         }
         (result)
-            ? res.redirect("/patient/" + req.params.id+ "/record")
+            ? res.redirect(directPath)
 
             
             : res.sendStatus(404)

@@ -7,6 +7,7 @@ const healthDataSchema = new mongoose.Schema({  // declare a Mongoose schema
     "Blood glucose data"
   ], require: true},
   comment: String,
+  value: {type: String, require: true},
 
   // this will be referencing the email of patient
   owner: {type: String, require: true}

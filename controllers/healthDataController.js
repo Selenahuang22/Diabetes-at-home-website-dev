@@ -8,12 +8,13 @@ const HealthData = require("../models/healthData");
  * @param {String} comment customise comment of patient 
  * @returns Json packet: status indicate if the action is successful, data can either be the object just save or error message
  */
-const insert = async (owner, time, name, comment) => {
+const insert = async (owner, time, name, comment, value) => {
     let data = await HealthData.create({
         owner: owner,
         time: time, 
         comment: comment,
-        name: name
+        name: name,
+        value: value
     })
 
     try{
