@@ -66,11 +66,52 @@ const checkCacheLog = async (id) => {
     }
 }
 
+/**
+ * 
+ * @param {String} name one of the pre-defined set of time series
+ * @param {*} value 
+ * @param {*} id 
+ */
+const cacheTheLog= async (name, value, patientData) => {
+    let localPatient = patientData
+    let cache = patientData.latest_log
+    let status = fail
+
+    cache.push(
+        {
+            name: name,
+            value: value
+        }
+    )
+
+    try{
+        patientData.latest_log = cache
+        await Patient.updateOne(
+            {_id: patientData._id},
+            {
+                $set:{
+                    latest_log: cache
+                }
+            }
+        )
+        status = true
+    } catch(err){
+        localPatient = err
+    }
+
+    return {
+        status: status,
+        data: localPatient
+    }
+}
+
+
 const extractUnixOfYYYY_MM_DD = (unix) => {
     return Math.floor(unix / 86400000) * 86400000;
 }
 module.exports = {
     getAllPatientOfClinician,
     getOnePatient,
-    checkCacheLog
+    checkCacheLog,
+    cacheTheLog
 }

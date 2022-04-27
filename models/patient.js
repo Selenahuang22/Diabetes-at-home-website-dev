@@ -32,8 +32,7 @@ const patientSchema = new mongoose.Schema({  // declare a Mongoose schema
       name: { type: String, enum: [/** list all the possible time series */
         "Blood glucose data"
       ]},
-      value: {type: Number, require: true},
-      status: {type: String, require: true, enum: ["Low", "Ok", "High"]}
+      value: {type: Number, require: true}
     }
   ],
 

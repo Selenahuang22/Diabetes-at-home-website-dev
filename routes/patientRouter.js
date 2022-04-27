@@ -27,7 +27,7 @@ patientRouter.get(
     async (req, res) => {
         // check if the log cache need to be clear (expired)
         let checkResult = await patientController.checkCacheLog(req.params.id)
-        console.log(checkResult);
+        
         // determin the time series that are not log for today
         let logged = []
         if(checkResult.data)
@@ -45,9 +45,18 @@ patientRouter.get(
 
 patientRouter.post(
     '/:id/submit_log',
-    (req, res) => {
+    async (req, res) => {
         console.log(req.params.id);
-        // check if 
+        // we need to check for cache expiration again
+        let checkResult = await patientController.checkCacheLog(req.params.id)
+
+        console.log(req.body);
+        // we can perform data interity check here
+
+        // cache the log value
+        if(req.body.value != "" && req.body.date != ""){
+            
+        }
     }
 )
 
