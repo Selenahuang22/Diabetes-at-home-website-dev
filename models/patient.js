@@ -27,7 +27,7 @@ const patientSchema = new mongoose.Schema({  // declare a Mongoose schema
   ],
 
   // caching the latest log -> can be use to ensure that patient log their data daily
-  last_log: [
+  latest_log: [
     {
       name: { type: String, enum: [/** list all the possible time series */
         "Blood glucose data"

@@ -23,37 +23,39 @@
         <section></section>
     </section>
 
-    <section id="recordBars">
-        <section class="RecordBar">
-            <section class="RecordBlueBar">
-                <section class="RecordInnerBar">
-                    <form id="recordArea" method="POST">
-                        <b>Health Data Name</b><input type="text" value="blood glucose level" name="data_name" readonly/>
-                        <b>Value</b><input type="text" placeholder="xx" name="value" />
-                        <b>Date(DD/MM/YYYY)</b><input type="text" placeholder="xx" name="date" />
-                        <b>Comments</b><input type="text" placeholder="xx" name="comment" />
-                        <input type="submit" value="Save" class="fontWhiteBold"/>
-                    </form>
-                    
-                    <!-- switch application is referenced -->
-                    <div class="SwitchIcon">
-                        <h3>Alert</h3>
-                        <div class="toggle-button-wrapper">
-                            <input type="checkbox" id="toggle-button" name="switch" onclick="SwitchClick()" checked>
-                            <label for="toggle-button" class="button-label">
-                                <span class="circle"></span>
-                                <span class="text off">OFF</span>
-                                <span class="text on">ON</span>
-                            </label>
+    {{#if need_log_glucose}}
+        <section id="recordBars">
+            <section class="RecordBar">
+                <section class="RecordBlueBar">
+                    <section class="RecordInnerBar">
+                        <form id="recordArea" method="POST" action="/patient/{{id}}/submit_log">
+                            <b>Health Data Name</b><input type="text" value="blood glucose level" name="data_name" readonly/>
+                            <b>Value</b><input type="text" placeholder="xx" name="value" />
+                            <b>Date(DD/MM/YYYY)</b><input type="text" placeholder="xx" name="date" />
+                            <b>Comments</b><input type="text" placeholder="xx" name="comment" />
+                            <input type="submit" value="Save" class="fontWhiteBold"/>
+                        </form>
+                        
+                        <!-- switch application is referenced -->
+                        <div class="SwitchIcon">
+                            <h3>Alert</h3>
+                            <div class="toggle-button-wrapper">
+                                <input type="checkbox" id="toggle-button" name="switch" onclick="SwitchClick()" checked>
+                                <label for="toggle-button" class="button-label">
+                                    <span class="circle"></span>
+                                    <span class="text off">OFF</span>
+                                    <span class="text on">ON</span>
+                                </label>
+                            </div>
+                            <p class="fontRed">*press if there is any problem to notify the clinician</p>
                         </div>
-                        <p class="fontRed">*press if there is any problem to notify the clinician</p>
-                    </div>
-                    
-                    
-                    
+                        
+                        
+                        
+                    </section>
                 </section>
             </section>
-        </section>
+        {{/if}}
 
         <section class="RecordBar">
             <section class="RecordBlueBar">

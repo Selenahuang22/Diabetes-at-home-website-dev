@@ -24,12 +24,32 @@ patientRouter.get(
 
 patientRouter.get(
     '/:id/record',
-    (req, res) => {
-        res.render('dataEnter')
+    async (req, res) => {
+        // check if the log cache need to be clear (expired)
+        let checkResult = await patientController.checkCacheLog(req.params.id)
+        console.log(checkResult);
+        // determin the time series that are not log for today
+        let logged = []
+        if(checkResult.data)
+            for(var i of checkResult.data.latest_log){
+                logged.push(i.name)
+            }
+
+        res.render('dataEnter', {
+            id: req.params.id, 
+            need_log_glucose: !("blood glucose level" in logged)
+        })
     }
 )
 
 
+patientRouter.post(
+    '/:id/submit_log',
+    (req, res) => {
+        console.log(req.params.id);
+        // check if 
+    }
+)
 
 // export the router
 module.exports = patientRouter

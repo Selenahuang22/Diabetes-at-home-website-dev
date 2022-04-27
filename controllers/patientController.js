@@ -26,7 +26,34 @@ const getOnePatient = async (id) => {
     }
 }
 
+/***
+ * free all the cached log if last active before today
+ */
+const checkCacheLog = async (id) => {
+    let patient = await Patient.findOne({_id: id}).lean()
+
+    // check if the cache is not occur today.
+    let todayInUnix = extractUnixOfYYYY_MM_DD(Date.now())
+    console.log(Date.now());
+    if( todayInUnix != Number( patient.last_active_date)){
+        patient.latest_log = [];
+        patient.last_active_date = todayInUnix;
+        console.log(patient);
+        await patient.save();
+        console.log("here");
+    }
+
+    return {
+        status: true,
+        data: patient.data
+    }
+}
+
+const extractUnixOfYYYY_MM_DD = (unix) => {
+    Math.floor(unix / 86400000) * 86400000;
+}
 module.exports = {
     getAllPatientOfClinician,
-    getOnePatient
+    getOnePatient,
+    checkCacheLog
 }
