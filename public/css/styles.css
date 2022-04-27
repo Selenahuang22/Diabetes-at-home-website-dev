@@ -1345,6 +1345,9 @@ footer img:hover {
   }
 
 @media screen and (max-width: 640px) {
+    h1{
+        font-size: 1em;
+    }
     #name h1 {
         font-weight: normal;
         font-size: 5vw;
@@ -1595,9 +1598,408 @@ footer img:hover {
 
     /*patient home*/
     #patientHome {
-        font-size: 1.4em;
+        font-family: sans-serif;
+        font-size: 0.8em;
+        grid-template-columns: 7% 86% 7%;
+        grid-template-rows: 88vh 70vh auto auto 58vh;
+        grid-template-areas:
+            "pi pi pi"
+            "dd dd dd"
+            "support support support"
+            "leaderBoard leaderBoard leaderBoard"
+            ". ds .";
     }
 
+    #patientInfo {
+        grid-area: pi;
+        grid-template-rows: 3% 90% 3%;
+        grid-template-columns: 100%;
+        grid-template-areas: 
+            "."
+            "pProf"
+            ".";
+
+    }
+
+    #patProfile {
+        grid-area: pProf;
+        grid-template-rows: 2vh 55vh 2vh 15vh 2vh;
+        grid-template-columns: 2vh 10vh 15vh 10vh 2vh;
+        background-color: #fff;
+        background-image: linear-gradient(180deg, #deebf5 20%, white 0%);
+        grid-template-areas:
+            ". . . . ."
+            ". ppi ppi ppi ."
+            ". . . . ."
+            ". . badg . ."
+            ". . . . .";
+
+    }
+
+    #patProfileInfo {
+        grid-area: ppi;
+        margin: 0px;
+        padding: 0px;
+        border-radius: 3vh;
+        background-color: #fff;
+        grid-template-columns: 10% 80% 10%;
+        grid-template-rows: 5% 20% auto auto 12%;
+        grid-template-areas: 
+        ". . ."
+        ". pIm ."
+        ". pi1. "
+        ". pi2 ."
+        ". editP .";
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    #pImg {
+        grid-area: pIm;
+        grid-template-columns: none;
+        grid-template-rows: none;
+    }
+
+    #perInfo1 {
+        width: 20em;
+        grid-area: pi1;
+        grid-template-columns: none;
+        grid-template-rows: none;
+        justify-items: left;
+        border-right-style: solid;
+        border-right-width: thin;
+        border-right-color: #ffffff;
+        text-align: left;
+        float: left;
+    }
+
+    #perInfo2 {
+        width: 20em;
+        grid-area: pi2;
+        grid-template-columns: none;
+        grid-template-rows: none;
+        justify-items: left;
+        text-align: left;
+        float: left;
+    }
+
+    #editProfile {
+        grid-area: editP;
+        margin: 0px;
+        padding: 0px;
+        border-radius: 2vh;
+        background-color: #578ad6;
+        grid-template-columns: 5% 90% 5%;
+        grid-template-rows: 10% 80% 10%;
+        grid-template-areas: 
+            ". . ."
+            ". editPText ."
+            ". . .";
+    }
+
+    #editProfile p {
+        grid-area: editPText;
+    }
+
+    #badges {
+        grid-area: badg;
+        margin: 0px;
+        padding: 0px;
+        border-radius: 3vh;
+        background-color: #fff;
+        grid-template-columns: auto 10vh auto;
+        grid-template-rows: auto 10vh auto;
+        grid-template-areas: 
+            ". . ."
+            ". badgC ."
+            ". . .";
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    #badgesContent {
+        grid-area: badgC;
+        grid-template-columns: none;
+        grid-template-rows: none;
+    }
+
+    #dailyData {
+        grid-area: dd;
+        grid-template-rows: 7% 5% 88%;
+        grid-template-columns: 7% 86% 7%;
+        grid-template-areas: 
+            ". dailyDataText ."
+            ". . ."
+            "todayData todayData todayData";
+    }
+
+    #dailyDataText {
+        grid-area: dailyDataText;
+        font-weight: 500;
+        align-items: left;
+        align-content: left;
+        justify-content: left;
+        justify-items: left;
+    }
+
+    #todayData {
+        grid-area: todayData;
+        align-items: start;
+        grid-template-rows: 20% 7% 8% 50% 15%;
+        grid-template-columns: 7% 86% 7%;
+        grid-template-areas: 
+            ". . ."
+            ". tableHead ."
+            ". . ."
+            ". onePatTodayTable ."
+            ". . .";
+        background-color: #deebf5;
+    }
+
+    #tableHead {
+        grid-area: tableHead;
+        grid-template-columns: 15% 8% 35% 27% 20%;
+        grid-template-areas: "today . recordData . viewAll";    
+    }
+
+    #today {
+        grid-area: today;
+        font-size: 1.3em;
+    }
+
+    #recordData {
+        grid-area: recordData;
+        font-size: 1.3em;
+
+    }
+
+    #recordData a {
+        text-decoration: underline;
+        color: #578ad6;
+    }
+
+    #viewAll {
+        grid-area: viewAll;
+        text-decoration: underline;
+        align-items: right;
+        align-content: right;
+        justify-content: right;
+        justify-items: right;
+        font-size: 1.3em;
+    }
+
+    #viewAll a {
+        text-decoration: underline;
+        color:green;
+    }
+
+    #onePatTodayTable {
+        grid-area: onePatTodayTable;
+    }
+
+    #onePatTodayTable tbody {
+        overflow-x: scroll;
+    }
+
+    #onePatTodayTable td {
+        height: 50px;
+    }
+
+    .tableClass{
+        width: 100%;
+        border-collapse: collapse;
+        border: 1.5px solid #5f8acb;
+        border-radius: 2vh;
+    }
+
+    .tableClass td, 
+    .tableClass th{
+        width: 60px;
+        height: 40px;
+        font-size: 1.1em;
+        border: 0px;
+        padding: 3px 7px 2px 7px;
+        background-color: #fff;
+    }
+
+    .tableClass th {
+        font-size: 1.2em;
+        font-weight: normal;
+        text-align: left;
+        padding-top: 5px;
+        padding-bottom: 4px;
+        background-color: #5f8acb;
+        color: #ffffff;
+    }
+
+    #patientList {
+        grid-area: pl;
+    }
+
+    #patientList td,
+    #patientList th {
+        border-bottom-style: solid;
+        border-bottom-color: #5f8acb;
+        border-bottom-width: 2.5px;
+    }
+
+    #supportMessages {
+        grid-area: support;
+        grid-template-rows: 8% 5% 8% 79%;
+        grid-template-columns: 7% 86% 7%;
+        grid-template-areas:
+            ". . ."
+            ". supportMessagesText ."
+            ". . ."
+            "allMessages allMessages allMessages";
+    }
+
+    #supportMessagesText {
+        grid-area: supportMessagesText;
+        font-weight: 500;
+        align-items: left;
+        align-content: left;
+        justify-content: left;
+        justify-items: left;
+    }
+
+    #allMessages {
+        grid-area: allMessages;
+        align-items: start;
+        grid-template-rows: 8% 82% 10%;
+        grid-template-columns: 7% 86% 7%;
+        grid-template-areas: 
+            ". . ."
+            ". onePatMessageTable ."
+            ". . .";
+
+        background-color: #deebf5;
+    }
+
+    #displaySelection {
+        grid-area: selectionForm;
+        width: 100%;
+        font-size: 1.3em;
+        align-items: left;
+        align-content: left;
+        justify-content: left;
+        justify-items: left;
+    }
+
+    #displaySelection select {
+        width: 70%;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        font-size: 0.7em;
+    }
+
+    #onePatMessageTable {
+        grid-area: onePatMessageTable;
+    }
+
+    #onePatMessageTable td,
+    #onePatMessageTable th {
+        border-bottom-style: solid;
+        border-bottom-color: #5f8acb;
+        border-bottom-width: 2.5px;
+    }
+
+    #onePatMessageTable td img {
+        max-height: 80%;
+    }
+
+    .supmessageTime {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    #leaderBoard {
+        grid-area: leaderBoard;
+        grid-template-rows: 7% 5% 7% 81%;
+        grid-template-columns: 7% 86% 7%;
+        grid-template-areas:
+            ". . ."
+            ". leaderBoardText ."
+            ". . ."
+            "rank rank rank";
+    }
+
+    #leaderBoardText {
+        grid-area: leaderBoardText;
+        font-weight: 500;
+        align-items: left;
+        align-content: left;
+        justify-content: left;
+        justify-items: left;
+    }
+
+    #rank {
+        grid-area: rank;
+        grid-template-rows: 5% 15% 5% 68% 7%;
+        grid-template-columns: 7% 86% 7%;
+        grid-template-areas:
+            ". . ."
+            ". boardHead ."
+            ". . ."
+            ". top5 ."
+            ". . .";
+        background-color: #deebf5;
+    }
+
+    #boardHead {
+        grid-area: boardHead;
+        grid-template-rows: none;
+    }
+
+    #boardHead p {
+        font-weight: bold;
+        font-size: 1.3em;
+        margin-block-start: 0.5em;
+        margin-block-end: 0em;
+    }
+
+    #top5 {
+        grid-area: top5;
+        grid-template-rows: 20% 5% 15% 5% 15% 5% 15% 5% 15%;
+        grid-template-areas: 
+            "first"
+            "."
+            "second"
+            "."
+            "third"
+            "."
+            "forth"
+            "."
+            "fifth";
+    }
+
+    #firstRank {
+        grid-area: first;
+    }
+
+    #No1 {
+        color: orange;
+        font-size: 1.5em;
+    }
+
+    #secondRank {
+        grid-area: second;
+        width: 90%;
+    }
+
+    #thirdRank {
+        grid-area: third;
+        width: 90%;
+    }
+
+    #forthRank {
+        grid-area: forth;
+        width: 90%;
+    }
+
+    #fifthRank {
+        grid-area: fifth;
+        width: 90%;
+    }
     /* dataEnter, layout**************************************************/
     #patientEnter {
         font-size: 1em;
