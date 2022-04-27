@@ -1403,8 +1403,8 @@ footer img:hover {
         font-size: 1em;
     }
     header {
-        grid-template-columns: 4% 55% 1% 40%;
-        grid-template-areas: ". hl . hr";
+        grid-template-columns: 4% 50% 3% 40% 3%;
+        grid-template-areas: ". hl . hr .";
     }
     #headRight {
         grid-template-columns: 15% 80% 5%;
