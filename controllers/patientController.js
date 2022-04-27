@@ -1,4 +1,4 @@
-const Patient = require("../models/patient")
+ const Patient = require("../models/patient")
 
 /**
  * 
@@ -74,8 +74,11 @@ const checkCacheLog = async (id) => {
  */
 const cacheTheLog= async (name, value, patientData) => {
     let localPatient = patientData
+
     let cache = patientData.latest_log
-    let status = fail
+    let status = false
+    console.log(name);
+    console.log(value);
 
     cache.push(
         {

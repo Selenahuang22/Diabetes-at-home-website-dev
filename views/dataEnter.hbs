@@ -23,19 +23,25 @@
         <section></section>
     </section>
 
-    {{#if need_log_glucose}}
-        <section id="recordBars">
-            <section class="RecordBar">
-                <section class="RecordBlueBar">
+    
+    <section id="recordBars">
+        <section class="RecordBar">
+            
+            <section class="RecordBlueBar">
+                {{#if log_glucose}}
                     <section class="RecordInnerBar">
+                        
                         <form id="recordArea" method="POST" action="/patient/{{id}}/submit_log">
-                            <b>Health Data Name</b><input type="text" value="blood glucose level" name="data_name" readonly/>
-                            <b>Value</b><input type="text" placeholder="xx" name="value" />
-                            <b>Date(DD/MM/YYYY)</b><input type="text" placeholder="xx" name="date" />
-                            <b>Comments</b><input type="text" placeholder="xx" name="comment" />
-                            <input type="submit" value="Save" class="fontWhiteBold"/>
+                            
+                                <b>Health Data Name</b><input type="text" value="blood glucose level" name="data_name" readonly>
+                                <b>Value</b><input type="text" placeholder="xx" name="value" >
+                                <b>Date(DD/MM/YYYY)</b><input type="text" placeholder="xx" name="date" >
+                                <b>Comments</b><input type="text" placeholder="xx" name="comment" >
+                                <input type="submit"  class="fontWhiteBold" value="Save">
+                            
                         </form>
                         
+                            
                         <!-- switch application is referenced -->
                         <div class="SwitchIcon">
                             <h3>Alert</h3>
@@ -49,13 +55,14 @@
                             </div>
                             <p class="fontRed">*press if there is any problem to notify the clinician</p>
                         </div>
-                        
-                        
-                        
+                            
+                            
+                            
                     </section>
-                </section>
+                {{/if}}
             </section>
-        {{/if}}
+        </section>
+        
 
         <section class="RecordBar">
             <section class="RecordBlueBar">

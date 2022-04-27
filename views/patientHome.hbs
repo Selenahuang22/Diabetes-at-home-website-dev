@@ -59,10 +59,8 @@
                 </tr> 
                 <tr>
                     <td class="fontBlueNormal">
-                        <script>
-                            date = new Date().toLocaleDateString();
-                            document.write(date);
-                        </script>
+                        {{time}};
+                        
                     </td>
                     {{#if thispatient.latest_log.length}}
                         {{#each thispatient.latest_log}}
