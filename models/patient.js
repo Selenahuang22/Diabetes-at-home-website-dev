@@ -2,25 +2,25 @@ const mongoose = require("mongoose");
 
 const patientSchema = new mongoose.Schema({  // declare a Mongoose schema
   // personal detail
-  first_name: String,
-  last_name: String,
+  first_name: { type: String, require: true},
+  last_name: { type: String, require: true},
 
-  user_name: String,
+  user_name: { type: String, require: true},
 
   // credential
   email: { type: String, require: true, unique: true},
-  password: { type: String, require: true},
+  password: { type: String, require: true, minlength: 8},
   
   // Using long value - that represent the unix value should be more appropriate?
-  DOB: Number,
+  DOB: { type: Number, require: true},
 
-  biography: String,
+  biography: { type: String, require: true},
   
   // this is the meta data for the specific time series of this patient
   health_data: [
     // health data
     {
-      name: { type: String, enum: [/** list all the possible time series */]},
+      name: { type: String, require: true, enum: [/** list all the possible time series */]},
       upper: {type: Number, require: true},
       lower: {type: Number, require: true}
     }
