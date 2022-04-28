@@ -11,7 +11,7 @@ const healthDataController = require('../controllers/healthDataController.js')
 patientRouter.get(
     '/:id/home',
     async (req, res) => {
-        await patientController.checkCacheLog(req.params.id)
+        await patientController.getOnePatient(req.params.id)
         var result = await patientController.getOnePatient(req.params.id)
 
         console.log(result.data);
@@ -55,7 +55,7 @@ patientRouter.post(
     '/:id/submit_log',
     async (req, res) => {
         // we need to check for cache expiration again
-        let checkResult = await patientController.checkCacheLog(req.params.id)
+        let checkResult = await patientController.getOnePatient(req.params.id)
         let directPath = '/patient/'+req.params.id+'/home'
         let result = false
         // we can perform data interity check here

@@ -6,11 +6,21 @@
  * @returns an array of patients manage buy this clinician
  */
 const getAllPatientOfClinician = async (email) => {
-    
-    return {status:true, data: await Patient
-        .find(
-            {clinician_email: email}
-        ).lean()
+    // This is not the efficient approach, as it is very wasteful on computation power
+    // in order to keep cache on check
+    let fixedPatient = []
+    for(var patient 
+            of await Patient
+                .find(
+                    {clinician_email: email}
+                ).lean())
+        {
+        fixedPatient.push(_clearCacheIfExpired(patient))
+    }
+
+    return {
+        status:true, 
+        data: fixedPatient
     }
 }
 
@@ -20,26 +30,28 @@ const getAllPatientOfClinician = async (email) => {
  * @returns JSON object with attribute as stored in the DB
  */
 const getOnePatient = async (id) => {
+
+    let foundPatient = await Patient.findOne({_id: id}).lean()
+    foundPatient = _clearCacheIfExpired(foundPatient)
+
     return { 
         status: true, 
-        data: await Patient.findOne({_id: id}).lean()
+        data: foundPatient
     }
 }
 
 /**
- * 
- * @param {String} id the value act as key to retrieve our entry in the mong
- * @returns 
+ * check if the cache of the patient is expired, if so => clear cache
+ * @param {JSON} patient that is an object of schemas: patient
+ * @returns that patient after clear ()
  */
-const checkCacheLog = async (id) => {
-    let foundPatient = await Patient.findOne({_id: id}).lean()
-
-    // check if the cache is not occur today.
+const _clearCacheIfExpired = async (patient) => {
+    let foundPatient = patient
     let todayInUnix = extractUnixOfYYYY_MM_DD(Date.now())
     // we need to reset the cache log if it is expire, and update the corresponding data in our remote DB
     if( todayInUnix != Number( foundPatient.last_active_date)){
         try {
-            console.log(todayInUnix);
+            
             foundPatient.latest_log = [];
             foundPatient.last_active_date = todayInUnix;
 
@@ -60,11 +72,9 @@ const checkCacheLog = async (id) => {
         }
     }
 
-    return {
-        status: true,
-        data: foundPatient
-    }
+    return foundPatient
 }
+
 
 /**
  * 
