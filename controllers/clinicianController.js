@@ -10,6 +10,13 @@ const getClinicianPatients = async (id) => {
     }
 }
 
+const checkAllPatientsCacheLog = async (patients) => {
+    for (var i of patients) {
+        await patientController.checkCacheLog(i._id)
+    }
+}
+
 module.exports = {
-    getClinicianPatients
+    getClinicianPatients,
+    checkAllPatientsCacheLog,
 }

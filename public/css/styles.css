@@ -482,6 +482,11 @@ footer img:hover {
     /*font-size: ; */
 }
 
+#directP h2{
+    font-weight: normal;
+    font-size: 1.2em;
+}
+
 .profileInfo {
     grid-area: proI;
     margin: 0px;
@@ -1795,7 +1800,6 @@ footer img:hover {
     .RecordInnerBar {
         grid-template-rows: 5% 70% 20% 5%;
         grid-template-columns: 100%;
-        row-gap: 5%;
         column-gap: unset;
         grid-template-areas: 
             ". ."

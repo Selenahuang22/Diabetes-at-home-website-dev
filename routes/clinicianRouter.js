@@ -3,7 +3,6 @@ const express = require('express')
 // create our Router object
 const clinicianRouter = express.Router()
 
-const patientController = require('../controllers/patientController.js')
 const clinicianController = require("../controllers/clinicianController")
 
 clinicianRouter.get(
@@ -14,9 +13,7 @@ clinicianRouter.get(
         
 
         if(result.status){
-            for(var i of result.data.data){
-                await patientController.checkCacheLog(i._id)
-            }
+            await clinicianController.checkAllPatientsCacheLog(result.data.data)
 
             res.render("clinicianHome", 
                 {
