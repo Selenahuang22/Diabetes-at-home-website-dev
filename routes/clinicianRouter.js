@@ -20,7 +20,7 @@ clinicianRouter.get(
                     patient: result.data.data
                 })
         }else{
-            res.sendStatus(404)
+            res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
         }
     }
 )

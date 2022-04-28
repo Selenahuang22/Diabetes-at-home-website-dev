@@ -21,7 +21,7 @@ patientRouter.get(
                 "thispatient": result.data,
                 'time': new Date().toLocaleDateString()
             })
-        else res.sendStatus(404)
+        else res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})
         
     }
 )
@@ -39,13 +39,13 @@ patientRouter.get(
                 logged.push(i.name)
                 console.log(i.name);
             }
-            console.log(!logged.includes("blood glucose level"));
+            
             res.render('dataEnter', {
                 id: req.params.id, 
                 log_glucose: (!logged.includes("blood glucose level"))
             })
         } else{
-            res.sendStatus(404)
+            res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})
         }
     }
 )
@@ -62,7 +62,6 @@ patientRouter.post(
 
         // cache the log value
         if(req.body.value != "" && req.body.date != ""){
-            console.log("1");
             // ensure the log is not exit in the cache
             if(! checkResult.data.latest_log.includes(req.body.data_name)){
                 console.log(req.body);
@@ -70,9 +69,7 @@ patientRouter.post(
             
                 // if the caching successfull we can add the data to db
                 if(result.status) {
-                    console.log("3");
                     result = await healthDataController.insert(req.params.id, req.body.data_name, req.body.comment, req.body.value)
-                    console.log("insert data");
                 }
             }
             
@@ -81,7 +78,7 @@ patientRouter.post(
             ? res.redirect(directPath)
 
             
-            : res.sendStatus(404)
+            : res.status(404).render('error', {errorCode: '404', message: 'Error occur when try to send Data.'})
     }
 )
 

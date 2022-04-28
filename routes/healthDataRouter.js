@@ -13,10 +13,7 @@ healthDataRouter.all(
         if(result.status){
             res.redirect(directPath)
         }else{
-            console.log(
-                "fail"
-            );
-            res.sendStatus(404)
+            res.status(404).render('error', {errorCode: '404', message: 'Error occur lead to fail to submit data.'})
         }
     }
 )

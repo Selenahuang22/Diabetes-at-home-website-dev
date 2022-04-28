@@ -125,6 +125,5 @@ const extractUnixOfYYYY_MM_DD = (unix) => {
 module.exports = {
     getAllPatientOfClinician,
     getOnePatient,
-    checkCacheLog,
     cacheTheLog
 }
