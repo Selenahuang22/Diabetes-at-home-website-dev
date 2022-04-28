@@ -250,7 +250,8 @@ header {
     background-color: white;
 }
 
-#look {
+#look,
+#smallLook {
     background-image: url(../whitesearchtool.png);
     background-repeat: no-repeat;
     background-size: 3vh;
