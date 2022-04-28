@@ -408,7 +408,7 @@ footer img:hover {
 }
 
 #logInPatient:hover,
-#logInClinican:hover {
+#logInClinician:hover {
     background: #4979c2;
 }
 
@@ -1354,7 +1354,7 @@ footer img:hover {
         grid-template-columns: 40% 20% 40%;
         grid-template-areas: "mr1 . mr2";
     }
-    #logInClinican {
+    #logInClinician {
         width: 25vw;
     }
     #logInPatient {
@@ -1447,7 +1447,7 @@ footer img:hover {
     #mezzanineImgHolder {
         display: none;
     }
-    #logInClinican {
+    #logInClinician {
         font-size: 1.5vh;
         border-radius: 3vh;
         height: 6vh;
