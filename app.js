@@ -19,7 +19,7 @@ app.engine('hbs', exphbs.engine({
        is_weight: x => x == "weight",
        is_exercises: x => x == "exercises",
        is_today: (x, today) => x == today,
-       is_in_dangRange: x =>( x <3.9 || x>10),
+       is_bgl_in_dangRange: x =>( x <3.9 || x>10),
     }
 }))
 app.set('view engine', 'hbs')
@@ -46,9 +46,9 @@ app.use("/clinician/", clinicianRouter)
 app.use('/health_data/', healthDataRouter)
 
 
-//app.all('*', (req, res) => {  // 'default' route to catch user errors
-	//res.status(404).render('error', {errorCode: '404', message: 'That route is invalid.'})
-//})
+app.all('*', (req, res) => {  // 'default' route to catch user errors
+	res.status(404).render('error', {errorCode: '404', message: 'That route is invalid.'})
+})
 
 
 // start server and listen for HTTP requests

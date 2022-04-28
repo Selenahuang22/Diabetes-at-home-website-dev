@@ -63,14 +63,14 @@
                     </td>
                     {{#if thispatient.latest_log.length}}
                         {{#each thispatient.latest_log}}
-                            <td {{#if (is_in_dangRange this.value)}}class="fontRed"{{/if}} >{{#if (is_blood_glucose this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                            <td {{#if (is_in_dangRange this.value)}}class="fontRed"{{/if}} >{{#if (is_insulin_take this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                            <td {{#if (is_in_dangRange this.value)}}class="fontRed"{{/if}} >{{#if (is_weight this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                            <td {{#if (is_in_dangRange this.value)}}class="fontRed"{{/if}} >{{#if (is_exercises this.name)}}{{this.value}}{{else}}-{{/if}}</td>
+                            <td {{#if (is_bgl_in_dangRange this.value)}}class="fontRed"{{/if}} >{{#if (is_blood_glucose this.name)}}{{this.value}}{{else}}-{{/if}}</td>
+                            <td>{{#if (is_insulin_take this.name)}}{{this.value}}{{else}}-{{/if}}</td>
+                            <td>{{#if (is_weight this.name)}}{{this.value}}{{else}}-{{/if}}</td>
+                            <td>{{#if (is_exercises this.name)}}{{this.value}}{{else}}-{{/if}}</td>
                         {{/each}}
                     {{else}}
-                        <td>x</td>
-                        <td>x</td>
+                        <td>-</td>
+                        <td>-</td>
                         <td>-</td>
                         <td>-</td>
                     {{/if}}

@@ -11,6 +11,7 @@ const healthDataController = require('../controllers/healthDataController.js')
 patientRouter.get(
     '/:id/home',
     async (req, res) => {
+        await patientController.checkCacheLog(req.params.id)
         var result = await patientController.getOnePatient(req.params.id)
 
         console.log(result.data);
@@ -70,7 +71,7 @@ patientRouter.post(
                 // if the caching successfull we can add the data to db
                 if(result.status) {
                     console.log("3");
-                    result = await healthDataController.insert(req.params.id, req.body.date, req.body.name, req.body.comment, req.body.value)
+                    result = await healthDataController.insert(req.params.id, req.body.date, req.body.data_name, req.body.comment, req.body.value)
                     console.log("insert data");
                 }
             }

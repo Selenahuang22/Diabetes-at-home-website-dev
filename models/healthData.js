@@ -2,12 +2,12 @@ const mongoose = require("mongoose")
 
 const healthDataSchema = new mongoose.Schema({  // declare a Mongoose schema
   time: {type: Number, require: true},
-  name: {type: String , enum: [
+  data_name: {type: String , enum: [
     /**list down all possible time series */
-    "Blood glucose data"
+    "blood glucose level"
   ], require: true},
   comment: String,
-  value: {type: String, require: true},
+  value: {type: Number, require: true},
 
   // this will be referencing the email of patient
   owner: {type: String, require: true}
