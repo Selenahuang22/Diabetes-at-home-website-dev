@@ -250,6 +250,17 @@ header {
     background-color: white;
 }
 
+#searchBar2 {
+    width: 60%;
+    float: right;
+    grid-area: hsb;
+    grid-template-columns: 80% 20%;
+    border: 0.3vh solid #5d8ed7;
+    border-radius: 2vh;
+    border-right: 0vh;
+    background-color: white;
+}
+
 #look,
 #smallLook {
     background-image: url(../whitesearchtool.png);
@@ -815,7 +826,7 @@ footer img:hover {
 
 #displaySelection {
     grid-area: selectionForm;
-    width: 100%;
+    width: 80%;
     font-size: 1.3em;
     align-items: left;
     align-content: left;
@@ -1524,6 +1535,9 @@ footer img:hover {
     #searchBar {
         grid-template-columns: 65% 35%;
     }
+    #searchBar2 {
+        width: 100%;
+    }
     #barLeft {
         grid-template-columns: 100%;
         grid-template-rows: repeat(4, 25%);
@@ -1767,6 +1781,10 @@ footer img:hover {
 
     #allMessages {
         grid-template-rows: 5vh auto auto 5vh;      
+    }
+
+    #displaySelection{
+        width: 100%;
     }
 
     #displaySelection select {
