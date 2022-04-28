@@ -259,6 +259,10 @@ header {
     display: inline-block;
 }
 
+#smallLook {
+    background-size: 2vh;
+}
+
 /* footer band styling */
 footer {
     display: grid;
@@ -824,6 +828,8 @@ footer img:hover {
     border: none;
     border-radius: 4px;
     font-size: 0.7em;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #onePatMessageTable {
@@ -1492,6 +1498,9 @@ footer img:hover {
         height: 2.7vh;
         width: 12.5vw;
         background-size: 2vh;
+    }
+    #smallLook {
+        background-size: 1.5vh;
     }
     #bar {
         font-size: 2.7vw;
