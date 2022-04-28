@@ -41,7 +41,7 @@
         <section id="todayData">
             <section id="tableHead">
                 <div id="today"><p>Today</p></div>
-                <div id="recordData"><p><a href="record">Record Data</a></p></div>
+                <div id="recordData"><p><a href="http://localhost:3000/patient/{{id}}/record">Record Data</a></p></div>
                 <div id="viewAll"><p><a href="">View All</a></p></div>
             </section>
             
@@ -59,17 +59,21 @@
                 </tr> 
                 <tr>
                     <td class="fontBlueNormal">
-                        <script>
-                            date = new Date().toLocaleDateString();
-                            document.write(date);
-                        </script>
+                        {{time}};
                     </td>
-                    {{#each thispatient.health_data}}
-                    <td>{{#if (is_blood_glucose this.data_name)}}{{this.value}}{{else}}-{{/if}}</td>
-                    <td>{{#if (is_insulin_take this.data_name)}}{{this.value}}{{else}}-{{/if}}</td>
-                    <td>{{#if (is_weight this.data_name)}}{{this.value}}{{else}}-{{/if}}</td>
-                    <td>{{#if (is_exercises this.data_name)}}{{this.value}}{{else}}-{{/if}}</td>
-                    {{/each}}
+                    {{#if thispatient.latest_log.length}}
+                        {{#each thispatient.latest_log}}
+                            <td {{#if (is_in_dangRange this.value)}}class="fontRed"{{/if}} >{{#if (is_blood_glucose this.name)}}{{this.value}}{{else}}-{{/if}}</td>
+                            <td {{#if (is_in_dangRange this.value)}}class="fontRed"{{/if}} >{{#if (is_insulin_take this.name)}}{{this.value}}{{else}}-{{/if}}</td>
+                            <td {{#if (is_in_dangRange this.value)}}class="fontRed"{{/if}} >{{#if (is_weight this.name)}}{{this.value}}{{else}}-{{/if}}</td>
+                            <td {{#if (is_in_dangRange this.value)}}class="fontRed"{{/if}} >{{#if (is_exercises this.name)}}{{this.value}}{{else}}-{{/if}}</td>
+                        {{/each}}
+                    {{else}}
+                        <td>x</td>
+                        <td>x</td>
+                        <td>-</td>
+                        <td>-</td>
+                    {{/if}}
                 </tr>
             </table>
         </section>

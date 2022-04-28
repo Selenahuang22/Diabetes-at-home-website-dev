@@ -19,7 +19,7 @@ app.engine('hbs', exphbs.engine({
        is_weight: x => x == "weight",
        is_exercises: x => x == "exercises",
        is_today: (x, today) => x == today,
-       is_in_dangRange: x => x <3.9 || x>10
+       is_in_dangRange: x =>( x <3.9 || x>10),
     }
 }))
 app.set('view engine', 'hbs')
@@ -38,10 +38,12 @@ require('./models/db.js')
 
 // connect to router
 const patientRouter = require('./routes/patientRouter.js')
+const clinicianRouter = require('./routes/clinicianRouter')
+const healthDataRouter = require('./routes/healthDataRouter')
 
-app.use('/', patientRouter)
-
-
+app.use('/patient/', patientRouter)
+app.use("/clinician/", clinicianRouter)
+app.use('/health_data/', healthDataRouter)
 
 
 //app.all('*', (req, res) => {  // 'default' route to catch user errors

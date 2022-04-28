@@ -1,24 +1,30 @@
-//*** health data ROUTES STARTS HERE ***//
+const HealthData = require("../models/healthData");
 
-const { Patient, HealthData } = require("../models/patient")
+/**
+ * 
+ * @param {String} owner _id of the patient as record in the mongoDB
+ * @param {Number} time a long - represent unix time
+ * @param {String} name name of the time series
+ * @param {String} comment customise comment of patient 
+ * @returns Json packet: status indicate if the action is successful, data can either be the object just save or error message
+ */
+const insert = async (owner, time, name, comment, value) => {
+    let data = await HealthData.create({
+        owner: owner,
+        time: time, 
+        comment: comment,
+        name: name,
+        value: value
+    })
 
-
-const insertData = async (req, res, next) => {
-    let thisPatient = await Patient.findOne( {first_name: 'Pat'})
-    let thisPatientId = thisPatient._id
-    let directPath = '/patient/'+thisPatientId+'/home'
-
-    try {
-        newHealthData = new HealthData( req.body )
-        await newHealthData.save()
-        thisPatient.health_data.push(newHealthData)
-        await thisPatient.save()
-        return res.redirect(directPath)
-    } catch (err) {
-        return next(err)
+    try{
+        data.save()
+    } catch(err){
+        return {status:false, data: err}
     }
+    return {status: true, data: data}
 }
 
 module.exports = {
-    insertData,
+    insert
 }
