@@ -64,6 +64,10 @@ h2 {
     font-size: 2em;
 }
 
+h5 {
+    margin: 0px;
+}
+
 /* customize image */
 img {
     display: block;
