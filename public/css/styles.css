@@ -802,10 +802,11 @@ footer img:hover {
 #allMessages {
     grid-area: allMessages;
     align-items: start;
-    grid-template-rows: 8% 82% 10%;
+    grid-template-rows: 8% auto auto 10%;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas: 
         ". . ."
+        ". onePatMessageSearch ."
         ". onePatMessageTable ."
         ". . .";
 
@@ -830,6 +831,10 @@ footer img:hover {
     font-size: 0.7em;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+#onePatMessageSearch {
+    grid-area: onePatMessageSearch;
 }
 
 #onePatMessageTable {
@@ -1761,7 +1766,7 @@ footer img:hover {
     }
 
     #allMessages {
-        grid-template-rows: 5vh auto 5vh;      
+        grid-template-rows: 5vh auto auto 5vh;      
     }
 
     #displaySelection select {
