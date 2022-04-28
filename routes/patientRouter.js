@@ -19,7 +19,7 @@ patientRouter.get(
             res.render('patientHome', {
                 "id": req.params.id,
                 "thispatient": result.data,
-                'time': new Date(Number(result.data.last_active_date)).toLocaleDateString()
+                'time': new Date().toLocaleDateString()
             })
         else res.sendStatus(404)
         
@@ -71,7 +71,7 @@ patientRouter.post(
                 // if the caching successfull we can add the data to db
                 if(result.status) {
                     console.log("3");
-                    result = await healthDataController.insert(req.params.id, req.body.date, req.body.data_name, req.body.comment, req.body.value)
+                    result = await healthDataController.insert(req.params.id, req.body.data_name, req.body.comment, req.body.value)
                     console.log("insert data");
                 }
             }

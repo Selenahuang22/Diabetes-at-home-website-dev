@@ -12,7 +12,7 @@ const patientSchema = new mongoose.Schema({  // declare a Mongoose schema
   password: { type: String, require: true, minlength: 8},
   
   // Using long value - that represent the unix value should be more appropriate?
-  DOB: { type: Number, require: true},
+  DOB: { type: String, require: true},
 
   biography: { type: String, require: true},
   
