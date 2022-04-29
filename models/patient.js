@@ -30,16 +30,17 @@ const patientSchema = new mongoose.Schema({  // declare a Mongoose schema
   latest_log: [
     {
       name: { type: String, enum: [/** list all the possible time series */
-        "Blood glucose data"
+        "blood glucose level"
       ]},
       value: {type: Number, require: true}
     }
   ],
 
   // using this we know when to refresh the last_log
+  // This one is a unix number for current date
   last_active_date: {type: Number, require: true},
 
-  // this is the  email of the doctor who in charge of this patient
+  // this is the email of the doctor who in charge of this patient
   clinician_email: {type: String, require: true}
 });
 

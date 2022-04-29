@@ -1,7 +1,9 @@
+<!-- record data page-->
 <section id="patientEnter">
 
     <section class="blueLine"></section>
 
+    <!-- patient personal information section-->
     <section id="profile">
         <section id="directP">
             <h2><a href="home" class="fontBlueNormal">Profile</a> > <a href="" class="fontBlueNormal">Record Data</a></h2>
@@ -13,31 +15,32 @@
         </section>
     </section>
 
+    <!-- record data supporting text-->
     <section id="recordDataText">
         <section></section>
         <h1 class="fontBlue">Record Data</h1>
         <section>
-            <h2 class="fontBlue"><tag class="fontRed">Start Your Day</tag> By Keeping Track Of Your Health Details Daily</h2>
+            <h2 class="fontBlueNormal"><tag class="fontRed">Start Your Day</tag> By Keeping Track Of Your Health Details Daily</h2>
         </section>
         <h1 class="titleBlack">Health Data Details</h1>
         <section></section>
     </section>
 
-    
+    <!-- data enter section-->
     <section id="recordBars">
+
+        <!-- blood glucose level enter-->
         <section class="RecordBar">
-            
             <section class="RecordBlueBar">
-                {{#if log_glucose}}
+                {{#if log_glucose}} <!-- if today's blood glucose level hasn't been entered-->
                     <section class="RecordInnerBar">
                         
+                        <!-- data enter-->
                         <form id="recordArea" method="POST" action="/patient/{{id}}/submit_log">
-                            
                                 <b>Health Data Name</b><input type="text" value="blood glucose level" name="data_name" readonly>
                                 <b>Value</b><input type="text" placeholder="xx" name="value" >
                                 <b>Comments</b><input type="text" placeholder="xx" name="comment" >
                                 <input type="submit"  class="fontWhiteBold" value="Save">
-                            
                         </form>
                         
                             
@@ -54,23 +57,45 @@
                             </section>
                             <p class="fontRed">*press if there is any problem to notify the clinician</p>
                         </section>
-                            
-                            
-                            
+                    </section>
+                {{else}} <!-- if today's blood glucose level has been entered-->
+                    <section class="RecordInnerBar">
+                        <section id="recordArea">
+                            <h3 class="fontRed">## Your blood glucose level has been entered today!!! ##</h3>
+                            <h3 class="fontRed">No more enter is allowed</h3>
+                            <h3 class="fontRed">Remember to enter your blood glucose level tomorrow ;)</h3> 
+                        </section>  
+
+                        <!-- switch application is referenced -->
+                        <section class="SwitchIcon">
+                            <h3>Alert</h3>
+                            <section class="toggle-button-wrapper">
+                                <input type="checkbox" id="toggle-button" name="switch" checked>
+                                <label for="toggle-button" class="button-label">
+                                    <span class="circle"></span>
+                                    <span class="text off">OFF</span>
+                                    <span class="text on">ON</span>
+                                </label>
+                            </section>
+                            <p class="fontRed">*press if there is any problem to notify the clinician</p>
+                        </section>
+
                     </section>
                 {{/if}}
             </section>
         </section>
         
-
+        <!-- weight enter-->
         <section class="RecordBar">
             <section class="RecordBlueBar">
                 <section class="RecordInnerBar">
+
+                    <!-- data enter-->
                     <form id="recordArea" method="POST">
                         <b>Health Data Name</b><input type="text" value="weight" name="data_name" readonly/>
                         <b>Value</b><input type="text" placeholder="xx" class="fixed" name="value" />
                         <b>Comments</b><input type="text" placeholder="xx" class="fixed" name="comment" />
-                        <input type="submit" value="Save" class="fontWhiteBold"/>
+                        <input class="saveButton" type="submit" value="Save"/>
                     </form>
 
                     <!-- switch application is referenced -->
@@ -86,21 +111,22 @@
                         </section>
                         <p class="fontRed">*press if there is any problem to notify the clinician</p>
                     </section>
-                    
-                   
-                    
+
                 </section>
             </section>
         </section>
 
+        <!-- insulin take enter-->
         <section class="RecordBar">
             <section class="RecordBlueBar">
                 <section class="RecordInnerBar">
+
+                    <!-- data enter-->
                     <form id="recordArea" method="POST">
                         <b>Health Data Name</b><input type="text" value="insulin take" name="data_name" readonly/>
                         <b>Value</b><input type="text" placeholder="xx" class="fixed" name="value" />
                         <b>Comments</b><input type="text" placeholder="xx" class="fixed" name="comment" />
-                        <input type="submit" value="Save" class="fontWhiteBold"/>
+                        <input class="saveButton" type="submit" value="Save"/>
                     </form>
     
                     <!-- switch application is referenced -->
@@ -116,19 +142,22 @@
                         </section>
                         <p class="fontRed">*press if there is any problem to notify the clinician</p>
                     </section>
-                    
+
                 </section>
             </section>
         </section>
 
+        <!-- exercises enter-->
         <section class="RecordBar">
             <section class="RecordBlueBar">
                 <section class="RecordInnerBar">
+
+                    <!-- data enter-->
                     <form id="recordArea" method="POST">
                         <b>Health Data Name</b><input type="text" value="exercises" name="data_name" readonly/>
                         <b>Value</b><input type="text" placeholder="xx" class="fixed" name="value" />
                         <b>Comments</b><input type="text" placeholder="xx" class="fixed" name="comment" />
-                        <input type="submit" value="Save" class="fontWhiteBold"/>
+                        <input class="saveButton" type="submit" value="Save"/>
                     </form>
                     
                     <!-- switch application is referenced -->
@@ -149,8 +178,9 @@
         </section>
     </section>
     
-
+    <!-- direct to other pages section -->
     <section id="directSection">
+
         <section id="directHeader">   
             <h1 id="directM" class="fontBlue">Get Accessed To</h1>         
         </section>
@@ -174,6 +204,7 @@
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
         </section>
+        
     </section>
     
     

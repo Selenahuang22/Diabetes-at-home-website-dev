@@ -77,7 +77,8 @@ img {
 
 /*part 2 ---------------------------------------------------------- customize class */
 /* customize font */
-.fontWhiteBold {
+.fontWhiteBold,
+.saveButton {
     color: #fff;
     font-weight: 900;
 }
@@ -113,7 +114,7 @@ img {
     color: black;
     font-size: 35px;
     letter-spacing: 3px;
-    font-weight: 500;
+    font-weight: bold;
 }
 
 .smallTitle {
@@ -1263,6 +1264,8 @@ footer img:hover {
 
 #recordArea {
     grid-area: recordArea;
+    justify-items: left;
+    grid-template-rows: none;
 }
 
 .SwitchIcon {
@@ -1274,7 +1277,7 @@ footer img:hover {
     border: #578ad6 3px solid;
     font-size: large;
     margin-top: 13px;
-    height: 45px;
+    height: 60px;
 }
 
 .RecordBotton {
@@ -1287,7 +1290,8 @@ footer img:hover {
     height: 75px;
     font-size: larger;
 }
-.fixed {
+.fixed,
+.saveButton {
     background-color: #ccc;
     pointer-events: none;
 }
@@ -1611,7 +1615,7 @@ footer img:hover {
         letter-spacing: 1.5px;
     }
     .titleBlack {
-        font-size: 1em;
+        font-size: 1.2em;
     }
     #joinHeader {
         grid-template-columns: 10% 80% 10%;

@@ -11,7 +11,7 @@ const healthDataController = require('../controllers/healthDataController.js')
 patientRouter.get(
     '/:id/home',
     async (req, res) => {
-        await patientController.getOnePatient(req.params.id)
+        
         var result = await patientController.getOnePatient(req.params.id)
 
         console.log(result.data);
@@ -30,7 +30,7 @@ patientRouter.get(
     '/:id/record',
     async (req, res) => {
         // check if the log cache need to be clear (expired)
-        let checkResult = await patientController.checkCacheLog(req.params.id)
+        let checkResult = await patientController.getOnePatient(req.params.id)
         
         // determin the time series that are not log for today
         let logged = []

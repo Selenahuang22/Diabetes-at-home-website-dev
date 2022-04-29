@@ -13,7 +13,6 @@ clinicianRouter.get(
         
 
         if(result.status){
-            await clinicianController.checkAllPatientsCacheLog(result.data.data)
 
             res.render("clinicianHome", 
                 {

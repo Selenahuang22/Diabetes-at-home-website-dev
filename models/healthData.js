@@ -1,3 +1,4 @@
+const { ObjectId } = require("mongodb")
 const mongoose = require("mongoose")
 
 const healthDataSchema = new mongoose.Schema({  // declare a Mongoose schema
@@ -9,8 +10,7 @@ const healthDataSchema = new mongoose.Schema({  // declare a Mongoose schema
   comment: String,
   value: {type: Number, require: true},
 
-  // this will be referencing the email of patient
-  owner: {type: String, require: true}
+  owner: {type: ObjectId, require: true}
 })
 
 const HealthData = mongoose.model("HealthData", healthDataSchema) // compile the schema into a model

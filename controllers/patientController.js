@@ -3,20 +3,14 @@
 /**
  * 
  * @param {String} email email of a clinician
- * @returns an array of patients manage buy this clinician
+ * @returns an array of patients manage by this clinician
  */
 const getAllPatientOfClinician = async (email) => {
     // This is not the efficient approach, as it is very wasteful on computation power
     // in order to keep cache on check
-    let fixedPatient = []
-    for(var patient 
-            of await Patient
-                .find(
-                    {clinician_email: email}
-                ).lean())
-        {
-        fixedPatient.push(_clearCacheIfExpired(patient))
-    }
+    
+    let allPatients = await Patient.find({clinician_email: email}).lean()
+    let fixedPatient = await myAsyncLoop(allPatients)
 
     return {
         status:true, 
@@ -26,13 +20,28 @@ const getAllPatientOfClinician = async (email) => {
 
 /**
  * 
+ * @param {Array} array an array of all patients for a particular clinician
+ * @returns an array of patients who have been cleared cache 
+ */
+const myAsyncLoop = async (array) => { 
+    const fixedPatient = []
+    for(var patient of array) {
+        const clearedPatient = await _clearCacheIfExpired(patient)
+        fixedPatient.push(clearedPatient)
+    }
+
+    return fixedPatient
+} 
+
+/**
+ * 
  * @param {String} id the string local id of the patient as in the mongo db
  * @returns JSON object with attribute as stored in the DB
  */
 const getOnePatient = async (id) => {
 
     let foundPatient = await Patient.findOne({_id: id}).lean()
-    foundPatient = _clearCacheIfExpired(foundPatient)
+    foundPatient = await _clearCacheIfExpired(foundPatient)
 
     return { 
         status: true, 
@@ -57,7 +66,7 @@ const _clearCacheIfExpired = async (patient) => {
 
             await Patient.updateOne(
                 // condition
-                {_id: id},
+                {_id: patient._id},
                 // value to be change
                 {$set:
                     {

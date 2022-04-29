@@ -1,5 +1,7 @@
-
+<!-- patient home section -->
 <section id="patientHome">
+
+    <!-- patient personal info section -->
     <section id="patientInfo">
         <div class="blueLine"></div>
         <section id="patProfile">
@@ -32,20 +34,21 @@
                 </section>
             </section>
         </section>
-
-        
     </section>
 
+    <!-- daily data table section -->
     <section id="dailyData">
+
         <div id="dailyDataText"><h1 class="fontBlue">Daily Data</h1></div>
+
         <section id="todayData">
+
             <section id="tableHead">
                 <div id="today"><p>Today</p></div>
-                <div id="recordData"><p><a href="http://localhost:3000/patient/{{id}}/record">Record Data</a></p></div>
+                <div id="recordData"><p><a href="/patient/{{thispatient._id}}/record">Record Data</a></p></div>
                 <div id="viewAll"><p><a href="">View All</a></p></div>
             </section>
             
-                
             <table id="onePatTodayTable" class="tableClass">
                 <tr>
                     <th>Date</th>
@@ -77,10 +80,14 @@
                 </tr>
             </table>
         </section>
+
     </section>
 
+    <!-- support messages section(hard coded) -->
     <section id="supportMessages">
+
         <div id="supportMessagesText"><h1 class="fontBlue">Support Messages</h1></div>
+
         <section id="allMessages">
             <table id="onePatMessageSearch" class="tableClass">
                 <tr>
@@ -162,6 +169,7 @@
         </section>
     </section>
 
+    <!-- leaderboard section(hard coded) -->
     <section id="leaderBoard">
         <div id="leaderBoardText"><h1 class="fontBlue">Leaderboard</h1></div>
         <section id="rank">
@@ -201,7 +209,9 @@
         </section>
     </section>
 
+    <!-- direct to other pages section -->
     <section id="directSection">
+
         <section id="directHeader">   
             <h1 id="directM" class="fontBlue">Get Accessed To</h1>          
         </section>
@@ -225,6 +235,7 @@
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
         </section>
+
     </section>
     
 </section>

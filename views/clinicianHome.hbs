@@ -1,4 +1,7 @@
+<!-- Clinician dashboard page-->
 <section id="clinicianHome">
+
+    <!-- clinician personal information section-->
     <section id="clinicianInfo">
         <div class="blueLine"></div>
         <section id="profile">
@@ -16,6 +19,7 @@
         </section>
     </section>
 
+    <!-- Clinician patients table-->
     <section id="allPatients">
             <table id="patientList" class="tableClass">
                 <tr>
@@ -29,6 +33,7 @@
                         (step count)</th>
                 </tr>
 
+                <!-- Patients from the database -->
                 {{#each patient}}
                 
                 <tr>
@@ -52,6 +57,8 @@
                 </tr>
                 
                 {{/each}}
+
+                <!-- Other patients(hard coded) -->
                 <tr>
                     <td class="fontBlueNormal">Austin Hunter</td>
                     <td>8.4</td>
@@ -146,8 +153,9 @@
             </table>
     </section>
 
-
+    <!-- direct to other pages section -->
     <section id="directSection">
+
         <section id="directHeader">   
             <h1 id="directM" class="fontBlue">Get Accessed To</h1>          
         </section>
@@ -171,5 +179,6 @@
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
         </section>
+        
     </section>  
 </section>
