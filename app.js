@@ -40,6 +40,10 @@ app.get('/diabetesInfo', async (req, res) => {
     res.render('diabetesInfo.hbs');
 })
 
+app.get('/login', async (req, res) => {
+    res.render('login.hbs');
+})
+
 app.use('/patient/', patientRouter)
 app.use("/clinician/", clinicianRouter)
 app.use('/health_data/', healthDataRouter)
