@@ -317,7 +317,7 @@ footer img:hover {
 #aboutWeb {
     font-family: sans-serif;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 7vh 70vh 80vh 73vh 22vh;
+    grid-template-rows: 7vh 70vh 80vh 73vh 30vh;
     grid-template-areas:
         "b b b"
         "m m m"
@@ -463,6 +463,99 @@ footer img:hover {
 
 #directionM {
     grid-area: dm;
+}
+
+/* clinician sign up page */
+#clinicianSignUp {
+    font-size: 1.4em;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-rows: 120vh;
+    grid-template-areas: 
+        "signUpSession signUpSession signUpSession";
+}
+
+#signUpSession {
+    grid-area: signUpSession;
+    grid-template-rows: 2% 8% 80% 10%;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-areas:
+        "bl bl bl"
+        ". . ."
+        ". signUpContent ."
+        ". . .";
+
+}
+
+#signUpContent {
+    grid-area: signUpContent;
+    grid-template-columns: 3% 47% 47% 3%;
+    grid-template-areas: ". signUpLeft signUpRight .";
+}
+
+#signUpLeft {
+    grid-area: signUpLeft;
+    border-right: 1px #578ad6 solid;
+    grid-template-rows: none;
+    align-items: start;
+    align-content: start;
+    justify-content: start;
+    justify-items: start;
+}
+
+#signUpLeft form {
+    margin-top: 50px;
+    margin-right: 130px;
+}
+
+#signUpLeft input {
+    border: #578ad6 3px solid;
+    font-size: large;
+    margin-top: 30px;
+    height: 55px;
+}
+
+#signUpRight {
+    grid-area: signUpRight;
+    grid-template-rows: 10% 90%;
+    grid-template-columns: none;
+    grid-template-areas: 
+        "signUpRightTitle"
+        "help";
+    align-items: start;
+    align-content: start;
+    justify-content: start;
+    justify-items: start;
+    margin-left: 130px;
+}
+
+#help {
+    grid-area: help;
+    justify-items: left;
+    align-items: start;
+    align-content: start;
+    grid-template-columns: none;
+    grid-template-rows: none;
+}
+
+#help h2 {
+    font-size: 1.2em;
+    text-align: left;
+}
+
+#signUpRightTitle {
+    grid-area: signUpRightTitle;
+}
+
+
+/*@ clinicanHome, Layout**********************************************/
+#clinicianHome {
+    font-size: 1.4em;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-rows: 40vh 90vh 50vh;
+    grid-template-areas:
+        "ci ci ci"
+        ". allP ."
+        ". ds .";
 }
 
 #clinicianInfo {
@@ -635,7 +728,7 @@ footer img:hover {
 #bottomSection {
     grid-area: bottomSection;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 85% 15%;
+    grid-template-rows: 90% 10%;
     grid-template-areas: 
         ". fc ."
         ". . .";
@@ -1152,6 +1245,13 @@ footer img:hover {
     justify-items: stretch;
 }
 
+#cline1 h3,
+#cline2 h3,
+#cline3 h3 {
+    font-weight: 500;
+    font-size: 1.8vh;
+}
+
 #contact {
     grid-area: fc;
     grid-template-columns: 33% 33% 34%;
@@ -1181,7 +1281,7 @@ footer img:hover {
 #diabetesInfo {
     font-family: sans-serif;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 7vh 150vh 73vh 22vh;
+    grid-template-rows: 7vh 150vh 73vh 30vh;
     grid-template-areas:
         "b b b"
         "t t t"
@@ -1279,18 +1379,6 @@ footer img:hover {
     width: 57px;
     grid-template-rows: 50% 50%;
 }
-
-/*@ clinicanHome, Layout**********************************************/
-#clinicianHome { 
-    font-size: 1.4em;
-    grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 40vh 90vh 50vh;
-    grid-template-areas:
-        "ci ci ci"
-        ". allP ."
-        ". ds .";
-}
-
 
 /* dataEnter, layout**************************************************/
 #patientEnter {
