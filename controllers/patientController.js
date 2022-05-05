@@ -96,8 +96,6 @@ const cacheTheLog= async (name, value, patientData) => {
 
     let cache = patientData.latest_log
     let status = false
-    console.log(name);
-    console.log(value);
 
     cache.push(
         {
@@ -127,10 +125,25 @@ const cacheTheLog= async (name, value, patientData) => {
     }
 }
 
+/**
+ * 
+ * @param {JSON} patientDetail the complete detail and and will be check in order to be 
+ * @param {String} clinicianId the _id as in the mongodb
+ */
+const saveNewPatient = async (patientDetail, clinicianId) =>  {
+
+}
+
 
 const extractUnixOfYYYY_MM_DD = (unix) => {
     return Math.floor(unix / 86400000) * 86400000;
 }
+
+const integrityVerify = (patientData) => {
+    // ensure if data exist, it is in correct format.
+    
+}
+
 module.exports = {
     getAllPatientOfClinician,
     getOnePatient,

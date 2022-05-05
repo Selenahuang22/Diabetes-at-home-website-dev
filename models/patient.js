@@ -1,4 +1,7 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+
+const SALT = 10;
 
 const patientSchema = new mongoose.Schema({  // declare a Mongoose schema
   // personal detail
@@ -43,6 +46,32 @@ const patientSchema = new mongoose.Schema({  // declare a Mongoose schema
   // this is the email of the doctor who in charge of this patient
   clinician_email: {type: String, require: true}
 });
+
+/**
+ * This is a copied version from the lecture note
+ */
+patientSchema.pre("save",
+  (next) => {
+    const patient = this
+
+    if( !patient.isModified('password')) {
+      return next()
+    }
+
+    // encrypt the password
+    bcrypt.hash(patient.password, 
+      SALT, 
+      (err, hash) => {
+        if(err){
+          return next(err)
+        }
+
+        patient.password = hash 
+        next()
+      }  
+    )
+  }
+)
 
 const Patient = mongoose.model("Patient", patientSchema); // compile the schema into a model
 
