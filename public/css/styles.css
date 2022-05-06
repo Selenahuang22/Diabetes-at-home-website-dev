@@ -566,11 +566,12 @@ footer img:hover {
 
 #cliprofileContent {
     grid-area: cliprofileContent;
-    grid-template-columns: 7% 23% 5% 58% 7% ;
-    grid-template-rows: 10% 90%;
+    grid-template-columns: 7% 23% 5% 58% 7%;
+    grid-template-rows: 10% 85% 5%;
     grid-template-areas: 
         ". . . . ."
-        ". cliProfileInfo. . .";
+        ". cliProfileInfo. cliprofileRight ."
+        ". . . . .";
     background-image: linear-gradient(180deg, #deebf5 30%, white 0%);
 }
 
@@ -603,6 +604,42 @@ footer img:hover {
 
 #cliImg img {
     height: 70%;
+}
+
+#cliprofileRight {
+    grid-area: cliprofileRight;
+    grid-template-rows: 10% 20% 20% 50%;
+    grid-template-areas: 
+        "."
+        "buttonWithText"
+        "."
+        "jb3";
+}
+
+.buttonWithText {
+    grid-area: buttonWithText;
+    align-items: start;
+    align-content: start;
+    justify-content: start;
+    justify-items: left;
+    grid-template-rows: 45% 10% 45%;
+    grid-template-areas:
+        "buttonTopText"
+        "."
+        "editP";
+}
+
+#cliprofileRight .buttonWithText .blueButton{
+    font-size: 2.2vh;
+    border-radius: 2.5vh;
+    width: 24vw;
+    height: 6vh;
+    margin-top: 2vh;
+}
+
+.buttonWithText h1 {
+    grid-area: buttonTopText;
+    font-weight: 500;
 }
 
 /*@ clinicanHome, Layout**********************************************/
@@ -865,7 +902,7 @@ footer img:hover {
     justify-items: left;
 }
 
-#editProfile {
+.blueButton {
     grid-area: editP;
     margin: 0px;
     padding: 0px;
@@ -875,12 +912,12 @@ footer img:hover {
     grid-template-rows: 10% 80% 10%;
     grid-template-areas: 
         ". . ."
-        ". editPText ."
+        ". buttonnText ."
         ". . .";
 }
 
-#editProfile p {
-    grid-area: editPText;
+.blueButton p {
+    grid-area: buttonnText;
 }
 
 #badges {
