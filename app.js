@@ -33,6 +33,7 @@ const patientRouter = require('./routes/patientRouter.js')
 const clinicianRouter = require('./routes/clinicianRouter')
 const healthDataRouter = require('./routes/healthDataRouter')
 
+/* 2 static pages */
 app.get('/', async (req, res) => {
     res.render('aboutWeb.hbs');
 })
@@ -40,6 +41,7 @@ app.get('/diabetesInfo', async (req, res) => {
     res.render('diabetesInfo.hbs');
 })
 
+/*hard code pages now */
 app.get('/login', async (req, res) => {
     res.render('login.hbs');
 })
@@ -52,10 +54,16 @@ app.get('/clinicianProfile', async (req, res) => {
     res.render('clinicianProfile.hbs');
 })
 
+app.get('/editProfile', async (req, res) => {
+    res.render('editProfile.hbs');
+})
+
+/*d2*/
 app.use('/patient/', patientRouter)
 app.use("/clinician/", clinicianRouter)
 app.use('/health_data/', healthDataRouter)
 
+/*all others pages*/
 app.all('*', (req, res) => {  // 'default' route to catch user errors
 	res.status(404).render('error', {errorCode: '404', message: 'That route is invalid.'})
 })
