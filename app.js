@@ -58,6 +58,10 @@ app.get('/editProfile', async (req, res) => {
     res.render('editProfile.hbs');
 })
 
+app.get('/viewData', async (req, res) => {
+    res.render('patientViewData.hbs');
+})
+
 /*d2*/
 app.use('/patient/', patientRouter)
 app.use("/clinician/", clinicianRouter)

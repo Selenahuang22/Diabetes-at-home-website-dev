@@ -75,6 +75,73 @@ img {
     max-width: 90%;
 }
 
+/* customize table*/
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 2vh;
+}
+
+table tr:first-child th:first-child {
+    border-top-left-radius: 2vh;
+}
+
+table tr:first-child th:last-child {
+    border-top-right-radius: 2vh;
+}
+
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 2vh;
+}
+
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 2vh;
+}
+
+table td, 
+table th{
+    width: 30px;
+    height: 40px;
+    font-size: 1.1em;
+    padding: 3px 7px 2px 7px;
+    background-color: #fff;
+}
+
+table th {
+    font-size: 1.2em;
+    font-weight: normal;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #5f8acb;
+    color: #fff;
+}
+
+table td {
+    border-top-style: solid;
+    border-top-color: #5f8acb;
+    border-top-width: 2.5px;
+}
+
+form {
+    width: 80%;
+    font-size: 1.3em;
+    justify-content: left;
+    justify-items: left;
+}
+
+select {
+    width: 70%;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.7em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: #5f8acb;
+    color: #fff;
+}
+
 /*part 2 ---------------------------------------------------------- customize class */
 /* customize font */
 .fontWhiteBold,
@@ -754,7 +821,7 @@ footer img:hover {
     grid-template-rows: 40vh 90vh 50vh;
     grid-template-areas:
         "ci ci ci"
-        ". allP ."
+        "allP allP allP"
         ". ds .";
 }
 
@@ -934,12 +1001,12 @@ footer img:hover {
         ". . .";
 }
 
-/*patient home*/
+/*@ patientHome, Layout***********************************************************/
 #patientHome {
     font-family: sans-serif;
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 40vh 55vh 100vh 100vh 50vh;
+    grid-template-rows: 40vh 55vh auto 100vh 50vh;
     grid-template-areas:
         "pi pi pi"
         "dd dd dd"
@@ -1118,54 +1185,21 @@ footer img:hover {
 
 #onePatTodayTable {
     grid-area: onePatTodayTable;
-   
+    border-collapse: separate;
+    border-spacing: 10px 0px;
 }
 
 #onePatTodayTable td {
     height: 50px;
 }
 
-.tableClass{
-    width: 100%;
-    border-collapse: collapse;
-    border: 1.5px solid #5f8acb;
-    border-radius: 2vh;
-}
-
-.tableClass td, 
-.tableClass th{
-    width: 30px;
-    height: 40px;
-    font-size: 1.1em;
-    border: 0px;
-    padding: 3px 7px 2px 7px;
-    background-color: #fff;
-}
-
-.tableClass th {
-    font-size: 1.2em;
-    font-weight: normal;
-    text-align: left;
-    padding-top: 5px;
-    padding-bottom: 4px;
-    background-color: #5f8acb;
-    color: #ffffff;
-}
-
 #patientList {
     grid-area: pl;
 }
 
-#patientList td,
-#patientList th {
-    border-bottom-style: solid;
-    border-bottom-color: #5f8acb;
-    border-bottom-width: 2.5px;
-}
-
 #supportMessages {
     grid-area: support;
-    grid-template-rows: 8% 5% 8% 79%;
+    grid-template-rows: 5vh auto 5vh auto;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
         ". . ."
@@ -1186,7 +1220,7 @@ footer img:hover {
 #allMessages {
     grid-area: allMessages;
     align-items: start;
-    grid-template-rows: 8% auto auto 10%;
+    grid-template-rows: 5vh auto auto 5vh;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas: 
         ". . ."
@@ -1197,39 +1231,12 @@ footer img:hover {
     background-color: #deebf5;
 }
 
-#displaySelection {
-    grid-area: selectionForm;
-    width: 80%;
-    font-size: 1.3em;
-    align-items: left;
-    align-content: left;
-    justify-content: left;
-    justify-items: left;
-}
-
-#displaySelection select {
-    width: 70%;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    font-size: 0.7em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 #onePatMessageSearch {
     grid-area: onePatMessageSearch;
 }
 
 #onePatMessageTable {
     grid-area: onePatMessageTable;
-}
-
-#onePatMessageTable td,
-#onePatMessageTable th {
-    border-bottom-style: solid;
-    border-bottom-color: #5f8acb;
-    border-bottom-width: 2.5px;
 }
 
 #onePatMessageTable td img {
@@ -1329,7 +1336,6 @@ footer img:hover {
     grid-area: fifth;
     width: 90%;
 }
-
 
 /* div text */
 #webDetailSection {
@@ -1661,6 +1667,43 @@ footer img:hover {
 .saveButton {
     background-color: #ccc;
     pointer-events: none;
+}
+
+/*@ patientViewData, Layout***********************************************************/
+#patientData {
+    font-size: 1.4em;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-rows: 2vh 24vh 5vh auto 5vh auto 50vh;
+    grid-template-areas:
+        "bl bl bl"
+        "prof prof prof"
+        ". . ."
+        ". supportMessagesText ."
+        ". . ."
+        "bgc bgc bgc"
+        ". ds .";
+}
+
+#backgroundColor {
+    grid-area: bgc;
+    background: #deebf5;
+    grid-template-columns: 7% 86% 7%;
+}
+
+#dataTables {
+    grid-template-rows: 5vh 60px 20px auto 20px 60px 20px 120vh 5vh;
+}
+
+.forms {
+    grid-template-columns: 300px 300px;
+    justify-content: left;
+    justify-items: left;
+}
+
+.forms select {
+    border: 1px #507fc5 solid;
+    color: #507fc5;
+    background: #fff;
 }
 
 /* part 4 --------------------------------------------------------- referenced application*/
@@ -2163,8 +2206,8 @@ footer img:hover {
         padding: 10px 0px;
     }
 
-    .tableClass td,
-    .tableClass th {
+    table td,
+    table th {
         width: 60px;
         height: 40px;
     }
