@@ -11,6 +11,7 @@ https://diabetic-at-home.herokuapp.com/patient/625e79ce43e41e6e83e2014b/home
 
 Patient record data: localhost:3000/patient/625e79ce43e41e6e83e2014b/record
 https://diabetic-at-home.herokuapp.com/patient/625e79ce43e41e6e83e2014b/record
+Patient view data: http://localhost:3000/viewData
 
 references
 switch application is changed from
