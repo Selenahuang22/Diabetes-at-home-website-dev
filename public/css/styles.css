@@ -2,6 +2,17 @@
 by using data base the image of look disappear
 if you interested in how to place footer at bottom refer to line 625 (give the grid a height) */
 /* part 1 --------------------------------------------------------- overwrite and customize tags */
+:root {
+    --c-color-b0: #5b8dc6;
+    --c-color-b1: #5f8acb;
+    --c-color-b2: #9ab7e2;
+    
+    --c-color-b3: #578ad6;
+    /*--c-color-g0: ;*/
+    --c-color-ba: #000;
+    --c-color-wi: #fff;
+}
+
 div, section {
     display: grid;
     float: left;
@@ -25,7 +36,7 @@ input {
 }
 
 input[type="submit"] {
-    background-color: #5b8dc6;
+    background-color: var(--c-color-b0);
 }
 
 input::placeholder {
@@ -33,14 +44,14 @@ input::placeholder {
 }
 
 input:hover[type="submit"] {
-    background-color: #9ab7e2;
+    background-color: var(--c-color-b2);
     cursor: pointer;
 }
 
 textarea {
     height: 100%;
     width: 100%;
-    border: 3px #5b8dc6 solid;
+    border: 3px var(--c-color-b0) solid;
     border-radius: 2vh;
     font-size: 2vh;
     font-family: sans-serif;
@@ -48,12 +59,12 @@ textarea {
 
 a {
     text-decoration: none;
-    color: #000;
+    color: var(--c-color-ba);
 }
 
 /* font */
 h1 {
-    color: #5b8dc6;
+    color: var(--c-color-b0);
     margin: 0;
     font-size: 2em;
 }
@@ -104,7 +115,7 @@ table th{
     height: 40px;
     font-size: 1.1em;
     padding: 3px 7px 2px 7px;
-    background-color: #fff;
+    background-color: var(--c-color-wi);
 }
 
 table th {
@@ -113,13 +124,13 @@ table th {
     text-align: left;
     padding-top: 5px;
     padding-bottom: 4px;
-    background-color: #5f8acb;
-    color: #fff;
+    background-color: var(--c-color-b1);
+    color: var(--c-color-wi);
 }
 
 table td {
     border-top-style: solid;
-    border-top-color: #5f8acb;
+    border-top-color: var(--c-color-b1);
     border-top-width: 2.5px;
 }
 
@@ -138,20 +149,20 @@ select {
     font-size: 0.7em;
     overflow: hidden;
     text-overflow: ellipsis;
-    background: #5f8acb;
-    color: #fff;
+    background: var(--c-color-b1);
+    color: var(--c-color-wi);
 }
 
 /*part 2 ---------------------------------------------------------- customize class */
 /* customize font */
 .fontWhiteBold,
 .saveButton {
-    color: #fff;
+    color: var(--c-color-wi);
     font-weight: 900;
 }
 
 .fontWhiteNormal {
-    color: #fff;
+    color: var(--c-color-wi);
     font-weight: 500;
 }
 
@@ -354,7 +365,7 @@ footer {
 #fMiddle {
     grid-area: fm;
     grid-template-columns: repeat(4, 6vh) 50%;
-    color: #fff;
+    color: var(--c-color-wi);
 }
 
 #fMiddle h5 {
@@ -409,7 +420,7 @@ footer img:hover {
 
 #barGap {
     grid-area: bg;
-    background-color: #ffffff;
+    background-color: var(--c-color-wi);
 }
 
 #barLeft {
@@ -645,7 +656,7 @@ footer img:hover {
 #cliProfileInfo {
     grid-area: cliProfileInfo;
     border-radius: 3vh;
-    background-color: #fff;
+    background-color: var(--c-color-wi);
     grid-template-columns: 3% 94% 3%;
     grid-template-rows: 3% 30% 54% 10% 3%;
     grid-template-areas: 
@@ -786,7 +797,7 @@ footer img:hover {
     height: 7vh;
     width: 20vh;
     font-weight: bold;
-    color: #fff;
+    color: var(--c-color-wi);
 }
 
 #editImg {
@@ -873,7 +884,7 @@ footer img:hover {
     margin: 0px;
     padding: 0px;
     border-radius: 3vh;
-    background-color: #fff;
+    background-color: var(--c-color-wi);
     grid-template-columns: 7% 5% 1% 9% 56% 15% 7%;
     grid-template-rows: 5% 90% 5%;
     grid-template-areas:
@@ -1042,7 +1053,7 @@ footer img:hover {
     margin: 0px;
     padding: 0px;
     border-radius: 3vh;
-    background-color: #fff;
+    background-color: var(--c-color-wi);
     grid-template-columns: 5% 10% 30% 5% 30% 5% 10% 5%;
     grid-template-rows: 15% 70% 15%;
     grid-template-areas: 
@@ -1097,7 +1108,7 @@ footer img:hover {
     margin: 0px;
     padding: 0px;
     border-radius: 3vh;
-    background-color: #fff;
+    background-color: var(--c-color-wi);
     grid-template-columns: 5% 90% 5%;
     grid-template-rows: 5% 90% 5%;
     grid-template-areas: 
@@ -1703,7 +1714,7 @@ footer img:hover {
 .forms select {
     border: 1px #507fc5 solid;
     color: #507fc5;
-    background: #fff;
+    background: var(--c-color-wi);
 }
 
 /* part 4 --------------------------------------------------------- referenced application*/
@@ -1718,7 +1729,7 @@ footer img:hover {
     display: inline-block;
     width: 80px;
     height: 30px;
-    background-color: #5b8dc6;
+    background-color: var(--c-color-b0);
     box-shadow: #ccc 0px 0px 0px 2px;
     border-radius: 30px;
     overflow: hidden;
@@ -1731,7 +1742,7 @@ footer img:hover {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: var(--c-color-wi);
 }
 
 .button-label .text {
@@ -1741,13 +1752,13 @@ footer img:hover {
 }
 
 .on {
-    color: #fff;
+    color: var(--c-color-wi);
     display: inline-block;
     text-indent: 10px;
 }
 
 .off {
-    color: #fff;
+    color: var(--c-color-wi);
     display: none;
     text-indent: 34px;
 }
@@ -2128,7 +2139,7 @@ footer img:hover {
     #patProfile {
         grid-template-rows: 2vh 55vh 2vh 15vh 2vh;
         grid-template-columns: 2vh 10vh 15vh 10vh 2vh;
-        background-color: #fff;
+        background-color: var(--c-color-wi);
         background-image: linear-gradient(180deg, #deebf5 20%, white 0%);
         grid-template-areas:
             ". . . . ."
@@ -2158,7 +2169,7 @@ footer img:hover {
 
     #perInfo1 {
         width: 20em;
-        border-right-color: #ffffff;
+        border-right-color: var(--c-color-wi);
         justify-content: left;
     }
 
