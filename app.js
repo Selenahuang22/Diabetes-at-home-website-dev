@@ -50,6 +50,10 @@ app.get('/clinicianSignUp', async (req, res) => {
     res.render('clinicianSignUp.hbs');
 })
 
+app.get('/patientRegister', async (req, res) => {
+    res.render('patientRegister.hbs');
+})
+
 app.get('/clinicianProfile', async (req, res) => {
     res.render('clinicianProfile.hbs');
 })

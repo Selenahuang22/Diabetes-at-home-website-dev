@@ -1001,6 +1001,18 @@ footer img:hover {
         ". . .";
 }
 
+/*Clinician patient comments, Layout***********************************************************/
+#cliPatientComments {
+    font-size: 1.4em;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-rows: 40vh auto 50vh;
+    grid-template-areas:
+        "ci ci ci"
+        "tableArea tableArea tableArea"
+        ". ds .";
+}
+
+
 /*@ patientHome, Layout***********************************************************/
 #patientHome {
     font-family: sans-serif;
@@ -1010,7 +1022,7 @@ footer img:hover {
     grid-template-areas:
         "pi pi pi"
         "dd dd dd"
-        "support support support"
+        "tableArea tableArea tableArea"
         "leaderBoard leaderBoard leaderBoard"
         ". ds .";
 }
@@ -1197,19 +1209,19 @@ footer img:hover {
     grid-area: pl;
 }
 
-#supportMessages {
-    grid-area: support;
+#tableArea {
+    grid-area: tableArea;
     grid-template-rows: 5vh auto 5vh auto;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
         ". . ."
-        ". supportMessagesText ."
+        ". tableAreaText ."
         ". . ."
         "allMessages allMessages allMessages";
 }
 
-#supportMessagesText {
-    grid-area: supportMessagesText;
+#tableAreaText {
+    grid-area: tableAreaText;
     font-weight: 500;
     align-items: left;
     align-content: left;
@@ -1224,22 +1236,22 @@ footer img:hover {
     grid-template-columns: 7% 86% 7%;
     grid-template-areas: 
         ". . ."
-        ". onePatMessageSearch ."
-        ". onePatMessageTable ."
+        ". oneMessageSearch ."
+        ". oneMessageTable ."
         ". . .";
 
     background-color: #deebf5;
 }
 
-#onePatMessageSearch {
-    grid-area: onePatMessageSearch;
+#oneMessageSearch {
+    grid-area: oneMessageSearch;
 }
 
-#onePatMessageTable {
-    grid-area: onePatMessageTable;
+#oneMessageTable {
+    grid-area: oneMessageTable;
 }
 
-#onePatMessageTable td img {
+#oneMessageTable td img {
     max-height: 80%;
 }
 
@@ -1635,7 +1647,7 @@ footer img:hover {
     "recordArea SwitchIcon";
 }
 
-#recordArea {
+.recordArea {
     grid-area: recordArea;
     justify-items: left;
     grid-template-rows: none;
@@ -1678,7 +1690,7 @@ footer img:hover {
         "bl bl bl"
         "prof prof prof"
         ". . ."
-        ". supportMessagesText ."
+        ". tableAreaText ."
         ". . ."
         "bgc bgc bgc"
         ". ds .";
@@ -2189,7 +2201,7 @@ footer img:hover {
         grid-template-columns: 15% 8% 35% 22% 20%;
     }
 
-    #supportMessages {
+    #tableArea {
         grid-template-rows: 5vh auto 5vh auto;
     }
 
@@ -2213,7 +2225,7 @@ footer img:hover {
     }
 
 
-    #onePatMessageTable td img {
+    #oneMessageTable td img {
         max-height: 60%;
     }
 
