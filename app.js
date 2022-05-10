@@ -62,6 +62,10 @@ app.get('/viewData', async (req, res) => {
     res.render('patientViewData.hbs');
 })
 
+app.get('/cliPatientComments', async (req, res) => {
+    res.render('cliPatientComments.hbs');
+})
+
 /*d2*/
 app.use('/patient/', patientRouter)
 app.use("/clinician/", clinicianRouter)

@@ -900,7 +900,7 @@ footer img:hover {
     font-weight: bolder;
 }
 
-#dashboardText {
+#firstBigText {
     grid-area: dt;
     align-items: left;
     align-content: left;
