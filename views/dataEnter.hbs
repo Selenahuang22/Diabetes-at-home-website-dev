@@ -9,7 +9,7 @@
             <h2><a href="home" class="fontBlueNormal">Profile</a> > <a href="" class="fontBlueNormal">Record Data</a></h2>
         </section>
         <section class="profileInfo">
-            <img src="/vickyhamilton.png" alt="default patient img">
+            <img src="/patienticon.png" alt="default patient img">
             <p class="proName">Pat Health</p>
             <p class="rightContent">Username: path123</p>
         </section>
@@ -36,7 +36,7 @@
                     <section class="RecordInnerBar">
                         
                         <!-- data enter-->
-                        <form id="recordArea" method="POST" action="/patient/{{id}}/submit_log">
+                        <form class="recordArea" method="POST" action="/patient/{{id}}/submit_log">
                                 <b>Health Data Name</b><input type="text" value="blood glucose level" name="data_name" readonly>
                                 <b>Value</b><input type="text" placeholder="xx" name="value" >
                                 <b>Comments</b><input type="text" placeholder="xx" name="comment" >
@@ -60,7 +60,7 @@
                     </section>
                 {{else}} <!-- if today's blood glucose level has been entered-->
                     <section class="RecordInnerBar">
-                        <section id="recordArea">
+                        <section class="recordArea">
                             <h3 class="fontRed">## Your blood glucose level has been entered today!!! ##</h3>
                             <h3 class="fontRed">No more enter is allowed</h3>
                             <h3 class="fontRed">Remember to enter your blood glucose level tomorrow ;)</h3> 
@@ -91,7 +91,7 @@
                 <section class="RecordInnerBar">
 
                     <!-- data enter-->
-                    <form id="recordArea" method="POST">
+                    <form class="recordArea" method="POST">
                         <b>Health Data Name</b><input type="text" value="weight" name="data_name" readonly/>
                         <b>Value</b><input type="text" placeholder="xx" class="fixed" name="value" />
                         <b>Comments</b><input type="text" placeholder="xx" class="fixed" name="comment" />
@@ -122,7 +122,7 @@
                 <section class="RecordInnerBar">
 
                     <!-- data enter-->
-                    <form id="recordArea" method="POST">
+                    <form class="recordArea" method="POST">
                         <b>Health Data Name</b><input type="text" value="insulin take" name="data_name" readonly/>
                         <b>Value</b><input type="text" placeholder="xx" class="fixed" name="value" />
                         <b>Comments</b><input type="text" placeholder="xx" class="fixed" name="comment" />
@@ -153,7 +153,7 @@
                 <section class="RecordInnerBar">
 
                     <!-- data enter-->
-                    <form id="recordArea" method="POST">
+                    <form class="recordArea" method="POST">
                         <b>Health Data Name</b><input type="text" value="exercises" name="data_name" readonly/>
                         <b>Value</b><input type="text" placeholder="xx" class="fixed" name="value" />
                         <b>Comments</b><input type="text" placeholder="xx" class="fixed" name="comment" />

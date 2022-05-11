@@ -6,7 +6,7 @@
         <div class="blueLine"></div>
         <section id="profile">
             <section id="directP">
-                <h2><a href="" class="fontBlueNormal">Profile</a> > <a href="" class="fontBlueNormal">Dashboard</a></h2>
+                <h2><a href="/clinicianProfile" class="fontBlueNormal">Profile</a> > <a href="" class="fontBlueNormal">Dashboard</a></h2>
             </section>
             <section class="profileInfo">
                 <img src="/annabrown.png" alt="default clinician img">
@@ -14,7 +14,7 @@
                 <p class="rightContent">Username: chrisb666</p>
             </section>
         </section>
-        <section id="dashboardText">
+        <section id="firstBigText">
             <h1 class="fontBlue">Dashboard</h1>
         </section>
     </section>
@@ -37,7 +37,7 @@
                 {{#each patient}}
                 
                 <tr>
-                    <td class="fontBlueNormal">{{this.first_name}} {{this.last_name}}</td>
+                    <td><a class="fontBlueNormal" href="">{{this.first_name}} {{this.last_name}}</a></td>
                     
                     {{#if latest_log.length}}
                         {{#each latest_log}}
@@ -57,99 +57,6 @@
                 </tr>
                 
                 {{/each}}
-
-                <!-- Other patients(hard coded) -->
-                <tr>
-                    <td class="fontBlueNormal">Austin Hunter</td>
-                    <td>8.4</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td>1</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Vicky Hamilton</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td class="fontRed">76.2</td>
-                    <td>1</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Norma Shaffer</td>
-                    <td>7.9</td>
-                    <td>78.4</td>
-                    <td>N/A</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Amani Lacey</td>
-                    <td>8.1</td>
-                    <td>58.2</td>
-                    <td>1</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Logan Smith</td>
-                    <td>7.8</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td>N/A</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Sherry Marsh</td>
-                    <td>8.3</td>
-                    <td>67.9</td>
-                    <td>1</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Katy Wynn</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Daid Anderson</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td>72.8</td>
-                    <td>N/A</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Evan Britton</td>
-                    <td class="fontRed">11.0</td>
-                    <td class="fontRed">85.8</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">William Lo</td>
-                    <td class="fontRed">14.1</td>
-                    <td>57.4</td>
-                    <td>1</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Albert Yu</td>
-                    <td>7.1</td>
-                    <td>58.2</td>
-                    <td>N/A</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Justin Tighe</td>
-                    <td>8</td>
-                    <td class="fontRed">62.0</td>
-                    <td>N/A</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Leo Chan</td>
-                    <td>9.4</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
             </table>
     </section>
 
@@ -167,15 +74,15 @@
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
             <div></div>
-            <a class="reDirectButtonA" href=""><section class="Jbot">
+            <a class="reDirectButtonA" href="/cliPatientComments"><section class="Jbot">
                 <div class="Jimg"><img src="/patientcommentsicon.png" alt="patient comments"></div>
                 <p class="ButtonAText">Patient Comments</p>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
             <div></div>
-            <a class="reDirectButtonA" href=""><section class="Jbot">
-                <div class="Jimg"><img src="/contactsicon.png" alt="clinician contacts"></div>
-                <p class="ButtonAText">Clinician Contacts</p>
+            <a class="reDirectButtonA" href="clinicianProfile"><section class="Jbot">
+                <div class="Jimg"><img src="/dashboard&viewdataicon.jpg" alt="clinician dashboard"></div>
+                <p class="ButtonAText">Clinician Profile</p>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
         </section>

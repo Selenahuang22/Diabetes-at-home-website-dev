@@ -2,7 +2,7 @@
 const express = require('express')
 const app = express()
 app.use(express.json())  
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))	// define where static assets live
 app.use(express.static(__dirname + '/images')); // static images
 
@@ -50,6 +50,10 @@ app.get('/clinicianSignUp', async (req, res) => {
     res.render('clinicianSignUp.hbs');
 })
 
+app.get('/patientRegister', async (req, res) => {
+    res.render('patientRegister.hbs');
+})
+
 app.get('/clinicianProfile', async (req, res) => {
     res.render('clinicianProfile.hbs');
 })
@@ -60,6 +64,10 @@ app.get('/editProfile', async (req, res) => {
 
 app.get('/viewData', async (req, res) => {
     res.render('patientViewData.hbs');
+})
+
+app.get('/cliPatientComments', async (req, res) => {
+    res.render('cliPatientComments.hbs');
 })
 
 /*d2*/

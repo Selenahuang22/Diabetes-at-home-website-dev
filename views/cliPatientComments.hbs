@@ -6,7 +6,7 @@
         <div class="blueLine"></div>
         <section id="profile">
             <section id="directP">
-                <h2><a href="" class="fontBlueNormal">Profile</a> > <a href="" class="fontBlueNormal">Patient Comments</a></h2>
+                <h2><a href="/clinicianProfile" class="fontBlueNormal">Profile</a> > <a href="" class="fontBlueNormal">Patient Comments</a></h2>
             </section>
             <section class="profileInfo">
                 <img src="/annabrown.png" alt="default clinician img">
@@ -14,143 +14,63 @@
                 <p class="rightContent">Username: chrisb666</p>
             </section>
         </section>
-        <section id="dashboardText">
-            <h1 class="fontBlue">Dashboard</h1>
-        </section>
     </section>
 
-    <!-- Clinician patients table-->
-    <section id="allPatients">
-            <table id="patientList">
-                <tr>
-                    <th>Patient List</th>
-                    <th>Blood Glucose Level
-                        (in mmol/L)</th>
-                    <th>Weight (in kg)</th>
-                    <th>Number of Insulin
-                        Doses Taken</th>
-                    <th>Exercises
-                        (step count)</th>
-                </tr>
+    <!-- Patient comments section(hard coded) -->
+    <section id="tableArea">
 
-                <!-- Patients from the database -->
-                {{#each patient}}
-                
-                <tr>
-                    <td class="fontBlueNormal">{{this.first_name}} {{this.last_name}}</td>
-                    
-                    {{#if latest_log.length}}
-                        {{#each latest_log}}
-                            <td {{#if (is_bgl_in_dangRange this.value)}}class="fontRed"{{/if}} >{{#if (is_blood_glucose this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                            <td>{{#if (is_insulin_take this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                            <td>{{#if (is_weight this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                            <td>{{#if (is_exercises this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                        {{/each}}
-                        
-                    {{else}}
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    {{/if}}
-                    
-                </tr>
-                
-                {{/each}}
+        <div id="tableAreaText"><h1 class="fontBlue">Patient Comments</h1></div>
 
-                <!-- Other patients(hard coded) -->
+        <section id="allMessages">
+            <table id="oneMessageSearch">
                 <tr>
-                    <td class="fontBlueNormal">Austin Hunter</td>
-                    <td>8.4</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td>1</td>
-                    <td class="fontBlueNormal">-</td>
+                    <th>
+                        <form>
+                            <select name="display">
+                                <option value="today">Today</option>
+                                <option value="yesterday">Yesterday</option>
+                                <option value="read">Read</option>
+                                <option value="unread">Unread</option>
+                                <option value="favourite">Favourite</option>
+                            </select>
+                        </form>
+                    </th>
+                    <th></th>
+                    <th>
+                        <div id="searchBar2">
+                            <div>
+                                <input type="search" placeholder="Search">
+                            </div>
+                            <div>
+                                <input type="submit" id="smallLook" value="">
+                        </div>
+                    </th>
+                </tr> 
+            </table>
+            <table id="oneMessageTable">                
+                <tr>
+                    <td><a class="fontRed" href="">Vicky Hamilton</a></td>
+                    <td><a class="fontRed" href="">Weight: 76.2<br>Oops, I think I have increasingly gained too much weight lately</a></td>
+                    <td><a href="" class="supmessageTime">10:00 AM</a></td>
+                    <td><img src="/tickheart.png" alt="tickHeart"></td>
+                    <td><img src="/bin.png" alt="deleteImg"></td>
                 </tr>
                 <tr>
-                    <td class="fontBlueNormal">Vicky Hamilton</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td class="fontRed">76.2</td>
-                    <td>1</td>
-                    <td class="fontBlueNormal">-</td>
+                    <td><a class="fontBlueNormal" href="">Austin Hunter</a></td>
+                    <td><a href="">Blood Glucose Level: 8.4<br>Still quite high I guess</a></td>
+                    <td><a href="" class="supmessageTime">9:55 AM</a></td>
+                    <td><img src="/tickheart.png" alt="tickHeart"></td>
+                    <td><img src="/bin.png" alt="deleteImg"></td>
                 </tr>
                 <tr>
-                    <td class="fontBlueNormal">Norma Shaffer</td>
-                    <td>7.9</td>
-                    <td>78.4</td>
-                    <td>N/A</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Amani Lacey</td>
-                    <td>8.1</td>
-                    <td>58.2</td>
-                    <td>1</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Logan Smith</td>
-                    <td>7.8</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td>N/A</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Sherry Marsh</td>
-                    <td>8.3</td>
-                    <td>67.9</td>
-                    <td>1</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Katy Wynn</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Daid Anderson</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td>72.8</td>
-                    <td>N/A</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Evan Britton</td>
-                    <td class="fontRed">11.0</td>
-                    <td class="fontRed">85.8</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">William Lo</td>
-                    <td class="fontRed">14.1</td>
-                    <td>57.4</td>
-                    <td>1</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Albert Yu</td>
-                    <td>7.1</td>
-                    <td>58.2</td>
-                    <td>N/A</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Justin Tighe</td>
-                    <td>8</td>
-                    <td class="fontRed">62.0</td>
-                    <td>N/A</td>
-                    <td class="fontBlueNormal">-</td>
-                </tr>
-                <tr>
-                    <td class="fontBlueNormal">Leo Chan</td>
-                    <td>9.4</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td class="fontBlueNormal">-</td>
-                    <td class="fontBlueNormal">-</td>
+                    <td><a class="fontBlueNormal" href="">Norma Shaffer</a></td>
+                    <td><a href="">Weight: 78.4<br>Getting there, getting there</a></td>
+                    <td><a href="" class="supmessageTime">9:20 AM</a></td>
+                    <td><img src="/tickheart.png" alt="tickHeart"></td>
+                    <td><img src="/bin.png" alt="deleteImg"></td>
                 </tr>
             </table>
+        </section>
     </section>
 
     <!-- direct to other pages section -->
@@ -162,22 +82,23 @@
 
         <section id="webDetailButtonHolder">
             <a class="reDirectButtonA" href=""><section class="Jbot">
+                <div class="Jimg"><img src="/dashboard&viewdataicon.jpg" alt="clinician dashboard"></div>
+                <p class="ButtonAText">Dashboard</p>
+                <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
+            </section></a>
+            <div></div>
+            <a class="reDirectButtonA" href=""><section class="Jbot">
                 <div class="Jimg"><img src="/clinicalnotes&recorddataicon.png" alt="clinician note"></div>
                 <p class="ButtonAText">Clinician Notes</p>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
             <div></div>
-            <a class="reDirectButtonA" href=""><section class="Jbot">
+            <a class="reDirectButtonA" href="/cliPatientComments"><section class="Jbot">
                 <div class="Jimg"><img src="/patientcommentsicon.png" alt="patient comments"></div>
                 <p class="ButtonAText">Patient Comments</p>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
-            <div></div>
-            <a class="reDirectButtonA" href=""><section class="Jbot">
-                <div class="Jimg"><img src="/contactsicon.png" alt="clinician contacts"></div>
-                <p class="ButtonAText">Clinician Contacts</p>
-                <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
-            </section></a>
+            <div></div>                    
         </section>
         
     </section>  
