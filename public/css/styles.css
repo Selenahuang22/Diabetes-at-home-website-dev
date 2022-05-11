@@ -299,23 +299,29 @@ header {
     font-size: 2vw;
 }
 
+#logout {
+    grid-area: logout;
+}
+
+#logout button {
+    background-color: white;
+    height: 7vh;
+    width: 20vh;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-color: #5f8acb;
+    border-radius: 1.2vh;
+    border-style: solid;
+}
+
 #headRight {
     grid-area: hr;
     grid-template-columns: 30% 60% 10%;
     grid-template-rows: 35% 30% 35%;
     grid-template-areas:
         ". . ."
-        ". hsb ."
+        ". logout ."
         ". . .";
-}
-
-#searchBar {
-    grid-area: hsb;
-    grid-template-columns: 80% 20%;
-    border: 0.3vh solid #5d8ed7;
-    border-radius: 2vh;
-    border-right: 0vh;
-    background-color: white;
 }
 
 #searchBar2 {
@@ -576,8 +582,8 @@ footer img:hover {
 
 #signUpLeft input {
     border: #578ad6 3px solid;
-    font-size: large;
-    margin-top: 30px;
+    font-size: 0.8em;
+    margin-top: 25px;
     height: 55px;
 }
 
@@ -593,6 +599,22 @@ footer img:hover {
     justify-content: start;
     justify-items: start;
     margin-left: 130px;
+}
+
+#signUpRight select {
+    background-color: #fff;
+    color: black;
+    border: #578ad6 2px solid;
+    border-radius: 1.2vh;
+    height: 5.5vh;
+    margin-top: 1.5vh;
+    
+}
+
+#signUpRight input {
+    font-size: 0.8em;
+    margin-top: 30px;
+    height: 55px;
 }
 
 #help {
@@ -617,13 +639,13 @@ footer img:hover {
 #clinicianProfile {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 100vh;
+    grid-template-rows: 90vh;
     grid-template-areas: "cliProfileSection cliProfileSection cliProfileSection";
 }
 
 #cliProfileSection {
     grid-area: cliProfileSection;
-    grid-template-rows: 5% 85% 10%;
+    grid-template-rows: 3% 87% 10%;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
         "bl bl bl"
