@@ -859,7 +859,7 @@ footer img:hover {
     font-size: 1.2em;
 }
 
-#profileInfo {
+.profileInfo {
     display: grid;
     height: 100%;
     width: 100%;
@@ -868,34 +868,41 @@ footer img:hover {
     padding: 0px;
     border-radius: 3vh;
     background-color: var(--c-color-white);
-    grid-template-columns: 7% 5% 1% 15% 30% 35% 7%;
+    grid-template-columns: 7% 5% 1% 9% 56% 15% 7%;
     grid-template-rows: 5% 90% 5%;
     grid-template-areas:
         ". . . . . . ."
         ". cImg . cName . rightContent ."
         ". . . . . . .";
+    align-items: center;
+    justify-items: center;
 }
 
-#proImg {
+.profileInfo img {
+    grid-area: cImg;
+}
+.proImg {
     grid-area: cImg;
 }
 
-#proName {
+.proName {
     grid-area: cName;
     justify-content: left;
     justify-items: left;
     overflow: hidden;
     text-overflow: ellipsis;
+    justify-items: left;
 }
 
-#rightContent {
+.rightContent {
     grid-area: rightContent;
     overflow: hidden;
     text-overflow: ellipsis;
+    justify-items: right;
 }
 
-#rightContent p,
-#proName p {
+.rightContent,
+.proName {
     color: var(--c-color-b0);
     font-weight: bolder;
 }
@@ -1292,17 +1299,20 @@ footer img:hover {
         ". top5 ."
         ". . .";
     background-color: var(--c-color-b3);
+
 }
 
 #boardHead {
     grid-area: boardHead;
     grid-template-rows: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #boardHead p {
     font-weight: bold;
     font-size: 1.3em;
-    margin-block-start: 0.5em;
+    margin-block-start: 0.2em;
     margin-block-end: 0em;
 }
 
