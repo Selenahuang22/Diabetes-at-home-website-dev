@@ -26,6 +26,8 @@ div, section {
     align-content: center;
     justify-content: center;
     justify-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 input {
@@ -549,8 +551,8 @@ footer img:hover {
 
 /* clinician sign up page */
 #signUp {
-    height: 900px;
-    grid-template-rows: 2% 5% 5% 5% 80% 3%;
+    height: 82vh;
+    grid-template-rows: 2% 5% 5% 5% 75% 8%;
     grid-template-columns: 7% 3% 40% 3% 40% 7%;
     grid-template-areas:
         "bl bl bl bl bl bl"
@@ -881,23 +883,14 @@ footer img:hover {
 .profileInfo img {
     grid-area: cImg;
 }
-.proImg {
-    grid-area: cImg;
-}
 
 .proName {
     grid-area: cName;
-    justify-content: left;
-    justify-items: left;
-    overflow: hidden;
-    text-overflow: ellipsis;
     justify-items: left;
 }
 
 .rightContent {
     grid-area: rightContent;
-    overflow: hidden;
-    text-overflow: ellipsis;
     justify-items: right;
 }
 
@@ -926,17 +919,9 @@ footer img:hover {
 }
 
 /*login page*/
-#loginPage {
-    font-family: sans-serif;
-    font-size: 1.4em;
-    grid-template-rows: 70vh 40vh;
-    grid-template-areas: 
-        "loginSession"
-        "bottomSection";
-}
-
 #loginSession {
-    grid-area: loginSession;
+    font-size: 1.4em;
+    height: 82vh;
     grid-template-columns: 7% 3% 40% 40% 3% 7% ;
     grid-template-rows: 3% 15% 72% 10%;
     grid-template-areas: 
@@ -952,7 +937,7 @@ footer img:hover {
     align-items: start;
     align-content: start;
     justify-content: start;
-    justify-items: start;
+    justify-items: center;
     grid-template-rows: none;
 }
 
@@ -971,17 +956,28 @@ footer img:hover {
     font-size: larger;
 }
 
+#loginLeft p {
+    font-size: 1em;
+    margin: 0px;
+    color: var(--c-color-g0);
+}
+
+#loginLeft a {
+    text-decoration: underline;
+    color: var(--c-color-g0);
+}
+
 #loginRight {
     grid-area: loginRight;
     align-items: start;
     align-content: start;
     justify-content: start;
-    grid-template-rows: 5% 15% 10% 70%;
-    grid-template-areas: 
+    grid-template-rows: 16% 10% 11% 63%;
+    grid-template-areas:
+        "."
         "createAccountText"
         "."
-        "createAccount"
-        ".";
+        "createAccount";
 }
 
 #loginRight h1 {
@@ -997,7 +993,6 @@ footer img:hover {
     border-radius: 2.5vh;
     width: 30vw;
     height: 8vh;
-    margin-top: 50px;
 }
 
 #bottomSection {
@@ -1398,7 +1393,7 @@ footer img:hover {
 
 #webDetailButtonHolder {
     grid-area: jb3;
-    grid-template-columns: 30% 5% 30% 5% 30%;
+    grid-template-columns: 30% 4% 30% 4% 30%;
 }
 
 /* div join Section */
@@ -1440,10 +1435,9 @@ footer img:hover {
 
 #joinButtonHolder {
     grid-area: jb2;
-    grid-template-columns: 45% 10% 45%;
+    grid-template-columns: 45% 9% 45%;
     align-items: initial;
     align-content: initial;
-    justify-content: space-between;
     justify-items: stretch;
 }
 

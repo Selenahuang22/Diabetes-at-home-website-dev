@@ -10,11 +10,11 @@ http://localhost:3000/diabetesInfo
 
 /* page for both */
 login: 
-http://localhost:3000//login
+http://localhost:3000/login
 edit profile: 
 http://localhost:3000/editProfile
 view data:
-http://localhost:3000//viewData
+http://localhost:3000/viewData
 
 
 /* clician pages */
