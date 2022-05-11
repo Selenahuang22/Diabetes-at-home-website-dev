@@ -547,30 +547,22 @@ footer img:hover {
 }
 
 /* clinician sign up page */
-#clinicianSignUp {
-    font-size: 1.4em;
-    grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 130vh;
-    grid-template-areas: 
-        "signUpSession signUpSession signUpSession";
-}
-
-#signUpSession {
-    grid-area: signUpSession;
-    grid-template-rows: 2% 8% 80% 10%;
-    grid-template-columns: 7% 86% 7%;
+#signUp {
+    height: 900px;
+    grid-template-rows: 2% 5% 5% 5% 80% 3%;
+    grid-template-columns: 7% 3% 40% 3% 40% 7%;
     grid-template-areas:
-        "bl bl bl"
-        ". . ."
-        ". signUpContent ."
-        ". . .";
+        "bl bl bl bl bl bl"
+        ". . . . . ."
+        ". signUpText signUpText signUpText signUpText ."
+        ". . . . . ."
+        ". . signUpLeft . signUpRight ."
+        ". . . . . .";
 
 }
 
-#signUpContent {
-    grid-area: signUpContent;
-    grid-template-columns: 3% 47% 47% 3%;
-    grid-template-areas: ". signUpLeft signUpRight .";
+#signUpText {
+    grid-area: signUpText;
 }
 
 #signUpLeft {
@@ -583,70 +575,33 @@ footer img:hover {
     justify-items: start;
 }
 
-#signUpLeft form {
-    margin-top: 50px;
-    margin-right: 130px;
-}
-
-#signUpLeft input {
-    border: var(--c-color-b0) 3px solid;
-    font-size: 0.8em;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    height: 55px;
-}
-
-#signUpLeft p {
-    margin-top: 0px;
-}
-
 #signUpRight {
     grid-area: signUpRight;
-    grid-template-rows: 10% 90%;
-    grid-template-columns: none;
-    grid-template-areas: 
-        "signUpRightTitle"
-        "help";
+    grid-template-rows: none;
     align-items: start;
     align-content: start;
     justify-content: start;
     justify-items: start;
-    margin-left: 130px;
 }
 
-#signUpRight select {
-    background-color: var(--c-color-white);
-    color: var(--c-color-black);
-    border: var(--c-color-b0) 2px solid;
-    border-radius: 1.2vh;
-    height: 5.5vh;
-    margin-top: 1.5vh;
-    
+#signUp input {
+    border: var(--c-color-b0) 3px solid;
+    font-size: 1em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 60px;
 }
 
-#signUpRight input {
-    font-size: 0.8em;
-    margin-top: 30px;
-    height: 55px;
+#signUp input[type="submit"] {
+    margin-top: 20px;
 }
 
-#help {
-    grid-area: help;
-    justify-items: left;
-    align-items: start;
-    align-content: start;
-    grid-template-columns: none;
-    grid-template-rows: none;
+#signUp p {
+    margin: 0px;
 }
 
-#help h2 {
-    font-size: 1.2em;
-    text-align: left;
-}
 
-#signUpRightTitle {
-    grid-area: signUpRightTitle;
-}
+
 
 /*clinician profile page */
 #clinicianProfile {
