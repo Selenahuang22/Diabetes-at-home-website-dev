@@ -280,8 +280,8 @@ body {
 header {
     display: grid;
     grid-area: h;
-    grid-template-columns: 7% 43% 8.6% 34.4% 7%;
-    grid-template-areas: ". hl . hr .";
+    grid-template-columns: 7% 42% 30% 14% 7%;
+    grid-template-areas: ". hl . logout .";
 }
 
 #headLeft {
@@ -314,17 +314,17 @@ header {
 
 #logout {
     grid-area: logout;
+    justify-items: right;
 }
 
 #logout button {
-    background-color: white;
+    background-color: var(--c-color-white);
     height: 7vh;
     width: 20vh;
     font-size: 1.5em;
     font-weight: bold;
-    border-color: #5f8acb;
+    border-color: var(--c-color-b1);
     border-radius: 1.2vh;
-    border-style: solid;
 }
 
 #headRight {
@@ -333,7 +333,7 @@ header {
     grid-template-rows: 35% 30% 35%;
     grid-template-areas:
         ". . ."
-        ". logout ."
+        ". hsb ."
         ". . .";
 }
 
@@ -468,7 +468,7 @@ footer img:hover {
     grid-template-areas:
         ". mt mt mt ."
         ". . . . . "
-        ". mlc mlText mlp .";
+        ". mlp mlText mlc .";
 }
 
 #mezzanineImgHolder {
@@ -480,9 +480,9 @@ footer img:hover {
         "mr2";
 }
 
-#logInClinician {
+#logInPatient {
     text-align: center;
-    grid-area: mlc;
+    grid-area: mlp;
     background: var(--c-color-b0);
     font-size: 1.9vh;
     border-radius: 1.5vh;
@@ -490,9 +490,9 @@ footer img:hover {
     height: 8vh;
 }
 
-#logInPatient {
+#logInClinician {
     text-align: center;
-    grid-area: mlp;
+    grid-area: mlc;
     background: var(--c-color-b0);
     font-size: 1.9vh;
     border-radius: 1.5vh;
@@ -591,8 +591,13 @@ footer img:hover {
 #signUpLeft input {
     border: var(--c-color-b0) 3px solid;
     font-size: 0.8em;
-    margin-top: 25px;
+    margin-top: 5px;
+    margin-bottom: 20px;
     height: 55px;
+}
+
+#signUpLeft p {
+    margin-top: 0px;
 }
 
 #signUpRight {
@@ -610,9 +615,9 @@ footer img:hover {
 }
 
 #signUpRight select {
-    background-color: #fff;
-    color: black;
-    border: #578ad6 2px solid;
+    background-color: var(--c-color-white);
+    color: var(--c-color-black);
+    border: var(--c-color-b0) 2px solid;
     border-radius: 1.2vh;
     height: 5.5vh;
     margin-top: 1.5vh;
@@ -985,10 +990,13 @@ footer img:hover {
 
 #loginLeft input {
     border: var(--c-color-b0) 3px solid;
-    font-size: large;
     margin-top: 50px;
     height: 70px;
-    
+}
+
+#loginLeft input[type="text"],
+#loginLeft input[type="password"] {
+    font-size: larger;
 }
 
 #loginRight {
