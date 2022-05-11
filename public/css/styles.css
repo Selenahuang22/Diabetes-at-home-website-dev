@@ -910,8 +910,6 @@ footer img:hover {
 
 #dashboardText {
     grid-area: dt;
-    align-items: left;
-    align-content: left;
     justify-content: left;
     justify-items: left;
 }
@@ -1681,12 +1679,13 @@ footer img:hover {
 #patientData {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 2vh 24vh 5vh auto 5vh auto 50vh;
+    grid-template-rows: 2vh 24vh 4vh 10vh auto 5vh auto 50vh;
     grid-template-areas:
         "bl bl bl"
         "prof prof prof"
         ". . ."
-        ". supportMessagesText ."
+        ". dt ."
+        ". tableAreaText ."
         ". . ."
         "bgc bgc bgc"
         ". ds .";
