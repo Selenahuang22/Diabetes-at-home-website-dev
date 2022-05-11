@@ -51,11 +51,12 @@ input:hover[type="submit"] {
 }
 
 textarea {
-    height: 100%;
+    margin-top: 10px;
+    height: 180px;
     width: 100%;
     border: 3px var(--c-color-b0) solid;
     border-radius: 2vh;
-    font-size: 2vh;
+    font-size: 1em;
     font-family: sans-serif;
 }
 
