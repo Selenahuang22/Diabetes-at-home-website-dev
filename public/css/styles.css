@@ -834,7 +834,7 @@ footer img:hover {
 
 #profile {
     grid-area: prof;
-    grid-template-rows: 15% 10% 15% 40% 20%;
+    grid-template-rows: 10% 15% 15% 40% 20%;
     grid-template-columns: 7% 86% 7%;
     background-color: var(--c-color-b3);
     grid-template-areas:
@@ -847,8 +847,6 @@ footer img:hover {
 
 #directP {
     grid-area: proP;
-    align-items: left;
-    align-content: left;
     justify-content: left;
     justify-items: left;
     /*font-size: ; */
@@ -1006,9 +1004,10 @@ footer img:hover {
 #cliPatientComments {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 40vh auto 50vh;
+    grid-template-rows: 2vh 25vh auto 50vh;
     grid-template-areas:
-        "ci ci ci"
+        "bl bl bl"
+        "prof prof prof"
         "tableArea tableArea tableArea"
         ". ds .";
 }
@@ -1686,7 +1685,7 @@ footer img:hover {
 #patientData {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 2vh 24vh 4vh 10vh auto 5vh auto 50vh;
+    grid-template-rows: 2vh 24vh 4vh 10vh auto 5vh auto 5vh;
     grid-template-areas:
         "bl bl bl"
         "prof prof prof"
@@ -1695,7 +1694,7 @@ footer img:hover {
         ". tableAreaText ."
         ". . ."
         "bgc bgc bgc"
-        ". ds .";
+        ". . .";
 }
 
 #backgroundColor {

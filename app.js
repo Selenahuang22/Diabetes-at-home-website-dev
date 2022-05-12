@@ -64,7 +64,7 @@ app.get('/clinicianNotes', async (req, res) => {
     res.render('clinicianNotes.hbs');
 })
 app.get('/patientRegister', async (req, res) => {
-    res.render('C_patientRegister.hbs');
+    res.render('clinicianSignUp.hbs');
 })
 app.get('/patientComments', async (req, res) => {
     res.render('C_patientComments.hbs');
