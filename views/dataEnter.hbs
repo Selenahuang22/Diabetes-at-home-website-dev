@@ -8,11 +8,11 @@
         <section id="directP">
             <h2><a href="home" class="fontBlueNormal">Profile</a> > <a href="" class="fontBlueNormal">Record Data</a></h2>
         </section>
-        <section class="profileInfo">
+        <a href="home" class="profileInfo">
             <img src="/patienticon.png" alt="default patient img">
-            <p class="proName">Pat Health</p>
-            <p class="rightContent">Username: path123</p>
-        </section>
+            <section class="proName"><p>Pat Health</p></section>
+            <section class="rightContent"><p>Username: path123</p></section>
+        </a>
     </section>
 
     <!-- record data supporting text-->
@@ -40,7 +40,7 @@
                                 <b>Health Data Name</b><input type="text" value="blood glucose level" name="data_name" readonly>
                                 <b>Value</b><input type="text" placeholder="xx" name="value" >
                                 <b>Comments</b><input type="text" placeholder="xx" name="comment" >
-                                <input type="submit"  class="fontWhiteBold" value="Save">
+                                
                         </form>
                         
                             
@@ -56,30 +56,14 @@
                                 </label>
                             </section>
                             <p class="fontRed">*press if there is any problem to notify the clinician</p>
+                            <input type="submit"  class="fontWhiteBold" value="Save">
                         </section>
                     </section>
                 {{else}} <!-- if today's blood glucose level has been entered-->
-                    <section class="RecordInnerBar">
-                        <section class="recordArea">
-                            <h3 class="fontRed">## Your blood glucose level has been entered today!!! ##</h3>
-                            <h3 class="fontRed">No more enter is allowed</h3>
-                            <h3 class="fontRed">Remember to enter your blood glucose level tomorrow ;)</h3> 
-                        </section>  
-
-                        <!-- switch application is referenced -->
-                        <section class="SwitchIcon">
-                            <h3>Alert</h3>
-                            <section class="toggle-button-wrapper">
-                                <input type="checkbox" id="toggle-button" name="switch" checked>
-                                <label for="toggle-button" class="button-label">
-                                    <span class="circle"></span>
-                                    <span class="text off">OFF</span>
-                                    <span class="text on">ON</span>
-                                </label>
-                            </section>
-                            <p class="fontRed">*press if there is any problem to notify the clinician</p>
-                        </section>
-
+                    <section class="RecordFinish">
+                        <h3 class="fontRed">## Your blood glucose level has been entered today!!! ##</h3>
+                        <h3 class="fontRed">No more enter is allowed</h3>
+                        <h3 class="fontRed">Remember to enter your blood glucose level tomorrow</h3> 
                     </section>
                 {{/if}}
             </section>
@@ -95,7 +79,7 @@
                         <b>Health Data Name</b><input type="text" value="weight" name="data_name" readonly/>
                         <b>Value</b><input type="text" placeholder="xx" class="fixed" name="value" />
                         <b>Comments</b><input type="text" placeholder="xx" class="fixed" name="comment" />
-                        <input class="saveButton" type="submit" value="Save"/>
+                        
                     </form>
 
                     <!-- switch application is referenced -->
@@ -110,6 +94,7 @@
                             </label>
                         </section>
                         <p class="fontRed">*press if there is any problem to notify the clinician</p>
+                        <input class="saveButton" type="submit" value="Save"/>
                     </section>
 
                 </section>
@@ -126,7 +111,6 @@
                         <b>Health Data Name</b><input type="text" value="insulin take" name="data_name" readonly/>
                         <b>Value</b><input type="text" placeholder="xx" class="fixed" name="value" />
                         <b>Comments</b><input type="text" placeholder="xx" class="fixed" name="comment" />
-                        <input class="saveButton" type="submit" value="Save"/>
                     </form>
     
                     <!-- switch application is referenced -->
@@ -141,6 +125,7 @@
                             </label>
                         </section>
                         <p class="fontRed">*press if there is any problem to notify the clinician</p>
+                        <input class="saveButton" type="submit" value="Save"/>
                     </section>
 
                 </section>
@@ -157,7 +142,6 @@
                         <b>Health Data Name</b><input type="text" value="exercises" name="data_name" readonly/>
                         <b>Value</b><input type="text" placeholder="xx" class="fixed" name="value" />
                         <b>Comments</b><input type="text" placeholder="xx" class="fixed" name="comment" />
-                        <input class="saveButton" type="submit" value="Save"/>
                     </form>
                     
                     <!-- switch application is referenced -->
@@ -171,6 +155,7 @@
                                 <span class="text on">ON</span>
                             </label>
                         </section><p class="fontRed">*press if there is any problem to notify the clinician</p>
+                        <input class="saveButton" type="submit" value="Save"/>
                     </section>
                     
                 </section>
@@ -186,21 +171,21 @@
         </section>
 
         <section id="webDetailButtonHolder">
-            <a class="reDirectButtonA" href=""><section class="Jbot">
-                <div class="Jimg"><img src="/clinicalnotes&recorddataicon.png" alt="clinician note"></div>
-                <p class="ButtonAText">Record Data</Datag></p>
+            <a class="reDirectButtonA" href="/viewData"><section class="Jbot">
+                <div class="Jimg"><img src="/dashboard&viewdataicon.jpg" alt="view data"></div>
+                <div class="ButtonAText"><p>View Data</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
             <div></div>
-            <a class="reDirectButtonA" href=""><section class="Jbot">
-                <div class="Jimg"><img src="/contactsicon.png" alt="clinician contacts"></div>
-                <p class="ButtonAText">Clinician Contacts</p>
+            <a class="reDirectButtonA" href="home"><section class="Jbot">
+                <div class="Jimg"><img src="/contactsicon.png" alt="profile"></div>
+                <div class="ButtonAText"><p>Profile</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
             <div></div>
-            <a class="reDirectButtonA" href=""><section class="Jbot">
-                <div class="Jimg"><img src="/achievementsicon.png" alt="patient comments"></div>
-                <p class="ButtonAText">Achievements</p>
+            <a class="reDirectButtonA" href="/editProfile"><section class="Jbot">
+                <div class="Jimg"><img src="/editprofileicon.png" alt="edit profile"></div>
+                <div class="ButtonAText"><p>Edit Profile</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
         </section>
