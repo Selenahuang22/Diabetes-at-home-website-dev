@@ -1150,7 +1150,7 @@ footer img:hover {
 #todayData {
     grid-area: todayData;
     align-items: start;
-    grid-template-rows: 20% 7% 8% 50% 15%;
+    grid-template-rows: 20% 10% 5% 50% 15%;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas: 
         ". . ."
@@ -1300,8 +1300,6 @@ footer img:hover {
 #boardHead {
     grid-area: boardHead;
     grid-template-rows: none;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 #boardHead p {
