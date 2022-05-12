@@ -603,9 +603,6 @@ footer img:hover {
     margin: 0px;
 }
 
-
-
-
 /*clinician profile page */
 #clinicianProfile {
     font-size: 1.4em;
@@ -704,16 +701,9 @@ footer img:hover {
 
 /* edit pofile page */
 #editProfile {
-    grid-area: editProfile;
+    height: 111vh;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 120vh;
-    grid-template-areas: "editProfileSection editProfileSection editProfileSection";
-}
-
-#editProfileSection {
-    grid-area: editProfileSection;
-    grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 3% 8% 79% 10%;
+    grid-template-rows: 3% 3% 91% 3%;
     grid-template-areas:
         "bl bl bl"
         ". . ."
@@ -733,33 +723,40 @@ footer img:hover {
 
 #editProfileContentRight {
     grid-area: editProfileContentRight;
-    grid-template-rows: 80% 20%;
-    grid-template-areas: 
-        "editForm1"
-        ".";
 }
 
 #editForm1{
-    grid-area: editForm1;
     font-size: larger;
     grid-template-rows: none;
     align-items: start;
     align-content: start;
     justify-content: start;
     justify-items: left;
-       
+}
+
+#editForm1 h1{
+    margin-bottom: 20px;
 }
 
 #editForm1 input {
     border: var(--c-color-b0) 3px solid;
     font-size: large;
-    margin-top: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
     height: 55px;
 }
 
 #editForm1 form {
-    margin-top: 50px;
     font-size: larger;
+}
+
+#editForm1 form p{
+    margin: 0px;
+    font-size: large;
+}
+
+#editForm1 form input{
+    margin-top: 20px;
 }
 
 #editProfileContentLeft {
@@ -787,6 +784,7 @@ footer img:hover {
     grid-template-rows: none;
     align-items: start;
     align-content: start;
+    font-size: larger;
 }
 
 #editImg img {
@@ -798,7 +796,7 @@ footer img:hover {
     grid-area: editBiography;
     align-items: start;
     align-content: start;
-    justify-items: stretch;
+    justify-items: center;
 }
 
 #editBiography input {
