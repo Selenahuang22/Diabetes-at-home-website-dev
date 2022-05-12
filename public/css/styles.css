@@ -218,7 +218,7 @@ select {
     border-radius: 3vh;
     border: 4px var(--c-color-b0) solid;
     height: 20vh;
-    grid-template-columns: 5% 30% 50% 10% 5%;
+    grid-template-columns: 5% 60% 20% 10% 5%;
     grid-template-rows: 5% 60% 30% 5%;
     grid-template-areas:
         ". . . . ."
@@ -241,6 +241,7 @@ select {
     color: var(--c-color-b0);
     font-weight: 900;
     font-size: 25px;
+    justify-items: left;
 }
 
 .Jarr {
@@ -596,7 +597,7 @@ footer img:hover {
 }
 
 #signUp input[type="submit"] {
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 #signUp p {
@@ -607,7 +608,7 @@ footer img:hover {
 #patientSignUp {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 130vh;
+    grid-template-rows: 111vh;
     grid-template-areas:
         "signUpSession signUpSession signUpSession";
 }
@@ -619,7 +620,7 @@ footer img:hover {
 
 #signUpSession {
     grid-area: signUpSession;
-    grid-template-rows: 2% 8% 80% 10%;
+    grid-template-rows: 2% 5% 88% 5%;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
         "bl bl bl"
@@ -653,14 +654,14 @@ footer img:hover {
 #psignUpLeft input {
     border: #578ad6 3px solid;
     font-size: 0.8em;
-    margin-top: 25px;
+    margin-top: 5px;
+    margin-bottom: 20px;
     height: 55px;
 }
 
 #psignUpRight {
     grid-area: psignUpRight;
     grid-template-rows: 10% 90%;
-    grid-template-columns: none;
     grid-template-areas:
         "signUpRightTitle"
         "registerDataEntry";
@@ -668,11 +669,15 @@ footer img:hover {
     align-content: start;
     justify-content: start;
     justify-items: start;
-    margin-left: 130px;
+    margin-left: 300px;
 }
 
 #registerDataEntry {
     grid-area: registerDataEntry;
+}
+
+#registerDataEntry p {
+    font: 1em bold;
 }
 
 #psignUpRight select {
@@ -680,22 +685,23 @@ footer img:hover {
     color: black;
     border: #578ad6 2px solid;
     border-radius: 1.2vh;
-    height: 5.5vh;
-    margin-top: 1.5vh;
-
+    height: 55px;
+    margin-top: 10px;
+    margin-bottom: 50px;
 }
 
 #psignUpRight input {
     font-size: 0.8em;
     margin-top: 30px;
     height: 55px;
+    width: 440px;
 }
 
 /*clinician profile page */
 #clinicianProfile {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 90vh;
+    grid-template-rows: 82vh;
     grid-template-areas: "cliProfileSection cliProfileSection cliProfileSection";
 }
 
@@ -717,7 +723,7 @@ footer img:hover {
         ". . . . ."
         ". cliProfileInfo. cliprofileRight ."
         ". . . . .";
-    background-image: linear-gradient(180deg, var(--c-color-b3) 30%, var(--c-color-white) 0%);
+    background-image: linear-gradient(180deg, var(--c-color-b3) 40%, var(--c-color-white) 0%);
 }
 
 #cliProfileInfo {
@@ -725,14 +731,21 @@ footer img:hover {
     border-radius: 3vh;
     background-color: var(--c-color-white);
     grid-template-columns: 3% 94% 3%;
-    grid-template-rows: 3% 30% 54% 10% 3%;
+    grid-template-rows: 3% 25% 5% 54% 10% 3%;
     grid-template-areas: 
         ". . ."
         ". cliIm ."
+        ". cliTx ."
         ". perInfo ."
         ". editP ."
         ". . .";
     box-shadow: 0px 0px 20px var(--c-color-g0);
+}
+
+#cliProfileInfo .fontWhiteBold {
+    grid-area: editP;
+    width: 100%;
+    height: 100%;
 }
 
 #perInfo {
@@ -743,8 +756,10 @@ footer img:hover {
 
 #cliImg {
     grid-area: cliIm;
-    grid-template-columns: none;
-    grid-template-rows: none;
+}
+
+#cliText {
+    grid-area: cliTx;
 }
 
 #cliImg img {
@@ -753,36 +768,39 @@ footer img:hover {
 
 #cliprofileRight {
     grid-area: cliprofileRight;
-    grid-template-rows: 10% 30% 20% 40%;
-    grid-template-areas: 
-        "."
+    grid-template-rows: 30% 20% 38% 12%;
+    grid-template-areas:
         "buttonWithText"
         "."
-        "jb3";
+        "jb3"
+        ".";
 }
 
-.buttonWithText {
+#buttonWithText {
     grid-area: buttonWithText;
     align-items: start;
     align-content: start;
     justify-content: start;
     justify-items: left;
-    grid-template-rows: 45% 10% 45%;
+    grid-template-rows: 45% 15% 40%;
     grid-template-areas:
         "buttonTopText"
         "."
         "editP";
 }
 
-#cliprofileRight .buttonWithText .blueButton{
+#buttonWithText .blueButton{
     font-size: 2.2vh;
     border-radius: 2.5vh;
     width: 24vw;
     height: 6vh;
-    margin-top: 2vh;
 }
 
-.buttonWithText h1 {
+#buttonWithText .fontWhiteBold {
+    grid-area: editP;
+}
+
+#buttonTopText {
     grid-area: buttonTopText;
     font-weight: 500;
 }
@@ -1214,7 +1232,7 @@ footer img:hover {
 
 #dailyData {
     grid-area: dd;
-    grid-template-rows: 15% 7% 15% 63%;
+    grid-template-rows: 15% 10% 15% 60%;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas: 
         ". . ."
@@ -1526,6 +1544,7 @@ footer img:hover {
 
 /* Foot link that will not be change regardless of screen size ********************************************************/
 #foot {
+    border-top: 1px solid var(--c-color-b1);
     grid-area: fl;
     grid-template-rows: 90% 10%;
     grid-template-areas:
@@ -1727,12 +1746,13 @@ footer img:hover {
 }
 .RecordInnerBar {
     grid-area: RIB;
-    grid-template-rows: 5% 95%;
     grid-template-columns: 50% 50%;
     column-gap: 5%;
-    grid-template-areas: 
-    ". ."
-    "recordArea SwitchIcon";
+    grid-template-areas: "recordArea SwitchIcon";
+}
+.RecordFinish {
+    grid-area: RIB;
+    grid-template-rows: none;
 }
 
 .recordArea {
@@ -1749,7 +1769,8 @@ footer img:hover {
 .RecordInnerBar input {
     border: var(--c-color-b0) 3px solid;
     font-size: large;
-    margin-top: 13px;
+    margin-top: 5px;
+    margin-bottom: 10px;
     height: 50px;
 }
 
@@ -1769,11 +1790,15 @@ footer img:hover {
     pointer-events: none;
 }
 
+.saveButton {
+    width: 500px;
+}
+
 /*@ patientViewData, Layout***********************************************************/
 #patientData {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 2vh 24vh 4vh 10vh auto 5vh auto 5vh;
+    grid-template-rows: 2vh 24vh 4vh 10vh auto 5vh auto;
     grid-template-areas:
         "bl bl bl"
         "prof prof prof"
@@ -1781,8 +1806,7 @@ footer img:hover {
         ". dt ."
         ". tableAreaText ."
         ". . ."
-        "bgc bgc bgc"
-        ". . .";
+        "bgc bgc bgc";
 }
 
 #backgroundColor {
