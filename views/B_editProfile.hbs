@@ -1,0 +1,39 @@
+<section id="editProfile">
+    <div class="blueLine"></div>
+    <section id="editProfileContent">
+        <section id="editProfileContentLeft">
+            <div id="editImg">
+                <h1 class="fontBlue">Profile</h1>
+                <img src="/annabrown.png" alt="default clinician img">
+            </div>
+
+            <div id="editBiography">
+                <form action="" method="POST">
+                    <h2>Biography</h2>
+                    <textarea placeholder="e.g. I like exercises" name="biography"></textarea>
+                </form>
+            </div>
+            <a href="clinicianProfile"><button class="blueButton" id="editProfileCancel">Cancel</button></a>
+        </section>
+
+        <section id="editProfileContentRight">
+            <section id="editForm1">
+                <h1>Account Setting</h1>
+                <form action="" method="POST">
+                    <b>First Name<tag class="fontRed">*</tag></b><input type="text" placeholder="this.first_name" name="first_name" />
+                    <b>Last Name<tag class="fontRed">*</tag></b><input type="text" placeholder="this.last_name" name="last_name" />
+                    <b>Date of Birth<tag class="fontRed">*</tag></b><input type="text" placeholder="this.DOB" name="DOB" />
+                    <b>Username(Screen Name)<tag class="fontRed">*</tag></b><input type="text" placeholder="this.user_name" name="user_name" />
+                    <b>Email Address(UserID)<tag class="fontRed">* This field cannot be changed</tag></b><input type="text" value="this.email" name="email" readonly/>
+                    <b>Password<tag class="fontRed">*</tag></b><input type="password" placeholder="e.g. XXXXXXXX" name="password" />
+                    <p>*Password must contain at least <tag class="fontRed"> 8 character </tag> long including:</p>
+                    <p>-At least <tag class="fontRed"> one </tag> upper case</p>
+                    <p>-At least <tag class="fontRed"> one </tag> lower case</p>
+                    <p>-At least <tag class="fontRed"> one </tag> number</p>
+                    <p>-At least <tag class="fontRed"> one </tag> special character e.g. #$%</p>
+                    <input type="submit" class="fontWhiteBold" value="Save" />
+                </form>
+            </section>
+        </section>
+    </section>
+</section>

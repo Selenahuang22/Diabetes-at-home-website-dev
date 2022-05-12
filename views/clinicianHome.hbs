@@ -8,11 +8,11 @@
             <section id="directP">
                 <h2><a href="/clinicianProfile" class="fontBlueNormal">Profile</a> > <a href="" class="fontBlueNormal">Dashboard</a></h2>
             </section>
-            <section class="profileInfo">
+            <a href="/clinicianProfile" class="profileInfo">
                 <img src="/annabrown.png" alt="default clinician img">
-                <p class="proName">Chris Brown</p>
-                <p class="rightContent">Username: chrisb666</p>
-            </section>
+                <section class="proName"><p>Chris Brown</p></section>
+                <section class="rightContent"><p>Username: chrisb666</p></section>
+            </a>
         </section>
         <section id="firstBigText">
             <h1 class="fontBlue">Dashboard</h1>
@@ -37,7 +37,7 @@
                 {{#each patient}}
                 
                 <tr>
-                    <td><a class="fontBlueNormal" href="">{{this.first_name}} {{this.last_name}}</a></td>
+                    <td><a class="fontBlueNormal" href="/patientProfile">{{this.first_name}} {{this.last_name}}</a></td>
                     
                     {{#if latest_log.length}}
                         {{#each latest_log}}
@@ -68,21 +68,21 @@
         </section>
 
         <section id="webDetailButtonHolder">
-            <a class="reDirectButtonA" href=""><section class="Jbot">
+            <a class="reDirectButtonA" href="/clinicianProfile"><section class="Jbot">
+                <div class="Jimg"><img src="/dashboard&viewdataicon.jpg" alt="clinician dashboard"></div>
+                <p class="ButtonAText">Clinician Profile</p>
+                <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
+            </section></a>
+            <div></div>
+            <a class="reDirectButtonA" href="/clinicianNotes"><section class="Jbot">
                 <div class="Jimg"><img src="/clinicalnotes&recorddataicon.png" alt="clinician note"></div>
                 <p class="ButtonAText">Clinician Notes</p>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
             <div></div>
-            <a class="reDirectButtonA" href="/cliPatientComments"><section class="Jbot">
+            <a class="reDirectButtonA" href="/patientComments"><section class="Jbot">
                 <div class="Jimg"><img src="/patientcommentsicon.png" alt="patient comments"></div>
                 <p class="ButtonAText">Patient Comments</p>
-                <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
-            </section></a>
-            <div></div>
-            <a class="reDirectButtonA" href="clinicianProfile"><section class="Jbot">
-                <div class="Jimg"><img src="/dashboard&viewdataicon.jpg" alt="clinician dashboard"></div>
-                <p class="ButtonAText">Clinician Profile</p>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
         </section>

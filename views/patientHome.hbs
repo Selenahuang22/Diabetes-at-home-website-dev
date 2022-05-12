@@ -23,7 +23,7 @@
                 </section>
 
                 <section class="blueButton">
-                    <p><a class="fontWhiteBold" href="">Edit Profile</a></p>
+                    <p><a class="fontWhiteBold" href="/editProfile">Edit Profile</a></p>
                 </section>
             </section>
 
@@ -46,7 +46,7 @@
             <section id="tableHead">
                 <div id="today"><p>Today</p></div>
                 <div id="recordData"><p><a href="/patient/{{thispatient._id}}/record">Record Data</a></p></div>
-                <div id="viewAll"><p><a href="">View All</a></p></div>
+                <div id="viewAll"><p><a href="/viewData">View All</a></p></div>
             </section>
             
             <table id="onePatTodayTable">
@@ -182,28 +182,28 @@
             <section id="top5">
                 <section id="firstRank" class="profileInfo">
                     <img src="/patienticon.png" alt="1st rank img">
-                    <p class="proName">sherrym999</p>
-                    <p id="No1" class="rightContent">No.1</p>
+                    <section class="proName"><p>sherrym999</p></section>
+                    <section class="rightContent"><p id="No1">No.1</p></section>
                 </section>
                 <section id="secondRank" class="profileInfo">
                     <img src="/patienticon.png" alt="2st rank img">
-                    <p class="proName">austh27</p>
-                    <p class="rightContent">No.2</p>
+                    <section class="proName"><p>austh27</p></section>
+                    <section class="rightContent"><p>No.2</p></section>
                 </section>
                 <section id="thirdRank" class="profileInfo">
                     <img src="/patienticon.png" alt="3st rank img">
-                    <p class="proName">logansth01</p>
-                    <p class="rightContent">No.3</p>
+                    <section class="proName"><p>logansth01</p></section>
+                    <section class="rightContent"><p>No.3</p></section>
                 </section>
                 <section id="forthRank" class="profileInfo">
                     <img src="/patienticon.png" alt="4st rank img">
-                    <p class="proName">norbeaut67</p>
-                    <p class="rightContent">No.4</p>
+                    <section class="proName"><p>norbeaut67</p></section>
+                    <section class="rightContent"><p>No.4</p></section>
                 </section>
                 <section id="fifthRank" class="profileInfo">
                     <img src="/patienticon.png" alt="5st rank img">
-                    <p class="proName">amlap09</p>
-                    <p class="rightContent">No.5</p>
+                    <section class="proName"><p>amlap09</p></section>
+                    <section class="rightContent"><p>No.5</p></section>
                 </section>
             </section> 
         </section>
@@ -217,7 +217,7 @@
         </section>
 
         <section id="webDetailButtonHolder">
-            <a class="reDirectButtonA" href=""><section class="Jbot">
+            <a class="reDirectButtonA" href="/viewData"><section class="Jbot">
                 <div class="Jimg"><img src="/dashboard&viewdataicon.jpg" alt="view daily data"></div>
                 <p class="ButtonAText">View Daily Data</p>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
@@ -229,9 +229,9 @@
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
             <div></div>
-            <a class="reDirectButtonA" href=""><section class="Jbot">
-                <div class="Jimg"><img src="/contactsicon.png" alt="clinician contacts"></div>
-                <p class="ButtonAText">Clinician Contacts</p>
+            <a class="reDirectButtonA" href="/editProfile"><section class="Jbot">
+                <div class="Jimg"><img src="/clinicalnotes&recorddataicon.png" alt="clinician contacts"></div>
+                <p class="ButtonAText">Edit Profile</p>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
         </section>
