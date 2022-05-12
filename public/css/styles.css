@@ -1718,7 +1718,7 @@ footer img:hover {
 .RecordBlueBar {
     background: var(--c-color-b3);
     grid-area: RBB;
-    grid-template-rows: 10% 80% 10%;
+    grid-template-rows: 7% 86% 7%;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas: 
         ". . ."
@@ -1750,7 +1750,7 @@ footer img:hover {
     border: var(--c-color-b0) 3px solid;
     font-size: large;
     margin-top: 13px;
-    height: 60px;
+    height: 50px;
 }
 
 .RecordBotton {
