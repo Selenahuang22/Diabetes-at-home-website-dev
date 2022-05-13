@@ -284,7 +284,7 @@ body {
 header {
     display: grid;
     grid-area: h;
-    grid-template-columns: 7% 42% 30% 14% 7%;
+    grid-template-columns: 7% 41% 15% 30% 7%;
     grid-template-areas: ". hl . logout .";
 }
 
@@ -318,7 +318,21 @@ header {
 
 #logout {
     grid-area: logout;
-    justify-items: right;
+    justify-items: left;
+    grid-template-rows: 10% 80% 10%;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+        ". ."
+        "logoutText logoutButton"
+        ". .";
+}
+
+#logoutButton{
+    grid-area: logoutButton;
+}
+
+#logout h2 {
+    grid-area: logoutText;
 }
 
 #logout button {
@@ -915,7 +929,7 @@ footer img:hover {
 #clinicianHome {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 40vh auto 50vh;
+    grid-template-rows: 27vh auto 50vh;
     grid-template-areas:
         "ci ci ci"
         "allP allP allP"
@@ -924,12 +938,13 @@ footer img:hover {
 
 #clinicianInfo {
     grid-area: ci;
-    grid-template-rows: 5% 4% 60% 31%;
+    grid-template-rows: 5% 7% 10% 10% 68%;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas: 
         ". . ."
         "bl bl bl"
-        "prof prof prof"
+        ". . ."
+        ". directP ."
         ". dt .";
 }
 
@@ -938,24 +953,9 @@ footer img:hover {
     background-color: var(--c-color-b0);
 }
 
-#profile {
-    grid-area: prof;
-    grid-template-rows: 10% 15% 15% 40% 20%;
-    grid-template-columns: 7% 86% 7%;
-    background-color: var(--c-color-b3);
-    grid-template-areas:
-        ". . ."
-        ". proP ."
-        ". . ."
-        ". proI ."
-        ". . .";
-}
-
 #directP {
-    grid-area: proP;
-    justify-content: left;
+    grid-area: directP;
     justify-items: left;
-    /*font-size: ; */
 }
 
 #directP h2{
@@ -1124,11 +1124,10 @@ footer img:hover {
     font-family: sans-serif;
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 40vh 55vh auto 100vh 50vh;
+    grid-template-rows: 35vh 40vh 100vh 50vh;
     grid-template-areas:
         "pi pi pi"
         "dd dd dd"
-        "tableArea tableArea tableArea"
         "leaderBoard leaderBoard leaderBoard"
         ". ds .";
 }
@@ -1145,14 +1144,41 @@ footer img:hover {
 
 #patProfile {
     grid-area: pProf;
-    grid-template-rows: 15% 70% 15%;
-    grid-template-columns: 7% 76% 1% 9% 7%;
+    grid-template-rows: 10% 85% 5%;
+    grid-template-columns: 7% 50% 1% 9% 5% 21% 7%;
     background-color: var(--c-color-b3);
     grid-template-areas:
-        ". . . . ."
-        ". ppi . badg ."
-        ". . . . .";
+        ". . . . . . ."
+        ". ppi . badg . recentMessage ."
+        ". . . . . . .";
        
+}
+
+#recentMessage {
+    grid-area: recentMessage;
+    grid-template-rows: 15% 85%;
+    grid-template-areas: 
+        "recentMessageHead"
+        "recentMessageContent";
+}
+
+#recentMessageHead {
+    grid-area: recentMessageHead;
+    grid-template-columns: 20% 80%;
+    grid-template-areas: "recentMessageHeadImg recentMessageHeadTitle"
+}
+
+#recentMessageHead img {
+    grid-area: recentMessageHeadImg;
+    width: 60%;
+}
+
+#recentMessageHead h3 {
+    grid-area: recentMessageHeadTitle;
+}
+
+#recentMessage p {
+    grid-area: recentMessageContent;
 }
 
 #patProfileInfo {
@@ -1161,11 +1187,11 @@ footer img:hover {
     padding: 0px;
     border-radius: 3vh;
     background-color: var(--c-color-white);
-    grid-template-columns: 5% 10% 30% 5% 30% 5% 10% 5%;
-    grid-template-rows: 15% 70% 15%;
+    grid-template-columns: 15% 1% 30% 3% 37% 3% 10% 1%;
+    grid-template-rows: 5% 90% 5%;
     grid-template-areas: 
     ". . . . . . . ."
-    ". pIm pi1 . pi2 . editP ."
+    "pIm . pi1 . pi2 . editP ."
     ". . . . . . . .";
 }
 
@@ -1232,7 +1258,7 @@ footer img:hover {
 
 #dailyData {
     grid-area: dd;
-    grid-template-rows: 15% 10% 15% 60%;
+    grid-template-rows: 10% 15% 10% 65%;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas: 
         ". . ."
@@ -1253,7 +1279,7 @@ footer img:hover {
 #todayData {
     grid-area: todayData;
     align-items: start;
-    grid-template-rows: 20% 10% 5% 50% 15%;
+    grid-template-rows: 20% 10% 5% 60% 5%;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas: 
         ". . ."
@@ -1709,24 +1735,25 @@ footer img:hover {
 #patientEnter {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 2vh 24vh 38vh auto 50vh;
+    grid-template-rows: 2vh auto 50vh;
     grid-template-areas:
         "bl bl bl"
-        "prof prof prof"
-        ". rdt ."
         "rbs rbs rbs"
         ". ds .";
 }
 
-#recordDataText {
-    grid-area: rdt;
-    grid-template-rows: 10% 20% 50% 20%;
-    justify-items: left;
-}
 #recordBars {
     grid-area: rbs;
     display: block;
 }
+
+#recordBars h2 {
+    font-weight: normal;
+    font-size: 1.2em;
+    text-align: left;
+
+}
+
 .RecordBar {
     height: 50vh;
     grid-template-rows: 10% 90%;

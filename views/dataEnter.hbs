@@ -3,31 +3,11 @@
 
     <section class="blueLine"></section>
 
-    <!-- patient personal information section-->
-    <section id="profile">
-        <section id="directP">
-            <h2><a href="home" class="fontBlueNormal">Profile</a> > <a href="" class="fontBlueNormal">Record Data</a></h2>
-        </section>
-        <a href="home" class="profileInfo">
-            <img src="/patienticon.png" alt="default patient img">
-            <section class="proName"><p>Pat Health</p></section>
-            <section class="rightContent"><p>Username: path123</p></section>
-        </a>
-    </section>
-
-    <!-- record data supporting text-->
-    <section id="recordDataText">
-        <section></section>
-        <h1 class="fontBlue">Record Data</h1>
-        <section>
-            <h2 class="fontBlueNormal"><tag class="fontRed">Start Your Day</tag> By Keeping Track Of Your Health Details Daily</h2>
-        </section>
-        <h1 class="titleBlack">Health Data Details</h1>
-        <section></section>
-    </section>
-
     <!-- data enter section-->
     <section id="recordBars">
+        
+        <h2><a href="home" class="fontBlueNormal">Profile</a> > <a href="" class="fontBlueNormal">Record Data</a></h2>
+        
 
         <!-- blood glucose level enter-->
         <section class="RecordBar">
@@ -38,8 +18,8 @@
                         <!-- data enter-->
                         <form class="recordArea" method="POST" action="/patient/{{id}}/submit_log">
                                 <b>Health Data Name</b><input type="text" value="blood glucose level" name="data_name" readonly>
-                                <b>Value</b><input type="text" placeholder="xx" name="value" >
-                                <b>Comments</b><input type="text" placeholder="xx" name="comment" >
+                                <b>Value</b><input type="text" name="value" >
+                                <b>Comments</b><input type="text" name="comment" >
                                 
                         </form>
                         
@@ -77,8 +57,8 @@
                     <!-- data enter-->
                     <form class="recordArea" method="POST">
                         <b>Health Data Name</b><input type="text" value="weight" name="data_name" readonly/>
-                        <b>Value</b><input type="text" placeholder="xx" class="fixed" name="value" />
-                        <b>Comments</b><input type="text" placeholder="xx" class="fixed" name="comment" />
+                        <b>Value</b><input type="text" class="fixed" name="value" />
+                        <b>Comments</b><input type="text" class="fixed" name="comment" />
                         
                     </form>
 
@@ -109,8 +89,8 @@
                     <!-- data enter-->
                     <form class="recordArea" method="POST">
                         <b>Health Data Name</b><input type="text" value="insulin take" name="data_name" readonly/>
-                        <b>Value</b><input type="text" placeholder="xx" class="fixed" name="value" />
-                        <b>Comments</b><input type="text" placeholder="xx" class="fixed" name="comment" />
+                        <b>Value</b><input type="text" class="fixed" name="value" />
+                        <b>Comments</b><input type="text" class="fixed" name="comment" />
                     </form>
     
                     <!-- switch application is referenced -->
@@ -140,8 +120,8 @@
                     <!-- data enter-->
                     <form class="recordArea" method="POST">
                         <b>Health Data Name</b><input type="text" value="exercises" name="data_name" readonly/>
-                        <b>Value</b><input type="text" placeholder="xx" class="fixed" name="value" />
-                        <b>Comments</b><input type="text" placeholder="xx" class="fixed" name="comment" />
+                        <b>Value</b><input type="text" class="fixed" name="value" />
+                        <b>Comments</b><input type="text" class="fixed" name="comment" />
                     </form>
                     
                     <!-- switch application is referenced -->
