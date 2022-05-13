@@ -320,7 +320,7 @@ header {
     grid-area: logout;
     justify-items: left;
     grid-template-rows: 10% 80% 10%;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 35% 65%;
     grid-template-areas: 
         ". ."
         "logoutText logoutButton"
@@ -929,7 +929,7 @@ footer img:hover {
 #clinicianHome {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 27vh auto 50vh;
+    grid-template-rows: 23vh auto 50vh;
     grid-template-areas:
         "ci ci ci"
         "allP allP allP"
@@ -1110,10 +1110,11 @@ footer img:hover {
 #cliPatientComments {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 2vh 25vh auto 50vh;
+    grid-template-rows: 2vh 2vh 3vh auto 50vh;
     grid-template-areas:
         "bl bl bl"
-        "prof prof prof"
+        ". . ."
+        ". directP ."
         "tableArea tableArea tableArea"
         ". ds .";
 }
@@ -1735,9 +1736,11 @@ footer img:hover {
 #patientEnter {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 2vh auto 50vh;
+    grid-template-rows: 2vh 2vh 3vh auto 50vh;
     grid-template-areas:
         "bl bl bl"
+        ". . ."
+        ". directP ."
         "rbs rbs rbs"
         ". ds .";
 }
@@ -1765,18 +1768,22 @@ footer img:hover {
     background: var(--c-color-b3);
     grid-area: RBB;
     grid-template-rows: 7% 86% 7%;
-    grid-template-columns: 7% 86% 7%;
+    grid-template-columns: 7% 43% 43% 7%;
     grid-template-areas: 
-        ". . ."
-        ". RIB ."
-        ". . .";
+        ". . . ."
+        ". RIB rR ."
+        ". . . .";
 }
 .RecordInnerBar {
     grid-area: RIB;
-    grid-template-columns: 50% 50%;
-    column-gap: 5%;
-    grid-template-areas: "recordArea SwitchIcon";
+    grid-template-areas: "recordArea";
 }
+
+.recordRight {
+    grid-area: rR;
+    grid-template-areas: "recordArea";
+}
+
 .RecordFinish {
     grid-area: RIB;
     grid-template-rows: none;
@@ -1793,7 +1800,8 @@ footer img:hover {
     grid-template-rows: none;
 }
 
-.RecordInnerBar input {
+.RecordInnerBar input,
+.recordRight input {
     border: var(--c-color-b0) 3px solid;
     font-size: large;
     margin-top: 5px;
@@ -1825,10 +1833,11 @@ footer img:hover {
 #patientData {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 2vh 24vh 4vh 10vh auto 5vh auto;
+    grid-template-rows: 2vh 2vh 4vh 4vh 10vh auto 5vh auto;
     grid-template-areas:
         "bl bl bl"
-        "prof prof prof"
+        ". . ."
+        ". directP ."
         ". . ."
         ". dt ."
         ". tableAreaText ."
