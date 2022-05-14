@@ -676,6 +676,10 @@ footer img:hover {
     margin-left: 300px;
 }
 
+#signUpSession h1 {
+    margin: 0px;
+}
+
 #registerDataEntry {
     grid-area: registerDataEntry;
 }
@@ -797,6 +801,10 @@ footer img:hover {
         "editP";
 }
 
+#buttonWithText h1{
+    margin: 0px;
+}
+
 #buttonWithText .blueButton{
     font-size: 2.2vh;
     border-radius: 2.5vh;
@@ -898,7 +906,6 @@ footer img:hover {
 
 #editImg img {
     height: 40%;
-    margin-top: calc(var(--big-vertical-gap) * 1px);
 }
 
 #editBiography {
@@ -938,7 +945,7 @@ footer img:hover {
 }
 
 .blueLine {
-    height: 2vh;
+    height: calc(var(--big-vertical-gap) * 1px);
     grid-area: bl;
     background-color: var(--c-color-b0);
 }
@@ -1097,12 +1104,23 @@ footer img:hover {
 #cliPatientComments {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: auto 2vh 3vh auto auto;
+    grid-template-rows: auto;
     grid-template-areas:
         "bl bl bl"
-        ". . ."
         ". directP ."
         "tableArea tableArea tableArea"
+        ". ds .";
+}
+
+/*@ clinicianNotes, Layout************************************************************/
+#cNotes {
+    font-size: 1.4em;
+    grid-template-columns: 7% 86% 7%;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "bl bl bl"
+        ". directP ."
+        "bgc bgc bgc"
         ". ds .";
 }
 
