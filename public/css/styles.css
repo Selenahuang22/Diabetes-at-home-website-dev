@@ -330,7 +330,11 @@ header {
     grid-area: logout;
     justify-items: right;
     grid-template-rows: auto;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 30% 30% 40%;
+}
+
+#logout img {
+    width: 50%;
 }
 
 #logout button {
