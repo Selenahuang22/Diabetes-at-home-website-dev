@@ -1,44 +1,45 @@
 <!-- patient home section -->
 <section id="patientHome">
 
+    <div class="blueLine"></div>
+
     <!-- patient personal info section -->
-    <section id="patientInfo">
-        <div class="blueLine"></div>
-        <section id="patProfile">
-            <section id="patProfileInfo">
-                <section id="pImg">
-                    <img src="/patienticon.png" alt="default patient img">
-                    <p class="fontBlue">{{thispatient.first_name}} {{thispatient.last_name}}</p>
-                </section>
-                
-                <section id="perInfo1"> 
-                    <p><b>Username:</b> {{thispatient.user_name}}</p>
-                    <p><b>Email:</b> {{thispatient.email}}</p>
-                    <p><b>D.O.B:</b> {{thispatient.DOB}}</p>
-                </section>
-
-                <section id="perInfo2"> 
-                    <p><b>Clinician In Charge:</b> Chris Brown</p>
-                    <p><b>Biography:</b> {{thispatient.biography}}</p>
-                </section>
-
-                <section class="blueButton">
-                    <p><a class="fontWhiteBold" href="/editProfile">Edit Profile</a></p>
-                </section>
+    <section id="patProfile">
+        <section id="patProfileInfo">
+            <section id="pImg">
+                <img src="/patienticon.png" alt="default patient img">
+                <p class="fontBlue">{{thispatient.first_name}} {{thispatient.last_name}}</p>
+            </section>
+            
+            <section id="perInfo1"> 
+                <p><b>Username:</b> {{thispatient.user_name}}</p>
+                <p><b>Email:</b> {{thispatient.email}}</p>
+                <p><b>D.O.B:</b> {{thispatient.DOB}}</p>
             </section>
 
-            <section id="badges">
-                <section id="badgesContent">
-                    <p class="fontBlue">Badges</p>
-                    <img src="/trophygif.gif" alt="badge image">
-                </section>
+            <section id="perInfo2"> 
+                <p><b>Clinician In Charge:</b> Chris Brown</p>
+                <p><b>Biography:</b> {{thispatient.biography}}</p>
             </section>
 
-            <section id="recentMessage">
-                <section id="recentMessageHead">
-                    <img src="/mail_black.png" alt="mailIcon">
-                    <h3>Clinician Message:</h3>
-                </section>
+            <section class="blueButton">
+                <p><a class="fontWhiteBold" href="/editProfile">Edit Profile</a></p>
+            </section>
+        </section>
+
+        <section id="badges">
+            <section id="badgesContent">
+                <p class="fontWhiteBold">Badges</p>
+                <img src="/trophygif.gif" alt="badge image">
+            </section>
+        </section>
+
+        <section id="recentMessage">
+            <section id="recentMessageHead">
+                <section id="recentMessageHeadImg"><img src="/mail_black.png" alt="mailIcon"></section>
+                <section id="recentMessageHeadTitle"><h3>Clinician Message:</h3></section>
+            </section>
+            <section id="recentMessageContent">
                 <p class="fontRed">Sunny day! Nice weather! Let's start this wonderful day by breathing in some fresh air!</p>
             </section>
         </section>
@@ -53,14 +54,14 @@
 
             <section id="tableHead">
                 <div id="today"><p>Today</p></div>
-                <div id="recordData"><p><a href="/patient/{{thispatient._id}}/record">Record Data</a></p></div>
-                <div id="viewAll"><p><a href="/viewData">View All</a></p></div>
+                <div id="recordData"><a href="/patient/{{thispatient._id}}/record"><p>Record Data</p></a></div>
+                <div id="viewAll"><a href="/viewData"><p>View All</p></a></div>
             </section>
             
             <table id="onePatTodayTable">
                 <tr>
                     <th>Date</th>
-                    <th>Blood Glucose Level
+                    <th>Blood Glucose Level<br>
                         (in mmol/L)</th>
                     <th>Weight (in kg)</th>
                     <th>Number of Insulin
@@ -134,9 +135,7 @@
     <!-- direct to other pages section -->
     <section id="directSection">
 
-        <section id="directHeader">   
-            <h1 id="directM" class="fontBlue">Get Accessed To</h1>          
-        </section>
+        <h1 id="directHeader" class="fontBlue">Get Accessed To</h1>
 
         <section id="webDetailButtonHolder">
             <a class="reDirectButtonA" href="/viewData"><section class="Jbot">
@@ -157,7 +156,6 @@
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
         </section>
-
     </section>
     
 </section>
