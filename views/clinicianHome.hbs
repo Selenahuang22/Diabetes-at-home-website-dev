@@ -5,11 +5,7 @@
     <section id="clinicianInfo">
         <div class="blueLine"></div>
         <section id="directP">
-            <h2><a href="/clinicianProfile" class="fontBlueNormal">Profile</a> > <a href="" class="fontBlueNormal">Dashboard</a></h2>
-        </section>
-        
-        <section id="firstBigText">
-            <h1 class="fontBlue">Dashboard</h1>
+            <h2><a href="/home" class="fontBlueNormal">Home</a> > <a href="" class="fontBlueNormal">Dashboard</a></h2>
         </section>
     </section>
 
@@ -26,7 +22,8 @@
                     <th>Exercises
                         (step count)</th>
                 </tr>
-
+            </table>
+            <table id="tableScroll">
                 <!-- Patients from the database -->
                 {{#each patient}}
                 
@@ -57,9 +54,7 @@
     <!-- direct to other pages section -->
     <section id="directSection">
 
-        <section id="directHeader">   
-            <h1 id="directM" class="fontBlue">Get Accessed To</h1>          
-        </section>
+        <h1 class="fontBlue">Get Accessed To</h1>
 
         <section id="webDetailButtonHolder">
             <a class="reDirectButtonA" href="/clinicianNotes"><section class="Jbot">

@@ -57,7 +57,7 @@ app.get('/viewData', async (req, res) => {
 app.get('/clinicianSignUp', async (req, res) => {
     res.render('clinicianSignUp.hbs');
 })
-app.get('/clinicianProfile', async (req, res) => {
+app.get('/home', async (req, res) => {
     res.render('clinicianProfile.hbs');
 })
 app.get('/clinicianNotes', async (req, res) => {

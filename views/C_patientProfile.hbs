@@ -1,0 +1,184 @@
+<section id="cPatientProfile">
+
+    <div class="blueLine"></div>
+
+    <section id="directP">
+        <h2><a href="/home" class="fontBlueNormal">Home</a> > <a href="" class="fontBlueNormal">Patient Profile</a></h2>
+    </section>
+
+    <section id="cPatProfile">
+        <section id="cPatProfileInfo">
+            <section id="pImg">
+                <img src="/patienticon.png" alt="default patient img">
+                <p class="fontBlue">{{thispatient.first_name}} {{thispatient.last_name}}</p>
+            </section>
+            
+            <section id="perInfo1"> 
+                <p><b>Username:</b> {{thispatient.user_name}}</p>
+                <p><b>Email:</b> {{thispatient.email}}</p>
+                <p><b>D.O.B:</b> {{thispatient.DOB}}</p>
+            </section>
+
+            <section id="perInfo2"> 
+                <p><b>Clinician In Charge:</b> Chris Brown</p>
+                <p><b>Biography:</b> {{thispatient.biography}}</p>
+            </section>
+
+            <section id="badges">
+                <section id="badgesContent">
+                    <p class="fontWhiteNormal">Engagement</p>
+                    <p class="fontWhiteNormal">Rate</p>
+                    <p class="fontWhiteBold">80%</p>
+                </section>
+            </section>
+        </section>
+
+        <section id="recentMessage">
+            <section id="recentMessageHead">
+                <section id="recentMessageHeadImg"><img src="/mail_black.png" alt="mailIcon"></section>
+                <section id="recentMessageHeadTitle"><h3>Clinician Message:</h3></section>
+            </section>
+            <section id="recentMessageContent">
+                <p class="fontBlue">Support message for 2022/05/14:</p>
+                <p>Sunny day! Nice weather! Let's start this wonderful day by breathing in some fresh air!</p>
+                <br>
+                <section id="addEmoji">
+                    <p class="fontBlue">New support message:</p>
+                    <select name="emoji">
+                        <option value="em1"><p><span> 😀 </span></p></option>
+                        <option value="em2"><p><span> 😄 </span></p></option>
+                        <option value="em3"><p><span> 😂 </span></p></option>
+                        <option value="em4"><p><span> 😍 </span></p></option>
+                        <option value="em5"><p><span> 🔥 </span></p></option>
+                        <option value="em6"><p><span> 👍 </span></p></option>
+                        <option value="em7"><p><span> 🔔 </span></p></option>
+                        <option value="em8"><p><span> 💗 </span></p></option>
+                    </select>
+                </section>
+                <section id="updateMessage">
+                    <textarea placeholder="Enter a new support message"></textarea>
+                    <input type="submit" class="fontWhiteBold" value="Update" />
+                </section>
+            </section>
+        </section>
+    </section>
+
+    <section id="dailyData">
+        <div id="dailyDataText"><h1 class="fontBlue">Daily Data</h1></div>
+
+        <section id="todayData">
+
+            <section id="tableHead">
+                <div id="today"><p>Today</p></div>
+                <div id="recordData"><a href="/viewData"><p>View All Data</p></a></div>
+                <div id="viewAll"><a href="/clinicianNotes"><p>All Notes</p></a></div>
+            </section>
+            
+            <table id="onePatTodayTable">
+                <tr>
+                    <th>Blood Glucose Level<br>
+                        (in mmol/L)</th>
+                    <th>Weight (in kg)</th>
+                    <th>Number of Insulin
+                        Doses Taken</th>
+                    <th>Exercises
+                        (step count)</th>
+                    <th>Date</th>
+                </tr> 
+                <tr>
+                    {{#if thispatient.latest_log.length}}
+                        {{#each thispatient.latest_log}}
+                            <td {{#if (is_bgl_in_dangRange this.value)}}class="fontRed"{{/if}} >{{#if (is_blood_glucose this.name)}}{{this.value}}{{else}}-{{/if}}</td>
+                            <td>{{#if (is_insulin_take this.name)}}{{this.value}}{{else}}-{{/if}}</td>
+                            <td>{{#if (is_weight this.name)}}{{this.value}}{{else}}-{{/if}}</td>
+                            <td>{{#if (is_exercises this.name)}}{{this.value}}{{else}}-{{/if}}</td>
+                        {{/each}}
+                    {{else}}
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    {{/if}}
+                    <td class="fontBlueNormal">
+                        {{time}};
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <section class="safetyRange">
+                            <section></section>
+                            <section><input type="text" placeholder="0"></section>
+                            <section><p>-</p></section>
+                            <section><input type="text" placeholder="0"></section>
+                            <section></section>
+                        </section>
+                    </td>
+                    <td>
+                        <section class="safetyRange">
+                            <section></section>
+                            <section><input type="text" placeholder="0"></section>
+                            <section><p>-</p></section>
+                            <section><input type="text" placeholder="0"></section>
+                            <section></section>
+                        </section>
+                    </td>
+                    <td>
+                        <section class="safetyRange">
+                            <section></section>
+                            <section><input type="text" placeholder="0"></section>
+                            <section><p>-</p></section>
+                            <section><input type="text" placeholder="0"></section>
+                            <section></section>
+                        </section>
+                    </td>
+                    <td>
+                        <section class="safetyRange">
+                            <section></section>
+                            <section><input type="text" placeholder="0"></section>
+                            <section><p>-</p></section>
+                            <section><input type="text" placeholder="0"></section>
+                            <section></section>
+                        </section>
+                    </td>
+                    <td>
+                        <input type="submit" class="fontWhiteBold" value="Update Safety Limits" />
+                    </td>
+                </tr>
+            </table>
+
+            <section id="todayNotes">
+                <section id="startEnd">
+                    <p id="lStart">Clinician Notes</p>
+                    <input type="submit" class="fontWhiteBold" value="Save" />
+                </section>
+                
+                <textarea placeholder="Enter a new support message"></textarea>
+            </section>
+        </section>
+    </section>
+
+    <section id="directSection">
+
+        <h1 class="fontBlue">Get Accessed To</h1>
+        
+        <section id="webDetailButtonHolder">
+            <a class="reDirectButtonA" href="/viewData"><section class="Jbot">
+                <div class="Jimg"><img src="/dashboard&viewdataicon.jpg" alt="view data"></div>
+                <div class="ButtonAText"><p>View Data</p></div>
+                <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
+            </section></a>
+            <div></div>
+            <a class="reDirectButtonA" href="/clinicianNotes"><section class="Jbot">
+                <div class="Jimg"><img src="/contactsicon.png" alt="clinician notes"></div>
+                <div class="ButtonAText"><p>Clinician Notes</p></div>
+                <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
+            </section></a>
+            <div></div>
+            <a class="reDirectButtonA" href="/patientComments"><section class="Jbot">
+                <div class="Jimg"><img src="/patientcommentsicon.png" alt="patient comments"></div>
+                <div class="ButtonAText"><p>Patient Comments</p></div>
+                <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
+            </section></a>
+        </section>
+    </section>
+</section>
