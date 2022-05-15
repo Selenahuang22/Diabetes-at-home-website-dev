@@ -106,7 +106,6 @@ img {
 table{
     width: 100%;
     border-collapse: collapse;
-    border-radius: 2vh;
 }
 
 table tr:first-child th:first-child {
@@ -125,15 +124,6 @@ table tr:last-child td:last-child {
     border-bottom-right-radius: 2vh;
 }
 
-table td, 
-table th{
-    width: 30px;
-    height: 40px;
-    font-size: 1.1em;
-    padding: 3px 7px 2px 7px;
-    background-color: var(--c-color-white);
-}
-
 table th {
     font-size: 1.2em;
     font-weight: normal;
@@ -145,9 +135,12 @@ table th {
 }
 
 table td {
+    font-size: 1.1em;
+    padding: 3px 7px 2px 7px;
+    background-color: var(--c-color-white);
     border-top-style: solid;
     border-top-color: var(--c-color-b1);
-    border-top-width: 2.5px;
+    border-top-width: 2px;
 }
 
 form {
@@ -159,14 +152,14 @@ form {
 
 select {
     width: 70%;
+    height: auto;
     padding: 10px 15px;
     border: none;
     border-radius: 4px;
     font-size: 0.7em;
-    overflow: hidden;
-    text-overflow: ellipsis;
     background: var(--c-color-b1);
     color: var(--c-color-white);
+    overflow-y: scroll;
 }
 
 /*part 2 ---------------------------------------------------------- customize class */
@@ -355,15 +348,15 @@ header {
         ". . .";
 }
 
-#searchBar2 {
-    width: 60%;
+#searchBar {
+    width: 20%;
+    height: 50px;
     float: right;
     grid-area: hsb;
     grid-template-columns: 80% 20%;
-    border: 0.3vh solid var(--c-color-b0);
     border-radius: 2vh;
-    border-right: 0vh;
     background-color: var(--c-color-white);
+    margin-right: 10px;
 }
 
 #look,
@@ -627,8 +620,8 @@ footer img:hover {
 }
 
 #signUpSession {
-    grid-area: signUpSession;
-    grid-template-rows: 2% 5% 88% 5%;
+    grid-template-rows: auto calc(var(--bigger-vertical-gap) * 1px)
+    auto calc(var(--bigger-vertical-gap) * 1px);
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
         "bl bl bl"
@@ -710,21 +703,13 @@ footer img:hover {
 }
 
 /*clinician profile page */
-#clinicianProfile {
-    font-size: 1.4em;
-    height: calc(var(--middle-page-height) * 1vh);
-    grid-template-columns: 7% 86% 7%;
-    grid-template-areas: "cliProfileSection cliProfileSection cliProfileSection";
-}
-
 #cliProfileSection {
-    grid-area: cliProfileSection;
-    grid-template-rows: 3% 87% 10%;
+    font-size: 1.4em;
+    grid-template-rows: auto;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
         "bl bl bl"
-        "cliprofileContent cliprofileContent cliprofileContent"
-        ". . .";
+        "cliprofileContent cliprofileContent cliprofileContent";
 }
 
 #cliprofileContent {
@@ -929,7 +914,7 @@ footer img:hover {
 #clinicianHome {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: 23vh auto auto;
+    grid-template-rows: auto;
     grid-template-areas:
         "ci ci ci"
         "allP allP allP"
@@ -938,14 +923,11 @@ footer img:hover {
 
 #clinicianInfo {
     grid-area: ci;
-    grid-template-rows: 5% 7% 10% 10% 68%;
+    grid-template-rows: auto;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas: 
-        ". . ."
         "bl bl bl"
-        ". . ."
-        ". directP ."
-        ". dt .";
+        ". directP .";
 }
 
 .blueLine {
@@ -1011,12 +993,11 @@ footer img:hover {
     background-color: var(--c-color-b3);
     align-items: start;
     grid-area: allP;
-    grid-template-rows: 5vh auto 5vh;
+    grid-template-rows: auto;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
-        ". . ."
         ". pl ."
-        ". . .";
+        ". tableScroll .";
 }
 
 /*login page*/
@@ -1112,7 +1093,7 @@ footer img:hover {
     grid-template-areas:
         "bl bl bl"
         ". directP ."
-        "tableArea tableArea tableArea"
+        "allMessages allMessages allMessages"
         ". ds .";
 }
 
@@ -1124,7 +1105,7 @@ footer img:hover {
     grid-template-areas:
         "bl bl bl"
         ". directP ."
-        "bgc bgc bgc"
+        "allMessages allMessages allMessages"
         ". ds .";
 }
 
@@ -1378,9 +1359,19 @@ footer img:hover {
     grid-template-columns: 80% 20%;
     justify-content: left;
     justify-items: left;
+    grid-template-areas: "lStart rEnd";
+}
+
+#lEtart {
+    grid-area: lstart;
+}
+
+#rEnd {
+    grid-area: rEnd;
 }
 
 #startEnd input {
+    grid-area: rEnd;
     justify-content: right;
     justify-items: right;
     border-radius: 3vh;
@@ -1451,52 +1442,66 @@ footer img:hover {
 
 #patientList {
     grid-area: pl;
-}
-
-#tableArea {
-    grid-area: tableArea;
-    grid-template-rows: 5vh auto 5vh auto;
-    grid-template-columns: 7% 86% 7%;
-    grid-template-areas:
-        ". . ."
-        ". tableAreaText ."
-        ". . ."
-        "allMessages allMessages allMessages";
-}
-
-#tableAreaText {
-    grid-area: tableAreaText;
-    font-weight: 500;
-    align-items: left;
-    align-content: left;
-    justify-content: left;
-    justify-items: left;
+    margin-top: calc(var(--bigger-vertical-gap) * 1px);
 }
 
 #allMessages {
     grid-area: allMessages;
+    background-color: var(--c-color-b3);
     align-items: start;
-    grid-template-rows: 5vh auto auto 5vh;
+    grid-template-rows: auto;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas: 
-        ". . ."
         ". oneMessageSearch ."
-        ". oneMessageTable ."
-        ". . .";
-
-    background-color: var(--c-color-b3);
+        ". oneMessageTable .";
 }
 
 #oneMessageSearch {
     grid-area: oneMessageSearch;
+    margin-top: calc(var(--bigger-vertical-gap) * 1px);
 }
 
 #oneMessageTable {
     grid-area: oneMessageTable;
+    margin-bottom: calc(var(--bigger-vertical-gap) * 1px);
 }
 
-#oneMessageTable td img {
-    max-height: 80%;
+#tableScroll tbody,
+#oneMessageTable tbody {
+    width: auto;
+    max-height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: block;
+    border-bottom-right-radius: 2vh;
+    border-bottom-left-radius: 2vh;
+    background-color: var(--c-color-white);
+}
+
+#allPatients #tableScroll {
+    grid-area: tableScroll;
+    margin-bottom: calc(var(--bigger-vertical-gap) * 1px);
+}
+
+#allPatients tr,
+#dataTables tr {
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+}
+
+#oneMessageTable tr {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+}
+
+#cNotes #allMessages #oneMessageTable td {
+    margin: calc(var(--small-vertical-gap) * 1px);
+    border: 3px solid var(--c-color-b0);
+    border-radius: 2vh;
+}
+
+#cNotes #allMessages #oneMessageTable tr {
+    grid-template-columns: none;
 }
 
 .supmessageTime {
@@ -1948,15 +1953,11 @@ footer img:hover {
 #patientData {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
-    grid-template-rows: auto 2vh 4vh 4vh 10vh auto 5vh auto;
+    grid-template-rows: auto;
     grid-template-areas:
         "bl bl bl"
-        ". . ."
         ". directP ."
-        ". . ."
-        ". dt ."
         ". tableAreaText ."
-        ". . ."
         "bgc bgc bgc";
 }
 
@@ -1967,7 +1968,10 @@ footer img:hover {
 }
 
 #dataTables {
-    grid-template-rows: 5vh 60px 20px auto 20px 60px 20px 120vh 5vh;
+    grid-template-rows: 5vh calc(var(--bigger-vertical-gap) * 1px) 
+    calc(var(--big-vertical-gap) * 1px) auto auto 
+    calc(var(--big-vertical-gap) * 1px) calc(var(--bigger-vertical-gap) * 1px) 
+    calc(var(--big-vertical-gap) * 1px) auto 5vh;
 }
 
 .forms {
@@ -2224,8 +2228,6 @@ footer img:hover {
     }
     #searchBar {
         grid-template-columns: 65% 35%;
-    }
-    #searchBar2 {
         width: 100%;
     }
     #barLeft {
