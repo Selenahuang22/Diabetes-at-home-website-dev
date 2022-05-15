@@ -14,14 +14,12 @@
             </section>
             
             <section id="perInfo1"> 
-                <p><b>Username:</b> {{thispatient.user_name}}</p>
-                <p><b>Email:</b> {{thispatient.email}}</p>
-                <p><b>D.O.B:</b> {{thispatient.DOB}}</p>
+                <p><b>Username:</b> Pat Health</p>               
+                <p><b>D.O.B:</b> 02/12/2000</p>
             </section>
 
             <section id="perInfo2"> 
-                <p><b>Clinician In Charge:</b> Chris Brown</p>
-                <p><b>Biography:</b> {{thispatient.biography}}</p>
+                <p><b>Email:</b> abc@email.com</p>
             </section>
 
             <section id="badges">
@@ -42,36 +40,17 @@
                 <p class="fontBlue">Support message for 2022/05/14:</p>
                 <p>Sunny day! Nice weather! Let's start this wonderful day by breathing in some fresh air!</p>
                 <br>
-                <section id="addEmoji">
-                    <p class="fontBlue">New support message:</p>
-                    <select name="emoji">
-                        <option value="em1"><p><span> 😀 </span></p></option>
-                        <option value="em2"><p><span> 😄 </span></p></option>
-                        <option value="em3"><p><span> 😂 </span></p></option>
-                        <option value="em4"><p><span> 😍 </span></p></option>
-                        <option value="em5"><p><span> 🔥 </span></p></option>
-                        <option value="em6"><p><span> 👍 </span></p></option>
-                        <option value="em7"><p><span> 🔔 </span></p></option>
-                        <option value="em8"><p><span> 💗 </span></p></option>
-                    </select>
-                </section>
-                <section id="updateMessage">
-                    <textarea placeholder="Enter a new support message"></textarea>
-                    <input type="submit" class="fontWhiteBold" value="Update" />
-                </section>
             </section>
         </section>
     </section>
 
     <section id="dailyData">
-        <div id="dailyDataText"><h1 class="fontBlue">Daily Data</h1></div>
+        <div id="dailyDataText"><h1 class="fontBlue">Medical Requirements</h1></div>
 
         <section id="todayData">
 
             <section id="tableHead">
-                <div id="today"><p>Today</p></div>
-                <div id="recordData"><a href="/viewData"><p>View All Data</p></a></div>
-                <div id="viewAll"><a href="/clinicianNotes"><p>All Notes</p></a></div>
+                <button type="button" id="saveRequirements" class="blueButton" onclick="">Save Changes</button>
             </section>
             
             <table id="onePatTodayTable">
@@ -83,76 +62,96 @@
                         Doses Taken</th>
                     <th>Exercises
                         (step count)</th>
-                    <th>Date</th>
                 </tr> 
                 <tr>
-                    {{#if thispatient.latest_log.length}}
-                        {{#each thispatient.latest_log}}
-                            <td {{#if (is_bgl_in_dangRange this.value)}}class="fontRed"{{/if}} >{{#if (is_blood_glucose this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                            <td>{{#if (is_insulin_take this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                            <td>{{#if (is_weight this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                            <td>{{#if (is_exercises this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                        {{/each}}
-                    {{else}}
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    {{/if}}
-                    <td class="fontBlueNormal">
-                        {{time}};
+                    <td>                       
+                        <select id="blood_glucose_select">
+                            <option value="">required</option>
+                            <option value="">not required</option>
+                        </select>                        
+                    </td>
+                    <td>
+                        <select id="weight_select">
+                            <option value="">not required</option>
+                            <option value="">required</option>
+                        </select>
+
+                    </td>
+                    <td>
+                        <select id="insulin_taken_select">
+                            <option value="">required</option>
+                            <option value="">not required</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="exercises_select">
+                            <option value="">required</option>
+                            <option value="">not required</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <section class="safetyRange">
                             <section></section>
-                            <section><input type="text" placeholder="0"></section>
+                            <section id="blood_glucose_lower">
+                                <input type="text" name="" placeholder="0">
+                            </section>
                             <section><p>-</p></section>
-                            <section><input type="text" placeholder="0"></section>
+                            <sectionid="blood_glucose_upper">
+                                <input type="text" name="" placeholder="0">
+                            </section>
                             <section></section>
                         </section>
                     </td>
                     <td>
                         <section class="safetyRange">
                             <section></section>
-                            <section><input type="text" placeholder="0"></section>
+                            <section id="weight_lower"><input type="text" name="" placeholder="0" class="fixed"></section>
                             <section><p>-</p></section>
-                            <section><input type="text" placeholder="0"></section>
+                            <section id="weight_upper"><input type="text" name="" placeholder="0" class="fixed"></section>
                             <section></section>
                         </section>
                     </td>
                     <td>
                         <section class="safetyRange">
                             <section></section>
-                            <section><input type="text" placeholder="0"></section>
+                            <section id="insulin_taken_lower"><input type="text" name="" placeholder="0"></section>
                             <section><p>-</p></section>
-                            <section><input type="text" placeholder="0"></section>
+                            <section id="insulin_taken_upper"><input type="text" name="" placeholder="0"></section>
                             <section></section>
                         </section>
                     </td>
                     <td>
                         <section class="safetyRange">
                             <section></section>
-                            <section><input type="text" placeholder="0"></section>
+                            <section id="exercises_lower"><input type="text" name="" placeholder="0"></section>
                             <section><p>-</p></section>
-                            <section><input type="text" placeholder="0"></section>
+                            <section id="exercises_upper"><input type="text" name="" placeholder="0"></section>
                             <section></section>
                         </section>
-                    </td>
-                    <td>
-                        <input type="submit" class="fontWhiteBold" value="Update Safety Limits" />
                     </td>
                 </tr>
             </table>
-
+            
             <section id="todayNotes">
-                <section id="startEnd">
-                    <p id="lStart">Clinician Notes</p>
-                    <input type="submit" class="fontWhiteBold" value="Save" />
+                <section id="newNotes">
+                    <p id="lStart">Clinician Notes</p>               
+                    <form action="" method="">
+                        <textarea name="" placeholder="Enter a new clinician note"></textarea>                  
+                        <input type="submit" class="fontWhiteBold" value="Update" />
+                    </form>
                 </section>
                 
-                <textarea placeholder="Enter a new support message"></textarea>
+                <section id="newSupportMessages">
+                    <p id="lStart">Support Messages</p>
+                    <form action="" method="">
+                        <textarea name="" placeholder="Enter new Support Messages"></textarea>                   
+                        <input type="submit" class="fontWhiteBold" value="Update" />
+                    </form>
+                </section>
+
+                               
             </section>
         </section>
     </section>
@@ -182,3 +181,4 @@
         </section>
     </section>
 </section>
+

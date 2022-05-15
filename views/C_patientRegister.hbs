@@ -15,6 +15,7 @@
             <p>-At least <tag class="fontRed"> one </tag> number</p>
             <p>-At least <tag class="fontRed"> one </tag> upper case</p>
             <p>-At least <tag class="fontRed"> one </tag> lower case</p>
+            <input type="submit" class="fontWhiteBold" value="Save" />
         </form>
     </section>
 
@@ -22,40 +23,10 @@
         <h1 id="signUpRightTitle">Health Data Entry</h1>
         <form id="registerDataEntry" action="" method="POST">
             <b>Select Required Health Data<tag class="fontRed"><br>(At Least One*)</tag></b><br>
-            <select>
-                <option value="none">xx</option>
-                <option value="Blood Glucose Level">Blood Glucose Level</option>
-                <option value="Weight">Weight</option>
-                <option value="Doses of Insulin Taken">Doses of Insulin Taken</option>
-                <option value="Exercises">Exercises</option>
-            </select><br>
-
-            <b>Select Required Health Data</b><br>
-            <select>
-                <option value="none">xx</option>
-                <option value="Blood Glucose Level">Blood Glucose Level</option>
-                <option value="Weight">Weight</option>
-                <option value="Doses of Insulin Taken">Doses of Insulin Taken</option>
-                <option value="Exercises">Exercises</option>
-            </select><br>
-
-            <b>Select Required Health Data</b><br>
-            <select>
-                <option value="none">xx</option>
-                <option value="Blood Glucose Level">Blood Glucose Level</option>
-                <option value="Weight">Weight</option>
-                <option value="Doses of Insulin Taken">Doses of Insulin Taken</option>
-                <option value="Exercises">Exercises</option>
-            </select><br>
-
-            <b>Select Required Health Data</b><br>
-            <select>
-                <option value="none">xx</option>
-                <option value="Blood Glucose Level">Blood Glucose Level</option>
-                <option value="Weight">Weight</option>
-                <option value="Doses of Insulin Taken">Doses of Insulin Taken</option>
-                <option value="Exercises">Exercises</option>
-            </select><br>
+            <input type="checkbox" name="health_data[]" value="blood_glucose_level"> Blood Glucose Level<br>
+            <input type="checkbox" name="health_data[]" value="weight"> Weight<br>
+            <input type="checkbox" name="health_data[]" value="insulin_taken"> Doses of Insulin Taken<br>
+            <input type="checkbox" name="health_data[]" value="exercises"> Exercises<br>
             <input type="submit" class="fontWhiteBold" value="Register" />
         </form>
     </section>

@@ -591,6 +591,10 @@ footer img:hover {
     height: 60px;
 }
 
+#signUp input[type="checkbox"] {
+    width: 20%;
+}
+
 #signUp input[type="submit"] {
     margin-top: calc(var(--big-vertical-gap) * 1px);
 }
@@ -1194,6 +1198,14 @@ footer img:hover {
     margin-bottom: calc(var(--big-vertical-gap) * 1px);
 }
 
+#saveRequirements {
+    grid-area: saveRequirements;
+    color:#fff;
+    font-weight: bold;
+    font-size: large;
+}
+
+
 .blueButton {
     height: 100%;
     grid-area: editP;
@@ -1267,34 +1279,36 @@ footer img:hover {
         ". . .";
 }
 
+#cPatientProfile #todayData {
+    grid-template-rows: calc(var(--bigger-vertical-gap) * 1px) auto 
+    calc(var(--big-vertical-gap) * 1px) auto 
+    calc(var(--bigger-vertical-gap) * 1px) auto 
+    calc(var(--bigger-vertical-gap) * 1px);
+    grid-template-areas:
+        ". . ."
+        ". tableHead ."
+        ". . ."
+        ". onePatTodayTable ."
+        ". . ."
+        ". todayNotes ."
+        ". . .";
+}
+
 #todayNotes {
     height: auto;
     grid-area: todayNotes;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "newNotes newSupportMessages";
     font-size: 1.3em;
     justify-items: left;
 }
 
-#startEnd {
-    grid-template-columns: 80% 20%;
-    justify-content: left;
-    justify-items: left;
-    grid-template-areas: "lStart rEnd";
+#newNotes {
+    grid-area: newNotes;
 }
 
-#lEtart {
-    grid-area: lstart;
-}
-
-#rEnd {
-    grid-area: rEnd;
-}
-
-#startEnd input {
-    grid-area: rEnd;
-    justify-content: right;
-    justify-items: right;
-    border-radius: 3vh;
-    height: 50px;
+#newSupportMessages {
+    grid-area: newSupportMessages;
 }
 
 #todayNotes textarea{
@@ -1304,8 +1318,13 @@ footer img:hover {
 
 #tableHead {
     grid-area: tableHead;
-    grid-template-columns: 5% 3% 15% 67% 10%;
+    grid-template-columns: 8% 3% 15% 64% 10%;
     grid-template-areas: "today . recordData . viewAll";    
+}
+
+#cPatientProfile #tableHead{
+    grid-template-columns: none;
+    grid-template-areas: none;
 }
 
 #today {
