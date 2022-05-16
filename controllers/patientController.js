@@ -1,4 +1,5 @@
 const Patient = require("../models/patient")
+const Clinician = require("../models/clinician")
 const healthDataController = require('./healthDataController')
 
 
@@ -58,13 +59,17 @@ const getOnePatientAndRender = async (req, res) => {
     var result = await getOnePatient(req.params.id)
 
     console.log(result.data);
-    if(result.status)
+    if(result.status) {
+        let clinician = await Clinician.findOne({email: result.data.clinician_email}).lean()
         res.render('patientHome', {
             "id": req.params.id,
             "thispatient": result.data,
+            "clinician": clinician,
             'time': new Date().toLocaleDateString()
         })
-    else res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})
+    } else {
+        res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})
+    }
         
 }
 

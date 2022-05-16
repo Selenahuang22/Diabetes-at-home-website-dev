@@ -784,7 +784,12 @@ footer img:hover {
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
         "bl bl bl"
+        ". directP ."
         ". editProfileContent .";
+}
+
+#editProfile #directP {
+    font-size: 1.5em;
 }
 
 #editProfileContent{
@@ -828,42 +833,12 @@ footer img:hover {
     font-size: large;
 }
 
-#editProfileContentLeft {
-    grid-area: editProfileContentLeft;
-    grid-template-areas:
-        "editImg"
-        "editBiography"
-        "editProfileCancel";
-    align-items: start;
-    align-content: start;
+.buttonInput {
+    width: 45%;
+    font-weight: bolder;
 }
 
-#editProfileCancel {
-    grid-area: editProfileCancel;
-    font-size: larger;
-    height: 7vh;
-    width: 20vh;
-    font-weight: bold;
-    color: var(--c-color-white);
-}
 
-#editImg {
-    grid-area: editImg;
-    align-items: start;
-    align-content: start;
-    font-size: larger;
-}
-
-#editImg img {
-    height: 40%;
-}
-
-#editBiography {
-    grid-area: editBiography;
-    align-items: start;
-    align-content: start;
-    justify-items: center;
-}
 
 
 /*@ clinicanHome, Layout**********************************************/

@@ -1,7 +1,10 @@
 <section id="editProfile">
     <div class="blueLine"></div>
-    <section id="editProfileContent">
+    <section id="directP">
+        <h2><a href="" class="fontBlueNormal">Home</a> > <a href="" class="fontBlueNormal">Edit Profile</a></h2>
+    </section>
 
+    <section id="editProfileContent">
         <section id="editProfileContentRight">
             <section id="editForm1">
                 <h1>Account Setting</h1>
@@ -15,8 +18,9 @@
                     <p>-At least <tag class="fontRed"> one </tag> number</p>
                     <p>-At least <tag class="fontRed"> one </tag> upper case</p>
                     <p>-At least <tag class="fontRed"> one </tag> lower case</p>
-                    <b>Biography<tag class="fontRed">*</tag></b><input type="text" value={{user.biography}} name="biography" />
-                    <input type="submit" class="fontWhiteBold" value="Save" />
+                    <b>Biography<tag class="fontRed">*</tag></b><textarea name="biography"></textarea>
+                    <input class="buttonInput" type="submit" class="fontWhiteBold" value="Save" />
+                    <input class="buttonInput" type="reset" class="fontWhiteBold" value="Reset">
                 </form>
             </section>
         </section>
