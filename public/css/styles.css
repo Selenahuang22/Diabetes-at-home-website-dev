@@ -2041,8 +2041,21 @@ footer img:hover {
 }
 
 @media screen and (max-width: 1024px) {
+    header {
+        display: grid;
+        grid-area: h;
+        grid-template-columns: 7% 36% 5% 45% 7%;
+        grid-template-areas: ". hl . logout .";
+    }
+    #logout {
+        grid-template-columns: 25% 35% 40%;
+    }
+    #logout button {
+        font-size: 1.2em;
+        border: 2px solid var(--c-color-b1);
+    }
     h2 {
-        font-size: 1.8em;
+        font-size: 1.4em;
     }
     #logo img {
         width: 100%;
@@ -2155,15 +2168,35 @@ footer img:hover {
         max-width: 100%;
     }
     h2 {
-        font-size: 1em;
+        font-size: 0.8em;
     }
     header {
-        grid-template-columns: 4% 50% 3% 40% 3%;
-        grid-template-areas: ". hl . hr .";
+        grid-template-columns: 2% 50% 1% 45% 2%;
+        grid-template-areas: ". hl . logout .";
     }
-    #headRight {
-        grid-template-columns: 15% 80% 5%;
-        grid-template-rows: 40% 20% 40%;
+
+    #headLeft {
+        grid-area: hl;
+        grid-template-columns: 15% 3% 82%;
+        grid-template-areas: "hl . hn";
+    }
+
+    #name {
+        grid-area: hn;
+        justify-items: left;
+        font-style: italic;
+        color: var(--c-color-b0);
+    }
+
+    #logout {
+        grid-area: logout;
+        justify-items: right;
+        grid-template-columns: 25% 35% 40%;
+    }
+
+    #logout img {
+        height: 3.5vh;
+        max-width: 100%;
     }
     #look {
         height: 2.7vh;
@@ -2186,6 +2219,13 @@ footer img:hover {
         "bl"
         "bl"
         "br";
+    }
+    #logout button {
+        height: 6vh;
+        width: 95%;
+        font-size: 0.8em;
+        border: 2px solid var(--c-color-b1);
+        border-radius: 1vh;
     }
     #searchBar {
         grid-template-columns: 65% 35%;
