@@ -1,4 +1,7 @@
- const Patient = require("../models/patient")
+const Patient = require("../models/patient")
+const Clinician = require("../models/clinician")
+const healthDataController = require('./healthDataController')
+
 
 /**
  * 
@@ -49,6 +52,90 @@ const getOnePatient = async (id) => {
     }
 }
 
+
+
+
+const getOnePatientAndRender = async (req, res) => {        
+    var result = await getOnePatient(req.params.id)
+
+    console.log(result.data);
+    if(result.status) {
+        let clinician = await Clinician.findOne({email: result.data.clinician_email}).lean()
+        res.render('patientHome', {
+            "id": req.params.id,
+            "thispatient": result.data,
+            "clinician": clinician,
+            'time': new Date().toLocaleDateString()
+        })
+    } else {
+        res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})
+    }
+        
+}
+
+const onePatientRecord = async (req, res) => {
+    // check if the log cache need to be clear (expired)
+    let checkResult = await getOnePatient(req.params.id)
+        
+    // determin the time series that are not log for today
+    let logged = []
+    if(checkResult.data) {
+        for(var i of checkResult.data.latest_log){
+            logged.push(i.name)
+            console.log(i.name);
+        }
+            
+        res.render('dataEnter', {
+            id: req.params.id, 
+            log_glucose: (!logged.includes("blood glucose level"))
+        })
+    } else{
+        res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})
+    }
+    
+}
+
+
+const showProfile = async (req, res) => {
+    var result = await getOnePatient(req.params.id)
+
+    if(result.status)
+        res.render('B_editProfile', {
+            "id": req.params.id,
+            "user": result.data,
+        })
+    else res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})
+}
+
+const editProfile = async (req, res) => {
+    let directPath = '/patient/'+req.params.id+'/home'
+
+    // we can perform data interity check here
+
+    try {
+        await Patient.updateOne(
+            // condition
+            {_id: req.params.id},
+            // value to be change
+            {$set:
+                {
+                    first_name: req.body.first_name,
+                    last_name: req.body.last_name,
+                    user_name: req.body.user_name,
+                    DOB: req.body.DOB,
+                    password: req.body.password,    
+                    biography: req.body.biography                 
+                }
+            }
+        );
+        res.redirect(directPath)
+    }
+    catch (err){
+        console.log(err);
+        res.status(404).render('error', {errorCode: '404', message: 'Error occur when try to send new Data.'}) 
+    }
+}
+
 /**
  * check if the cache of the patient is expired, if so => clear cache
  * @param {JSON} patient that is an object of schemas: patient
@@ -84,6 +171,35 @@ const _clearCacheIfExpired = async (patient) => {
     return foundPatient
 }
 
+const submitLog = async (req, res) => {
+ 
+    // we need to check for cache expiration again
+    let checkResult = await getOnePatient(req.params.id)
+    let directPath = '/patient/'+req.params.id+'/home'
+    let result = false
+    // we can perform data interity check here
+
+    // cache the log value
+    if(req.body.value != ""){
+        // ensure the log is not exit in the cache
+        if(! checkResult.data.latest_log.includes(req.body.data_name)){
+            console.log(req.body);
+            result = await cacheTheLog(req.body.data_name, req.body.value, checkResult.data);
+            
+            // if the caching successfull we can add the data to db
+            if(result.status) {
+                result = await healthDataController.insert(req.params.id, req.body.data_name, req.body.comment, req.body.value)
+            }
+        }
+            
+    }
+    (result)
+        ? res.redirect(directPath)
+
+            
+        : res.status(404).render('error', {errorCode: '404', message: 'Error occur when try to send Data.'}) 
+}
+
 
 /**
  * 
@@ -91,7 +207,7 @@ const _clearCacheIfExpired = async (patient) => {
  * @param {*} value 
  * @param {*} id 
  */
-const cacheTheLog= async (name, value, patientData) => {
+const cacheTheLog = async (name, value, patientData) => {
     let localPatient = patientData
 
     let cache = patientData.latest_log
@@ -134,5 +250,10 @@ const extractUnixOfYYYY_MM_DD = (unix) => {
 module.exports = {
     getAllPatientOfClinician,
     getOnePatient,
-    cacheTheLog
+    getOnePatientAndRender,
+    onePatientRecord,
+    submitLog,
+    cacheTheLog,
+    editProfile,
+    showProfile,
 }

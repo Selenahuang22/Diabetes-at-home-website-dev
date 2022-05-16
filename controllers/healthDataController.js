@@ -10,7 +10,7 @@ const HealthData = require("../models/healthData");
 const insert = async (owner, data_name, comment, value) => {
     let data = await HealthData.create({
         owner: owner,
-        time: new Date().toLocaleDateString(), 
+        time: Date.now(),
         comment: comment,
         data_name: data_name,
         value: value
@@ -24,6 +24,19 @@ const insert = async (owner, data_name, comment, value) => {
     return {status: true, data: data}
 }
 
+const insertAndRender = async(req, res) => {
+    let result = await insert(req.body.id, req.body.data_name, req.body.comment, req.body.value)
+    let directPath = '/patient/'+req.body.id+'/home'
+        
+    if(result.status){
+        res.redirect(directPath)
+    } else {
+        res.status(404).render('error', {errorCode: '404', message: 'Error occur lead to fail to submit data.'})
+    }
+}
+
+
 module.exports = {
-    insert
+    insert,
+    insertAndRender,
 }

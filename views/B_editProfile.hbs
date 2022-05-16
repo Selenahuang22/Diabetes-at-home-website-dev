@@ -1,36 +1,27 @@
 <section id="editProfile">
     <div class="blueLine"></div>
+    <section id="directP">
+        <h2><a href="" class="fontBlueNormal">Home</a> > <a href="" class="fontBlueNormal">Edit Profile</a></h2>
+    </section>
+
     <section id="editProfileContent">
-        <section id="editProfileContentLeft">
-            <section id="editImg">
-                <h1 class="fontBlue">Profile</h1>
-                <img src="/annabrown.png" alt="default clinician img">
-            </section>
-
-            <section id="editBiography">
-                <form action="" method="POST">
-                    <h2>Biography</h2>
-                    <textarea placeholder="e.g. I like exercises" name="biography"></textarea>
-                </form>
-            </section>
-            <a href="clinicianProfile"><button class="blueButton" id="editProfileCancel">Cancel</button></a>
-        </section>
-
         <section id="editProfileContentRight">
             <section id="editForm1">
                 <h1>Account Setting</h1>
-                <form action="" method="POST">
-                    <b>First Name<tag class="fontRed">*</tag></b><input type="text" value="this.first_name" name="first_name" />
-                    <b>Last Name<tag class="fontRed">*</tag></b><input type="text" value="this.last_name" name="last_name" />
-                    <b>Date of Birth<tag class="fontRed">*</tag></b><input type="text" value="this.DOB" name="DOB" />
-                    <b>Username(Screen Name)<tag class="fontRed">*</tag></b><input type="text" value="this.user_name" name="user_name" />
-                    <b>Email Address(UserID)<tag class="fontRed">* This field cannot be changed</tag></b><input type="text" value="this.email" name="email" readonly/>
-                    <b>Password<tag class="fontRed">*</tag></b><input type="text" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="must contain at least one number and one uppercase and lowercase letter, and be at least 8 characters" placeholder="e.g. XXXXXXXX" />
+                <form class="form" action="/patient/{{id}}/editProfile" method="POST">
+                    <div><b>First Name<tag class="fontRed">*</tag></b><input type="text" value={{user.first_name}} name="first_name" />
+                    <b>Username(Screen Name)<tag class="fontRed">*</tag></b><input type="text" value={{user.user_name}} name="user_name" />
+                    <b>Biography<tag class="fontRed">*</tag></b><textarea name="biography"></textarea></div>                    
+                    <div><b>Last Name<tag class="fontRed">*</tag></b><input type="text" value={{user.last_name}} name="last_name" />
+                    <b>Date of Birth<tag class="fontRed">*</tag></b><input type="text" value={{user.DOB}} name="DOB" />
+                    <b>Password<tag class="fontRed">*</tag></b><input type="text" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="must contain at least one number and one uppercase and lowercase letter, and be at least 8 characters" value={{user.password}} />
                     <p>*Password must contain at least <tag class="fontRed"> 8 characters </tag> long including:</p>
                     <p>-At least <tag class="fontRed"> one </tag> number</p>
                     <p>-At least <tag class="fontRed"> one </tag> upper case</p>
                     <p>-At least <tag class="fontRed"> one </tag> lower case</p>
-                    <input type="submit" class="fontWhiteBold" value="Save" />
+                    </div>
+                    <input class="buttonInput" type="submit" value="Save" />
+                    <input class="buttonInput" type="reset" value="Reset">
                 </form>
             </section>
         </section>
