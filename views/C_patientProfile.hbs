@@ -48,10 +48,6 @@
         <div id="dailyDataText"><h1 class="fontBlue">Medical Requirements</h1></div>
 
         <section id="todayData">
-
-            <section id="tableHead">
-                <button type="button" id="saveRequirements" class="blueButton" onclick="">Save Changes</button>
-            </section>
             
             <table id="onePatTodayTable">
                 <tr>
@@ -63,75 +59,78 @@
                     <th>Exercises
                         (step count)</th>
                 </tr> 
-                <tr>
-                    <td>                       
-                        <select id="blood_glucose_select">
-                            <option value="">required</option>
-                            <option value="">not required</option>
-                        </select>                        
-                    </td>
-                    <td>
-                        <select id="weight_select">
-                            <option value="">not required</option>
-                            <option value="">required</option>
-                        </select>
+                <form action="" method="">
+                    <tr>
+                        <td>                       
+                            <select id="blood_glucose_select">
+                                <option value="">required</option>
+                                <option value="">not required</option>
+                            </select>                        
+                        </td>
+                        <td>
+                            <select id="weight_select">
+                                <option value="">not required</option>
+                                <option value="">required</option>
+                            </select>
 
-                    </td>
-                    <td>
-                        <select id="insulin_taken_select">
-                            <option value="">required</option>
-                            <option value="">not required</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select id="exercises_select">
-                            <option value="">required</option>
-                            <option value="">not required</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <section class="safetyRange">
-                            <section></section>
-                            <section id="blood_glucose_lower">
-                                <input type="text" name="" placeholder="0">
+                        </td>
+                        <td>
+                            <select id="insulin_taken_select">
+                                <option value="">required</option>
+                                <option value="">not required</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="exercises_select">
+                                <option value="">required</option>
+                                <option value="">not required</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <section class="safetyRange">
+                                <section></section>
+                                <section id="blood_glucose_lower">
+                                    <input type="text" name="" placeholder="0">
+                                </section>
+                                <section><p>-</p></section>
+                                <sectionid="blood_glucose_upper">
+                                    <input type="text" name="" placeholder="0">
+                                </section>
+                                <section></section>
                             </section>
-                            <section><p>-</p></section>
-                            <sectionid="blood_glucose_upper">
-                                <input type="text" name="" placeholder="0">
+                        </td>
+                        <td>
+                            <section class="safetyRange">
+                                <section></section>
+                                <section id="weight_lower"><input type="text" name="" placeholder="0" class="fixed"></section>
+                                <section><p>-</p></section>
+                                <section id="weight_upper"><input type="text" name="" placeholder="0" class="fixed"></section>
+                                <section></section>
                             </section>
-                            <section></section>
-                        </section>
-                    </td>
-                    <td>
-                        <section class="safetyRange">
-                            <section></section>
-                            <section id="weight_lower"><input type="text" name="" placeholder="0" class="fixed"></section>
-                            <section><p>-</p></section>
-                            <section id="weight_upper"><input type="text" name="" placeholder="0" class="fixed"></section>
-                            <section></section>
-                        </section>
-                    </td>
-                    <td>
-                        <section class="safetyRange">
-                            <section></section>
-                            <section id="insulin_taken_lower"><input type="text" name="" placeholder="0"></section>
-                            <section><p>-</p></section>
-                            <section id="insulin_taken_upper"><input type="text" name="" placeholder="0"></section>
-                            <section></section>
-                        </section>
-                    </td>
-                    <td>
-                        <section class="safetyRange">
-                            <section></section>
-                            <section id="exercises_lower"><input type="text" name="" placeholder="0"></section>
-                            <section><p>-</p></section>
-                            <section id="exercises_upper"><input type="text" name="" placeholder="0"></section>
-                            <section></section>
-                        </section>
-                    </td>
-                </tr>
+                        </td>
+                        <td>
+                            <section class="safetyRange">
+                                <section></section>
+                                <section id="insulin_taken_lower"><input type="text" name="" placeholder="0"></section>
+                                <section><p>-</p></section>
+                                <section id="insulin_taken_upper"><input type="text" name="" placeholder="0"></section>
+                                <section></section>
+                            </section>
+                        </td>
+                        <td>
+                            <section class="safetyRange">
+                                <section></section>
+                                <section id="exercises_lower"><input type="text" name="" placeholder="0"></section>
+                                <section><p>-</p></section>
+                                <section id="exercises_upper"><input type="text" name="" placeholder="0"></section>
+                                <section></section>
+                            </section>
+                        </td>
+                    </tr>
+                    <input type="submit" class="fontWhiteBold" value="Save" />
+                </form>
             </table>
             
             <section id="todayNotes">

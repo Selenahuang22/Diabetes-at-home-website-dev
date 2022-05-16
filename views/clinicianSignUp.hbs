@@ -6,25 +6,22 @@
         <h1 class="fontBlue">Sign Up As Clinician</h1>
     </section>
 
-    <section id="signUpLeft">
-        <form action="" method="POST">
-            <b>First Name<tag class="fontRed">*</tag></b><input type="text" placeholder="e.g. John" name="first_name" required />
-            <b>Last Name<tag class="fontRed">*</tag></b><input type="text" placeholder="e.g. Smith" name="last_name" required />
-            <b>Date of Birth<tag class="fontRed">*</tag></b><input type="text" placeholder="e.g. DD/MM/YYYY" name="DOB" required />
-            <b>Biography<tag class="fontRed">*</tag></b><textarea placeholder="e.g. I like exercises" name="biography" required></textarea>
-            <input type="submit" class="fontWhiteBold" value="Save" />
-        </form>
-    </section>
 
     <section id="signUpRight">
-        <form action="" method="POST">
+        <form class="form" action="" method="POST">
+            <div><b>First Name<tag class="fontRed">*</tag></b><input type="text" placeholder="e.g. John" name="first_name" required />
             <b>Username(Screen Name)<tag class="fontRed">*</tag></b><input type="text" placeholder="e.g. johnny123" name="user_name" required />
+            
+            <b>Date of Birth<tag class="fontRed">*</tag></b><input type="text" placeholder="e.g. DD/MM/YYYY" name="DOB" required />
+            <b>Biography<tag class="fontRed">*</tag></b><textarea placeholder="e.g. I like exercises" name="biography" required></textarea></div>
+            
+            <div><b>Last Name<tag class="fontRed">*</tag></b><input type="text" placeholder="e.g. Smith" name="last_name" required />
             <b>Email Address(UserID)<tag class="fontRed">*</tag></b><input type="text" placeholder="Email Address" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="must be a valid email address" />
             <b>Password<tag class="fontRed">*</tag></b><input type="text" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="must contain at least one number and one uppercase and lowercase letter, and be at least 8 characters" placeholder="e.g. XXXXXXXX" />
             <p>*Password must contain at least <tag class="fontRed"> 8 characters </tag> long including:</p>
             <p>-At least <tag class="fontRed"> one </tag> number</p>
             <p>-At least <tag class="fontRed"> one </tag> upper case</p>
-            <p>-At least <tag class="fontRed"> one </tag> lower case</p>
+            <p>-At least <tag class="fontRed"> one </tag> lower case</p></div>
             <input type="submit" class="fontWhiteBold" value="Create Account" />
         </form>
     </section>
