@@ -10,6 +10,21 @@ const getClinicianPatients = async (id) => {
     }
 }
 
+const getClinicianPatientsAndRender = async (req, res) => {       
+    let result = await getClinicianPatients(req.params.id)
+        
+
+    if(result.status){
+        res.render("clinicianHome", 
+            {
+                patient: result.data.data
+            })
+    }else{
+        res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
+    }
+}
+
 module.exports = {
     getClinicianPatients,
+    getClinicianPatientsAndRender,
 }

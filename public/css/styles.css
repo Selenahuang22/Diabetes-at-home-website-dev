@@ -789,9 +789,9 @@ footer img:hover {
 
 #editProfileContent{
     grid-area: editProfileContent;
-    grid-template-columns: 5% 30% 5% 5% 50% 5%;
+    grid-template-columns: 15% 70% 15%;
     grid-template-areas:
-        ". editProfileContentLeft . . editProfileContentRight .";
+        ". editProfileContentRight .";
     align-items: start;
     align-content: start;
 }
@@ -865,11 +865,6 @@ footer img:hover {
     justify-items: center;
 }
 
-#editBiography input {
-    border: var(--c-color-b0) 3px solid;
-    font-size: large;
-    height: 200px;
-}
 
 /*@ clinicanHome, Layout**********************************************/
 #clinicianHome {

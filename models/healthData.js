@@ -2,7 +2,7 @@ const { ObjectId } = require("mongodb")
 const mongoose = require("mongoose")
 
 const healthDataSchema = new mongoose.Schema({  // declare a Mongoose schema
-  time: {type: String, require: true},
+  time: {type: Date, require: true},
   data_name: {type: String , enum: [
     /**list down all possible time series */
     "blood glucose level"
