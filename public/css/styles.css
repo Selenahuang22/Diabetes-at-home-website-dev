@@ -335,16 +335,18 @@ header {
 #logout {
     grid-area: logout;
     justify-items: right;
-    grid-template-columns: 30% 30% 40%;
+    grid-template-columns: 25% 35% 40%;
 }
 
 #logout img {
-    width: 50%;
+    height: 6.5vh;
+    max-width: 100%;
 }
 
 #logout button {
     background-color: var(--c-color-white);
-    height: 7vh;
+    height: 5vh;
+    width: 90%;
     font-size: 1.5em;
     border: 3px solid var(--c-color-b1);
     border-radius: 1.2vh;
