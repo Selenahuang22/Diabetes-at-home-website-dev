@@ -1730,7 +1730,6 @@ footer img:hover {
    fl: foot link
 */
 #diabetesInfo {
-    font-family: sans-serif;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
         "b b b"
@@ -2110,6 +2109,10 @@ footer img:hover {
     #fMiddle h5{
         font-size: 1.6vh;
     }
+
+    #joinButtonHolder {
+        grid-template-columns: 45% 6% 45%;
+    }
   }
 
 @media screen and (max-width: 640px) {
@@ -2152,11 +2155,10 @@ footer img:hover {
         font: 1em sans-serif;
     }
     #aboutWeb {
-        grid-template-rows: 24vh 42vh 110vh 70vh 66vh;
         grid-template-columns: 5% 90% 5%;
     }
     #diabetesInfo {
-        grid-template-rows: 24vh 175vh 65vh 66vh;
+        grid-template-rows: auto auto auto auto;
         grid-template-columns: 5% 90% 5%;
     }
     #logo img {
@@ -2209,7 +2211,7 @@ footer img:hover {
     #bar {
         font-size: 2.7vw;
         font-weight: lighter;
-        grid-template-rows: 1% 4% 19% 19% 19% 19% 19%;
+        grid-template-rows: 2px auto auto auto auto auto auto;
         grid-template-columns: 100%;
         grid-template-areas:
         ". "
@@ -2247,6 +2249,9 @@ footer img:hover {
         line-height: 19px;
         font-size: 15px;
     }
+    #joinSection{
+        grid-template-rows: 10vh 0vh auto 5vh auto 5vh;
+    }
     #joinSectionBody {
         line-height: 20px;
         font-size: 15px;
@@ -2278,9 +2283,7 @@ footer img:hover {
     #textPath2 {
         font-size: 17px;
     }
-    #joinSection {
-        grid-template-rows: 3% 10% 3% 30% 6% 45% 3%;
-    }
+
     #infoEmbededVid {
         grid-template-columns: 6% 88% 6%;
         grid-template-rows: 20% 35% 5% 35% 5%;
@@ -2312,16 +2315,22 @@ footer img:hover {
     #webDetailHeader {
         grid-template-columns: 10% 80% 10%;
     }
-    #webDetailSection {
-        grid-template-rows: 2% 10% 2% 36% 5% 40% 5%;
-    }
+
     #webDetailButtonHolder {
-        grid-template-rows: 30% 5% 30% 5% 30%;
+        grid-template-rows: 8vh 8vh 8vh 8vh;
         grid-template-columns: 100%;
+    }
+    .reDirectButtonA {
+        width: 95%;
+        height: 100%;
     }
     #joinButtonHolder {
-        grid-template-rows: 47% 6% 47%;
+        grid-template-rows: 8vh 8vh;
         grid-template-columns: 100%;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        justify-items: center;
     }
     .Jbot {
         border-radius: 3vh;
@@ -2334,21 +2343,26 @@ footer img:hover {
     .Jimg {
         height: 8vh;
     }
+    .Jimg img {
+        max-width: 100%;
+        max-height: 100%;
+    }
     #cline1,
     #cline2,
     #cline3 {
         font-size: 1vh;
-        text-align: center;
+    }
+    #foot{
+        height: auto;
     }
     #footHeader1,
     #footHeader2,
     #footHeader3 {
         font-size: 1.2vh;
-        text-align: center;
     }
     #contact {
         grid-template-columns: 100%;
-        grid-template-rows: 33% 33% 34%;
+        grid-template-rows: 20vh 20vh 20vh;
         grid-template-areas:
         "fcl1"
         "fcl2"
@@ -2377,12 +2391,8 @@ footer img:hover {
     }
     #info {
         grid-template-columns: 5% 90% 5%;
-        grid-template-rows: 10vh 85vh 80vh;
     }
 
-    #directSection {
-        grid-template-rows: 2% 8% 5% 77% 8%;
-    }
     #directHeader{
         grid-template-columns: 75% 25%;
     }
