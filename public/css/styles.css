@@ -2286,12 +2286,15 @@ footer img:hover {
 
     #infoEmbededVid {
         grid-template-columns: 6% 88% 6%;
-        grid-template-rows: 20% 35% 5% 35% 5%;
+        grid-template-rows: auto auto 3vh auto 3vh;
         grid-template-areas:
         " . arrow ."
         ". vid2 ."
         ". . ."
-        ". vid1 .";
+        ". vid1 ."
+        ". . .";
+        margin-top: 0;
+        margin-bottom: 0;
     }
     #arrowImg {
         height: 40px;
