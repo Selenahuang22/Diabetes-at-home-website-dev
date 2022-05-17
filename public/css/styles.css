@@ -343,15 +343,6 @@ header {
     max-width: 100%;
 }
 
-.form {
-    
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 50px;
-    width: 100%;
-        
-}
-
 #logout button {
     background-color: var(--c-color-white);
     height: 5vh;
@@ -566,11 +557,11 @@ footer img:hover {
 #signUp {
     font-size: 1.4em;
     margin-bottom: calc(var(--bigger-vertical-gap) * 1px);
-    grid-template-columns: 7% 86% 7%;
+    grid-template-columns: 7% 3% 40% 3% 40% 7%;
     grid-template-areas:
-        "bl bl bl"
-        ". signUpText ."
-        ". signUpRight .";
+        "bl bl bl bl bl bl"
+        ". signUpText signUpText signUpText signUpText ."
+        ". . signUpLeft . signUpRight .";
 }
 
 #signUpText {
@@ -594,22 +585,19 @@ footer img:hover {
     justify-items: start;
 }
 
-#signUp input,
-#psignUp input {
+#signUp input {
     border: var(--c-color-b0) 3px solid;
     font-size: 1em;
     margin-top: calc(var(--small-vertical-gap) * 1px);
     margin-bottom: calc(var(--big-vertical-gap) * 1px);
     height: 60px;
-    width: 90%;
 }
 
-#psignUp input[type="checkbox"] {
+#signUp input[type="checkbox"] {
     width: 20%;
 }
 
-#signUp input[type="submit"],
-#psignUp input[type="submit"]{
+#signUp input[type="submit"] {
     margin-top: calc(var(--big-vertical-gap) * 1px);
 }
 
@@ -617,8 +605,7 @@ footer img:hover {
     margin-top: calc(var(--small-vertical-gap) * 1px);
 }
 
-#signUp p,
-#psignUp p{
+#signUp p {
     font-size: 0.8em;
 }
 
@@ -631,16 +618,6 @@ footer img:hover {
         ". . ."
         ". signUpContent ."
         ". . .";
-}
-
-#psignUp {
-    font-size: 1.4em;
-    margin-bottom: calc(var(--bigger-vertical-gap) * 1px);
-    grid-template-columns: 7% 3% 40% 3% 40% 7%;
-    grid-template-areas:
-        "bl bl bl bl bl bl"
-        ". signUpText signUpText signUpText signUpText ."
-        ". . signUpLeft . signUpRight .";
 }
 
 #psignUpLeft {
@@ -670,7 +647,7 @@ footer img:hover {
     align-content: start;
     justify-content: start;
     justify-items: start;
-    margin-left: 200px;
+    margin-left: 300px;
 }
 
 #registerDataEntry {
@@ -819,12 +796,11 @@ footer img:hover {
 
 #editProfileContent{
     grid-area: editProfileContent;
-    grid-template-columns: 3% 94% 3%;
+    grid-template-columns: 15% 70% 15%;
     grid-template-areas:
         ". editProfileContentRight .";
     align-items: start;
     align-content: start;
-    justify-items: left;
 }
 
 #editProfileContentRight {
@@ -840,29 +816,23 @@ footer img:hover {
 }
 
 #editForm1 h1{
-    margin-bottom: calc(var(--big-vertical-gap) * 3px);
+    margin-bottom: calc(var(--big-vertical-gap) * 1px);
 }
 
 #editForm1 input {
     border: var(--c-color-b0) 3px solid;
-    font-size: 2vh;
+    font-size: large;
     margin-top: calc(var(--small-vertical-gap) * 1px);
     margin-bottom: calc(var(--big-vertical-gap) * 1px);
-    height: 60px;
-    width: 90%;
-}
-
-#editForm1 textarea,
-#signUp textarea {
-    width: 90%;
+    height: 55px;
 }
 
 #editForm1 form {
-    font-size: 2.5vh;
+    font-size: larger;
 }
 
 #editForm1 form p{
-    font-size: 1.7vh;
+    font-size: large;
 }
 
 .buttonInput {
