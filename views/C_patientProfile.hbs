@@ -1,7 +1,5 @@
 <section id="cPatientProfile">
 
-    <div class="blueLine"></div>
-
     <section id="directP">
         <h2><a href="/home" class="fontBlueNormal">Home</a> > <a href="" class="fontBlueNormal">Patient Profile</a></h2>
     </section>
@@ -90,42 +88,34 @@
                     <tr>
                         <td>
                             <section class="safetyRange">
-                                <section></section>
-                                <section id="blood_glucose_lower">
+                                <section class="lower" id="blood_glucose_lower">
                                     <input type="text" name="" placeholder="0">
                                 </section>
-                                <section><p>-</p></section>
-                                <sectionid="blood_glucose_upper">
+                                <section class="middle-"><p>-</p></section>
+                                <section class="upper" id="blood_glucose_upper">
                                     <input type="text" name="" placeholder="0">
                                 </section>
-                                <section></section>
                             </section>
                         </td>
                         <td>
                             <section class="safetyRange">
-                                <section></section>
-                                <section id="weight_lower"><input type="text" name="" placeholder="0" class="fixed"></section>
-                                <section><p>-</p></section>
-                                <section id="weight_upper"><input type="text" name="" placeholder="0" class="fixed"></section>
-                                <section></section>
+                                <section class="lower" id="weight_lower"><input type="text" name="" placeholder="0" class="fixed"></section>
+                                <section class="middle-"><p>-</p></section>
+                                <section class="upper" id="weight_upper"><input type="text" name="" placeholder="0" class="fixed"></section>
                             </section>
                         </td>
                         <td>
                             <section class="safetyRange">
-                                <section></section>
-                                <section id="insulin_taken_lower"><input type="text" name="" placeholder="0"></section>
-                                <section><p>-</p></section>
-                                <section id="insulin_taken_upper"><input type="text" name="" placeholder="0"></section>
-                                <section></section>
+                                <section class="lower" id="insulin_taken_lower"><input type="text" name="" placeholder="0"></section>
+                                <section class="middle-"><p>-</p></section>
+                                <section class="upper" id="insulin_taken_upper"><input type="text" name="" placeholder="0"></section>
                             </section>
                         </td>
                         <td>
                             <section class="safetyRange">
-                                <section></section>
-                                <section id="exercises_lower"><input type="text" name="" placeholder="0"></section>
-                                <section><p>-</p></section>
-                                <section id="exercises_upper"><input type="text" name="" placeholder="0"></section>
-                                <section></section>
+                                <section class="lower" id="exercises_lower"><input type="text" name="" placeholder="0"></section>
+                                <section class="middle-"><p>-</p></section>
+                                <section class="upper" id="exercises_upper"><input type="text" name="" placeholder="0"></section>
                             </section>
                         </td>
                     </tr>
@@ -160,19 +150,17 @@
         <h1 class="fontBlue">Get Accessed To</h1>
         
         <section id="webDetailButtonHolder">
-            <a class="reDirectButtonA" href="/viewData"><section class="Jbot">
+            <a id="button1" class="reDirectButtonA" href="/viewData"><section class="Jbot">
                 <div class="Jimg"><img src="/dashboard&viewdataicon.jpg" alt="view data"></div>
-                <div class="ButtonAText"><p>View Data</p></div>
+                <div class="ButtonAText"><p>View Patient Data</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
-            <div></div>
-            <a class="reDirectButtonA" href="/clinicianNotes"><section class="Jbot">
+            <a id="button2" class="reDirectButtonA" href="/clinicianNotes"><section class="Jbot">
                 <div class="Jimg"><img src="/contactsicon.png" alt="clinician notes"></div>
                 <div class="ButtonAText"><p>Clinician Notes</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
-            <div></div>
-            <a class="reDirectButtonA" href="/patientComments"><section class="Jbot">
+            <a id="button3" class="reDirectButtonA" href="/patientComments"><section class="Jbot">
                 <div class="Jimg"><img src="/patientcommentsicon.png" alt="patient comments"></div>
                 <div class="ButtonAText"><p>Patient Comments</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>

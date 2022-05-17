@@ -249,7 +249,7 @@ select {
 }
 
 .Jimg img {
-    max-width: 40%;
+    max-width: 50%;
     max-height: 40%;
 }
 
@@ -303,6 +303,8 @@ header {
     grid-area: h;
     grid-template-columns: 7% 41% 15% 30% 7%;
     grid-template-areas: ". hl . logout .";
+    border-bottom: 15px solid var(--c-color-b0);;
+    margin-bottom: 10px;
 }
 
 #headLeft {
@@ -341,6 +343,20 @@ header {
 #logout img {
     height: 6.5vh;
     max-width: 100%;
+}
+
+#errorPage p {
+    font-size: 3vh;
+}
+
+#errorPage a {
+    text-decoration: underline;
+    color: var(--c-color-b0);
+}
+
+#errorPage h1 {
+    font-size: 5vh;
+    color: var(--c-color-red);
 }
 
 .form {
@@ -443,23 +459,16 @@ footer img:hover {
     grid-area: b;
     font-size: 1vw;
     font-weight: bold;
-    grid-template-rows: 5px auto auto;
+    grid-template-rows: auto;
     grid-template-columns: 5% 60% 30% 5%;
     grid-template-areas:
-        ". . . ."
-        "bg bg bg bg"
         ". bl br .";
     background-color: var(--c-color-b0);
+    height: 55px;
 }
 
 #bar p {
     margin: calc(var(--small-vertical-gap) * 1px);
-}
-
-#barGap {
-    grid-area: bg;
-    height: calc(var(--small-vertical-gap) * 1px);
-    background-color: var(--c-color-white);
 }
 
 #barLeft {
@@ -568,7 +577,6 @@ footer img:hover {
     margin-bottom: calc(var(--bigger-vertical-gap) * 1px);
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
-        "bl bl bl"
         ". signUpText ."
         ". signUpRight .";
 }
@@ -638,7 +646,6 @@ footer img:hover {
     margin-bottom: calc(var(--bigger-vertical-gap) * 1px);
     grid-template-columns: 7% 3% 40% 3% 40% 7%;
     grid-template-areas:
-        "bl bl bl bl bl bl"
         ". signUpText signUpText signUpText signUpText ."
         ". . signUpLeft . signUpRight .";
 }
@@ -703,7 +710,6 @@ footer img:hover {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
-        "bl bl bl"
         "cliprofileContent cliprofileContent cliprofileContent";
 }
 
@@ -808,7 +814,6 @@ footer img:hover {
 #editProfile {
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
-        "bl bl bl"
         ". directP ."
         ". editProfileContent .";
 }
@@ -887,7 +892,6 @@ footer img:hover {
     grid-area: ci;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas: 
-        "bl bl bl"
         ". directP .";
 }
 
@@ -914,7 +918,7 @@ footer img:hover {
     grid-area: proI;
     border-radius: 3vh;
     background-color: var(--c-color-white);
-    grid-template-columns: 7% 5% 1% 9% 56% 15% 7%;
+    grid-template-columns: 7% 5% 1% 15% 50% 15% 7%;
     grid-template-areas:
         ". cImg . cName . rightContent .";
     align-items: center;
@@ -962,9 +966,8 @@ footer img:hover {
     font-size: 1.4em;
     height: calc(var(--middle-page-height) * 1vh);
     grid-template-columns: 7% 3% 40% 40% 3% 7% ;
-    grid-template-rows: auto 10vh auto;
+    grid-template-rows: 5vh auto;
     grid-template-areas: 
-        "bl bl bl bl bl bl"
         ". . . . . ."
         ". . loginLeft loginRight . .";
 }
@@ -1033,7 +1036,6 @@ footer img:hover {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
-        "bl bl bl"
         ". directP ."
         "allMessages allMessages allMessages"
         ". ds .";
@@ -1044,7 +1046,6 @@ footer img:hover {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
-        "bl bl bl"
         ". directP ."
         "allMessages allMessages allMessages"
         ". ds .";
@@ -1055,7 +1056,6 @@ footer img:hover {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
-        "bl bl bl"
         ". directP ."
         "pProf pProf pProf"
         "dd dd dd"
@@ -1067,7 +1067,6 @@ footer img:hover {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
-        "bl bl bl"
         "pProf pProf pProf"
         "dd dd dd"
         "leaderBoard leaderBoard leaderBoard"
@@ -1370,6 +1369,19 @@ footer img:hover {
 
 .safetyRange {
     grid-template-columns: 1% 39% 10% 39% 1%;
+    grid-template-areas: ". lower middle- upper .";
+}
+
+.lower {
+    grid-area: lower;
+}
+
+.upper {
+    grid-area: upper;
+}
+
+.middle- {
+    grid-area: middle-;
 }
 
 .safetyRange input {
@@ -1629,8 +1641,20 @@ footer img:hover {
     height: auto;
     grid-area: jb3;
     grid-template-columns: 30% 4% 30% 4% 30%;
+    grid-template-areas: "button1 . button2 . button3";
 }
 
+#button1 {
+    grid-area: button1;
+}
+
+#button2 {
+    grid-area: button2;
+}
+
+#button3 {
+    grid-area: button3;
+}
 /* div join Section */
 #joinSection {
     grid-area: j;
@@ -1670,15 +1694,25 @@ footer img:hover {
 #joinButtonHolder {
     grid-area: jb2;
     grid-template-columns: 45% 9% 45%;
+    grid-template-areas: "buttonJoin1 . buttonJoin2";
     align-items: initial;
     align-content: initial;
     justify-items: stretch;
+}
+
+#buttonJoin1 {
+    grid-area: buttonJoin1;
+}
+
+#buttonJoin2 {
+    grid-area: buttonJoin2;
 }
 
 /* Foot link that will not be change regardless of screen size ********************************************************/
 #foot {
     border-top: 1px solid var(--c-color-b1);
     grid-area: fl;
+    margin-bottom: 10px;
 }
 
 #footHeader1,
@@ -1827,7 +1861,6 @@ footer img:hover {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
-        "bl bl bl"
         ". directP ."
         "rbs rbs rbs"
         ". ds .";
@@ -1916,9 +1949,7 @@ footer img:hover {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
-        "bl bl bl"
         ". directP ."
-        ". tableAreaText ."
         "bgc bgc bgc";
 }
 
@@ -1926,25 +1957,30 @@ footer img:hover {
     grid-area: bgc;
     background: var(--c-color-b3);
     grid-template-columns: 7% 86% 7%;
+    align-items: start;
+    grid-template-areas: 
+        ". dataTables ." 
+        ". graphSelect ." ;
 }
 
 #dataTables {
-    grid-template-rows: 5vh calc(var(--bigger-vertical-gap) * 1px) 
-    calc(var(--big-vertical-gap) * 1px) auto auto 
-    calc(var(--big-vertical-gap) * 1px) calc(var(--bigger-vertical-gap) * 1px) 
-    calc(var(--big-vertical-gap) * 1px) auto 5vh;
+    grid-area: dataTables;
+    grid-template-rows: auto auto;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
 }
 
-.forms {
-    grid-template-columns: 300px 300px;
+#graphSelect {
+    grid-area: graphSelect;
     justify-content: left;
     justify-items: left;
 }
 
-.forms select {
+#graphSelect select {
     border: 1px var(--c-color-b0) solid;
     color: var(--c-color-b0);
     background: var(--c-color-white);
+    width: 20%;
 }
 
 /* part 4 --------------------------------------------------------- referenced application*/
