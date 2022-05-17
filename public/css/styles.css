@@ -2077,8 +2077,21 @@ footer img:hover {
 }
 
 @media screen and (max-width: 1024px) {
+    header {
+        display: grid;
+        grid-area: h;
+        grid-template-columns: 7% 36% 5% 45% 7%;
+        grid-template-areas: ". hl . logout .";
+    }
+    #logout {
+        grid-template-columns: 25% 35% 40%;
+    }
+    #logout button {
+        font-size: 1.2em;
+        border: 2px solid var(--c-color-b1);
+    }
     h2 {
-        font-size: 1.8em;
+        font-size: 1.4em;
     }
     #logo img {
         width: 100%;
@@ -2133,6 +2146,10 @@ footer img:hover {
     #fMiddle h5{
         font-size: 1.6vh;
     }
+
+    #joinButtonHolder {
+        grid-template-columns: 45% 6% 45%;
+    }
   }
 
 @media screen and (max-width: 640px) {
@@ -2175,11 +2192,10 @@ footer img:hover {
         font: 1em sans-serif;
     }
     #aboutWeb {
-        grid-template-rows: 24vh 42vh 110vh 70vh 66vh;
         grid-template-columns: 5% 90% 5%;
     }
     #diabetesInfo {
-        grid-template-rows: 24vh 175vh 65vh 66vh;
+        grid-template-rows: auto auto auto auto;
         grid-template-columns: 5% 90% 5%;
     }
     #logo img {
@@ -2191,15 +2207,35 @@ footer img:hover {
         max-width: 100%;
     }
     h2 {
-        font-size: 1em;
+        font-size: 0.8em;
     }
     header {
-        grid-template-columns: 4% 50% 3% 40% 3%;
-        grid-template-areas: ". hl . hr .";
+        grid-template-columns: 2% 50% 1% 45% 2%;
+        grid-template-areas: ". hl . logout .";
     }
-    #headRight {
-        grid-template-columns: 15% 80% 5%;
-        grid-template-rows: 40% 20% 40%;
+
+    #headLeft {
+        grid-area: hl;
+        grid-template-columns: 15% 3% 82%;
+        grid-template-areas: "hl . hn";
+    }
+
+    #name {
+        grid-area: hn;
+        justify-items: left;
+        font-style: italic;
+        color: var(--c-color-b0);
+    }
+
+    #logout {
+        grid-area: logout;
+        justify-items: right;
+        grid-template-columns: 25% 35% 40%;
+    }
+
+    #logout img {
+        height: 3.5vh;
+        max-width: 100%;
     }
     #look {
         height: 2.7vh;
@@ -2212,16 +2248,22 @@ footer img:hover {
     #bar {
         font-size: 2.7vw;
         font-weight: lighter;
-        grid-template-rows: 1% 4% 19% 19% 19% 19% 19%;
         grid-template-columns: 100%;
         grid-template-areas:
         ". "
-        "bg"
         "bl"
         "bl"
         "bl"
         "bl"
         "br";
+        height: auto;
+    }
+    #logout button {
+        height: 6vh;
+        width: 95%;
+        font-size: 0.8em;
+        border: 2px solid var(--c-color-b1);
+        border-radius: 1vh;
     }
     #searchBar {
         grid-template-columns: 65% 35%;
@@ -2230,6 +2272,9 @@ footer img:hover {
     #barLeft {
         grid-template-columns: 100%;
         grid-template-rows: repeat(4, 25%);
+    }
+    #barRight {
+        height: 36px;
     }
     #signInText {
         font-size: 1.5em;
@@ -2242,6 +2287,9 @@ footer img:hover {
     #webDetailBody {
         line-height: 19px;
         font-size: 15px;
+    }
+    #joinSection{
+        grid-template-rows: 10vh 0vh auto 5vh auto 5vh;
     }
     #joinSectionBody {
         line-height: 20px;
@@ -2274,17 +2322,18 @@ footer img:hover {
     #textPath2 {
         font-size: 17px;
     }
-    #joinSection {
-        grid-template-rows: 3% 10% 3% 30% 6% 45% 3%;
-    }
+
     #infoEmbededVid {
         grid-template-columns: 6% 88% 6%;
-        grid-template-rows: 20% 35% 5% 35% 5%;
+        grid-template-rows: auto auto 3vh auto 3vh;
         grid-template-areas:
         " . arrow ."
         ". vid2 ."
         ". . ."
-        ". vid1 .";
+        ". vid1 ."
+        ". . .";
+        margin-top: 0;
+        margin-bottom: 0;
     }
     #arrowImg {
         height: 40px;
@@ -2308,16 +2357,29 @@ footer img:hover {
     #webDetailHeader {
         grid-template-columns: 10% 80% 10%;
     }
-    #webDetailSection {
-        grid-template-rows: 2% 10% 2% 36% 5% 40% 5%;
-    }
+
     #webDetailButtonHolder {
-        grid-template-rows: 30% 5% 30% 5% 30%;
+        grid-template-rows: 16vh 16vh 16vh;
         grid-template-columns: 100%;
+        grid-template-areas: 
+        "button1"
+        "button2"
+        "button3";
+    }
+    .reDirectButtonA {
+        width: 95%;
+        height: 100%;
     }
     #joinButtonHolder {
-        grid-template-rows: 47% 6% 47%;
+        grid-template-rows: 16vh 16vh;
         grid-template-columns: 100%;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        justify-items: center;
+        grid-template-areas: 
+        "buttonJoin1"
+        "buttonJoin2";
     }
     .Jbot {
         border-radius: 3vh;
@@ -2330,21 +2392,26 @@ footer img:hover {
     .Jimg {
         height: 8vh;
     }
+    .Jimg img {
+        max-width: 100%;
+        max-height: 100%;
+    }
     #cline1,
     #cline2,
     #cline3 {
         font-size: 1vh;
-        text-align: center;
+    }
+    #foot{
+        height: auto;
     }
     #footHeader1,
     #footHeader2,
     #footHeader3 {
         font-size: 1.2vh;
-        text-align: center;
     }
     #contact {
         grid-template-columns: 100%;
-        grid-template-rows: 33% 33% 34%;
+        grid-template-rows: 20vh 20vh 20vh;
         grid-template-areas:
         "fcl1"
         "fcl2"
@@ -2368,17 +2435,11 @@ footer img:hover {
         white-space: nowrap;
         font-size: 1vh;
     }
-    #infoHeader {
-        grid-template-rows: 30% 70%;
-    }
+
     #info {
         grid-template-columns: 5% 90% 5%;
-        grid-template-rows: 10vh 85vh 80vh;
     }
 
-    #directSection {
-        grid-template-rows: 2% 8% 5% 77% 8%;
-    }
     #directHeader{
         grid-template-columns: 75% 25%;
     }
