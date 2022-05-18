@@ -2629,7 +2629,7 @@ footer img:hover {
       text-align: left; 
     }
     #onePatTodayTable td {
-        width: 100px;
+        width: auto;
         height: 50px;
     }
     #onePatTodayTable, thead, tbody, th, td, tr { 
@@ -2665,11 +2665,11 @@ footer img:hover {
     /*
     Label the data
     */
-    td:nth-of-type(1):before { content: "First Name"; }
-    td:nth-of-type(2):before { content: "Last Name"; }
-    td:nth-of-type(3):before { content: "Job Title"; }
-    td:nth-of-type(4):before { content: "Favorite Color"; }
-    td:nth-of-type(5):before { content: "Wars of Trek?"; }
+    td:nth-of-type(1):before { content: "Date"; }
+    td:nth-of-type(2):before { content: "Blood Glucose Level"; }
+    td:nth-of-type(3):before { content: "Weight"; }
+    td:nth-of-type(4):before { content: "Insulin Doses Taken"; }
+    td:nth-of-type(5):before { content: "Exercises"; }
 
     
 
