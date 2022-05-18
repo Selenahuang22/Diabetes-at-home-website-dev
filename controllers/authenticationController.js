@@ -51,6 +51,9 @@ const directLogin = async (req, res) => {
 
 const signClicianUp = async (req, res) => {
     // check if the credential is valid
+    if(authenticator.validate(req.body.user_name, req.body.password, req.body.email)){
+        
+    }
 }
 
 module.exports = { directLogin}
