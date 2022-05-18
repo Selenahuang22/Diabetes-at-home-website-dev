@@ -2632,28 +2632,28 @@ footer img:hover {
         width: auto;
         height: 50px;
     }
-    #onePatTodayTable, thead, tbody, th, td, tr { 
+    table, thead, tbody, th, td, tr { 
         display: block; 
         width: 100%; 
         border-collapse: collapse; 
     }
 
-    #onePatTodayTable thead tr { 
+    table thead tr { 
         position: absolute;
         top: -9999px;
         left: -9999px;
     }
 
-    #onePatTodayTable tr { border: 1px solid #ccc; }
+    table tr { border: 1px solid #ccc; }
 
-    #onePatTodayTable td { 
+    table td { 
         border: none;
         border-bottom: 1px solid #eee; 
         position: relative;
         padding-left: 50%; 
     }
 
-    #onePatTodayTable td:before { 
+    table td:before { 
         position: absolute;
         top: 6px;
         left: 6px;
@@ -2662,14 +2662,21 @@ footer img:hover {
         white-space: nowrap;
     }
 
+    #dataTables td {
+        width: auto;
+        height: 50px;
+    }
+    #dataTables tr {
+        grid-template-columns: auto;
+    }
     /*
     Label the data
     */
     td:nth-of-type(1):before { content: "Date"; }
-    td:nth-of-type(2):before { content: "Blood Glucose Level"; }
-    td:nth-of-type(3):before { content: "Weight"; }
+    td:nth-of-type(2):before { content: "BGL (in mmol/L)"; }
+    td:nth-of-type(3):before { content: "Weight (in kg)"; }
     td:nth-of-type(4):before { content: "Insulin Doses Taken"; }
-    td:nth-of-type(5):before { content: "Exercises"; }
+    td:nth-of-type(5):before { content: "Exercises (step count)"; }
 
     
 
