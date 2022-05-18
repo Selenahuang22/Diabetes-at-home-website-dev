@@ -131,16 +131,19 @@ const editProfile = async (req, res) => {
         // if they also want to change password, for now
         // @todo: optimise this
         if(req.body.password){
-            credential = {password: req.body.password}
-            authenticator.generateHash(credential, async(_, hash) => {
+            if(authenticator.validatePass(req.body.password)){
                 
-                await Patient.updateOne(
-                    {_id: req.params.id},
-                    {
-                        $set: { password: hash}
-                    }
-                )
-            })
+                credential = {password: req.body.password}
+                authenticator.generateHash(credential, async(_, hash) => {
+                    
+                    await Patient.updateOne(
+                        {_id: req.params.id},
+                        {
+                            $set: { password: hash}
+                        }
+                    )
+                })
+            }
         }
         res.redirect(directPath)
     }
@@ -208,9 +211,7 @@ const submitLog = async (req, res) => {
             
     }
     (result)
-        ? res.redirect(directPath)
-
-            
+        ? res.redirect(directPath)        
         : res.status(404).render('error', {errorCode: '404', message: 'Error occur when try to send Data.'}) 
 }
 

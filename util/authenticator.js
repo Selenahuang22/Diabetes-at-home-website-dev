@@ -23,23 +23,7 @@ const checkHash = async (password, hash, cb) => {
     })
 }
 
-const validate =  async (userName, password, email) => {
-    // check if all of the item are valid according to our conffig
-    for(letter of process.env.INVALID_CHARACTER){
-        if(userName.includes(letter)){
-            return false
-        }
-    }
-
-    // check if userName is unique
-    if(! await patientController.checkUniqueUserName(userName) ||
-        ! await clinicianController.checkUniqueUserName(userName)){
-        return false
-    }
-
-    // let just assume email is valid, normmally will have to send a validation token to the email
-    // then follow that link to verify email, but in this case, it is outside the scope of this project.
-
+const validatePass = async (password) => {
     if(password.length < 8){
         return false
     }
@@ -63,6 +47,26 @@ const validate =  async (userName, password, email) => {
 
     }
     return foundNumber && foundLowerCase && foundUpperCase
+}
+
+const validate =  async (userName, password, email) => {
+    // check if all of the item are valid according to our conffig
+    for(letter of process.env.INVALID_CHARACTER){
+        if(userName.includes(letter)){
+            return false
+        }
+    }
+
+    // check if userName is unique
+    if(! await patientController.checkUniqueUserName(userName) ||
+        ! await clinicianController.checkUniqueUserName(userName)){
+        return false
+    }
+
+    // let just assume email is valid, normmally will have to send a validation token to the email
+    // then follow that link to verify email, but in this case, it is outside the scope of this project.
+    return validatePass(password)
+    
 }
 
 module.exports = {

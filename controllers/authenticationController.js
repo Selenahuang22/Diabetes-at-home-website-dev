@@ -49,4 +49,8 @@ const directLogin = async (req, res) => {
 }
 
 
+const signClicianUp = async (req, res) => {
+    // check if the credential is valid
+}
+
 module.exports = { directLogin}
