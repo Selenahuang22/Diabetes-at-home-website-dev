@@ -1,5 +1,5 @@
 const Clinician = require("../models/clinician");
-const patientController = require("./_patientController");
+const patientController = require("./patientController");
 
 const getClinicianPatients = async (id) => {
     let clinician = await Clinician.findOne({_id: id}).lean()
@@ -23,6 +23,7 @@ const getClinicianPatientsAndRender = async (req, res) => {
         res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
     }
 }
+
 
 module.exports = {
     getClinicianPatients,

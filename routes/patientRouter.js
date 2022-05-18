@@ -4,7 +4,7 @@ const express = require('express')
 const patientRouter = express.Router()
 
 // require our controller
-const patientController = require('../controllers/_patientController.js')
+const patientController = require('../controllers/patientController.js')
 
 
 // process routes by calling controller functions

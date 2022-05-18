@@ -1,7 +1,7 @@
 const Patient = require("../models/patient")
 const Clinician = require("../models/clinician")
 const healthDataController = require('./healthDataController')
-
+const authenticator = require("../util/authenticator")
 
 /**
  * 
@@ -122,12 +122,26 @@ const editProfile = async (req, res) => {
                     first_name: req.body.first_name,
                     last_name: req.body.last_name,
                     user_name: req.body.user_name,
-                    DOB: req.body.DOB,
-                    password: req.body.password,    
+                    DOB: req.body.DOB, 
                     biography: req.body.biography                 
                 }
             }
         );
+
+        // if they also want to change password, for now
+        // @todo: optimise this
+        if(req.body.password){
+            credential = {password: req.body.password}
+            authenticator.generateHash(credential, async(_, hash) => {
+                
+                await Patient.updateOne(
+                    {_id: req.params.id},
+                    {
+                        $set: { password: hash}
+                    }
+                )
+            })
+        }
         res.redirect(directPath)
     }
     catch (err){
