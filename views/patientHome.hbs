@@ -1,25 +1,23 @@
 <!-- patient home section -->
 <section id="patientHome">
 
-    <div class="blueLine"></div>
-
     <!-- patient personal info section -->
     <section id="patProfile">
         <section id="patProfileInfo">
             <section id="pImg">
                 <img src="/patienticon.png" alt="default patient img">
-                <p class="fontBlue">{{first_name}} {{last_name}}</p>
+                <p class="fontBlue">{{thispatient.first_name}} {{thispatient.last_name}}</p>
             </section>
             
             <section id="perInfo1"> 
-                <p><b>Username:</b> {{user_name}}</p>
-                <p><b>Email:</b> {{email}}</p>
-                <p><b>D.O.B:</b> {{DOB}}</p>
+                <p><b>Username:</b> {{thispatient.user_name}}</p>
+                <p><b>Email:</b> {{thispatient.email}}</p>
+                <p><b>D.O.B:</b> {{thispatient.DOB}}</p>
             </section>
 
             <section id="perInfo2"> 
-                <p><b>Clinician In Charge:</b> {{clinician_first_name}} {{clinician_last_name}}</p>
-                <p><b>Biography:</b> {{biography}}</p>
+                <p><b>Clinician In Charge:</b> {{clinician.first_name}} {{clinician.last_name}}</p>
+                <p><b>Biography:</b> {{thispatient.biography}}</p>
             </section>
 
             <section class="blueButton">
@@ -54,7 +52,7 @@
 
             <section id="tableHead">
                 <div id="today"><p>Today</p></div>
-                <div id="recordData"><a href="/patient/{{_id}}/record"><p>Record Data</p></a></div>
+                <div id="recordData"><a href="/patient/{{thispatient._id}}/record"><p>Record Data</p></a></div>
                 <div id="viewAll"><a href="/viewData"><p>View All</p></a></div>
             </section>
             
@@ -73,8 +71,8 @@
                     <td class="fontBlueNormal">
                         {{time}};
                     </td>
-                    {{#if latest_log.length}}
-                        {{#each latest_log}}
+                    {{#if thispatient.latest_log.length}}
+                        {{#each thispatient.latest_log}}
                             <td {{#if (is_bgl_in_dangRange this.value)}}class="fontRed"{{/if}} >{{#if (is_blood_glucose this.name)}}{{this.value}}{{else}}-{{/if}}</td>
                             <td>{{#if (is_insulin_take this.name)}}{{this.value}}{{else}}-{{/if}}</td>
                             <td>{{#if (is_weight this.name)}}{{this.value}}{{else}}-{{/if}}</td>
@@ -138,19 +136,17 @@
         <h1 id="directHeader" class="fontBlue">Get Accessed To</h1>
 
         <section id="webDetailButtonHolder">
-            <a class="reDirectButtonA" href="/viewData"><section class="Jbot">
+            <a id="button1" class="reDirectButtonA" href="/viewData"><section class="Jbot">
                 <div class="Jimg"><img src="/dashboard&viewdataicon.jpg" alt="view data"></div>
-                <div class="ButtonAText"><p>View Data</p></div>
+                <div class="ButtonAText"><p>View All Data</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
-            <div></div>
-            <a class="reDirectButtonA" href="record"><section class="Jbot">
+            <a id="button2" class="reDirectButtonA" href="record"><section class="Jbot">
                 <div class="Jimg"><img src="/clinicalnotes&recorddataicon.png" alt="record data"></div>
                 <div class="ButtonAText"><p>Record Data</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
-            <div></div>
-            <a class="reDirectButtonA" href="/editProfile"><section class="Jbot">
+            <a id="button3" class="reDirectButtonA" href="/editProfile"><section class="Jbot">
                 <div class="Jimg"><img src="/editprofileicon.png" alt="edit profile"></div>
                 <div class="ButtonAText"><p>Edit Profile</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
