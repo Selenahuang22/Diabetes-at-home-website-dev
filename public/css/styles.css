@@ -2530,8 +2530,11 @@ footer img:hover {
     /*patient home*/
     #patientHome {
         font-size: 0.8em;
-        grid-template-rows: auto 45vh auto 100vh 58vh;
-       
+        grid-template-areas:
+        "pProf pProf pProf"
+        "dd dd dd"
+        "leaderBoard leaderBoard leaderBoard"
+        ". ds .";
     }
 
     #patientInfo {
@@ -2543,34 +2546,39 @@ footer img:hover {
             ".";
     }
 
-    #patProfile {
-        grid-template-rows: 2vh 55vh 2vh 15vh 2vh;
+    #patProfile,
+    #cPatProfile {
+        grid-template-rows: 6vh 55vh 6vh 15vh 3vh 15vh 3vh;
         grid-template-columns: 2vh 10vh 15vh 10vh 2vh;
-        background-color: var(--c-color-white);
-        background-image: linear-gradient(180deg, var(--c-color-b3) 20%, var(--c-color-white) 0%);
+        background-color: #fff;
+        background-image: linear-gradient(180deg, #deebf5 20%, white 0%);
         grid-template-areas:
             ". . . . ."
             ". ppi ppi ppi ."
             ". . . . ."
             ". . badg . ."
+            ". . . . ."
+            ". recentMessage recentMessage recentMessage ."
             ". . . . .";
     }
 
     #patProfileInfo {
         grid-template-columns: 10% 80% 10%;
-        grid-template-rows: 1% 24% auto auto 12%;
+        grid-template-rows: 1vh 16vh auto auto 6vh 2vh;
         grid-template-areas: 
         ". . ."
         ". pIm ."
         ". pi1. "
         ". pi2 ."
-        ". editP .";
+        ". editP ."
+        ". . .";
         box-shadow: 0px 0px 20px var(--c-color-g0);
     }
 
     #pImg {
         width: 35%;
         height: 35%;
+        overflow: visible;
     }
 
     #perInfo1 {
@@ -2581,13 +2589,89 @@ footer img:hover {
 
     #perInfo2 {
         width: 20em;
+        justify-content: left;
     }
 
     #badges {
-        grid-template-columns: auto 10vh auto;
-        grid-template-rows: auto 10vh auto;
+        transform: scale(0.8);
+        grid-template-columns: 100%;
+        grid-template-rows: 100%;
         box-shadow: 0px 0px 20px var(--c-color-g0);
+        grid-template-areas: 
+        "badgC";
     }
+    #badgesContent img {
+        margin-top: 1vh;
+    }
+    /* customize table*/
+    table{
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table tr:first-child th:first-child {
+        border-top-left-radius: 0vh;
+    }
+
+    table tr:first-child th:last-child {
+        border-top-right-radius: 0vh;
+    }
+
+    table tr:last-child td:first-child {
+        border-bottom-left-radius: 0vh;
+    }
+
+    table tr:last-child td:last-child {
+        border-bottom-right-radius: 0vh;
+    }
+    td, th { 
+      padding: 6px; 
+      text-align: left; 
+    }
+    #onePatTodayTable td {
+        width: 100px;
+        height: 50px;
+    }
+    #onePatTodayTable, thead, tbody, th, td, tr { 
+        display: block; 
+        width: 100%; 
+        border-collapse: collapse; 
+    }
+
+    #onePatTodayTable thead tr { 
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    #onePatTodayTable tr { border: 1px solid #ccc; }
+
+    #onePatTodayTable td { 
+        border: none;
+        border-bottom: 1px solid #eee; 
+        position: relative;
+        padding-left: 50%; 
+    }
+
+    #onePatTodayTable td:before { 
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%; 
+        padding-right: 10px; 
+        white-space: nowrap;
+    }
+
+    /*
+    Label the data
+    */
+    td:nth-of-type(1):before { content: "First Name"; }
+    td:nth-of-type(2):before { content: "Last Name"; }
+    td:nth-of-type(3):before { content: "Job Title"; }
+    td:nth-of-type(4):before { content: "Favorite Color"; }
+    td:nth-of-type(5):before { content: "Wars of Trek?"; }
+
+    
 
     #dailyData {
         grid-template-rows: 7% 5% 88%;
@@ -2598,8 +2682,10 @@ footer img:hover {
     }
 
     #todayData {
-        grid-template-rows: 10% 5% 5% 70% 10%;
-
+        grid-template-rows: calc(var(--bigger-vertical-gap) * 1px) auto 
+        calc(var(--big-vertical-gap) * 1px) auto
+        calc(var(--bigger-vertical-gap) * 1px) auto
+        0;
     }
 
     #tableHead {
@@ -2633,9 +2719,6 @@ footer img:hover {
         max-height: 60%;
     }
 
-    #leaderBoard {
-        grid-template-rows: 5vh auto 5vh auto;
-    }
 
     .profileInfo {
         grid-template-columns: 1% 40% 3% 55% 1%;
@@ -2646,7 +2729,20 @@ footer img:hover {
             ". cImg . rightContent ."
             ". . . . .";
     }
-
+    #top5 {
+        grid-area: top5;
+        grid-template-rows: 15vh calc(var(--big-vertical-gap) * 1px)
+        10vh calc(var(--big-vertical-gap) * 1px)
+        10vh calc(var(--big-vertical-gap) * 1px)
+        10vh calc(var(--big-vertical-gap) * 1px)
+        10vh;
+    }
+    .rightContent {
+        justify-items: center;
+    }
+    .proName {
+        justify-items: center;
+    }
     /* dataEnter, layout**************************************************/
     #patientEnter {
         font-size: 1em;
