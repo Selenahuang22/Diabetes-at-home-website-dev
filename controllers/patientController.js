@@ -1,6 +1,6 @@
 const Patient = require("../models/patient")
 const Clinician = require("../models/clinician")
-const healthDataController = require('./_healthDataController')
+const healthDataController = require('./healthDataController')
 
 
 /**
@@ -221,7 +221,6 @@ const cacheTheLog = async (name, value, patientData) => {
             value: value
         }
     )
-
     try{
         patientData.latest_log = cache
         await Patient.updateOne(
@@ -243,7 +242,9 @@ const cacheTheLog = async (name, value, patientData) => {
     }
 }
 
-
+const createNewPatient = async () => {
+    
+}
 const extractUnixOfYYYY_MM_DD = (unix) => {
     return Math.floor(unix / 86400000) * 86400000;
 }

@@ -29,11 +29,9 @@ app.set('view engine', 'hbs')
 require('./models/db.js') 
 
 // connect to router
-// const patientRouter = require('./routes/patientRouter.js')
-const patientRouter = require("./new_route/patientRoute")
+const patientRouter = require('./routes/patientRouter.js')
 const clinicianRouter = require('./routes/clinicianRouter')
 const healthDataRouter = require('./routes/healthDataRouter')
-const authRouter = require("./new_route/authenticateRoute")
 
 /* static pages */
 app.get('/', async (req, res) => {
@@ -45,7 +43,9 @@ app.get('/diabetesInfo', async (req, res) => {
 
 /* hard code pages now */
 /* page for both */
-
+app.get('/login', async (req, res) => {
+    res.render('B_login.hbs');
+})
 app.get('/editProfile', async (req, res) => {
     res.render('B_editProfile.hbs');
 })
@@ -80,11 +80,9 @@ app.get('/patientProfile', async (req, res) => {
 
 
 /*d2*/
-// app.use('/patient/', patientRouter)
-app.use("/patient/", patientRouter)
+app.use('/patient/', patientRouter)
 app.use("/clinician/", clinicianRouter)
 app.use('/health_data/', healthDataRouter)
-app.use("/auth/", authRouter)
 
 /*all others pages*/
 app.all('*', (req, res) => {  // 'default' route to catch user errors
