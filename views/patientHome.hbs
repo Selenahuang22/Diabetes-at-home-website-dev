@@ -57,34 +57,38 @@
             </section>
             
             <table id="onePatTodayTable">
-                <tr>
-                    <th>Date</th>
-                    <th>Blood Glucose Level<br>
-                        (in mmol/L)</th>
-                    <th>Weight (in kg)</th>
-                    <th>Number of Insulin
-                        Doses Taken</th>
-                    <th>Exercises
-                        (step count)</th>
-                </tr> 
-                <tr>
-                    <td class="fontBlueNormal">
-                        {{time}};
-                    </td>
-                    {{#if thispatient.latest_log.length}}
-                        {{#each thispatient.latest_log}}
-                            <td {{#if (is_bgl_in_dangRange this.value)}}class="fontRed"{{/if}} >{{#if (is_blood_glucose this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                            <td>{{#if (is_insulin_take this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                            <td>{{#if (is_weight this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                            <td>{{#if (is_exercises this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                        {{/each}}
-                    {{else}}
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    {{/if}}
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Blood Glucose Level<br>
+                            (in mmol/L)</th>
+                        <th>Weight (in kg)</th>
+                        <th>Number of Insulin
+                            Doses Taken</th>
+                        <th>Exercises
+                            (step count)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fontBlueNormal">
+                            {{time}};
+                        </td>
+                        {{#if thispatient.latest_log.length}}
+                            {{#each thispatient.latest_log}}
+                                <td {{#if (is_bgl_in_dangRange this.value)}}class="fontRed"{{/if}} >{{#if (is_blood_glucose this.name)}}{{this.value}}{{else}}-{{/if}}</td>
+                                <td>{{#if (is_insulin_take this.name)}}{{this.value}}{{else}}-{{/if}}</td>
+                                <td>{{#if (is_weight this.name)}}{{this.value}}{{else}}-{{/if}}</td>
+                                <td>{{#if (is_exercises this.name)}}{{this.value}}{{else}}-{{/if}}</td>
+                            {{/each}}
+                        {{else}}
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        {{/if}}
+                    </tr>
+                </tbody>
             </table>
         </section>
 
