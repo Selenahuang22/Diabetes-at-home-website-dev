@@ -2637,12 +2637,6 @@ footer img:hover {
         grid-template-rows: 5vh auto 5vh auto;
     }
 
-    /* dataEnter, layout**************************************************/
-    #patientEnter {
-        font-size: 1em;
-        grid-template-rows: 2vh 24vh 30vh auto 58vh;
-    }
-
     .profileInfo {
         grid-template-columns: 1% 40% 3% 55% 1%;
         grid-template-rows: 10% 40% 40% 10%;
@@ -2653,30 +2647,31 @@ footer img:hover {
             ". . . . .";
     }
 
-    .RecordBar {
-        height: 70vh;
-        grid-template-rows: 2% 96% 2%;
-        grid-template-areas: 
-            "."
-            "RBB"
-            ".";
+    /* dataEnter, layout**************************************************/
+    #patientEnter {
+        font-size: 1em;
+        grid-template-columns: 7% 86% 7%;
+        grid-template-areas:
+            ". directP ."
+            ". rbs ."
+            ". ds .";
     }
+
     .RecordBlueBar {
-        grid-template-rows: 2% 96% 2%;
-
-    }
-    .RecordInnerBar {
-        grid-template-rows: 5% 70% 20% 5%;
-        grid-template-columns: 100%;
-        column-gap: unset;
+        margin-bottom: 0;
+        padding-top: 5vh;
+        padding-bottom: 5vh;
+        background: var(--c-color-b3);
+        grid-area: RBB;
+        grid-template-columns: calc(var(--small-vertical-gap) * 1px) auto auto calc(var(--small-vertical-gap) * 1px);
+        grid-template-rows: auto 5vh auto;
         grid-template-areas: 
-            ". ."
-            "recordArea recordArea"
-            "SwitchIcon SwitchIcon"
-            ". .";
+        ". RIB."
+        ". . ."
+        ". rR .";
     }
-
-    .RecordInnerBar input {
+    
+    .RecordInnerBar input, .recordRight input {
         height: 30px;
     }
 
