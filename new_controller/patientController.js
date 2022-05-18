@@ -38,7 +38,7 @@ const retrieveClinicianClients = async (email) => {
     return await Patient.find({clinician_email: email}).lean()
 }
 
-console.log(await retrieveClinicianClients("fasf"))
+
 const getPatientHomePage = async (req, res) => {
     let detail = await retrievePatient(req.body)
     let errMsg = "Patient does not exist!"

@@ -19,7 +19,8 @@ if you interested in how to place footer at bottom refer to line 625 (give the g
     --bigger-vertical-gap: 50;
 }
 
-div, section {
+div,
+section {
     display: grid;
     margin: 0px;
     padding: 0px;
@@ -101,7 +102,9 @@ h2 {
     font-size: 2em;
 }
 
-h5 {margin: 0px;}
+h5 {
+    margin: 0px;
+}
 
 /* customize image */
 img {
@@ -111,7 +114,7 @@ img {
 }
 
 /* customize table*/
-table{
+table {
     width: 100%;
     border-collapse: collapse;
 }
@@ -249,7 +252,7 @@ select {
 }
 
 .Jimg img {
-    max-width: 40%;
+    max-width: 50%;
     max-height: 40%;
 }
 
@@ -277,7 +280,7 @@ select {
     text-indent: 40px;
     font-size: 30px;
 }
-  
+
 
 /*part 3 ---------------------------------------------------------- customize id*/
 /*@ main Web, Layout**********************************************/
@@ -287,7 +290,7 @@ select {
 body {
     display: grid;
     margin: 0px;
-    grid-template-areas: 
+    grid-template-areas:
         "h"
         "."
         "f";
@@ -296,6 +299,7 @@ body {
 main {
     min-height: 85vh;
 }
+
 /* header band styling */
 /* Contain the LOGO + Name of website (diabetes@Home) */
 header {
@@ -303,6 +307,9 @@ header {
     grid-area: h;
     grid-template-columns: 7% 41% 15% 30% 7%;
     grid-template-areas: ". hl . logout .";
+    border-bottom: 15px solid var(--c-color-b0);
+    ;
+    margin-bottom: 10px;
 }
 
 #headLeft {
@@ -341,6 +348,29 @@ header {
 #logout img {
     height: 6.5vh;
     max-width: 100%;
+}
+
+#errorPage p {
+    font-size: 3vh;
+}
+
+#errorPage a {
+    text-decoration: underline;
+    color: var(--c-color-b0);
+}
+
+#errorPage h1 {
+    font-size: 5vh;
+    color: var(--c-color-red);
+}
+
+.form {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+    width: 100%;
+
 }
 
 #logout button {
@@ -383,7 +413,7 @@ footer {
     background-color: var(--c-color-b0);
     grid-template-columns: 20% 60% 20%;
     grid-template-rows: calc(var(--small-vertical-gap) * 1px) auto calc(var(--small-vertical-gap) * 1px);
-    grid-template-areas: 
+    grid-template-areas:
         ". . ."
         ". fm ."
         ". . .";
@@ -413,6 +443,7 @@ footer img:hover {
     max-width: 3.1vh;
     opacity: 1;
 }
+
 /*@ aboutWeb, Layout**********************************************/
 /* b: navigation bar section
    jw: aboutWebDetailSection
@@ -434,23 +465,16 @@ footer img:hover {
     grid-area: b;
     font-size: 1vw;
     font-weight: bold;
-    grid-template-rows: 5px auto auto;
+    grid-template-rows: auto;
     grid-template-columns: 5% 60% 30% 5%;
     grid-template-areas:
-        ". . . ."
-        "bg bg bg bg"
         ". bl br .";
     background-color: var(--c-color-b0);
+    height: 55px;
 }
 
 #bar p {
     margin: calc(var(--small-vertical-gap) * 1px);
-}
-
-#barGap {
-    grid-area: bg;
-    height: calc(var(--small-vertical-gap) * 1px);
-    background-color: var(--c-color-white);
 }
 
 #barLeft {
@@ -557,11 +581,10 @@ footer img:hover {
 #signUp {
     font-size: 1.4em;
     margin-bottom: calc(var(--bigger-vertical-gap) * 1px);
-    grid-template-columns: 7% 3% 40% 3% 40% 7%;
+    grid-template-columns: 7% 86% 7%;
     grid-template-areas:
-        "bl bl bl bl bl bl"
-        ". signUpText signUpText signUpText signUpText ."
-        ". . signUpLeft . signUpRight .";
+        ". signUpText ."
+        ". signUpRight .";
 }
 
 #signUpText {
@@ -585,19 +608,22 @@ footer img:hover {
     justify-items: start;
 }
 
-#signUp input {
+#signUp input,
+#psignUp input {
     border: var(--c-color-b0) 3px solid;
     font-size: 1em;
     margin-top: calc(var(--small-vertical-gap) * 1px);
     margin-bottom: calc(var(--big-vertical-gap) * 1px);
     height: 60px;
+    width: 90%;
 }
 
-#signUp input[type="checkbox"] {
+#psignUp input[type="checkbox"] {
     width: 20%;
 }
 
-#signUp input[type="submit"] {
+#signUp input[type="submit"],
+#psignUp input[type="submit"] {
     margin-top: calc(var(--big-vertical-gap) * 1px);
 }
 
@@ -605,19 +631,28 @@ footer img:hover {
     margin-top: calc(var(--small-vertical-gap) * 1px);
 }
 
-#signUp p {
+#signUp p,
+#psignUp p {
     font-size: 0.8em;
 }
 
 #signUpSession {
-    grid-template-rows: auto calc(var(--bigger-vertical-gap) * 1px)
-    auto calc(var(--bigger-vertical-gap) * 1px);
+    grid-template-rows: auto calc(var(--bigger-vertical-gap) * 1px) auto calc(var(--bigger-vertical-gap) * 1px);
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
         "bl bl bl"
         ". . ."
         ". signUpContent ."
         ". . .";
+}
+
+#psignUp {
+    font-size: 1.4em;
+    margin-bottom: calc(var(--bigger-vertical-gap) * 1px);
+    grid-template-columns: 7% 3% 40% 3% 40% 7%;
+    grid-template-areas:
+        ". signUpText signUpText signUpText signUpText ."
+        ". . signUpLeft . signUpRight .";
 }
 
 #psignUpLeft {
@@ -647,7 +682,7 @@ footer img:hover {
     align-content: start;
     justify-content: start;
     justify-items: start;
-    margin-left: 300px;
+    margin-left: 200px;
 }
 
 #registerDataEntry {
@@ -680,7 +715,6 @@ footer img:hover {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
-        "bl bl bl"
         "cliprofileContent cliprofileContent cliprofileContent";
 }
 
@@ -688,7 +722,7 @@ footer img:hover {
     grid-area: cliprofileContent;
     grid-template-columns: 7% 23% 5% 58% 7%;
     grid-template-rows: 5vh auto 5vh;
-    grid-template-areas: 
+    grid-template-areas:
         ". . . . ."
         ". cliProfileInfo. cliprofileRight ."
         ". . . . .";
@@ -701,7 +735,7 @@ footer img:hover {
     background-color: var(--c-color-white);
     padding-bottom: calc(var(--bigger-vertical-gap) * 1px);
     grid-template-columns: 3% 94% 3%;
-    grid-template-areas: 
+    grid-template-areas:
         ". cliIm ."
         ". cliTx ."
         ". perInfo ."
@@ -761,11 +795,11 @@ footer img:hover {
         "editP";
 }
 
-#buttonWithText h1{
+#buttonWithText h1 {
     margin: 0px;
 }
 
-#buttonWithText .blueButton{
+#buttonWithText .blueButton {
     font-size: 2.2vh;
     border-radius: 2.5vh;
     width: 24vw;
@@ -785,7 +819,6 @@ footer img:hover {
 #editProfile {
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
-        "bl bl bl"
         ". directP ."
         ". editProfileContent .";
 }
@@ -794,20 +827,21 @@ footer img:hover {
     font-size: 1.5em;
 }
 
-#editProfileContent{
+#editProfileContent {
     grid-area: editProfileContent;
-    grid-template-columns: 15% 70% 15%;
+    grid-template-columns: 3% 94% 3%;
     grid-template-areas:
         ". editProfileContentRight .";
     align-items: start;
     align-content: start;
+    justify-items: left;
 }
 
 #editProfileContentRight {
     grid-area: editProfileContentRight;
 }
 
-#editForm1{
+#editForm1 {
     font-size: larger;
     align-items: start;
     align-content: start;
@@ -815,24 +849,30 @@ footer img:hover {
     justify-items: left;
 }
 
-#editForm1 h1{
-    margin-bottom: calc(var(--big-vertical-gap) * 1px);
+#editForm1 h1 {
+    margin-bottom: calc(var(--big-vertical-gap) * 3px);
 }
 
 #editForm1 input {
     border: var(--c-color-b0) 3px solid;
-    font-size: large;
+    font-size: 2vh;
     margin-top: calc(var(--small-vertical-gap) * 1px);
     margin-bottom: calc(var(--big-vertical-gap) * 1px);
-    height: 55px;
+    height: 60px;
+    width: 90%;
+}
+
+#editForm1 textarea,
+#signUp textarea {
+    width: 90%;
 }
 
 #editForm1 form {
-    font-size: larger;
+    font-size: 2.5vh;
 }
 
-#editForm1 form p{
-    font-size: large;
+#editForm1 form p {
+    font-size: 1.7vh;
 }
 
 .buttonInput {
@@ -856,8 +896,7 @@ footer img:hover {
 #clinicianInfo {
     grid-area: ci;
     grid-template-columns: 7% 86% 7%;
-    grid-template-areas: 
-        "bl bl bl"
+    grid-template-areas:
         ". directP .";
 }
 
@@ -872,7 +911,7 @@ footer img:hover {
     justify-items: left;
 }
 
-#directP h2{
+#directP h2 {
     font-weight: normal;
     font-size: 1.2em;
 }
@@ -884,7 +923,7 @@ footer img:hover {
     grid-area: proI;
     border-radius: 3vh;
     background-color: var(--c-color-white);
-    grid-template-columns: 7% 5% 1% 9% 56% 15% 7%;
+    grid-template-columns: 7% 5% 1% 15% 50% 15% 7%;
     grid-template-areas:
         ". cImg . cName . rightContent .";
     align-items: center;
@@ -931,10 +970,9 @@ footer img:hover {
 #loginSession {
     font-size: 1.4em;
     height: calc(var(--middle-page-height) * 1vh);
-    grid-template-columns: 7% 3% 40% 40% 3% 7% ;
-    grid-template-rows: auto 10vh auto;
-    grid-template-areas: 
-        "bl bl bl bl bl bl"
+    grid-template-columns: 7% 3% 40% 40% 3% 7%;
+    grid-template-rows: 5vh auto;
+    grid-template-areas:
         ". . . . . ."
         ". . loginLeft loginRight . .";
 }
@@ -1003,7 +1041,6 @@ footer img:hover {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
-        "bl bl bl"
         ". directP ."
         "allMessages allMessages allMessages"
         ". ds .";
@@ -1014,7 +1051,6 @@ footer img:hover {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
-        "bl bl bl"
         ". directP ."
         "allMessages allMessages allMessages"
         ". ds .";
@@ -1025,7 +1061,6 @@ footer img:hover {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
-        "bl bl bl"
         ". directP ."
         "pProf pProf pProf"
         "dd dd dd"
@@ -1037,7 +1072,6 @@ footer img:hover {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
-        "bl bl bl"
         "pProf pProf pProf"
         "dd dd dd"
         "leaderBoard leaderBoard leaderBoard"
@@ -1105,7 +1139,7 @@ footer img:hover {
     margin-bottom: calc(var(--small-vertical-gap) * 1px);
 }
 
-#addEmoji select{
+#addEmoji select {
     width: 90px;
 }
 
@@ -1122,7 +1156,7 @@ footer img:hover {
         "newSupportMessage editP";
 }
 
-#updateMessage textarea{
+#updateMessage textarea {
     height: 60px;
     width: 100%;
     border: 0px;
@@ -1135,13 +1169,13 @@ footer img:hover {
     background-color: var(--c-color-white);
     grid-template-columns: 15% 1% 30% 3% 37% 3% 10% 1%;
     grid-template-areas:
-    "pIm . pi1 . pi2 . editP .";
+        "pIm . pi1 . pi2 . editP .";
 }
 
 #cPatProfileInfo {
     grid-template-columns: 15% 2% 30% 2% 30% 2% 19%;
     grid-template-areas:
-    "pIm . pi1 . pi2 . badg .";
+        "pIm . pi1 . pi2 . badg .";
 }
 
 #pImg {
@@ -1172,7 +1206,7 @@ footer img:hover {
 
 #saveRequirements {
     grid-area: saveRequirements;
-    color:#fff;
+    color: #fff;
     font-weight: bold;
     font-size: large;
 }
@@ -1184,7 +1218,7 @@ footer img:hover {
     border-radius: 3vh;
     background-color: var(--c-color-b0);
     grid-template-columns: 5% 90% 5%;
-    grid-template-areas: 
+    grid-template-areas:
         ". buttonnText .";
 }
 
@@ -1196,7 +1230,7 @@ footer img:hover {
     grid-area: badg;
     border-radius: 3vh;
     grid-template-columns: 5% 90% 5%;
-    grid-template-areas: 
+    grid-template-areas:
         ". badgC .";
 }
 
@@ -1218,7 +1252,7 @@ footer img:hover {
 #dailyData {
     grid-area: dd;
     grid-template-columns: 7% 86% 7%;
-    grid-template-areas: 
+    grid-template-areas:
         ". dailyDataText ."
         "todayData todayData todayData";
 }
@@ -1236,12 +1270,9 @@ footer img:hover {
     grid-area: todayData;
     align-items: start;
     background-color: var(--c-color-b3);
-    grid-template-rows: calc(var(--bigger-vertical-gap) * 1px) auto 
-    calc(var(--big-vertical-gap) * 1px) auto
-    calc(var(--bigger-vertical-gap) * 1px) auto
-    calc(var(--bigger-vertical-gap) * 1px);
+    grid-template-rows: calc(var(--bigger-vertical-gap) * 1px) auto calc(var(--big-vertical-gap) * 1px) auto calc(var(--bigger-vertical-gap) * 1px) auto calc(var(--bigger-vertical-gap) * 1px);
     grid-template-columns: 7% 86% 7%;
-    grid-template-areas: 
+    grid-template-areas:
         ". . ."
         ". tableHead ."
         ". . ."
@@ -1252,10 +1283,7 @@ footer img:hover {
 }
 
 #cPatientProfile #todayData {
-    grid-template-rows: calc(var(--bigger-vertical-gap) * 1px) auto 
-    calc(var(--big-vertical-gap) * 1px) auto 
-    calc(var(--bigger-vertical-gap) * 1px) auto 
-    calc(var(--bigger-vertical-gap) * 1px);
+    grid-template-rows: calc(var(--bigger-vertical-gap) * 1px) auto calc(var(--big-vertical-gap) * 1px) auto calc(var(--bigger-vertical-gap) * 1px) auto calc(var(--bigger-vertical-gap) * 1px);
     grid-template-areas:
         ". . ."
         ". tableHead ."
@@ -1283,7 +1311,7 @@ footer img:hover {
     grid-area: newSupportMessages;
 }
 
-#todayNotes textarea{
+#todayNotes textarea {
     width: 99%;
     margin-top: calc(var(--small-vertical-gap) * 1px);
 }
@@ -1291,10 +1319,10 @@ footer img:hover {
 #tableHead {
     grid-area: tableHead;
     grid-template-columns: 8% 3% 15% 64% 10%;
-    grid-template-areas: "today . recordData . viewAll";    
+    grid-template-areas: "today . recordData . viewAll";
 }
 
-#cPatientProfile #tableHead{
+#cPatientProfile #tableHead {
     grid-template-columns: none;
     grid-template-areas: none;
 }
@@ -1324,7 +1352,7 @@ footer img:hover {
 
 #viewAll a {
     text-decoration: underline;
-    color:var(--c-color-green);
+    color: var(--c-color-green);
 }
 
 #onePatTodayTable {
@@ -1340,6 +1368,19 @@ footer img:hover {
 
 .safetyRange {
     grid-template-columns: 1% 39% 10% 39% 1%;
+    grid-template-areas: ". lower middle- upper .";
+}
+
+.lower {
+    grid-area: lower;
+}
+
+.upper {
+    grid-area: upper;
+}
+
+.middle- {
+    grid-area: middle-;
 }
 
 .safetyRange input {
@@ -1359,7 +1400,7 @@ footer img:hover {
     background-color: var(--c-color-b3);
     align-items: start;
     grid-template-columns: 7% 86% 7%;
-    grid-template-areas: 
+    grid-template-areas:
         ". oneMessageSearch ."
         ". oneMessageTable .";
 }
@@ -1382,7 +1423,7 @@ footer img:hover {
 }
 
 #tableScroll tbody,
-#oneMessageTable tbody{
+#oneMessageTable tbody {
     width: auto;
     max-height: 500px;
     overflow-y: scroll;
@@ -1486,9 +1527,7 @@ footer img:hover {
 
 #rank {
     grid-area: rank;
-    grid-template-rows: calc(var(--bigger-vertical-gap) * 1px) auto 
-    calc(var(--big-vertical-gap) * 1px) auto 
-    calc(var(--bigger-vertical-gap) * 1px);
+    grid-template-rows: calc(var(--bigger-vertical-gap) * 1px) auto calc(var(--big-vertical-gap) * 1px) auto calc(var(--bigger-vertical-gap) * 1px);
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
         ". . ."
@@ -1513,12 +1552,8 @@ footer img:hover {
 
 #top5 {
     grid-area: top5;
-    grid-template-rows: auto calc(var(--big-vertical-gap) * 1px)
-    auto calc(var(--big-vertical-gap) * 1px)
-    auto calc(var(--big-vertical-gap) * 1px)
-    auto calc(var(--big-vertical-gap) * 1px)
-    auto;
-    grid-template-areas: 
+    grid-template-rows: auto calc(var(--big-vertical-gap) * 1px) auto calc(var(--big-vertical-gap) * 1px) auto calc(var(--big-vertical-gap) * 1px) auto calc(var(--big-vertical-gap) * 1px) auto;
+    grid-template-areas:
         "first"
         "."
         "second"
@@ -1599,6 +1634,19 @@ footer img:hover {
     height: auto;
     grid-area: jb3;
     grid-template-columns: 30% 4% 30% 4% 30%;
+    grid-template-areas: "button1 . button2 . button3";
+}
+
+#button1 {
+    grid-area: button1;
+}
+
+#button2 {
+    grid-area: button2;
+}
+
+#button3 {
+    grid-area: button3;
 }
 
 /* div join Section */
@@ -1640,15 +1688,25 @@ footer img:hover {
 #joinButtonHolder {
     grid-area: jb2;
     grid-template-columns: 45% 9% 45%;
+    grid-template-areas: "buttonJoin1 . buttonJoin2";
     align-items: initial;
     align-content: initial;
     justify-items: stretch;
+}
+
+#buttonJoin1 {
+    grid-area: buttonJoin1;
+}
+
+#buttonJoin2 {
+    grid-area: buttonJoin2;
 }
 
 /* Foot link that will not be change regardless of screen size ********************************************************/
 #foot {
     border-top: 1px solid var(--c-color-b1);
     grid-area: fl;
+    margin-bottom: 10px;
 }
 
 #footHeader1,
@@ -1797,7 +1855,6 @@ footer img:hover {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
-        "bl bl bl"
         ". directP ."
         "rbs rbs rbs"
         ". ds .";
@@ -1825,7 +1882,7 @@ footer img:hover {
     background: var(--c-color-b3);
     grid-area: RBB;
     grid-template-columns: calc(var(--small-vertical-gap) * 1px) auto auto calc(var(--small-vertical-gap) * 1px);
-    grid-template-areas: 
+    grid-template-areas:
         ". RIB rR .";
 }
 
@@ -1865,12 +1922,14 @@ footer img:hover {
     align-items: flex-start;
     justify-items: left;
 }
+
 .RecordBotton input {
     background: var(--c-color-b0);
     width: 150px;
     height: 75px;
     font-size: larger;
 }
+
 .fixed,
 .saveButton {
     background-color: var(--c-color-g0);
@@ -1886,9 +1945,7 @@ footer img:hover {
     font-size: 1.4em;
     grid-template-columns: 7% 86% 7%;
     grid-template-areas:
-        "bl bl bl"
         ". directP ."
-        ". tableAreaText ."
         "bgc bgc bgc";
 }
 
@@ -1896,25 +1953,30 @@ footer img:hover {
     grid-area: bgc;
     background: var(--c-color-b3);
     grid-template-columns: 7% 86% 7%;
+    align-items: start;
+    grid-template-areas:
+        ". dataTables ."
+        ". graphSelect .";
 }
 
 #dataTables {
-    grid-template-rows: 5vh calc(var(--bigger-vertical-gap) * 1px) 
-    calc(var(--big-vertical-gap) * 1px) auto auto 
-    calc(var(--big-vertical-gap) * 1px) calc(var(--bigger-vertical-gap) * 1px) 
-    calc(var(--big-vertical-gap) * 1px) auto 5vh;
+    grid-area: dataTables;
+    grid-template-rows: auto auto;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
 }
 
-.forms {
-    grid-template-columns: 300px 300px;
+#graphSelect {
+    grid-area: graphSelect;
     justify-content: left;
     justify-items: left;
 }
 
-.forms select {
+#graphSelect select {
     border: 1px var(--c-color-b0) solid;
     color: var(--c-color-b0);
     background: var(--c-color-white);
+    width: 20%;
 }
 
 /* part 4 --------------------------------------------------------- referenced application*/
@@ -1990,21 +2052,25 @@ footer img:hover {
         grid-template-columns: 5% 40% 10% 40% 5%;
         grid-template-rows: 10% 10% 70% 10%;
         grid-template-areas:
-        ". . . . ."
-        ". mr mr mr ."
-        ". ml ml ml ."
-        ". . . . .";
+            ". . . . ."
+            ". mr mr mr ."
+            ". ml ml ml ."
+            ". . . . .";
     }
+
     #mezzanineTextButtonHolder {
         grid-template-columns: 25% 10% 30% 10% 25%;
     }
+
     #mezzanineImgHolder {
         grid-template-columns: 40% 20% 40%;
         grid-template-areas: "mr1 . mr2";
     }
+
     #logInClinician {
         width: 25vw;
     }
+
     #logInPatient {
         width: 25vw;
     }
@@ -2014,245 +2080,300 @@ footer img:hover {
     h2 {
         font-size: 1.8em;
     }
+
     #logo img {
         width: 100%;
         height: 60%;
     }
+
     #look {
         height: 4vh;
         width: 5vw;
     }
+
     #bar {
         font-size: 1em;
         font-weight: bolder;
     }
+
     #signInText {
-      font-size: 3.5em;
-      font-weight: normal;
+        font-size: 3.5em;
+        font-weight: normal;
     }
+
     #webDetailBody {
         line-height: 30px;
         font-size: 19px;
     }
+
     #joinSectionBody {
         line-height: 30px;
         font-size: 20px;
     }
+
     .ButtonAText {
         font-size: 20px;
     }
+
     #infoTextP {
         font-size: 20px;
         line-height: 30px;
     }
+
     #textPath1,
     #textPath2 {
         font-size: 19px;
     }
+
     iframe {
         height: 200px;
         width: 300px;
     }
+
     #infoEmbededVid {
         grid-template-rows: 25% 65% 20%;
     }
+
     .vidP {
         font-size: 20px;
         text-indent: 20px;
     }
+
     .smallTitle {
         font-size: 20px;
         letter-spacing: 2px;
     }
-    #fMiddle h5{
+
+    #fMiddle h5 {
         font-size: 1.6vh;
     }
-  }
+}
 
 @media screen and (max-width: 640px) {
-    h1{
+    h1 {
         font-size: 1.4em;
     }
+
     #name h1 {
         font-weight: normal;
         font-size: 5vw;
     }
+
     .plussign img {
         width: 20px;
         height: 20px;
     }
+
     #mezzanine {
         grid-template-columns: 5% 40% 10% 40% 5%;
         grid-template-rows: 15% 70% 15%;
         grid-template-areas:
-        ". . . . ."
-        ". ml ml ml ."
-        ". . . . .";
+            ". . . . ."
+            ". ml ml ml ."
+            ". . . . .";
     }
+
     #mezzanineTextButtonHolder {
         grid-template-columns: 25% 10% 30% 10% 25%;
     }
+
     #mezzanineImgHolder {
         display: none;
     }
+
     #logInClinician {
         font-size: 1.5vh;
         border-radius: 3vh;
         height: 6vh;
     }
+
     #logInPatient {
         font-size: 1.5vh;
         border-radius: 3vh;
         height: 6vh;
     }
+
     #mlText {
         font: 1em sans-serif;
     }
+
     #aboutWeb {
         grid-template-rows: 24vh 42vh 110vh 70vh 66vh;
         grid-template-columns: 5% 90% 5%;
     }
+
     #diabetesInfo {
         grid-template-rows: 24vh 175vh 65vh 66vh;
         grid-template-columns: 5% 90% 5%;
     }
+
     #logo img {
         height: auto;
         width: auto;
     }
+
     img {
         max-height: 100%;
         max-width: 100%;
     }
+
     h2 {
         font-size: 1em;
     }
+
     header {
         grid-template-columns: 4% 50% 3% 40% 3%;
         grid-template-areas: ". hl . hr .";
     }
+
     #headRight {
         grid-template-columns: 15% 80% 5%;
         grid-template-rows: 40% 20% 40%;
     }
+
     #look {
         height: 2.7vh;
         width: 12.5vw;
         background-size: 2vh;
     }
+
     #smallLook {
         background-size: 1.5vh;
     }
+
     #bar {
         font-size: 2.7vw;
         font-weight: lighter;
         grid-template-rows: 1% 4% 19% 19% 19% 19% 19%;
         grid-template-columns: 100%;
         grid-template-areas:
-        ". "
-        "bg"
-        "bl"
-        "bl"
-        "bl"
-        "bl"
-        "br";
+            ". "
+            "bg"
+            "bl"
+            "bl"
+            "bl"
+            "bl"
+            "br";
     }
+
     #searchBar {
         grid-template-columns: 65% 35%;
         width: 100%;
     }
+
     #barLeft {
         grid-template-columns: 100%;
         grid-template-rows: repeat(4, 25%);
     }
+
     #signInText {
         font-size: 1.5em;
         font-weight: 900;
     }
+
     .vidP {
         font-size: 15px;
         text-indent: 6vw;
     }
+
     #webDetailBody {
         line-height: 19px;
         font-size: 15px;
     }
+
     #joinSectionBody {
         line-height: 20px;
         font-size: 15px;
     }
+
     .ButtonAText {
         justify-self: left;
         font-size: 15px;
     }
+
     #infoText {
         grid-template-columns: 5% 90% 5%;
         grid-template-rows: 95% 5%;
         grid-template-areas:
-        ". infoTextImg ."
-        ". . .";
+            ". infoTextImg ."
+            ". . .";
     }
+
     #infoTextImg {
         grid-template-rows: 60% 5% 35%;
         grid-template-columns: 100%;
         grid-template-areas:
-        "textP"
-        "."
-        "infoImg";
+            "textP"
+            "."
+            "infoImg";
     }
+
     #infoTextP {
         font-size: 15px;
         line-height: 20px;
     }
+
     #textPath1,
     #textPath2 {
         font-size: 17px;
     }
+
     #joinSection {
         grid-template-rows: 3% 10% 3% 30% 6% 45% 3%;
     }
+
     #infoEmbededVid {
         grid-template-columns: 6% 88% 6%;
         grid-template-rows: 20% 35% 5% 35% 5%;
         grid-template-areas:
-        " . arrow ."
-        ". vid2 ."
-        ". . ."
-        ". vid1 .";
+            " . arrow ."
+            ". vid2 ."
+            ". . ."
+            ". vid1 .";
     }
+
     #arrowImg {
         height: 40px;
         width: 19px;
     }
+
     iframe {
         height: 35vw;
         width: 32vh;
     }
+
     .smallTitle {
         text-align: center;
         font-size: 1em;
         letter-spacing: 1.5px;
     }
+
     .titleBlack {
         font-size: 1.2em;
     }
+
     #joinHeader {
         grid-template-columns: 10% 80% 10%;
     }
+
     #webDetailHeader {
         grid-template-columns: 10% 80% 10%;
     }
+
     #webDetailSection {
         grid-template-rows: 2% 10% 2% 36% 5% 40% 5%;
     }
+
     #webDetailButtonHolder {
         grid-template-rows: 30% 5% 30% 5% 30%;
         grid-template-columns: 100%;
     }
+
     #joinButtonHolder {
         grid-template-rows: 47% 6% 47%;
         grid-template-columns: 100%;
     }
+
     .Jbot {
         border-radius: 3vh;
         border: 2px var(--c-color-b0) solid;
@@ -2261,50 +2382,60 @@ footer img:hover {
         grid-template-rows: 100%;
         grid-template-areas: ". Jim . Jte . Jar .";
     }
+
     .Jimg {
         height: 8vh;
     }
+
     #cline1,
     #cline2,
     #cline3 {
         font-size: 1vh;
         text-align: center;
     }
+
     #footHeader1,
     #footHeader2,
     #footHeader3 {
         font-size: 1.2vh;
         text-align: center;
     }
+
     #contact {
         grid-template-columns: 100%;
         grid-template-rows: 33% 33% 34%;
         grid-template-areas:
-        "fcl1"
-        "fcl2"
-        "fcl3";
+            "fcl1"
+            "fcl2"
+            "fcl3";
     }
+
     body {
         grid-template-rows: 11vh auto 10vh;
     }
+
     footer {
         grid-template-columns: 10% 80% 10%;
     }
+
     #fMiddle {
         grid-template-columns: repeat(4, 6vh);
         grid-template-rows: 50% 50%;
         grid-template-areas:
-          "img1 img2 img3 img4"
-          "p p p p";
-      }
-    #fMiddle > h5 {
+            "img1 img2 img3 img4"
+            "p p p p";
+    }
+
+    #fMiddle>h5 {
         grid-area: p;
         white-space: nowrap;
         font-size: 1vh;
     }
+
     #infoHeader {
         grid-template-rows: 30% 70%;
     }
+
     #info {
         grid-template-columns: 5% 90% 5%;
         grid-template-rows: 10vh 85vh 80vh;
@@ -2313,7 +2444,8 @@ footer img:hover {
     #directSection {
         grid-template-rows: 2% 8% 5% 77% 8%;
     }
-    #directHeader{
+
+    #directHeader {
         grid-template-columns: 75% 25%;
     }
 
@@ -2321,13 +2453,13 @@ footer img:hover {
     #patientHome {
         font-size: 0.8em;
         grid-template-rows: auto 45vh auto 100vh 58vh;
-       
+
     }
 
     #patientInfo {
         grid-template-rows: auto auto 2vh;
         grid-template-columns: 100%;
-        grid-template-areas: 
+        grid-template-areas:
             "bl"
             "pProf"
             ".";
@@ -2349,12 +2481,12 @@ footer img:hover {
     #patProfileInfo {
         grid-template-columns: 10% 80% 10%;
         grid-template-rows: 1% 24% auto auto 12%;
-        grid-template-areas: 
-        ". . ."
-        ". pIm ."
-        ". pi1. "
-        ". pi2 ."
-        ". editP .";
+        grid-template-areas:
+            ". . ."
+            ". pIm ."
+            ". pi1. "
+            ". pi2 ."
+            ". editP .";
         box-shadow: 0px 0px 20px var(--c-color-g0);
     }
 
@@ -2381,7 +2513,7 @@ footer img:hover {
 
     #dailyData {
         grid-template-rows: 7% 5% 88%;
-        grid-template-areas: 
+        grid-template-areas:
             ". dailyDataText ."
             ". . ."
             "todayData todayData todayData";
@@ -2401,10 +2533,10 @@ footer img:hover {
     }
 
     #allMessages {
-        grid-template-rows: 5vh auto auto 5vh;      
+        grid-template-rows: 5vh auto auto 5vh;
     }
 
-    #displaySelection{
+    #displaySelection {
         width: 100%;
     }
 
@@ -2446,20 +2578,22 @@ footer img:hover {
     .RecordBar {
         height: 70vh;
         grid-template-rows: 2% 96% 2%;
-        grid-template-areas: 
+        grid-template-areas:
             "."
             "RBB"
             ".";
     }
+
     .RecordBlueBar {
         grid-template-rows: 2% 96% 2%;
 
     }
+
     .RecordInnerBar {
         grid-template-rows: 5% 70% 20% 5%;
         grid-template-columns: 100%;
         column-gap: unset;
-        grid-template-areas: 
+        grid-template-areas:
             ". ."
             "recordArea recordArea"
             "SwitchIcon SwitchIcon"
@@ -2470,4 +2604,3 @@ footer img:hover {
         height: 30px;
     }
 }
-
