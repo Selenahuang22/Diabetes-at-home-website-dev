@@ -2679,5 +2679,62 @@ footer img:hover {
     .RecordInnerBar input {
         height: 30px;
     }
+
+    #directP h2 {
+        font-size: 1em;
+    }
+    #editForm1 form {
+        font-size: 2vh;
+    }
+    #editForm1 input {
+        height: 35px;
+        width: 96%;
+    }
+    #loginSession {
+        font-size: 0.8em;
+        height: calc(var(--middle-page-height) * 1vh);
+        grid-template-columns: 7% 86% 7%;
+        grid-template-rows: 5vh auto 2vh auto;
+        grid-template-areas:
+            ". . ."
+            ". loginLeft ."
+            ". . ."
+            ". loginRight .";
+    }
+    #loginLeft {
+        border-right: none;
+    }
+
+    #createAccount {
+        width: 50vw;
+    }
+    #loginRight h1 {
+        grid-area: createAccountText;
+        font-weight: 600;
+        font-size: 1.5em;
+    }
+    #patientData {
+        font-size: 0.8em;
+    }
+    select {
+        font-size: 0.3em;
+    }
+    #graphSelect select {
+        width: 50%;
+    }
+    #editProfile {
+        font-size: 0.8em;
+    }
+    .form {
+        grid-template-columns: none;
+    }
+
+
+    #errorPage h1 {
+        font-size: 4vh;
+    }
+    #errorPage p {
+        font-size: 2vh;
+    }
 }
 
