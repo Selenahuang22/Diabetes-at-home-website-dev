@@ -1,6 +1,6 @@
 const Patient = require("../models/patient")
 const Clinician = require("../models/clinician")
-const healthDataController = require('./healthDataController')
+const healthDataController = require('./_healthDataController')
 
 
 /**

@@ -17,7 +17,7 @@
     </section>
 
     <section id="signUpRight">
-        <form action="" method="POST">
+        <form action="http://localhost:3000/auth/register/clinician" method="POST">
             <b>Username(Screen Name)<tag class="fontRed">*</tag></b><input type="text" placeholder="e.g. johnny123" name="user_name" required />
             <b>Email Address(UserID)<tag class="fontRed">*</tag></b><input type="text" placeholder="Email Address" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="must be a valid email address" />
             <b>Password<tag class="fontRed">*</tag></b><input type="text" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="must contain at least one number and one uppercase and lowercase letter, and be at least 8 characters" placeholder="e.g. XXXXXXXX" />
