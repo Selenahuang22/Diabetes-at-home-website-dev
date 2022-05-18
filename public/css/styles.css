@@ -2087,11 +2087,21 @@ footer img:hover {
         grid-template-columns: 25% 35% 40%;
     }
     #logout button {
-        font-size: 1.2em;
+        font-size: 1em;
+        width: 70%;
         border: 2px solid var(--c-color-b1);
     }
+
+    h1 {
+        font-size: 1.8em;
+    }
+    
     h2 {
         font-size: 1.4em;
+    }
+
+    #directP h2 {
+        font-size: 1.2em;
     }
     #logo img {
         width: 100%;
@@ -2118,11 +2128,11 @@ footer img:hover {
         font-size: 20px;
     }
     .ButtonAText {
-        font-size: 20px;
+        font-size: 18px;
     }
     #infoTextP {
-        font-size: 20px;
-        line-height: 30px;
+        font-size: 18px;
+        line-height: 28px;
     }
     #textPath1,
     #textPath2 {
@@ -2144,11 +2154,86 @@ footer img:hover {
         letter-spacing: 2px;
     }
     #fMiddle h5{
-        font-size: 1.6vh;
+        font-size: 1.7vh;
     }
 
     #joinButtonHolder {
         grid-template-columns: 45% 6% 45%;
+    }
+
+    #editProfile {
+        font-size: 1em;
+    }
+    #editForm1 input {
+        height: 40px;
+        width: 85%;
+    }
+
+    #loginSession {
+        font-size: 1em;
+    }
+
+    #loginLeft input {
+        height: 60px;
+    }
+
+    #patientData {
+        font-size: 1em;
+    }
+    #cliPatientComments {
+        font-size: 1em;
+    }
+    #cPatientProfile {
+        font-size: 1em;
+    }
+    #todayNotes textarea {
+        font-size: 0.7em;
+    }
+    #psignUp {
+        font-size: 1em;
+    }
+    #psignUpLeft input {
+        height: 40px;
+        width: 85%
+    }
+    #psignUpRight {
+        margin-left: 100px;
+    }
+    #psignUp input[type="checkbox"] {
+        width: 12%;   
+    }
+    #psignUpRight input {
+        width: 300px;
+    }
+    #clinicianHome {
+        font-size: 1em;
+    }
+    #cNotes {
+        font-size: 1em;
+    }
+    #cliProfileSection {
+        font-size: 1em;
+    }
+    #signUp {
+        font-size: 1em;
+    }
+    #signUp input {
+        height: 40px;
+        width: 85%;
+    }
+    #patientEnter {
+        font-size: 1em;
+    }
+    .RecordInnerBar input, 
+    .recordRight input {
+        height: 40px;
+    }
+    #patientHome {
+        font-size: 1em;
+    }
+
+    #patProfile {
+        grid-template-columns: 2% 65% 2% 10% 2% 17% 2%;
     }
   }
 
