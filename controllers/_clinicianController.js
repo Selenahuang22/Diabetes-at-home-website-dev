@@ -1,5 +1,5 @@
 const Clinician = require("../models/clinician");
-const patientController = require("./patientController");
+const patientController = require("./_patientController");
 
 const getClinicianPatients = async (id) => {
     let clinician = await Clinician.findOne({_id: id}).lean()
