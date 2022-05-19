@@ -4,12 +4,12 @@
             <section id="cliImg">
                 <img src="/annabrown.png" alt="default clinician img">
             </section>
-            <section id="cliText"><p class="fontBlue">Anna Brown</p> </section>
+            <section id="cliText"><p class="fontBlue">{{thisClinician.first_name}} {{thisClinician.last_name}}</p> </section>
             <section id="perInfo"> 
-                <p><b>Username:</b> annab666</p>
-                <p><b>Email:</b> annabrown666@gmail.com</p>
-                <p><b>D.O.B:</b> 06/06/1993</p>
-                <p><b>Biography:</b> I am a medical specialist who can provide expert advice on the management of diabetes.</p>
+                <p><b>Username:</b> {{thisClinician.user_name}}</p>
+                <p><b>Email:</b> {{thisClinician.email}}</p>
+                <p><b>D.O.B:</b> {{thisClinician.DOB}}</p>
+                <p><b>Biography:</b> {{thisClinician.biography}}</p>
             </section>
 
             <a class="fontWhiteBold" href="/editProfile"><section class="blueButton"><p>Edit Profile</p></section></a>

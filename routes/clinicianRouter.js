@@ -6,5 +6,6 @@ const clinicianRouter = express.Router()
 const clinicianController = require("../controllers/clinicianController")
 
 clinicianRouter.get("/:id/dashboard", (req, res) => clinicianController.getClinicianPatientsAndRender(req, res))
+clinicianRouter.get("/:id/profile", (req, res) => clinicianController.getOneClinicianAndRender(req, res))
 
 module.exports = clinicianRouter
