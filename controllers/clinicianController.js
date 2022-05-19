@@ -1,5 +1,6 @@
 const Clinician = require("../models/clinician");
 const HealthData = require("../models/healthData");
+const Patient = require("../models/patient");
 const patientController = require("./patientController");
 
 const getOneClinicianAndRender = async (req, res) => {
@@ -53,6 +54,39 @@ const registerPatient = async (req, res) => {
     }
 }
 
+
+const renderPatientComments = async (req, res) => {
+    let clinician = await Clinician.findById(req.params.id).lean()
+
+    if(clinician){
+        // retrieve all the comment of patient
+        let patients = await Patient.find(
+            {clinician_email: clinician.email}
+        ).lean()
+        
+        let comments = []
+
+        if(patients){
+            // retrieve all patient comment that is recently
+            const today = new Date()
+            const tmr = new Date(today)
+            const yesterday = new Date(today)
+            yesterday.setDate(yesterday.getDate() - 1)
+            tmr.setDate(tmr.getDate() + 1)
+
+            for(patient of patients){
+                let comment = await HealthData.findOne({
+                    time: {$lte: tmr, $gte: yesterday},
+                    owner: patient._id
+                })
+                if(comment){
+                    comments.push(comment)
+                }
+            }
+            
+        }
+    }
+}
 module.exports = {
     getClinicianPatients,
     getClinicianPatientsAndRender,
