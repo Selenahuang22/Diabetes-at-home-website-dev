@@ -25,7 +25,7 @@
         <section id="logout">
             <!-- if login -->
             <a href="/home"><img src="/baseline_account_circle_black_24dp.png" alt="account img"></a>
-            <a href="/home"><h2 class="fontBlue">Pat Health</h2></a>
+            <a href="/home"><h2 class="fontBlue">{{user.first_name}} {{user.last_name}}</h2></a>
             <form id="logoutButton" action="/logout" method="post">
                 <button class="fontBlue" type="submit">Log Out</button>
             </form>
