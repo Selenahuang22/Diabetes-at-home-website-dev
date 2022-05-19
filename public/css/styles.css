@@ -649,15 +649,18 @@ footer img:hover {
 #psignUp {
     font-size: 1.4em;
     margin-bottom: calc(var(--bigger-vertical-gap) * 1px);
-    grid-template-columns: 7% 3% 40% 3% 40% 7%;
+    grid-template-columns: 10% 80% 10%;
     grid-template-areas:
-        ". signUpText signUpText signUpText signUpText ."
-        ". . signUpLeft . signUpRight .";
+        ". signUpText ."
+        ". signUpLeft .";
+}
+
+#psignUp form div {
+    justify-items: left;
 }
 
 #psignUpLeft {
     grid-area: signUpLeft;
-    border-right: 1px #578ad6 solid;
     margin-top: calc(var(--bigger-vertical-gap) * 1px);
     align-items: start;
     align-content: start;
@@ -673,41 +676,13 @@ footer img:hover {
     height: 55px;
 }
 
-#psignUpRight {
-    grid-area: signUpRight;
-    grid-template-areas:
-        "signUpRightTitle"
-        "registerDataEntry";
-    align-items: start;
-    align-content: start;
-    justify-content: start;
-    justify-items: start;
-    margin-left: 200px;
+#psignUpLeft .form {
+    grid-gap: 200px;
 }
 
-#registerDataEntry {
-    grid-area: registerDataEntry;
-}
-
-#registerDataEntry p {
-    font: 1em bold;
-}
-
-#psignUpRight select {
-    background-color: #fff;
-    color: black;
-    border: #578ad6 2px solid;
-    border-radius: 1.2vh;
-    height: 55px;
-    margin-top: calc(var(--small-vertical-gap) * 1px);
-    margin-bottom: calc(var(--bigger-vertical-gap) * 1px);
-}
-
-#psignUpRight input {
-    font-size: 0.8em;
-    margin-top: calc(var(--big-vertical-gap) * 1px);
-    height: 55px;
-    width: 440px;
+#registDataEntry {
+    display: block;
+    justify-items: left;
 }
 
 /*clinician profile page */
@@ -1282,6 +1257,10 @@ footer img:hover {
         ". . .";
 }
 
+#submit {
+    grid-area: submit;
+}
+
 #cPatientProfile #todayData {
     grid-template-rows: calc(var(--bigger-vertical-gap) * 1px) auto calc(var(--big-vertical-gap) * 1px) auto calc(var(--bigger-vertical-gap) * 1px) auto calc(var(--bigger-vertical-gap) * 1px);
     grid-template-areas:
@@ -1289,7 +1268,7 @@ footer img:hover {
         ". tableHead ."
         ". . ."
         ". onePatTodayTable ."
-        ". . ."
+        ". . submit"
         ". todayNotes ."
         ". . .";
 }
