@@ -39,9 +39,24 @@ const renderPatientRegisterPage = async (req, res) => {
     res.render("C_patientRegister", {id: req.params.id})
 }
 
+const registerPatient = async (req, res) => {
+    let clinician = await Clinician.findById(req.params.id).lean()
+
+    if(clinician){
+        // this method will be use to add key data to the patient data.
+        req.body.last_active_date = Date.now()
+        req.body.clinician_email = clinician.email
+        patientController.createNewPatient(req, res)
+    } else {
+        res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
+    
+    }
+}
+
 module.exports = {
     getClinicianPatients,
     getClinicianPatientsAndRender,
     getOneClinicianAndRender,
-    signPatientUp
+    renderPatientRegisterPage,
+    registerPatient
 }

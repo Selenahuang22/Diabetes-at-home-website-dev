@@ -285,4 +285,5 @@ module.exports = {
     cacheTheLog,
     editProfile,
     showProfile,
+    createNewPatient
 }
