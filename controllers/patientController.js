@@ -257,9 +257,22 @@ const cacheTheLog = async (name, value, patientData) => {
     }
 }
 
-const createNewPatient = async () => {
-    
+const createNewPatient = async (req, res) => {
+    let patient = new Patient(req.body)
+
+    authenticator.generateHash(patient, async (data, password) => {
+        patient.password = password
+
+        try{
+            await patient.save()
+            res.redirect(`/${req.params.id}/ dashboard`)
+        }catch (err){
+            res.redirect()
+        }
+
+    })
 }
+
 const extractUnixOfYYYY_MM_DD = (unix) => {
     return Math.floor(unix / 86400000) * 86400000;
 }

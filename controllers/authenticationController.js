@@ -29,7 +29,7 @@ const directLogin = async (req, res) => {
                 res.redirect("/login");
             }
             else{
-                res.redirect("/home")
+                res.redirect(`/clinician/${user._id}/dashboard`)
             }
         })
     }
@@ -53,7 +53,24 @@ const signClicianUp = async (req, res) => {
     // check if the credential is valid
     if(authenticator.validate(req.body.user_name, req.body.password, req.body.email)){
         
+        // hash the password then store it
+        return authenticator.generateHash(req.body, async (data, hash) => {
+            data.password = hash
+            clinician = new Clinician(data)
+            try{
+                await clinician.save()
+            }catch(err){
+                res.status(404).render('error', {errorCode: '404', message: err}) 
+            }
+            /**
+             * @todo: this will be switch to clinician home page when the route is complete
+             */
+            res.redirect(`/clinician/${data._id}/dashboard`)
+        })
     }
+    else{
+        res.status(404).render('error', {errorCode: '404', message: 'Error occur when try to send Data.'})
+    } 
 }
 
-module.exports = { directLogin}
+module.exports = { directLogin, signClicianUp}

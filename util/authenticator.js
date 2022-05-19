@@ -1,5 +1,7 @@
 const bcrypt = require("bcrypt")
 const dotenv = require("dotenv")
+const Patient = require("../models/patient")
+const Clinician = require("../models/clinician")
 require('dotenv').config();
 
 const SALT_ROUND = 10
@@ -58,8 +60,10 @@ const validate =  async (userName, password, email) => {
     }
 
     // check if userName is unique
-    if(! await patientController.checkUniqueUserName(userName) ||
-        ! await clinicianController.checkUniqueUserName(userName)){
+    if(await Patient.findOne({user_name: userName})){
+        return false
+    }
+    if(await Clinician.findOne({user_name: userName})){
         return false
     }
 
@@ -72,5 +76,6 @@ const validate =  async (userName, password, email) => {
 module.exports = {
     generateHash,
     checkHash,
-    validate
+    validate, 
+    validatePass
 }

@@ -34,8 +34,14 @@ const getClinicianPatientsAndRender = async (req, res) => {
     }
 }
 
+
+const renderPatientRegisterPage = async (req, res) => {
+    res.render("C_patientRegister", {id: req.params.id})
+}
+
 module.exports = {
     getClinicianPatients,
     getClinicianPatientsAndRender,
     getOneClinicianAndRender,
+    signPatientUp
 }

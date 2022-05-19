@@ -85,6 +85,7 @@ app.use('/patient/', patientRouter)
 app.use("/clinician/", clinicianRouter)
 app.use('/health_data/', healthDataRouter)
 app.use('/auth/', authRouter)
+
 /*all others pages*/
 app.all('*', (req, res) => {  // 'default' route to catch user errors
 	res.status(404).render('error', {errorCode: '404', message: 'That route is invalid.'})

@@ -6,4 +6,7 @@ const authRouter = express.Router()
 
 authRouter.post("/login", (req, res) => authController.directLogin(req, res))
 
+authRouter.post("/register/clinician", (req, res) => {
+    authController.signClicianUp(req, res)
+})
 module.exports = authRouter
