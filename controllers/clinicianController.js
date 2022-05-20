@@ -1,6 +1,10 @@
+const { redirect } = require("express/lib/response");
+const { Decimal128 } = require("mongodb");
 const Clinician = require("../models/clinician");
 const HealthData = require("../models/healthData");
 const Patient = require("../models/patient");
+const ClinicianNote = require('../models/clinicianNote');
+const Message = require("../models/message")
 const patientController = require("./patientController");
 
 const getOneClinicianAndRender = async (req, res) => {
@@ -86,8 +90,6 @@ const renderPatientComments = async (req, res) => {
             // retrieve all patient comment that is recently
             // DD-MM-YYYY 00:01
             const today = new Date()
-            today.setHours(0)
-            today.setMinutes(1)
 
             const tmr = new Date(today)
             tmr.setDate(tmr.getDate() + 1)
@@ -133,6 +135,119 @@ const renderPatientComments = async (req, res) => {
     }
 }
 
+
+const renderPatientProfile = async (req, res) => {
+    // retrieve patient detail 
+    let patient = await Patient.findById(req.params.patientId).lean()
+
+    if(patient){
+        res.render("C_patientProfile",
+            {
+                thispatient: patient,
+                user:patient,
+                id: req.params.id,
+                bgl_lower: patient.health_data["blood glucose level"].lower,
+                bgl_upper: patient.health_data["blood glucose level"].upper,
+                weight_lower: patient.health_data["weight"].lower,
+                weight_upper: patient.health_data["weight"].upper,
+                insulin_lower: patient.health_data["insulin take"].lower,
+                insulin_upper: patient.health_data["insulin take"].upper,
+                exercise_lower: patient.health_data["exercise"].lower,
+                exercise_upper: patient.health_data["exercise"].upper,
+                bgl: patient.health_data["blood glucose level"].require,
+                weight: patient.health_data["weight"].require,
+                insulin: patient.health_data["insulin take"].require,
+                exercise: patient.health_data["exercise"].require,
+            }
+        )
+    }
+}
+
+const modifyPatientLog = async (req, res) => {
+
+    // retrieve the patien
+    let patient = await Patient.findById(req.params.patientId)
+
+    // interpret the data and set it accordingly
+    if(patient){
+
+        patient.health_data["blood glucose level"].require = (req.body.bgl_toggle == "true")? true: false  
+        patient.health_data["blood glucose level"].lower = (req.body.bgl_lower == "") 
+            ? patient.health_data["blood glucose level"].lower : Decimal128(req.body.bgl_lower)
+        patient.health_data["blood glucose level"].upper = (req.body.bgl_lower == "") 
+            ? patient.health_data["blood glucose level"].upper : Decimal128(req.body.bgl_upper)
+
+        patient.health_data["weight"].require = (req.body.weight_toggle == "true")? true: false 
+        patient.health_data["weight"].lower = (req.body.weight_lower == "") 
+            ? patient.health_data["weight"].lower : Decimal128(req.body.weight_lower)
+        patient.health_data["weight"].upper = (req.body.weight_lower == "") 
+            ? patient.health_data["weight"].upper : Decimal128(req.body.weight_upper)
+
+        patient.health_data["insulin take"].require = (req.body.insulin_toggle == "true")? true: false
+        patient.health_data["insulin take"].lower = (req.body.insulin_lower == "") 
+            ? patient.health_data["insulin take"].lower : Decimal128(req.body.insulin_lower)
+        patient.health_data["insulin take"].upper = (req.body.insulin_lower == "") 
+            ? patient.health_data["insulin take"].upper : Decimal128(req.body.insulin_upper)
+
+        patient.health_data["exercise"].require = (req.body.exercise_toggle == "true")? true: false 
+        patient.health_data["exercise"].lower = (req.body.exercise_lower == "") 
+            ? patient.health_data["exercise"].lower : Decimal128(req.body.exercise_lower)
+        patient.health_data["exercise"].upper = (req.body.exercise_lower == "") 
+            ? patient.health_data["exercise"].upper : Decimal128(req.body.exercise_upper)
+        
+
+        try{
+            await patient.save()
+        }catch(err){
+            console.log(err);
+        }
+    }
+
+    res.redirect(`/clinician/${req.params.id}/patient/${req.params.patientId}`)
+}
+
+
+const addClinicianNote = async (req, res) => {
+    if(req.body.noteContent != ""){
+        //add the new clinician note
+        let note = new ClinicianNote({
+            clinician_id: req.params.id,
+            patient_id: req.params.patientId,
+            content: req.body.noteContent,
+            time: new Date()
+        })
+
+        console.log(note);
+
+        try{
+            await note.save()
+        }catch(err){
+            console.log(err);
+        }
+    }
+    
+    res.redirect(`/clinician/${req.params.id}/patient/${req.params.patientId}`)
+}
+
+const addSuppportMsg = async (req, res) => {
+    if(req.body.msgContent != ""){
+        //add the new clinician note
+        let msg = new Message({
+            clinician_id: req.params.id,
+            patient_id: req.params.patientId,
+            content: req.body.msgContent,
+            time: new Date()
+        })
+        try{
+            await msg.save()
+        }catch(err){
+            console.log(err);
+        }
+    }
+    
+    res.redirect(`/clinician/${req.params.id}/patient/${req.params.patientId}`)
+}
+
 module.exports = {
     getClinicianPatients,
     getClinicianPatientsAndRender,
@@ -140,5 +255,9 @@ module.exports = {
     renderPatientRegisterPage,
     registerPatient,
     renderPatientComments,
-    clinicianViewData
+    clinicianViewData,
+    renderPatientProfile,
+    modifyPatientLog,
+    addClinicianNote,
+    addSuppportMsg
 }

@@ -16,5 +16,10 @@ clinicianRouter.get("/:id/patientComment", (req, res) => clinicianController.ren
 clinicianRouter.get("/:id/:patientid/viewData", (req, res) => clinicianController.clinicianViewData(req, res))
 
 clinicianRouter.get("/:id/patientComments", (req, res) => clinicianController.renderPatientComments(req, res))
-clinicianRouter.get("/:id/patient/:id", (req, res) => {})
+clinicianRouter.get("/:id/patient/:patientId", (req, res) => clinicianController.renderPatientProfile(req,res))
+clinicianRouter.post("/:id/patient/:patientId/submit", (req, res) => clinicianController.modifyPatientLog(req, res))
+
+clinicianRouter.post("/:id/patient/:patientId/addNote", (req, res) => clinicianController.addClinicianNote(req, res))
+clinicianRouter.post("/:id/patient/:patientId/addsupportMsg", (req, res) => clinicianController.addSuppportMsg(req, res))
+
 module.exports = clinicianRouter

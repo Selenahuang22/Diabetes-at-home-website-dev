@@ -12,12 +12,12 @@
             </section>
             
             <section id="perInfo1"> 
-                <p><b>Username:</b> Pat Health</p>               
-                <p><b>D.O.B:</b> 02/12/2000</p>
+                <p><b>Username:</b> {{thispatient.user_name}}</p>               
+                <p><b>D.O.B:</b> {{thispatient.DOB}}</p>
             </section>
 
             <section id="perInfo2"> 
-                <p><b>Email:</b> abc@email.com</p>
+                <p><b>Email:</b> {{thispatient.email}}</p>
             </section>
 
             <section id="badges">
@@ -57,31 +57,31 @@
                     <th>Exercises
                         (step count)</th>
                 </tr> 
-                <form action="" method="">
+                <form action="{{thispatient._id}}/submit" method="post">
                     <tr>
                         <td>                       
-                            <select id="blood_glucose_select">
-                                <option value="">required</option>
-                                <option value="">not required</option>
+                            <select id="blood_glucose_select" name="bgl_toggle">
+                                <option value="false" >not required</option>
+                                <option value="true" {{#if bgl}} selected="selected" {{/if}}>required</option>
                             </select>                        
                         </td>
                         <td>
-                            <select id="weight_select">
-                                <option value="">not required</option>
-                                <option value="">required</option>
+                            <select id="weight_select" name="weight_toggle">
+                                <option value="false">not required</option>
+                                <option value="true" {{#if weight}} selected="selected" {{/if}}>required</option>
                             </select>
 
                         </td>
                         <td>
-                            <select id="insulin_taken_select">
-                                <option value="">required</option>
-                                <option value="">not required</option>
+                            <select id="insulin_taken_select" name="insulin_toggle">
+                                <option value="false">not required</option>
+                                <option value="true" {{#if insulin}} selected="selected" {{/if}}>required</option>
                             </select>
                         </td>
                         <td>
-                            <select id="exercises_select">
-                                <option value="">required</option>
-                                <option value="">not required</option>
+                            <select id="exercises_select" name="exercise_toggle">
+                                <option value="false">not required</option>
+                                <option value="true" {{#if exercise}} selected="selected" {{/if}}>required</option>
                             </select>
                         </td>
                     </tr>
@@ -89,33 +89,33 @@
                         <td>
                             <section class="safetyRange">
                                 <section class="lower" id="blood_glucose_lower">
-                                    <input type="text" name="" placeholder="0">
+                                    <input type="text" name="bgl_lower" placeholder={{bgl_lower}}>
                                 </section>
                                 <section class="middle-"><p>-</p></section>
                                 <section class="upper" id="blood_glucose_upper">
-                                    <input type="text" name="" placeholder="0">
+                                    <input type="text" name="bgl_upper" placeholder={{bgl_upper}}>
                                 </section>
                             </section>
                         </td>
                         <td>
                             <section class="safetyRange">
-                                <section class="lower" id="weight_lower"><input type="text" name="" placeholder="0" class="fixed"></section>
+                                <section class="lower" id="weight_lower"><input type="text" name="weight_lower" placeholder={{weight_lower}}></section>
                                 <section class="middle-"><p>-</p></section>
-                                <section class="upper" id="weight_upper"><input type="text" name="" placeholder="0" class="fixed"></section>
+                                <section class="upper" id="weight_upper"><input type="text" name="weight_upper" placeholder={{weight_upper}}></section>
                             </section>
                         </td>
                         <td>
                             <section class="safetyRange">
-                                <section class="lower" id="insulin_taken_lower"><input type="text" name="" placeholder="0"></section>
+                                <section class="lower" id="insulin_taken_lower"><input type="text" name="insulin_lower" placeholder={{insulin_lower}}></section>
                                 <section class="middle-"><p>-</p></section>
-                                <section class="upper" id="insulin_taken_upper"><input type="text" name="" placeholder="0"></section>
+                                <section class="upper" id="insulin_taken_upper"><input type="text" name="insulin_upper" placeholder={{insulin_upper}}></section>
                             </section>
                         </td>
                         <td>
                             <section class="safetyRange">
-                                <section class="lower" id="exercises_lower"><input type="text" name="" placeholder="0"></section>
+                                <section class="lower" id="exercises_lower"><input type="text" name="exercise_lower" placeholder={{exercise_lower}}></section>
                                 <section class="middle-"><p>-</p></section>
-                                <section class="upper" id="exercises_upper"><input type="text" name="" placeholder="0"></section>
+                                <section class="upper" id="exercises_upper"><input type="text" name="exercise_upper" placeholder={{exercise_upper}}></section>
                             </section>
                         </td>
                     </tr>
@@ -126,16 +126,16 @@
             <section id="todayNotes">
                 <section id="newNotes">
                     <p id="lStart">Clinician Notes</p>               
-                    <form action="" method="">
-                        <textarea name="" placeholder="Enter a new clinician note"></textarea>                  
+                    <form action="{{thispatient._id}}/addNote" method="post">
+                        <textarea name="noteContent" placeholder="Enter a new clinician note"></textarea>                  
                         <input type="submit" class="fontWhiteBold" value="Update" />
                     </form>
                 </section>
                 
                 <section id="newSupportMessages">
                     <p id="lStart">Support Messages</p>
-                    <form action="" method="">
-                        <textarea name="" placeholder="Enter new Support Messages"></textarea>                   
+                    <form action="{{thispatient._id}}/addsupportMsg" method="post">
+                        <textarea name="msgContent" placeholder="Enter new Support Messages"></textarea>                   
                         <input type="submit" class="fontWhiteBold" value="Update" />
                     </form>
                 </section>
@@ -160,7 +160,7 @@
                 <div class="ButtonAText"><p>Clinician Notes</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
-            <a id="button3" class="reDirectButtonA" href="/patientComments"><section class="Jbot">
+            <a id="button3" class="reDirectButtonA" href="/clinician/{{id}}/patientComments"><section class="Jbot">
                 <div class="Jimg"><img src="/patientcommentsicon.png" alt="patient comments"></div>
                 <div class="ButtonAText"><p>Patient Comments</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>

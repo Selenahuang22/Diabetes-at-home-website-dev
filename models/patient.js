@@ -20,8 +20,23 @@ const patientSchema = new mongoose.Schema({  // declare a Mongoose schema
   health_data: {
     // health data
     "blood glucose level" : {
-      upper: {type: Number, require: true},
-      lower: {type: Number, require: true},
+      upper: {type: Number, require: true, default: 0},
+      lower: {type: Number, require: true, default: 0},
+      require : {type:Boolean, default: false}
+    },
+    "weight": {
+      upper: {type: Number, require: true, default: 0},
+      lower: {type: Number, require: true, default: 0},
+      require : {type:Boolean, default: false}
+    },
+    "insulin take":{
+      upper: {type: Number, require: true, default: 0},
+      lower: {type: Number, require: true, default: 0},
+      require : {type:Boolean, default: false}
+    },
+    "exercise":{
+      upper: {type: Number, require: true, default: 0},
+      lower: {type: Number, require: true, default: 0},
       require : {type:Boolean, default: false}
     }
   },
