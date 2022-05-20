@@ -52,15 +52,16 @@ const clinicianViewData = async (req, res) => {
             let dateDict = {}
             healthDatas.forEach(
                 (data) => {
+                    let key = data.data_name
+                    if(key == "blood glucose level"){
+                        key = "bgl"
+                    }
+                    if( key == "insulin take"){
+                        key = "insulin"
+                    }
+                    
                     try{
-                        let key = data.data_name
-                        if(key == "blood glucose level"){
-                            key = "bgl"
-                        }
-
-                        if( key == "insulin take"){
-                            key = "insulin"
-                        }
+                        
                         dateDict[data.time.toLocaleDateString()][key] = data.value
                     }catch(err)
                     {
@@ -69,14 +70,6 @@ const clinicianViewData = async (req, res) => {
                             "weight": "-",
                             "insulin": "-",
                             "exercise": "-"
-                        }
-                        let key = data.data_name
-                        if(key == "blood glucose level"){
-                            key = "bgl"
-                        }
-
-                        if( key == "insulin take"){
-                            key = "insulin"
                         }
                         dateDict[data.time.toLocaleDateString()][key] = data.value
                     }
