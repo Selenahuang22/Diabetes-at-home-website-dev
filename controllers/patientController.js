@@ -58,7 +58,6 @@ const getOnePatient = async (id) => {
 const getOnePatientAndRender = async (req, res) => {        
     var result = await getOnePatient(req.params.id)
 
-    console.log(result.data);
     if(result.status) {
         let clinician = await Clinician.findOne({email: result.data.clinician_email}).lean()
         res.render('patientHome', {
@@ -161,13 +160,15 @@ const editProfile = async (req, res) => {
  */
 const _clearCacheIfExpired = async (patient) => {
     let foundPatient = patient
-    let todayInUnix = extractUnixOfYYYY_MM_DD(Date.now())
     // we need to reset the cache log if it is expire, and update the corresponding data in our remote DB
-    if( todayInUnix != Number( foundPatient.last_active_date)){
+    let today = new Date()
+    if( today.getDate() != foundPatient.last_active_date.getDate() 
+        || today.getMonth() != foundPatient.last_active_date.getMonth()
+        || today.getFullYear() != foundPatient.last_active_date.getFullYear()){
         try {
             
             foundPatient.latest_log = [];
-            foundPatient.last_active_date = todayInUnix;
+            foundPatient.last_active_date = today;
 
             await Patient.updateOne(
                 // condition
@@ -176,7 +177,7 @@ const _clearCacheIfExpired = async (patient) => {
                 {$set:
                     {
                         latest_log: [],
-                        last_active_date: todayInUnix
+                        last_active_date: today
                     }
                 }
             );

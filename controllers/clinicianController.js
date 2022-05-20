@@ -91,15 +91,14 @@ const renderPatientComments = async (req, res) => {
             tmr.setDate(tmr.getDate() + 1)
 
             for(var patient of patients){
-                let comment = await HealthData.findOne({
+                let recentHD = await HealthData.find({
                     time: {$lte: tmr, $gte: yesterday},
                     owner: patient._id
                 })
-                if(comment){
-                    comments.push(comment)
+                if(recentHD != []){
+                    comments = [...comments, ...recentHD]
                 }
             }
-            
         }
     }
 }
