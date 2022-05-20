@@ -14,19 +14,14 @@ const directLogin = async (req, res) => {
     
     // check if able to find document with match email/user_id
     let credential = { }
-
-    if(req.body.userid.includes("@")){
-        credential.email = req.body.userid;
-    }else{
-        credential.user_name = req.body.userid;
-    }
-
+    credential.email = req.body.userid;
+    
     // base on what kind of account, render the corresponding page.
     let user = await Clinician.findOne(credential).lean()
     if(user){
         return authenticator.checkHash(req.body.password, user.password, async(err, valid) => {
             if(err || !valid){
-                res.redirect("/login");
+                res.redirect("/auth/login");
             }
             else{
                 res.redirect(`/clinician/${user._id}/dashboard`)
@@ -38,14 +33,14 @@ const directLogin = async (req, res) => {
     if(user){
         return authenticator.checkHash(req.body.password, user.password, async(err, valid) => {
             if(err || !valid){
-                res.redirect("/login");
+                res.redirect("/auth/login");
             }
             else{
                 res.redirect(`/patient/${user._id}/home`)
             }
         })
     }
-    res.redirect("/login")   
+    res.redirect("/auth/login")   
 }
 
 
@@ -56,16 +51,17 @@ const signClicianUp = async (req, res) => {
         // hash the password then store it
         return authenticator.generateHash(req.body, async (data, hash) => {
             data.password = hash
-            clinician = new Clinician(data)
+            let clinician = new Clinician(data)
             try{
                 await clinician.save()
+                res.redirect('/clinician/'+clinician._id+'/dashboard')
             }catch(err){
                 res.status(404).render('error', {errorCode: '404', message: err}) 
             }
             /**
              * @todo: this will be switch to clinician home page when the route is complete
              */
-            res.redirect(`/clinician/${data._id}/dashboard`)
+            
         })
     }
     else{
@@ -73,4 +69,12 @@ const signClicianUp = async (req, res) => {
     } 
 }
 
-module.exports = { directLogin, signClicianUp}
+const getLoginPage = async (req, res) => {
+    res.render("B_login")
+}
+
+const getClinicianSignUpPage = async (req, res) => {
+    res.render("clinicianSignUp")
+}
+
+module.exports = { directLogin, signClicianUp, getLoginPage, getClinicianSignUpPage}
