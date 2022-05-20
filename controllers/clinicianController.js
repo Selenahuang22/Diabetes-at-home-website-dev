@@ -23,12 +23,12 @@ const getClinicianPatients = async (id) => {
 
 const getClinicianPatientsAndRender = async (req, res) => {       
     let result = await getClinicianPatients(req.params.id)
-        
+    let clinician = await Clinician.findById(req.params.id).lean()    
 
     if(result.status){
         res.render("clinicianHome", 
             {
-                patient: result.data.data
+                patient: result.data.data, user: clinician, 
             })
     }else{
         res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
@@ -74,7 +74,7 @@ const renderPatientComments = async (req, res) => {
             yesterday.setDate(yesterday.getDate() - 1)
             tmr.setDate(tmr.getDate() + 1)
 
-            for(patient of patients){
+            for(var patient of patients){
                 let comment = await HealthData.findOne({
                     time: {$lte: tmr, $gte: yesterday},
                     owner: patient._id
@@ -92,5 +92,6 @@ module.exports = {
     getClinicianPatientsAndRender,
     getOneClinicianAndRender,
     renderPatientRegisterPage,
-    registerPatient
+    registerPatient,
+    renderPatientComments
 }

@@ -65,7 +65,8 @@ const getOnePatientAndRender = async (req, res) => {
             "id": req.params.id,
             "thispatient": result.data,
             "clinician": clinician,
-            'time': new Date().toLocaleDateString()
+            'time': new Date().toLocaleDateString(),
+            'user': result.data
         })
     } else {
         res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})

@@ -1082,7 +1082,7 @@ footer img:hover {
 #cPatProfile {
     grid-area: pProf;
     grid-template-rows: calc(var(--big-vertical-gap) * 1px) auto calc(var(--big-vertical-gap) * 1px);
-    grid-template-columns: 7% 55% 2% 10% 2% 17% 7%;
+    grid-template-columns: 3% 63% 2% 10% 2% 17% 3%;
     background-color: var(--c-color-b3);
     grid-template-areas:
         ". . . . . . ."
@@ -1167,9 +1167,11 @@ footer img:hover {
     grid-area: ppi;
     border-radius: 3vh;
     background-color: var(--c-color-white);
-    grid-template-columns: 15% 1% 30% 3% 37% 3% 10% 1%;
-    grid-template-areas:
-        "pIm . pi1 . pi2 . editP .";
+}
+
+#patProfileInfo {
+    grid-template-columns: 1% 15% 1% 30% 3% 36% 3% 10% 1%;
+    grid-template-areas: ". pIm . pi1 . pi2 . editP .";
 }
 
 #cPatProfileInfo {
@@ -1181,6 +1183,14 @@ footer img:hover {
 #pImg {
     grid-area: pIm;
     grid-template-columns: none;
+}
+
+#pImg img {
+    height: 60%;
+}
+
+#pImg p {
+    text-align: center;
 }
 
 #perInfo1 {
