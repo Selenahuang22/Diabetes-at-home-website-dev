@@ -3,9 +3,11 @@ const mongoose = require("mongoose")
 
 const healthDataSchema = new mongoose.Schema({  // declare a Mongoose schema
   time: {type: Date, require: true},
-  data_name: {type: String , enum: [
-    /**list down all possible time series */
-    "blood glucose level"
+  data_name: {type: String , enum: [/** list all the possible time series */
+    "blood glucose level",
+    "weight",
+    "exercise",
+    "insulin take"
   ], require: true},
   comment: String,
   value: {type: Number, require: true},

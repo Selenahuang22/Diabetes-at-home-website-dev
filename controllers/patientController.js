@@ -80,14 +80,33 @@ const onePatientRecord = async (req, res) => {
     // determin the time series that are not log for today
     let logged = []
     if(checkResult.data) {
+        let patient = checkResult.data
         for(var i of checkResult.data.latest_log){
             logged.push(i.name)
-            console.log(i.name);
         }
-            
+        let log_glucose = false
+        let log_weight = false
+        let log_insulin = false 
+        let log_exercise = false 
+
+        if(patient.health_data["blood glucose level"].require){
+           log_glucose = !logged.includes("blood glucose level")
+        }
+        if(patient.health_data["weight"].require){
+            log_weight = !logged.includes("weight")
+        }
+        if(patient.health_data["insulin take"].require){
+            log_insulin = !logged.includes("insulin take")
+        }
+        if(patient.health_data["exercise"].require){
+            log_exercise = !logged.includes("exercise")
+        }
         res.render('dataEnter', {
             id: req.params.id, 
-            log_glucose: (!logged.includes("blood glucose level"))
+            log_glucose: log_glucose,
+            log_weight: log_weight,
+            log_exercise: log_exercise,
+            log_insulin: log_insulin
         })
     } else{
         res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})
@@ -229,8 +248,12 @@ const cacheTheLog = async (name, value, patientData) => {
 
     let cache = patientData.latest_log
     let status = false
-    console.log(name);
-    console.log(value);
+    
+    cache.forEach(element => {
+        if(element.name == name){
+            return
+        }
+    });
 
     cache.push(
         {
@@ -267,9 +290,9 @@ const createNewPatient = async (req, res) => {
 
         try{
             await patient.save()
-            res.redirect(`/${req.params.id}/ dashboard`)
+            res.redirect(`/${req.params.id}/dashboard`)
         }catch (err){
-            res.redirect()
+            
         }
 
     })

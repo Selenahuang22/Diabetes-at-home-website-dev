@@ -102,8 +102,37 @@ const registerPatient = async (req, res) => {
 
     if(clinician){
         // this method will be use to add key data to the patient data.
+        let logTimeSeries = req.body.health_data
         req.body.last_active_date = Date.now()
         req.body.clinician_email = clinician.email
+        req.body.health_data = {
+            "blood glucose level": {
+                upper: 100,
+                lower: 0,
+                require: false
+            },"weight": {
+                upper: 100,
+                lower: 0,
+                require: false
+            },"insulin take": {
+                upper: 100,
+                lower: 0,
+                require: false
+            },"exercise": {
+                upper: 100,
+                lower: 0,
+                require: false
+            }
+        }
+
+        for(hd of logTimeSeries){
+            try {
+                req.body.health_data[hd].require = true
+            }catch(err){
+                console.log(hd);
+            }
+        }
+        
         patientController.createNewPatient(req, res)
     } else {
         res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
