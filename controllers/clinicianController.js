@@ -24,12 +24,28 @@ const getClinicianPatients = async (id) => {
 const getClinicianPatientsAndRender = async (req, res) => {       
     let result = await getClinicianPatients(req.params.id)
     let clinician = await Clinician.findById(req.params.id).lean()    
-
     if(result.status){
         res.render("clinicianHome", 
             {
                 patient: result.data.data, user: clinician, 
             })
+    }else{
+        res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
+    }
+}
+
+const clinicianViewData = async (req, res) => {       
+    let thisPatient = await Patient.findById(req.params.patientid).lean()   
+    let clinician = await Clinician.findById(req.params.id).lean()    
+
+    if(clinician){
+        if (thisPatient) {
+            let healthDatas = await HealthData.find({owner: thisPatient._id})
+
+            
+        } else {
+            res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})
+        }
     }else{
         res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
     }
@@ -93,5 +109,6 @@ module.exports = {
     getOneClinicianAndRender,
     renderPatientRegisterPage,
     registerPatient,
-    renderPatientComments
+    renderPatientComments,
+    clinicianViewData
 }
