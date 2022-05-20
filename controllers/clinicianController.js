@@ -46,7 +46,51 @@ const clinicianViewData = async (req, res) => {
         if (thisPatient) {
             let healthDatas = await HealthData.find({owner: thisPatient._id})
 
-            
+            // sort the data 
+            healthDatas.sort((a, b) =>{ return a.time.getUTCMilliseconds() - b.time.getUTCMilliseconds()})
+
+            let dateDict = {}
+            healthDatas.forEach(
+                (data) => {
+                    try{
+                        let key = data.data_name
+                        if(key == "blood glucose level"){
+                            key = "bgl"
+                        }
+
+                        if( key == "insulin take"){
+                            key = "insulin"
+                        }
+                        dateDict[data.time.toLocaleDateString()][key] = data.value
+                    }catch(err)
+                    {
+                        dateDict[data.time.toLocaleDateString()] = {
+                            "bgl": "-",
+                            "weight": "-",
+                            "insulin": "-",
+                            "exercise": "-"
+                        }
+                        let key = data.data_name
+                        if(key == "blood glucose level"){
+                            key = "bgl"
+                        }
+
+                        if( key == "insulin take"){
+                            key = "insulin"
+                        }
+                        dateDict[data.time.toLocaleDateString()][key] = data.value
+                    }
+                }
+            )
+            let array = []
+            for(date in dateDict){
+                let healthData = {date, ...dateDict[date]}
+                array.push(healthData)
+            }
+            console.log(array);
+            res.render("B_viewData", {
+                date: array 
+            })
         } else {
             res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})
         }
