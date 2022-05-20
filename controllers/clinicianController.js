@@ -84,24 +84,55 @@ const renderPatientComments = async (req, res) => {
 
         if(patients){
             // retrieve all patient comment that is recently
+            // DD-MM-YYYY 00:01
             const today = new Date()
+            today.setHours(0)
+            today.setMinutes(1)
+
             const tmr = new Date(today)
-            const yesterday = new Date(today)
-            yesterday.setDate(yesterday.getDate() - 1)
             tmr.setDate(tmr.getDate() + 1)
+
+            const last2Day = new Date(today)
+            last2Day.setDate(last2Day.getDate() - 1)
 
             for(var patient of patients){
                 let recentHD = await HealthData.find({
-                    time: {$lte: tmr, $gte: yesterday},
+                    time: {$lte: tmr, $gte: last2Day},
                     owner: patient._id
                 })
-                if(recentHD != []){
-                    comments = [...comments, ...recentHD]
+                // create a new list for which each data is well format
+                let adjusted = []
+                
+                recentHD.forEach(hd => {
+                    
+                    let adjustedData = {
+                        name: `${patient.first_name} ${patient.last_name}`,
+                        owner: hd.owner,
+                        time: `${hd.time.toLocaleDateString()} ${hd.time.toLocaleTimeString()}`,
+                        comment: hd.comment,
+                        data_name: hd.data_name,
+                        value: hd.value,
+                        lower: patient.health_data[hd.data_name].lower,
+                        upper: patient.health_data[hd.data_name].upper
+                    }
+               
+                    adjusted.push(adjustedData)
+                })
+                if(adjusted != []){
+                    comments = [...comments, ...adjusted]
                 }
             }
         }
+        res.render("C_patientComments",
+            {
+                comments: comments,
+                id: req.params.id,
+                user: clinician
+            }
+        )
     }
 }
+
 module.exports = {
     getClinicianPatients,
     getClinicianPatientsAndRender,

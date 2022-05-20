@@ -19,7 +19,8 @@ app.engine('hbs', exphbs.engine({
        is_insulin_take: x => x == "insulin take",
        is_weight: x => x == "weight",
        is_exercises: x => x == "exercises",
-       is_bgl_in_dangRange: x =>( x <3.9 || x>10),
+       is_bgl_in_dangRange: (x, low, high) =>( x < low || x > high),
+       is_in_dangRange: x => ( x.value < x.lower || x.value > x.upper),
     }
 }))
 app.set('view engine', 'hbs')

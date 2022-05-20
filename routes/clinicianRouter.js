@@ -14,4 +14,7 @@ clinicianRouter.post("/:id/registerPatient", (req, res) => clinicianController.r
 clinicianRouter.get("/:id/patientComment", (req, res) => clinicianController.renderPatientComments(req, res))
 
 clinicianRouter.get("/:id/:patientid/viewData", (req, res) => clinicianController.clinicianViewData(req, res))
+
+clinicianRouter.get("/:id/patientComments", (req, res) => clinicianController.renderPatientComments(req, res))
+clinicianRouter.get("/:id/patient/:id", (req, res) => {})
 module.exports = clinicianRouter

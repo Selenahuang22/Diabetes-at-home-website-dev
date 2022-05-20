@@ -17,14 +17,14 @@ const patientSchema = new mongoose.Schema({  // declare a Mongoose schema
   biography: { type: String, require: true},
   
   // this is the meta data for the specific time series of this patient
-  health_data: [
+  health_data: {
     // health data
-    {
-      name: { type: String, require: true, enum: [/** list all the possible time series */]},
+    "blood glucose level" : {
       upper: {type: Number, require: true},
-      lower: {type: Number, require: true}
+      lower: {type: Number, require: true},
+      require : {type:Boolean, default: false}
     }
-  ],
+  },
 
   // caching the latest log -> can be use to ensure that patient log their data daily
   latest_log: [
@@ -38,7 +38,7 @@ const patientSchema = new mongoose.Schema({  // declare a Mongoose schema
 
   // using this we know when to refresh the last_log
   // This one is a unix number for current date
-  last_active_date: {type: Date, require: true},
+  last_active_date: {type: Number, require: true},
 
   // this is the email of the doctor who in charge of this patient
   clinician_email: {type: String, require: true}
