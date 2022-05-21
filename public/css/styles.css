@@ -252,7 +252,7 @@ select {
 }
 
 .Jimg img {
-    max-width: 50%;
+    max-width: 40%;
     max-height: 40%;
 }
 
@@ -306,7 +306,7 @@ header {
     display: grid;
     grid-area: h;
     grid-template-columns: 7% 41% 15% 30% 7%;
-    grid-template-areas: ". hl . logout .";
+    grid-template-areas: ". hl . logout ay";
     border-bottom: 15px solid var(--c-color-b0);
     ;
     margin-bottom: 10px;
@@ -347,6 +347,33 @@ header {
 #logout img {
     height: 6.5vh;
     max-width: 100%;
+}
+
+#ay {
+    grid-area: ay;
+    grid-template-columns: 60%;
+    row-gap: 10px;
+    grid-template-areas: 
+        "olday"
+        "a11y";
+}
+
+
+#ay button {
+    border-radius: 3vh;
+    color: var(--c-color-white);
+    font-weight: bold;
+    font-size: large;
+}
+
+#olday {
+    grid-area: olday;
+    background-color: #578ad6;
+}
+
+#a11y {
+    grid-area: a11y;
+    background-color: #00260f;
 }
 
 #errorPage p {
@@ -1937,7 +1964,6 @@ footer img:hover {
 
 #backgroundColor {
     grid-area: bgc;
-    background: var(--c-color-b3);
     grid-template-columns: 7% 86% 7%;
     align-items: start;
     grid-template-areas:
@@ -1965,71 +1991,10 @@ footer img:hover {
     width: 20%;
 }
 
-/* part 4 --------------------------------------------------------- referenced application*/
-/* switch application changed from referenced */
-
-#toggle-button {
-    display: none;
-}
-
-.button-label {
-    position: relative;
-    display: inline-block;
-    width: 80px;
-    height: 30px;
-    background-color: var(--c-color-b0);
-    box-shadow: var(--c-color-g0) 0px 0px 0px 2px;
-    border-radius: 30px;
-    overflow: hidden;
-}
-
-.circle {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: var(--c-color-white);
-}
-
-.button-label .text {
-    line-height: 30px;
-    font-size: 18px;
-    text-shadow: 0 0 2px var(--c-color-g0);
-}
-
-.on {
-    color: var(--c-color-white);
-    display: inline-block;
-    text-indent: 10px;
-}
-
-.off {
-    color: var(--c-color-white);
-    display: none;
-    text-indent: 34px;
-}
-
-.button-label .circle {
-    left: 50px;
-    transition: all 0.3s;
-}
-
-#toggle-button:checked+label.button-label .circle {
-    left: 0px;
-}
-
-#toggle-button:checked+label.button-label .on {
-    display: none;
-}
-
-#toggle-button:checked+label.button-label .off {
-    display: inline-block;
-}
-
-#toggle-button:checked+label.button-label {
-    background-color: var(--c-color-g0);
+/* part 4 --------------------------------------------------------- chart*/
+/* use outer lib echarts */
+#chart {
+    height: 600px;
 }
 
 /* part 5 --------------------------------------------------------- responsive design for different size*/

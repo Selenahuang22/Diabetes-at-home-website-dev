@@ -4,7 +4,6 @@
     
     <section id="directP">
         <h2><a href="javascript:history.go(-1);" class="fontBlueNormal">Back</a> > <a href="" class="fontBlueNormal">View All Data</a></h2>
-        <h2>Patient: {{patient.first_name}} {{patient.last_name}}</h2>
     </section>    
     
     <section id="backgroundColor">
@@ -25,7 +24,7 @@
                     <td class="fontBlueNormal">{{this.weight}}</td>
                     <td>{{this.insulin}}</td>
                     <td class="fontBlueNormal">{{this.exercise}}</td>           
-                {{/each}}          
+                {{/each}}
 
             </table>
         </section>
@@ -38,8 +37,59 @@
                     <option value="Number">Number Of Insulin Doses Taken</option>
                     <option value="Exercise">Exercise</option>
                 </select>
-            </form>               
+            </form>
+
+            <section id="chart">
+
+            </section>
         </section>
+
+
+        <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+        <script type="text/javascript">
+            output = document.getElementsByName("display")[0].value;
+            var time = new Array();
+            var mydata = new Array();
+            /*date.each(function () {
+                time.push(this.date);
+                if (output === "Blood") {
+                    mydata.push(this.bgl);
+                } else if (output === "Weight"){
+                    mydata.push(this.weight);
+                } else if (output === "Number"){
+                    mydata.push(this.insulin);
+                } else {
+                    mydata.push(this.exercise);
+                }
+            })*/
+            
+            var myChart = echarts.init(document.getElementById('chart'));
+            var option = {
+                dataZoom: {
+                    type: "slider", show: true, start: 0, end: 100,
+                },
+                xAxis: [
+                    {
+                        //data: time,
+                        data: ["2011.11.11","2011.11.21","2011.12.11","2012.11.11","2021.11.11","2022.11.11","2011.11.11","2011.11.21","2011.12.11","2012.11.11","2021.11.11","2022.11.11","2011.11.11","2011.11.21","2011.12.11","2012.11.11","2021.11.11","2022.11.11"],
+                    }
+                ],
+                yAxis: [
+                    {
+                        scale: true,
+                    }
+                ],
+                series: [
+                    {
+                        name: "data",
+                        type: "line",
+                        //data: mydata;
+                        data: [5, 20, 36, 10, 10, 20,5, 20, 36, 10, 10, 20,5, 20, 36, 10, 10, 20],
+                    }
+                ],
+            }
+            myChart.setOption(option);
+        </script>
         
     </section>
     
