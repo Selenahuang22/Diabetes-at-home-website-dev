@@ -1,5 +1,6 @@
 const Patient = require("../models/patient")
 const Clinician = require("../models/clinician")
+const HealthData = require("../models/healthData");
 const healthDataController = require('./healthDataController')
 const authenticator = require("../util/authenticator")
 
@@ -52,7 +53,56 @@ const getOnePatient = async (id) => {
     }
 }
 
+const patientViewData = async (req, res) => {       
+    let thisPatient = await Patient.findById(req.params.id).lean()    
 
+    
+    if (thisPatient) {
+        let healthDatas = await HealthData.find({owner: thisPatient._id})
+
+        // sort the data 
+        healthDatas.sort((a, b) =>{ return a.time.getUTCMilliseconds() - b.time.getUTCMilliseconds()})
+
+        let dateDict = {}
+        healthDatas.forEach(
+            (data) => {
+                let key = data.data_name
+                if(key == "blood glucose level"){
+                    key = "bgl"
+                }
+                if( key == "insulin take"){
+                    key = "insulin"
+                }
+                    
+                try{
+                        
+                    dateDict[data.time.toLocaleDateString()][key] = data.value
+                }catch(err)
+                {
+                    dateDict[data.time.toLocaleDateString()] = {
+                        "bgl": "-",
+                        "weight": "-",
+                        "insulin": "-",
+                        "exercise": "-"
+                    }
+                    dateDict[data.time.toLocaleDateString()][key] = data.value
+                }
+            }
+        )
+        let array = []
+        for(date in dateDict){
+            let healthData = {date, ...dateDict[date]}
+            array.push(healthData)
+        }
+        console.log(array);
+        res.render("B_viewData", {
+            date: array 
+        })
+    } else {
+        res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})
+    }
+    
+}
 
 
 const getOnePatientAndRender = async (req, res) => {        
@@ -110,7 +160,6 @@ const onePatientRecord = async (req, res) => {
             log_exercise = !logged.includes("exercise")
         }
         
-        console.log(required_exercise)
         res.render('dataEnter', {
             id: req.params.id, 
             log_glucose: log_glucose,
@@ -330,5 +379,6 @@ module.exports = {
     cacheTheLog,
     editProfile,
     showProfile,
-    createNewPatient
+    createNewPatient,
+    patientViewData 
 }
