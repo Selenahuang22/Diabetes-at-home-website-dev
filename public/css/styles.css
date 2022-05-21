@@ -1056,12 +1056,12 @@ footer img:hover {
 #cPatProfile {
     grid-area: pProf;
     grid-template-rows: calc(var(--big-vertical-gap) * 1px) auto calc(var(--big-vertical-gap) * 1px);
-    grid-template-columns: 7% 55% 2% 10% 2% 17% 7%;
+    grid-template-columns: 7% 55% 2% 7% 2% 27%;
     background-color: var(--c-color-b3);
     grid-template-areas:
-        ". . . . . . ."
-        ". ppi . badg . recentMessage ."
-        ". . . . . . .";
+        ". . . . . ."
+        ". ppi . badg . recentMessage"
+        ". . . . . .";
 }
 
 #cPatProfile {
@@ -1105,6 +1105,9 @@ footer img:hover {
     align-items: start;
     justify-items: left;
     font-size: 2vh;
+}
+#recentMessageContent p {
+    font-size: 2.5vh;
 }
 
 #addEmoji {

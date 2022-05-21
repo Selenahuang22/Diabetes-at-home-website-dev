@@ -368,6 +368,20 @@ const addClinicianNote = async (req, res) => {
 const addSuppportMsg = async (req, res) => {
     if(req.body.msgContent != ""){
         //add the new clinician note
+        let patient = await Patient.findById(req.params.patientId)
+        if (patient) {
+            await Patient.updateOne(
+                // condition
+                {_id: req.params.patientId},
+                // value to be change
+                {$set:
+                    {
+                        support_message: req.body.msgContent                               
+                    }
+                }
+            );
+        }
+
         let msg = new Message({
             clinician_id: req.params.id,
             patient_id: req.params.patientId,

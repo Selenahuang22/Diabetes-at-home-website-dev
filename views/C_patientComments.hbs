@@ -16,8 +16,8 @@
         </table>
         <table id="oneMessageTable">     
             {{#each comments}}    
-                <td><a class= {{#if (is_in_dangRange this)}}"fontRed"{{else}}"fontBlueNormal"{{/if}} href="patient/{{this.owner}}">{{this.name}}</a></td>
-                <td><p class={{#if (is_in_dangRange this)}}"fontRed"{{else}}"fontBlueNormal"{{/if}}>{{this.data_name}} : {{this.value}}<br>{{this.comment}}</p></td>
+                <td><a class= {{#if (is_in_dangRange this)}}"fontRed"{{else}}"fontBlueNormal"{{/if}} href="{{this.owner}}/viewData">{{this.name}}</a></td>
+                <td><a href="{{this.owner}}/viewData" class={{#if (is_in_dangRange this)}}"fontRed"{{else}}"fontBlueNormal"{{/if}}>{{this.data_name}} : {{this.value}}<br>{{this.comment}}</p></td>
                 <td><p class="supmessageTime">{{this.time}}</p></td>
             {{/each}}       
         </table>
