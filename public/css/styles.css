@@ -341,8 +341,7 @@ header {
 
 #logout {
     grid-area: logout;
-    justify-items: right;
-    grid-template-columns: 25% 35% 40%;
+    grid-template-columns: 15% 50% 35%
 }
 
 #logout img {

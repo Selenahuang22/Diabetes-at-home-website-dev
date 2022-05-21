@@ -1,7 +1,7 @@
 <section id="cPatientProfile">
 
     <section id="directP">
-        <h2><a href="/home" class="fontBlueNormal">Home</a> > <a href="" class="fontBlueNormal">Patient Profile</a></h2>
+        <h2><a href="javascript:history.go(-1);" class="fontBlueNormal">Back</a> > <a href="" class="fontBlueNormal">Patient Profile</a></h2>
     </section>
 
     <section id="cPatProfile">
@@ -150,7 +150,7 @@
         <h1 class="fontBlue">Get Accessed To</h1>
         
         <section id="webDetailButtonHolder">
-            <a id="button1" class="reDirectButtonA" href="/viewData"><section class="Jbot">
+            <a id="button1" class="reDirectButtonA" href="/clinician/{{clinicianid}}/{{thispatient._id}}/viewData"><section class="Jbot">
                 <div class="Jimg"><img src="/dashboard&viewdataicon.jpg" alt="view data"></div>
                 <div class="ButtonAText"><p>View Patient Data</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
@@ -160,7 +160,7 @@
                 <div class="ButtonAText"><p>Clinician Notes</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
-            <a id="button3" class="reDirectButtonA" href="/clinician/{{id}}/patientComments"><section class="Jbot">
+            <a id="button3" class="reDirectButtonA" href="/clinician/{{clinicianid}}/patientComments"><section class="Jbot">
                 <div class="Jimg"><img src="/patientcommentsicon.png" alt="patient comments"></div>
                 <div class="ButtonAText"><p>Patient Comments</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>

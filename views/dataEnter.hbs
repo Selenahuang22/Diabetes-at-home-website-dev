@@ -17,7 +17,7 @@
                         <!-- data enter-->
                         <form class="recordArea" method="POST" action="/patient/{{id}}/submit_log">
                                 <b>Health Data Name</b><input type="text" value="blood glucose level" {{#if required_glucose}} {{else}} class="fixed" {{/if}} name="data_name" readonly>
-                                <b>Value</b><input type="text" name="value" {{#if required_glucose}} {{else}} class="fixed" {{/if}}>
+                                <b>Value</b><input type="text" pattern="^((0{1}\.\d{1,2})|([1-9]\d*\.{1}\d{1,2})|([1-9]+\d*)|0)$" title="must enter a non-negative number, rounded to 2 digits after the decimal" name="value" {{#if required_glucose}} {{else}} class="fixed" {{/if}}>
                                 <b>Comments</b><input type="text" name="comment" {{#if required_glucose}} {{else}} class="fixed" {{/if}}>
                                 <input type="submit" value="Save" {{#if required_glucose}} class="fontWhiteBold" {{else}} class="fixed" {{/if}}>                             
                         </form>
@@ -35,7 +35,7 @@
                     <section class="recordRight">
                         <form class="recordArea" method="POST" action="/patient/{{id}}/submit_log">
                             <b>Health Data Name</b><input type="text" value="weight" {{#if required_weight}}  {{else}} class="fixed" {{/if}} name="data_name" readonly/>
-                            <b>Value</b><input type="text"  name="value" {{#if required_weight}}  {{else}} class="fixed" {{/if}} />
+                            <b>Value</b><input type="text" pattern="^((0{1}\.\d{1,2})|([1-9]\d*\.{1}\d{1,2})|([1-9]+\d*)|0)$" title="must enter a non-negative number, rounded to 2 digits after the decimal" name="value" {{#if required_weight}}  {{else}} class="fixed" {{/if}} />
                             <b>Comments</b><input type="text" name="comment" {{#if required_weight}}  {{else}} class="fixed" {{/if}} />
                             <input type="submit" value="Save" {{#if required_weight}} class="fontWhiteBold" {{else}} class="fixed" {{/if}}> 
                         </form>
@@ -60,7 +60,7 @@
                         <!-- data enter-->
                         <form class="recordArea" method="POST" action="/patient/{{id}}/submit_log">
                             <b>Health Data Name</b><input type="text" value="insulin take" {{#if required_insulin}}  {{else}} class="fixed" {{/if}} name="data_name" readonly/>
-                            <b>Value</b><input type="text"  name="value" {{#if required_insulin}}  {{else}} class="fixed" {{/if}} />
+                            <b>Value</b><input type="text" pattern="^[+]{0,1}(\d+)$" title="must enter a non-negative integer" name="value" {{#if required_insulin}}  {{else}} class="fixed" {{/if}} />
                             <b>Comments</b><input type="text"  name="comment" {{#if required_insulin}}  {{else}} class="fixed" {{/if}} />
                             <input type="submit" value="Save" {{#if required_insulin}} class="fontWhiteBold" {{else}} class="fixed" {{/if}}>  
                         </form>
@@ -78,7 +78,7 @@
                     <section class="recordRight">
                         <form class="recordArea" method="POST" action="/patient/{{id}}/submit_log">
                             <b>Health Data Name</b><input type="text" value="exercises" {{#if required_exercise}}  {{else}} class="fixed" {{/if}} name="data_name" readonly/>
-                            <b>Value</b><input type="text" name="value" {{#if required_exercise}}  {{else}} class="fixed" {{/if}} />
+                            <b>Value</b><input type="text" pattern="^[+]{0,1}(\d+)$" title="must enter a non-negative integer" name="value" {{#if required_exercise}}  {{else}} class="fixed" {{/if}} />
                             <b>Comments</b><input type="text" name="comment" {{#if required_exercise}}  {{else}} class="fixed" {{/if}} />
                             <input type="submit" value="Save" {{#if required_exercise}} class="fontWhiteBold" {{else}} class="fixed" {{/if}}>  
                         </form>
@@ -106,12 +106,12 @@
                 <div class="ButtonAText"><p>Home</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
-            <a id="button2" class="reDirectButtonA" href="/viewData"><section class="Jbot">
+            <a id="button2" class="reDirectButtonA" href="viewData"><section class="Jbot">
                 <div class="Jimg"><img src="/dashboard&viewdataicon.jpg" alt="view data"></div>
                 <div class="ButtonAText"><p>View All Data</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
-            <a id="button3" class="reDirectButtonA" href="/editProfile"><section class="Jbot">
+            <a id="button3" class="reDirectButtonA" href="editProfile"><section class="Jbot">
                 <div class="Jimg"><img src="/editprofileicon.png" alt="edit profile"></div>
                 <div class="ButtonAText"><p>Edit Profile</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>

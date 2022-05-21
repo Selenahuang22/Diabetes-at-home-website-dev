@@ -46,7 +46,8 @@ const showProfile = async (req, res) => {
         res.render('B_editProfile', {
             "id": req.params.id,
             "user": clinician,
-            "userType": 'clinician'
+            "userType": 'clinician',
+            "homeType": 'profile'
         })
     else res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
 }
@@ -149,7 +150,7 @@ const clinicianViewData = async (req, res) => {
             }
             console.log(array);
             res.render("B_viewData", {
-                date: array 
+                date: array, user: clinician, patient: thisPatient
             })
         } else {
             res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})
@@ -278,6 +279,7 @@ const renderPatientProfile = async (req, res) => {
         res.render("C_patientProfile",
             {
                 thispatient: patient,
+                clinicianid: req.params.id,
                 user:patient,
                 id: req.params.id,
                 bgl_lower: patient.health_data["blood glucose level"].lower,

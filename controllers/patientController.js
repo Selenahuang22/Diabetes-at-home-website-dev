@@ -96,7 +96,7 @@ const patientViewData = async (req, res) => {
         }
         console.log(array);
         res.render("B_viewData", {
-            date: array 
+            date: array, user: thisPatient, patient: thisPatient
         })
     } else {
         res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})
@@ -169,7 +169,8 @@ const onePatientRecord = async (req, res) => {
             required_glucose: required_glucose,
             required_weight: required_weight,
             required_insulin: required_insulin,
-            required_exercise: required_exercise
+            required_exercise: required_exercise,
+            user: checkResult.data
         })
     } else{
         res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})
@@ -185,7 +186,8 @@ const showProfile = async (req, res) => {
         res.render('B_editProfile', {
             "id": req.params.id,
             "user": result.data,
-            "userType": 'patient'
+            "userType": 'patient',
+            "homeType": 'home'
         })
     else res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})
 }
