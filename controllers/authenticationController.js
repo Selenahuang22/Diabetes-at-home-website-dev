@@ -13,31 +13,30 @@ const authenticator = require("../util/authenticator")
 const directLogin = async (req, res) => {
     
     // check if able to find document with match email/user_id
-    let credential = { }
-    credential.email = req.body.userid;
+
     
     // base on what kind of account, render the corresponding page.
-    let user = await Clinician.findOne(credential).lean()
+    let user = await Clinician.findOne({user_name: req.user.user_name}).lean()
     if(user){
         return authenticator.checkHash(req.body.password, user.password, async(err, valid) => {
             if(err || !valid){
-                res.redirect("/auth/login");
+                return res.redirect("/auth/login");
             }
-            else{
-                res.redirect(`/clinician/${user._id}/dashboard`)
-            }
+           
+            res.redirect(`/clinician/dashboard`)
+            
         })
     }
 
-    user = await Patient.findOne(credential).lean()
+    user = await Patient.findOne({user_name: req.user.user_name}).lean()
+
     if(user){
         return authenticator.checkHash(req.body.password, user.password, async(err, valid) => {
             if(err || !valid){
-                res.redirect("/auth/login");
+                return res.redirect("/auth/login");
             }
-            else{
-                res.redirect(`/patient/${user._id}/home`)
-            }
+            
+            res.redirect(`/patient/home`)
         })
     }
     res.redirect("/auth/login")   
@@ -54,7 +53,7 @@ const signClicianUp = async (req, res) => {
             let clinician = new Clinician(data)
             try{
                 await clinician.save()
-                res.redirect('/clinician/'+clinician._id+'/dashboard')
+                res.redirect('/clinician/dashboard')
             }catch(err){
                 res.status(404).render('error', {errorCode: '404', message: err}) 
             }
@@ -70,7 +69,7 @@ const signClicianUp = async (req, res) => {
 }
 
 const getLoginPage = async (req, res) => {
-    res.render("B_login")
+    res.render("B_login" , {home: "/", user: {first_name: "Guess"}})
 }
 
 const getClinicianSignUpPage = async (req, res) => {

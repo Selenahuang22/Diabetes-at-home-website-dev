@@ -24,8 +24,8 @@
         <!-- right -->
         <section id="logout">
             <!-- if login -->
-            <img src="/baseline_account_circle_black_24dp.png" alt="account img">
-            <h2 class="fontBlue">{{user.first_name}} {{user.last_name}}</h2>
+            <a href={{home}} ><img  src="/baseline_account_circle_black_24dp.png" alt="account img"></a>
+            <h2> <a href={{home}}  class="fontBlue" >{{user.first_name}} {{user.last_name}} </a> </h2>
             <form id="logoutButton" action="/auth/logout" method="post">
                 <button class="fontBlue" type="submit">Log Out</button>
             </form>

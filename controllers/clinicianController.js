@@ -8,12 +8,25 @@ const Message = require("../models/message")
 const patientController = require("./patientController");
 const authenticator = require("../util/authenticator")
 
-const getOneClinicianAndRender = async (req, res) => {
-    let clinician = await Clinician.findById(req.params.id).lean()
+const renderProfile = async (req, res) => {
+    console.log(req.user);
+    let clinician = req.user
     if(clinician){        
-       res.render("clinicianProfile", {thisClinician: clinician, user: clinician})
+       res.render("clinicianProfile", 
+       {
+           thisClinician: clinician, 
+           user: clinician,
+           home: "http://localhost:3000/clinician/profile"
+        })
     } else {
-        res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
+        res.status(404).render('error', 
+        {
+            errorCode: '404', 
+            message: 'Clinician Does Not exist.',
+            home: "http://localhost:3000/clinician/profile",
+            user: req.user
+        })
+        
     }
 }
 
@@ -26,8 +39,9 @@ const getClinicianPatients = async (id) => {
     }
 }
 
-const getClinicianPatientsAndRender = async (req, res) => {       
-    let clinician = await Clinician.findById(req.params.id).lean()
+const renderDashBoard = async (req, res) => {   
+    let clinician = req.user
+
     if(clinician){
         // retrieve all of his patient using email
         let allPatient = await Patient.find(
@@ -87,34 +101,44 @@ const getClinicianPatientsAndRender = async (req, res) => {
         return res.render("clinicianHome", 
             {
                 patient: formatedPatientList,
-                user: clinician, 
+                user: clinician,
+                home: "http://localhost:3000/clinician/profile"
             })
     }    
-    res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
+    res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.',
+    home: "http://localhost:3000/clinician/profile"})
 
 }
+
 const showProfile = async (req, res) => {
-    let clinician = await Clinician.findById(req.params.id).lean()   
+    let clinician = req.user
 
     if(clinician)
         res.render('B_editProfile', {
             "id": req.params.id,
             "user": clinician,
             "userType": 'clinician',
-            "homeType": 'profile'
+            "homeType": 'profile',
+            home: "http://localhost:3000/clinician/profile"
         })
-    else res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
+    else res.status(404).render('error', 
+    {
+        errorCode: '404', 
+        message: 'Clinician Does Not exist.',
+        home: "http://localhost:3000/clinician/profile",
+        user: req.user
+    })
 }
 
 const editProfile = async (req, res) => {
-    let directPath = '/clinician/'+req.params.id+'/profile'
+    let directPath = '/clinician/profile'
 
     // we can perform data interity check here
 
     try {
         await Clinician.updateOne(
             // condition
-            {_id: req.params.id},
+            {_id: req.user._id},
             // value to be change
             {$set:
                 {
@@ -128,7 +152,7 @@ const editProfile = async (req, res) => {
 
         if (req.body.biography) {
             await Clinician.updateOne(
-                {_id: req.params.id},
+                {_id: req.user._id},
                 {
                     $set: { biography: req.body.biography}
                 }
@@ -144,7 +168,7 @@ const editProfile = async (req, res) => {
                 authenticator.generateHash(credential, async(_, hash) => {
                     
                     await Clinician.updateOne(
-                        {_id: req.params.id},
+                        {_id: req.user._id},
                         {
                             $set: { password: hash}
                         }
@@ -156,13 +180,19 @@ const editProfile = async (req, res) => {
     }
     catch (err){
         console.log(err);
-        res.status(404).render('error', {errorCode: '404', message: 'Error occur when try to send new Data.'}) 
+        res.status(404).render('error', 
+        {
+            errorCode: '404', 
+            message: 'Clinician Does Not exist.',
+            home: "http://localhost:3000/clinician/profile",
+            user: req.user
+        })
     }
 }
 
 const clinicianViewData = async (req, res) => {       
     let thisPatient = await Patient.findById(req.params.patientid).lean()   
-    let clinician = await Clinician.findById(req.params.id).lean()    
+    let clinician = req.user  
 
     if(clinician){
         if (thisPatient) {
@@ -207,21 +237,31 @@ const clinicianViewData = async (req, res) => {
                 date: array, user: clinician, patient: thisPatient
             })
         } else {
-            res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})
-        }
+            res.status(404).render('error', 
+        {
+            errorCode: '404', 
+            message: 'Clinician Does Not exist.',
+            home: "http://localhost:3000/clinician/profile",
+            user: req.user
+        })}
     }else{
-        res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
-    }
+        res.status(404).render('error', 
+        {
+            errorCode: '404', 
+            message: 'Clinician Does Not exist.',
+            home: "http://localhost:3000/clinician/profile",
+            user: req.user
+        })}
 }
 
 
 const renderPatientRegisterPage = async (req, res) => {
-    let clinician = await Clinician.findById(req.params.id).lean()
-    res.render("C_patientRegister", {id: req.params.id, user: clinician})
+    let clinician = req.user
+    res.render("C_patientRegister", {id: req.params.id, user: clinician, home:"http://localhost:3000/clinician/profile"})
 }
 
 const registerPatient = async (req, res) => {
-    let clinician = await Clinician.findById(req.params.id).lean()
+    let clinician = req.user
 
     if(clinician){
         // this method will be use to add key data to the patient data.
@@ -258,13 +298,18 @@ const registerPatient = async (req, res) => {
         
         patientController.createNewPatient(req, res)
     } else {
-        res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
-    
+        res.status(404).render('error', 
+        {
+            errorCode: '404', 
+            message: 'Clinician Does Not exist.',
+            home: "http://localhost:3000/clinician/profile",
+            user: req.user
+        })
     }
 }
 
 const renderClinicalNotes = async (req, res) => {
-    let clinician = await Clinician.findById(req.params.id).lean()
+    let clinician = req.user
     
     if(clinician){
         let notes = await ClinicianNote.find(
@@ -293,16 +338,22 @@ const renderClinicalNotes = async (req, res) => {
             {
                 allNotes: allNotes,
                 id: req.params.id,
-                user: clinician
+                user: clinician,
+                home: "http://localhost:3000/clinician/profile",
             }
         )
     } else {
-        res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
-    
+        res.status(404).render('error', 
+        {
+            errorCode: '404', 
+            message: 'Clinician Does Not exist.',
+            home: "http://localhost:3000/clinician/profile",
+            user: req.user
+        })
     }
 }
 const renderPatientComments = async (req, res) => {
-    let clinician = await Clinician.findById(req.params.id).lean()
+    let clinician = req.user
 
     if(clinician){
         // retrieve all the comment of patient
@@ -355,7 +406,8 @@ const renderPatientComments = async (req, res) => {
             {
                 comments: comments,
                 id: req.params.id,
-                user: clinician
+                user: clinician,
+                home:"http://localhost:3000/clinician/profile"
             }
         )
     }
@@ -365,7 +417,7 @@ const renderPatientComments = async (req, res) => {
 const renderPatientProfile = async (req, res) => {
     // retrieve patient detail 
     let patient = await Patient.findById(req.params.patientId).lean()
-    let clinician = await Clinician.findById(req.params.id).lean()
+    let clinician = req.user
 
     if(patient){
         res.render("C_patientProfile",
@@ -386,6 +438,7 @@ const renderPatientProfile = async (req, res) => {
                 weight: patient.health_data["weight"].require,
                 insulin: patient.health_data["insulin take"].require,
                 exercise: patient.health_data["exercise"].require,
+                home:"http://localhost:3000/clinician/profile"
             }
         )
     }
@@ -431,7 +484,7 @@ const modifyPatientLog = async (req, res) => {
         }
     }
 
-    res.redirect(`/clinician/${req.params.id}/patient/${req.params.patientId}`)
+    res.redirect(`/clinician/patient/${req.params.patientId}`)
 }
 
 
@@ -439,7 +492,7 @@ const addClinicianNote = async (req, res) => {
     if(req.body.noteContent != ""){
         //add the new clinician note
         let note = new ClinicianNote({
-            clinician_id: req.params.id,
+            clinician_id: req.user._id,
             patient_id: req.params.patientId,
             content: req.body.noteContent,
             time: new Date()
@@ -454,7 +507,7 @@ const addClinicianNote = async (req, res) => {
         }
     }
     
-    res.redirect(`/clinician/${req.params.id}/patient/${req.params.patientId}`)
+    res.redirect(`/clinician/patient/${req.params.patientId}`)
 }
 
 const addSuppportMsg = async (req, res) => {
@@ -487,13 +540,13 @@ const addSuppportMsg = async (req, res) => {
         }
     }
     
-    res.redirect(`/clinician/${req.params.id}/patient/${req.params.patientId}`)
+    res.redirect(`/clinician/patient/${req.params.patientId}`)
 }
 
 module.exports = {
     getClinicianPatients,
-    getClinicianPatientsAndRender,
-    getOneClinicianAndRender,
+    renderDashBoard,
+    renderProfile,
     renderPatientRegisterPage,
     registerPatient,
     renderPatientComments,

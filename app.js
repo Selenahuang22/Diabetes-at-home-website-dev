@@ -6,6 +6,32 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))	// define where static assets live
 app.use(express.static(__dirname + '/images')); // static images
 
+const flash = require('express-flash')
+const session = require('express-session')
+
+// Flash messages for failed logins, and (possibly) other success/error messages
+app.use(flash())
+app.use(
+    session({
+        // The secret used to sign session cookies (ADD ENV VAR)
+        secret:'keyboard cat',
+        name: 'test', // The cookie name (CHANGE THIS)
+        saveUninitialized: false,
+        resave: false,
+        cookie: {
+            sameSite: 'strict',
+            httpOnly: true,
+            secure: app.get('env') === 'production'
+        },
+    })
+    )
+if (app.get('env') === 'production') {
+    app.set('trust proxy', 1); // Trust first proxy
+}
+
+const passport = require('./Passport')
+app.use(passport.authenticate('session'))
+
 const port = process.env.PORT || 3000
 var path = require('path')
 
@@ -35,54 +61,44 @@ const patientRouter = require('./routes/patientRouter.js')
 const clinicianRouter = require('./routes/clinicianRouter')
 const healthDataRouter = require('./routes/healthDataRouter')
 const authRouter = require("./routes/authenticationRouter")
+const Patient = require('./models/patient')
 
 /* static pages */
 app.get('/', async (req, res) => {
-    res.render('S_aboutWeb.hbs');
+    let home = "/"
+    let user = {first_name: "Guess"}
+    let logIn = false
+    if(req.user){
+        user = req.user
+        logIn = true
+        if(await Patient.findById(req.user._id).lean()){
+            home = "http://localhost:3000/patient/home"
+        } else{
+            home = "http://localhost:3000/clinician/profile"
+        }
+    }
+    res.render('S_aboutWeb.hbs', {home: home, user: user, logIn: logIn});
 })
+
 app.get('/diabetesInfo', async (req, res) => {
-    res.render('S_diabetesInfo.hbs');
-})
+    let home = "/"
+    let user = {first_name: "Guess"}
+    let logIn = false
+    if(req.user){
+        user = req.user
+        logIn = true
+        if(await Patient.findById(req.user._id).lean()){
+            home = "http://localhost:3000/patient/home"
+        } else{
+            home = "http://localhost:3000/clinician/profile"
+        }
+    }
 
-/* hard code pages now */
-/* page for both */
-app.get('/login', async (req, res) => {
-    res.render('B_login.hbs');
-})
-app.get('/editProfile', async (req, res) => {
-    res.render('B_editProfile.hbs');
-})
-app.get('/viewData', async (req, res) => {
-    res.render('B_viewData.hbs');
-})
-
-/* clician pages */
-app.get('/clinicianSignUp', async (req, res) => {
-    res.render('clinicianSignUp.hbs');
-})
-app.get('/home', async (req, res) => {
-    res.render('clinicianProfile.hbs');
-})
-app.get('/clinicianNotes', async (req, res) => {
-    res.render('clinicianNotes.hbs');
-})
-app.get('/patientRegister', async (req, res) => {
-    res.render('C_patientRegister.hbs');
-})
-app.get('/patientComments', async (req, res) => {
-    res.render('C_patientComments.hbs');
-})
-app.get('/patientProfile', async (req, res) => {
-    res.render('C_patientProfile.hbs');
+    res.render('S_diabetesInfo.hbs', {home: home, user: user, logIn: logIn});
 })
 
 
-/* patient pages */
-
-
-
-
-/*d2*/
+/*d3*/
 app.use('/patient/', patientRouter)
 app.use("/clinician/", clinicianRouter)
 app.use('/health_data/', healthDataRouter)
