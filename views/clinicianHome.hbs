@@ -25,20 +25,20 @@
             <table id="tableScroll">
                 <!-- Patients from the database -->
                 {{#each patient}}
-                        <td class="fontBlueNormal"> {{this.name}} </td>
-                        <td {{#if (is_require_in_dangRange this.bgl)}} class="fontRed" {{else}} class="fontBlueNormal" {{/if}}>
-                            {{this.bgl.value}}
-                        </td>
-                        <td {{#if (is_require_in_dangRange this.weight)}} class="fontRed" {{else}} class="fontBlueNormal" {{/if}}>
-                            {{this.weight.value}}
-                        </td>
-                        <td {{#if (is_require_in_dangRange this.insulin)}} class="fontRed" {{else}} class="fontBlueNormal" {{/if}}>
-                            {{this.insulin.value}}
-                        </td>
-                        <td {{#if (is_require_in_dangRange this.exercise)}} class="fontRed" {{else}} class="fontBlueNormal" {{/if}}>
-                            {{this.exercise.value}}
-                        </td>
-                    {{/each}}
+                    <td > <a class="fontBlueNormal" href="patient/{{this.id}}" > {{this.name}} </a></td>
+                    <td {{#if (is_require_in_dangRange this.bgl)}} class="fontRed" {{else}} class="fontBlueNormal" {{/if}}>
+                        {{this.bgl.value}}
+                    </td>
+                    <td {{#if (is_require_in_dangRange this.weight)}} class="fontRed" {{else}} class="fontBlueNormal" {{/if}}>
+                        {{this.weight.value}}
+                    </td>
+                    <td {{#if (is_require_in_dangRange this.insulin)}} class="fontRed" {{else}} class="fontBlueNormal" {{/if}}>
+                        {{this.insulin.value}}
+                    </td>
+                    <td {{#if (is_require_in_dangRange this.exercise)}} class="fontRed" {{else}} class="fontBlueNormal" {{/if}}>
+                        {{this.exercise.value}}
+                    </td>
+                {{/each}}
             </table>
     </section>
 

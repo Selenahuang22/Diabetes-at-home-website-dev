@@ -106,16 +106,63 @@ const patientViewData = async (req, res) => {
 
 
 const getOnePatientAndRender = async (req, res) => {        
-    var result = await getOnePatient(req.params.id)
+    let patient1 = await Patient.findById(req.params.id).lean()
 
-    if(result.status) {
-        let clinician = await Clinician.findOne({email: result.data.clinician_email}).lean()
+
+    if(patient1) {
+        patient = await _clearCacheIfExpired(patient1)
+        let clinician = await Clinician.findOne({email: patient.clinician_email}).lean()
+
+        let extractData = {}
+        extractData.bgl = {
+            lower:  patient.health_data["blood glucose level"].lower,
+            upper: patient.health_data["blood glucose level"].upper,
+            require: patient.health_data["blood glucose level"].require,
+            value: "-"
+        },
+        extractData.insulin = {
+            lower:  patient.health_data["insulin take"].lower,
+            upper: patient.health_data["insulin take"].upper,
+            require: patient.health_data["insulin take"].require,
+            value: "-"
+        }
+        extractData.exercise = {
+            lower:  patient.health_data["exercise"].lower,
+            upper: patient.health_data["exercise"].upper,
+            require: patient.health_data["exercise"].require,
+            value: "-"
+        }
+        extractData.weight = {
+            lower:  patient.health_data["weight"].lower,
+            upper: patient.health_data["weight"].upper,
+            require: patient.health_data["weight"].require,
+            value:  "-"
+        }
+        patient.latest_log.forEach(
+            data => {
+                if(data.name == "blood glucose level"){
+                    extractData.bgl.value = data.value
+                }
+                if(data.name == "insulin take"){
+                    extractData.insulin.value = data.value
+                }
+                if(data.name == "exercise"){
+                    extractData.exercise.value = data.value
+                }
+                if(data.name == "weight"){
+                    extractData.weight.value = data.value
+                }
+            }
+        )
+        extractData.name = `${patient.first_name} ${patient.last_name}`
+        extractData.id = patient._id
+        console.log(extractData);
         res.render('patientHome', {
             "id": req.params.id,
-            "thispatient": result.data,
+            "thispatient": extractData,
             "clinician": clinician,
             'time': new Date().toLocaleDateString(),
-            'user': result.data,
+            'user': patient,
         })
     } else {
         res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})
@@ -255,6 +302,7 @@ const _clearCacheIfExpired = async (patient) => {
     let foundPatient = patient
     // we need to reset the cache log if it is expire, and update the corresponding data in our remote DB
     let today = new Date()
+    
     if( today.getDate() != foundPatient.last_active_date.getDate() 
         || today.getMonth() != foundPatient.last_active_date.getMonth()
         || today.getFullYear() != foundPatient.last_active_date.getFullYear()){
@@ -279,7 +327,9 @@ const _clearCacheIfExpired = async (patient) => {
             console.log(err);
         }
     }
-
+    else{
+        console.log("============================================");
+    }
     return foundPatient
 }
 

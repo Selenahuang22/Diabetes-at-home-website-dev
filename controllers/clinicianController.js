@@ -43,26 +43,42 @@ const getClinicianPatientsAndRender = async (req, res) => {
                     lower:  patient.health_data["blood glucose level"].lower,
                     upper: patient.health_data["blood glucose level"].upper,
                     require: patient.health_data["blood glucose level"].require,
-                    value: (patient.latest_log["blood glucose level"]) ? patient.latest_log["blood glucose level"] : "-"
+                    value: "-"
                 },
                 extractData.insulin = {
                     lower:  patient.health_data["insulin take"].lower,
                     upper: patient.health_data["insulin take"].upper,
                     require: patient.health_data["insulin take"].require,
-                    value: (patient.latest_log["insulin take"]) ? patient.latest_log["insulin take"] : "-"
+                    value: "-"
                 }
                 extractData.exercise = {
                     lower:  patient.health_data["exercise"].lower,
                     upper: patient.health_data["exercise"].upper,
                     require: patient.health_data["exercise"].require,
-                    value: (patient.latest_log["exercise"]) ? patient.latest_log["exercise"] : "-"
+                    value: "-"
                 }
                 extractData.weight = {
                     lower:  patient.health_data["weight"].lower,
                     upper: patient.health_data["weight"].upper,
                     require: patient.health_data["weight"].require,
-                    value: (patient.latest_log["weight"]) ? patient.latest_log["weight"] : "-"
+                    value: "-"
                 }
+                patient.latest_log.forEach(
+                    data => {
+                        if(data.name == "blood glucose level"){
+                            extractData.bgl.value = data.value
+                        }
+                        if(data.name == "insulin take"){
+                            extractData.insulin.value = data.value
+                        }
+                        if(data.name == "exercise"){
+                            extractData.exercise.value = data.value
+                        }
+                        if(data.name == "weight"){
+                            extractData.weight.value = data.value
+                        }
+                    }
+                )
                 extractData.name = `${patient.first_name} ${patient.last_name}`
                 extractData.id = patient._id
                 formatedPatientList.push(extractData)
