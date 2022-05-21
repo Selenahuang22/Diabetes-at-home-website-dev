@@ -25,28 +25,20 @@
             <table id="tableScroll">
                 <!-- Patients from the database -->
                 {{#each patient}}
-                
-                <tr>
-                    <td><a class="fontBlueNormal" href="{{_id}}/viewData">{{this.first_name}} {{this.last_name}}</a></td>
-                    
-                    {{#if latest_log.length}}
-                        {{#each latest_log}}
-                            <td {{#if (is_bgl_in_dangRange this.value)}}class="fontRed"{{/if}} >{{#if (is_blood_glucose this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                            <td>{{#if (is_insulin_take this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                            <td>{{#if (is_weight this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                            <td>{{#if (is_exercises this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                        {{/each}}
-                        
-                    {{else}}
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    {{/if}}
-                    
-                </tr>
-                
-                {{/each}}
+                        <td class="fontBlueNormal"> {{this.name}} </td>
+                        <td {{#if (is_require_in_dangRange this.bgl)}} class="fontRed" {{else}} class="fontBlueNormal" {{/if}}>
+                            {{this.bgl.value}}
+                        </td>
+                        <td {{#if (is_require_in_dangRange this.weight)}} class="fontRed" {{else}} class="fontBlueNormal" {{/if}}>
+                            {{this.weight.value}}
+                        </td>
+                        <td {{#if (is_require_in_dangRange this.insulin)}} class="fontRed" {{else}} class="fontBlueNormal" {{/if}}>
+                            {{this.insulin.value}}
+                        </td>
+                        <td {{#if (is_require_in_dangRange this.exercise)}} class="fontRed" {{else}} class="fontBlueNormal" {{/if}}>
+                            {{this.exercise.value}}
+                        </td>
+                    {{/each}}
             </table>
     </section>
 

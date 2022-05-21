@@ -27,18 +27,56 @@ const getClinicianPatients = async (id) => {
 }
 
 const getClinicianPatientsAndRender = async (req, res) => {       
-    let result = await getClinicianPatients(req.params.id)
-    let clinician = await Clinician.findById(req.params.id).lean()    
-    if(result.status){
-        res.render("clinicianHome", 
-            {
-                patient: result.data.data, user: clinician, 
-            })
-    }else{
-        res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
-    }
-}
+    let clinician = await Clinician.findById(req.params.id).lean()
+    if(clinician){
+        // retrieve all of his patient using email
+        let allPatient = await Patient.find(
+            {clinician_email: clinician.email}
+        )
 
+        // format each patient 
+        let formatedPatientList = []
+        allPatient.forEach(
+            patient => {
+                let extractData = {}
+                extractData.bgl = {
+                    lower:  patient.health_data["blood glucose level"].lower,
+                    upper: patient.health_data["blood glucose level"].upper,
+                    require: patient.health_data["blood glucose level"].require,
+                    value: (patient.latest_log["blood glucose level"]) ? patient.latest_log["blood glucose level"] : "-"
+                },
+                extractData.insulin = {
+                    lower:  patient.health_data["insulin take"].lower,
+                    upper: patient.health_data["insulin take"].upper,
+                    require: patient.health_data["insulin take"].require,
+                    value: (patient.latest_log["insulin take"]) ? patient.latest_log["insulin take"] : "-"
+                }
+                extractData.exercise = {
+                    lower:  patient.health_data["exercise"].lower,
+                    upper: patient.health_data["exercise"].upper,
+                    require: patient.health_data["exercise"].require,
+                    value: (patient.latest_log["exercise"]) ? patient.latest_log["exercise"] : "-"
+                }
+                extractData.weight = {
+                    lower:  patient.health_data["weight"].lower,
+                    upper: patient.health_data["weight"].upper,
+                    require: patient.health_data["weight"].require,
+                    value: (patient.latest_log["weight"]) ? patient.latest_log["weight"] : "-"
+                }
+                extractData.name = `${patient.first_name} ${patient.last_name}`
+                extractData.id = patient._id
+                formatedPatientList.push(extractData)
+            }
+        )
+        return res.render("clinicianHome", 
+            {
+                patient: formatedPatientList,
+                user: clinician, 
+            })
+    }    
+    res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
+
+}
 const showProfile = async (req, res) => {
     let clinician = await Clinician.findById(req.params.id).lean()   
 
