@@ -274,13 +274,14 @@ const renderPatientComments = async (req, res) => {
 const renderPatientProfile = async (req, res) => {
     // retrieve patient detail 
     let patient = await Patient.findById(req.params.patientId).lean()
+    let clinician = await Clinician.findById(req.params.id).lean()
 
     if(patient){
         res.render("C_patientProfile",
             {
                 thispatient: patient,
                 clinicianid: req.params.id,
-                user:patient,
+                user: clinician,
                 id: req.params.id,
                 bgl_lower: patient.health_data["blood glucose level"].lower,
                 bgl_upper: patient.health_data["blood glucose level"].upper,
