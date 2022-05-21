@@ -84,29 +84,43 @@ const onePatientRecord = async (req, res) => {
         for(var i of checkResult.data.latest_log){
             logged.push(i.name)
         }
-        let log_glucose = false
-        let log_weight = false
-        let log_insulin = false 
-        let log_exercise = false 
+        let log_glucose = true
+        let log_weight = true
+        let log_insulin = true 
+        let log_exercise = true
+        let required_glucose = false
+        let required_weight = false
+        let required_insulin = false
+        let required_exercise = false
 
         if(patient.health_data["blood glucose level"].require){
-           log_glucose = !logged.includes("blood glucose level")
+            required_glucose = true
+            log_glucose = !logged.includes("blood glucose level")
         }
         if(patient.health_data["weight"].require){
+            required_weight = true
             log_weight = !logged.includes("weight")
         }
         if(patient.health_data["insulin take"].require){
+            required_insulin = true
             log_insulin = !logged.includes("insulin take")
         }
         if(patient.health_data["exercise"].require){
+            required_exercise = true
             log_exercise = !logged.includes("exercise")
         }
+        
+        console.log(required_exercise)
         res.render('dataEnter', {
             id: req.params.id, 
             log_glucose: log_glucose,
             log_weight: log_weight,
             log_exercise: log_exercise,
-            log_insulin: log_insulin
+            log_insulin: log_insulin,
+            required_glucose: required_glucose,
+            required_weight: required_weight,
+            required_insulin: required_insulin,
+            required_exercise: required_exercise
         })
     } else{
         res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})

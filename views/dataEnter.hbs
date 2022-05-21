@@ -16,10 +16,10 @@
                         
                         <!-- data enter-->
                         <form class="recordArea" method="POST" action="/patient/{{id}}/submit_log">
-                                <b>Health Data Name</b><input type="text" value="blood glucose level" name="data_name" readonly>
-                                <b>Value</b><input type="text" name="value" >
-                                <b>Comments</b><input type="text" name="comment" >
-                                <input type="submit" class="fontWhiteBold" value="Save">                             
+                                <b>Health Data Name</b><input type="text" value="blood glucose level" {{#if required_glucose}} {{else}} class="fixed" {{/if}} name="data_name" readonly>
+                                <b>Value</b><input type="text" name="value" {{#if required_glucose}} {{else}} class="fixed" {{/if}}>
+                                <b>Comments</b><input type="text" name="comment" {{#if required_glucose}} {{else}} class="fixed" {{/if}}>
+                                <input type="submit" value="Save" {{#if required_glucose}} class="fontWhiteBold" {{else}} class="fixed" {{/if}}>                             
                         </form>
 
                     </section>
@@ -34,10 +34,10 @@
                 {{#if log_weight}}
                     <section class="recordRight">
                         <form class="recordArea" method="POST" action="/patient/{{id}}/submit_log">
-                            <b>Health Data Name</b><input type="text" value="weight" name="data_name" readonly/>
-                            <b>Value</b><input type="text"  name="value" />
-                            <b>Comments</b><input type="text"  name="comment" />
-                            <input type="submit" class="fontWhiteBold" value="Save"> 
+                            <b>Health Data Name</b><input type="text" value="weight" {{#if required_weight}}  {{else}} class="fixed" {{/if}} name="data_name" readonly/>
+                            <b>Value</b><input type="text"  name="value" {{#if required_weight}}  {{else}} class="fixed" {{/if}} />
+                            <b>Comments</b><input type="text" name="comment" {{#if required_weight}}  {{else}} class="fixed" {{/if}} />
+                            <input type="submit" value="Save" {{#if required_weight}} class="fontWhiteBold" {{else}} class="fixed" {{/if}}> 
                         </form>
                     </section>
                 {{else}}
@@ -59,10 +59,10 @@
 
                         <!-- data enter-->
                         <form class="recordArea" method="POST" action="/patient/{{id}}/submit_log">
-                            <b>Health Data Name</b><input type="text" value="insulin take" name="data_name" readonly/>
-                            <b>Value</b><input type="text"  name="value" />
-                            <b>Comments</b><input type="text"  name="comment" />
-                            <input type="submit" class="fontWhiteBold" value="Save">  
+                            <b>Health Data Name</b><input type="text" value="insulin take" {{#if required_insulin}}  {{else}} class="fixed" {{/if}} name="data_name" readonly/>
+                            <b>Value</b><input type="text"  name="value" {{#if required_insulin}}  {{else}} class="fixed" {{/if}} />
+                            <b>Comments</b><input type="text"  name="comment" {{#if required_insulin}}  {{else}} class="fixed" {{/if}} />
+                            <input type="submit" value="Save" {{#if required_insulin}} class="fontWhiteBold" {{else}} class="fixed" {{/if}}>  
                         </form>
 
                     </section>
@@ -77,10 +77,10 @@
                 {{#if log_exercise}}
                     <section class="recordRight">
                         <form class="recordArea" method="POST" action="/patient/{{id}}/submit_log">
-                            <b>Health Data Name</b><input type="text" value="exercises" name="data_name" readonly/>
-                            <b>Value</b><input type="text" name="value" />
-                            <b>Comments</b><input type="text" name="comment" />
-                            <input type="submit" class="fontWhiteBold" value="Save">  
+                            <b>Health Data Name</b><input type="text" value="exercises" {{#if required_exercise}}  {{else}} class="fixed" {{/if}} name="data_name" readonly/>
+                            <b>Value</b><input type="text" name="value" {{#if required_exercise}}  {{else}} class="fixed" {{/if}} />
+                            <b>Comments</b><input type="text" name="comment" {{#if required_exercise}}  {{else}} class="fixed" {{/if}} />
+                            <input type="submit" value="Save" {{#if required_exercise}} class="fontWhiteBold" {{else}} class="fixed" {{/if}}>  
                         </form>
                     </section>
                 {{else}}
