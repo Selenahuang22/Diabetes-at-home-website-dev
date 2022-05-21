@@ -209,7 +209,44 @@ const registerPatient = async (req, res) => {
     }
 }
 
+const renderClinicalNotes = async (req, res) => {
+    let clinician = await Clinician.findById(req.params.id).lean()
+    
+    if(clinician){
+        let notes = await ClinicianNote.find(
+            {clinician_id: clinician._id}
+        ).lean()
+        let adjusted = []
+        let allNotes = []
+        
+        for (var hd of notes) {
 
+            let thisPatient = await Patient.findById(hd.patient_id).lean()     
+            
+            let adjustedData = {
+                name: `${thisPatient.first_name} ${thisPatient.last_name}`,
+                time: `${hd.time.toLocaleDateString()} ${hd.time.toLocaleTimeString()}`,
+                content: hd.content,
+            }
+               
+            adjusted.push(adjustedData)
+        }
+        if(adjusted != []){
+            allNotes = [...allNotes, ...adjusted]
+        }
+ 
+        res.render("clinicianNotes",
+            {
+                allNotes: allNotes,
+                id: req.params.id,
+                user: clinician
+            }
+        )
+    } else {
+        res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
+    
+    }
+}
 const renderPatientComments = async (req, res) => {
     let clinician = await Clinician.findById(req.params.id).lean()
 
@@ -413,4 +450,5 @@ module.exports = {
     addSuppportMsg,
     showProfile,
     editProfile,
+    renderClinicalNotes
 }

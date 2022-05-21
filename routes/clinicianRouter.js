@@ -14,6 +14,7 @@ clinicianRouter.post("/:id/registerPatient", (req, res) => clinicianController.r
 clinicianRouter.get("/:id/:patientid/viewData", (req, res) => clinicianController.clinicianViewData(req, res))
 
 clinicianRouter.get("/:id/patientComments", (req, res) => clinicianController.renderPatientComments(req, res))
+clinicianRouter.get("/:id/clinicalNotes", (req, res) => clinicianController.renderClinicalNotes(req, res))
 clinicianRouter.get("/:id/patient/:patientId", (req, res) => clinicianController.renderPatientProfile(req,res))
 clinicianRouter.post("/:id/patient/:patientId/submit", (req, res) => clinicianController.modifyPatientLog(req, res))
 
