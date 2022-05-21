@@ -6,6 +6,7 @@ const Patient = require("../models/patient");
 const ClinicianNote = require('../models/clinicianNote');
 const Message = require("../models/message")
 const patientController = require("./patientController");
+const authenticator = require("../util/authenticator")
 
 const getOneClinicianAndRender = async (req, res) => {
     let clinician = await Clinician.findById(req.params.id).lean()
@@ -35,6 +36,72 @@ const getClinicianPatientsAndRender = async (req, res) => {
             })
     }else{
         res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
+    }
+}
+
+const showProfile = async (req, res) => {
+    let clinician = await Clinician.findById(req.params.id).lean()   
+
+    if(clinician)
+        res.render('B_editProfile', {
+            "id": req.params.id,
+            "user": clinician,
+            "userType": 'clinician'
+        })
+    else res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.'})
+}
+
+const editProfile = async (req, res) => {
+    let directPath = '/clinician/'+req.params.id+'/profile'
+
+    // we can perform data interity check here
+
+    try {
+        await Clinician.updateOne(
+            // condition
+            {_id: req.params.id},
+            // value to be change
+            {$set:
+                {
+                    first_name: req.body.first_name,
+                    last_name: req.body.last_name,
+                    user_name: req.body.user_name,
+                    DOB: req.body.DOB,                                     
+                }
+            }
+        );
+
+        if (req.body.biography) {
+            await Clinician.updateOne(
+                {_id: req.params.id},
+                {
+                    $set: { biography: req.body.biography}
+                }
+            )
+        }
+
+        // if they also want to change password, for now
+        // @todo: optimise this
+        if(req.body.password){
+            if(authenticator.validatePass(req.body.password)){
+                
+                credential = {password: req.body.password}
+                authenticator.generateHash(credential, async(_, hash) => {
+                    
+                    await Clinician.updateOne(
+                        {_id: req.params.id},
+                        {
+                            $set: { password: hash}
+                        }
+                    )
+                })
+            }
+        }
+        res.redirect(directPath)
+    }
+    catch (err){
+        console.log(err);
+        res.status(404).render('error', {errorCode: '404', message: 'Error occur when try to send new Data.'}) 
     }
 }
 
@@ -326,5 +393,7 @@ module.exports = {
     renderPatientProfile,
     modifyPatientLog,
     addClinicianNote,
-    addSuppportMsg
+    addSuppportMsg,
+    showProfile,
+    editProfile,
 }

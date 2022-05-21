@@ -122,6 +122,7 @@ const showProfile = async (req, res) => {
         res.render('B_editProfile', {
             "id": req.params.id,
             "user": result.data,
+            "userType": 'patient'
         })
     else res.status(404).render('error', {errorCode: '404', message: 'Patient Does Not exist.'})
 }
@@ -141,11 +142,19 @@ const editProfile = async (req, res) => {
                     first_name: req.body.first_name,
                     last_name: req.body.last_name,
                     user_name: req.body.user_name,
-                    DOB: req.body.DOB, 
-                    biography: req.body.biography                 
+                    DOB: req.body.DOB,              
                 }
             }
         );
+
+        if (req.body.biography) {
+            await Patient.updateOne(
+                {_id: req.params.id},
+                {
+                    $set: { biography: req.body.biography}
+                }
+            )
+        }
 
         // if they also want to change password, for now
         // @todo: optimise this

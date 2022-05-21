@@ -20,4 +20,6 @@ clinicianRouter.post("/:id/patient/:patientId/submit", (req, res) => clinicianCo
 clinicianRouter.post("/:id/patient/:patientId/addNote", (req, res) => clinicianController.addClinicianNote(req, res))
 clinicianRouter.post("/:id/patient/:patientId/addsupportMsg", (req, res) => clinicianController.addSuppportMsg(req, res))
 
+clinicianRouter.get('/:id/editProfile', (req, res) => clinicianController.showProfile(req, res))
+clinicianRouter.post('/:id/editProfile', (req, res) => clinicianController.editProfile(req, res))
 module.exports = clinicianRouter
