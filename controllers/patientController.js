@@ -175,6 +175,11 @@ const getOnePatientAndRender = async (req, res) => {
         }else{
             msg = ""
         }
+        let today = new Date()
+        // calculate the patient engagement rate.
+        let totalDay =  today - patient.created
+        totalDay = Math.floor(totalDay / 86400000) * 86400000
+        
         res.render('patientHome', {
             "id": req.params.id,
             "thispatient": extractData,
@@ -353,7 +358,6 @@ const _clearCacheIfExpired = async (patient) => {
         }
     }
     else{
-        console.log("============================================");
     }
     return foundPatient
 }

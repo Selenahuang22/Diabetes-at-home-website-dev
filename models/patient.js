@@ -60,7 +60,8 @@ const patientSchema = new mongoose.Schema({  // declare a Mongoose schema
 
   // this is the email of the doctor who in charge of this patient
   clinician_email: {type: String, require: true},
-  support_message: {type: String}
+  support_message: {type: String},
+  created : {type:Date, require: true}
 });
 
 const Patient = mongoose.model("Patient", patientSchema); // compile the schema into a model

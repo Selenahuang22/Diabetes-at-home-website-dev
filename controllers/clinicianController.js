@@ -266,8 +266,9 @@ const registerPatient = async (req, res) => {
     if(clinician){
         // this method will be use to add key data to the patient data.
         let logTimeSeries = req.body.health_data
-        req.body.last_active_date = Date.now()
+        req.body.last_active_date =new Date()
         req.body.clinician_email = clinician.email
+        req.body.created = new Date()
         req.body.health_data = {
             "blood glucose level": {
                 upper: 100,
