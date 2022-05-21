@@ -290,17 +290,14 @@ const createNewPatient = async (req, res) => {
 
         try{
             await patient.save()
-            res.redirect(`/${req.params.id}/dashboard`)
+            res.redirect(`/clinician/${req.params.id}/patient/${patient._id}`)
         }catch (err){
             
         }
 
-    })
+    })   
 }
 
-const extractUnixOfYYYY_MM_DD = (unix) => {
-    return Math.floor(unix / 86400000) * 86400000;
-}
 module.exports = {
     getAllPatientOfClinician,
     getOnePatient,

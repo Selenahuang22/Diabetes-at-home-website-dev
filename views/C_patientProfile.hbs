@@ -89,33 +89,33 @@
                         <td>
                             <section class="safetyRange">
                                 <section class="lower" id="blood_glucose_lower">
-                                    <input type="text" name="bgl_lower" placeholder={{bgl_lower}}>
+                                    <input type="text" name="bgl_lower" pattern="^((0{1}\.\d{1,2})|([1-9]\d*\.{1}\d{1,2})|([1-9]+\d*)|0)$" title="must enter a non-negative number, rounded to 2 digits after the decimal" value={{bgl_lower}}  {{#if bgl}} {{else}} class="fixed" {{/if}}>
                                 </section>
                                 <section class="middle-"><p>-</p></section>
                                 <section class="upper" id="blood_glucose_upper">
-                                    <input type="text" name="bgl_upper" placeholder={{bgl_upper}}>
+                                    <input type="text" name="bgl_upper" pattern="^((0{1}\.\d{1,2})|([1-9]\d*\.{1}\d{1,2})|([1-9]+\d*)|0)$" title="must enter a non-negative number, rounded to 2 digits after the decimal" value={{bgl_upper}} {{#if bgl}} {{else}} class="fixed" {{/if}}>
                                 </section>
                             </section>
                         </td>
                         <td>
                             <section class="safetyRange">
-                                <section class="lower" id="weight_lower"><input type="text" name="weight_lower" placeholder={{weight_lower}}></section>
+                                <section class="lower" id="weight_lower"><input type="text" name="weight_lower" pattern="^((0{1}\.\d{1,2})|([1-9]\d*\.{1}\d{1,2})|([1-9]+\d*)|0)$" title="must enter a non-negative number, rounded to 2 digits after the decimal" value={{weight_lower}} {{#if weight}} {{else}} class="fixed" {{/if}}></section>
                                 <section class="middle-"><p>-</p></section>
-                                <section class="upper" id="weight_upper"><input type="text" name="weight_upper" placeholder={{weight_upper}}></section>
+                                <section class="upper" id="weight_upper"><input type="text" name="weight_upper" pattern="^((0{1}\.\d{1,2})|([1-9]\d*\.{1}\d{1,2})|([1-9]+\d*)|0)$" title="must enter a non-negative number, rounded to 2 digits after the decimal" value={{weight_upper}} {{#if weight}} {{else}} class="fixed" {{/if}}></section>
                             </section>
                         </td>
                         <td>
                             <section class="safetyRange">
-                                <section class="lower" id="insulin_taken_lower"><input type="text" name="insulin_lower" placeholder={{insulin_lower}}></section>
+                                <section class="lower" id="insulin_taken_lower"><input type="text" name="insulin_lower" pattern="^[+]{0,1}(\d+)$" title="must enter a non-negative integer" value={{insulin_lower}} {{#if insulin}} {{else}} class="fixed" {{/if}}></section>
                                 <section class="middle-"><p>-</p></section>
-                                <section class="upper" id="insulin_taken_upper"><input type="text" name="insulin_upper" placeholder={{insulin_upper}}></section>
+                                <section class="upper" id="insulin_taken_upper"><input type="text" name="insulin_upper" pattern="^[+]{0,1}(\d+)$" title="must enter a non-negative integer" value={{insulin_upper}} {{#if insulin}} {{else}} class="fixed" {{/if}}></section>
                             </section>
                         </td>
                         <td>
                             <section class="safetyRange">
-                                <section class="lower" id="exercises_lower"><input type="text" name="exercise_lower" placeholder={{exercise_lower}}></section>
+                                <section class="lower" id="exercises_lower"><input type="text" name="exercise_lower" pattern="^[+]{0,1}(\d+)$" title="must enter a non-negative integer" value={{exercise_lower}} {{#if exercise}} {{else}} class="fixed" {{/if}}></section>
                                 <section class="middle-"><p>-</p></section>
-                                <section class="upper" id="exercises_upper"><input type="text" name="exercise_upper" placeholder={{exercise_upper}}></section>
+                                <section class="upper" id="exercises_upper"><input type="text" name="exercise_upper" pattern="^[+]{0,1}(\d+)$" title="must enter a non-negative integer" value={{exercise_upper}} {{#if exercise}} {{else}} class="fixed" {{/if}}></section>
                             </section>
                         </td>
                     </tr>

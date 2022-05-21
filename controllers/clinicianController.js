@@ -94,7 +94,8 @@ const clinicianViewData = async (req, res) => {
 
 
 const renderPatientRegisterPage = async (req, res) => {
-    res.render("C_patientRegister", {id: req.params.id})
+    let clinician = await Clinician.findById(req.params.id).lean()
+    res.render("C_patientRegister", {id: req.params.id, user: clinician})
 }
 
 const registerPatient = async (req, res) => {
@@ -161,7 +162,7 @@ const renderPatientComments = async (req, res) => {
             tmr.setDate(tmr.getDate() + 1)
 
             const last2Day = new Date(today)
-            last2Day.setDate(last2Day.getDate() - 1)
+            last2Day.setDate(last2Day.getDate() - 3)
 
             for(var patient of patients){
                 let recentHD = await HealthData.find({
