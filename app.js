@@ -73,9 +73,9 @@ app.get('/', async (req, res) => {
         user = req.user
         logIn = true
         if(await Patient.findById(req.user._id).lean()){
-            home = "http://localhost:3000/patient/home"
+            home = "/patient/home"
         } else{
-            home = "http://localhost:3000/clinician/profile"
+            home = "/clinician/profile"
         }
     }
     res.render('S_aboutWeb.hbs', {home: home, user: user, logIn: logIn});
