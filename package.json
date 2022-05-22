@@ -22,17 +22,19 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
+    "cookie-session": "^2.0.0",
     "express": "^4.18.1",
     "express-flash": "^0.0.2",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
     "express-validator": "^6.14.0",
     "mongodb": "^4.5.0",
-    "mongoose": "^6.3.1",
+    "mongoose": "^6.3.4",
     "passport": "^0.5.3",
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
-    "dotenv": "^16.0.1"
+    "dotenv": "^16.0.1",
+    "prettier": "^2.6.2"
   }
 }

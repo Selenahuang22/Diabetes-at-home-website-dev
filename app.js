@@ -7,7 +7,7 @@ app.use(express.static('public'))	// define where static assets live
 app.use(express.static(__dirname + '/images')); // static images
 
 const flash = require('express-flash')
-const session = require('express-session')
+const session = require('cookie-session')
 
 // Flash messages for failed logins, and (possibly) other success/error messages
 app.use(flash())
