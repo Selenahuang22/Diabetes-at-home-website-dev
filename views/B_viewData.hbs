@@ -31,7 +31,7 @@
 
         <section id="graphSelect">
             <form action="" method="">
-                <select name="display">
+                <select name="display" onchange="selectInput(this)">
                     <option value="Blood">Blood Glucose Level</option>
                     <option value="Weight">Weight</option>
                     <option value="Number">Number Of Insulin Doses Taken</option>
@@ -48,57 +48,71 @@
 
 <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
 <script type="text/javascript">
-    output = document.getElementsByName("display")[0].value;
-    var time = new Array();
-    var mydata = new Array();
+    var output = document.getElementsByName("display")[0].value;
+    draw(output);
+    function selectInput(choose){
+        draw(choose.value);
+    }
+    function draw(output){
+        var time = new Array();
+        var mydata = new Array();
 
-    var tab = document.getElementById("tableScroll");
-    var rows = tab.rows;
-
-    for(var i = 0; i < rows.length; i++){
-        if (output === "Blood" && ~(rows[i].cells[1].innerHTML === '-')) {
-            time.push(rows[i].cells[0].innerHTML);
-            mydata.push(rows[i].cells[1].innerHTML);
-        } else if (output === "Weight" && ~(rows[i].cells[2].innerHTML === '-')){
-            time.push(rows[i].cells[0].innerHTML);
-            mydata.push(rows[i].cells[2].innerHTML);
-        } else if (output === "Number" && ~(rows[i].cells[3].innerHTML === '-')){
-            time.push(rows[i].cells[0].innerHTML);
-            mydata.push(rows[i].cells[3].innerHTML);
-        } else if (output === "Exercise" && ~(rows[i].cells[4].innerHTML === '-')) {
-            time.push(rows[i].cells[0].innerHTML);
-            mydata.push(rows[i].cells[4].innerHTML);
+        var tab = document.getElementById("tableScroll");
+        var rows = [];
+        if (tab) {
+            rows = tab.rows;
         }
-    }
-    console.log(rows);
 
-    console.log(time);
-    console.log(mydata);
-    
-    var myChart = echarts.init(document.getElementById('chart'));
-    var option = {
-        dataZoom: {
-            type: "slider", show: true, start: 0, end: 100,
-        },
-        xAxis: [
-            {
-                data: time,
-                //data: ["2011.11.11","2011.11.21","2011.12.11","2012.11.11","2021.11.11","2022.11.11","2011.11.11","2011.11.21","2011.12.11","2012.11.11","2021.11.11","2022.11.11","2011.11.11","2011.11.21","2011.12.11","2012.11.11","2021.11.11","2022.11.11"],
+        for(var i = 0; i < rows.length; i++){
+            if (output === "Blood" && !(rows[i].cells[1].innerHTML === '-')) {
+                time.push(rows[i].cells[0].innerHTML);
+                mydata.push(rows[i].cells[1].innerHTML);
+            } else if (output === "Weight" && !(rows[i].cells[2].innerHTML === '-')){
+                time.push(rows[i].cells[0].innerHTML);
+                mydata.push(rows[i].cells[2].innerHTML);
+            } else if (output === "Number" && !(rows[i].cells[3].innerHTML === '-')){
+                time.push(rows[i].cells[0].innerHTML);
+                mydata.push(rows[i].cells[3].innerHTML);
+            } else if (output === "Exercise" && !(rows[i].cells[4].innerHTML === '-')) {
+                time.push(rows[i].cells[0].innerHTML);
+                mydata.push(rows[i].cells[4].innerHTML);
             }
-        ],
-        yAxis: [
-            {
-                scale: true,
-            }
-        ],
-        series: [
-            {
-                name: "data",
-                type: "line",
-                data: mydata,
-                //data: [5, 20, 36, 10, 10, 20,5, 20, 36, 10, 10, 20,5, 20, 36, 10, 10, 20],
-            }
-        ],
+        }
+
+        console.log(rows);
+        console.log(time);
+        console.log(mydata);
+        
+        var myChart = echarts.init(document.getElementById('chart'));
+
+        var option = {
+            noDataLoadingOption: {
+                text: "missing data",
+            },
+            dataZoom: {
+                type: "slider", show: true, start: 0, end: 100,
+            },
+            xAxis: [
+                {
+                    data: time,
+                    //data: ["2011.11.11","2011.11.21","2011.12.11","2012.11.11","2021.11.11","2022.11.11","2011.11.11","2011.11.21","2011.12.11","2012.11.11","2021.11.11","2022.11.11","2011.11.11","2011.11.21","2011.12.11","2012.11.11","2021.11.11","2022.11.11"],
+                }
+            ],
+            yAxis: [
+                {
+                    scale: true,
+                }
+            ],
+            series: [
+                {
+                    name: "data",
+                    type: "line",
+                    data: mydata,
+                    //data: [5, 20, 36, 10, 10, 20,5, 20, 36, 10, 10, 20,5, 20, 36, 10, 10, 20],
+                }
+            ],
+        }
+        myChart.setOption(option);
     }
-    myChart.setOption(option);
+    
 </script>
