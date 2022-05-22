@@ -2,9 +2,12 @@ const bcrypt = require("bcrypt")
 const dotenv = require("dotenv")
 const Patient = require("../models/patient")
 const Clinician = require("../models/clinician")
-require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 
 const SALT_ROUND = 10
+const INVALID_CHARACTER = "!?*&$#~=+-[{}] ,.<>/\|@()"
 
 const generateHash = async (argv, cb) => {
     bcrypt.genSalt(SALT_ROUND, function(err, salt) {
@@ -56,7 +59,7 @@ const validatePass = async (password) => {
 
 const validate =  async (userName, password, email) => {
     // check if all of the item are valid according to our conffig
-    for(letter of process.env.INVALID_CHARACTER){
+    for(letter of INVALID_CHARACTER){
         if(userName.includes(letter)){
             return false
         }

@@ -1005,7 +1005,7 @@ footer img:hover {
 
 #loginLeft p {
     font-size: 1em;
-    color: var(--c-color-g0);
+    color: red;
 }
 
 #loginLeft a {

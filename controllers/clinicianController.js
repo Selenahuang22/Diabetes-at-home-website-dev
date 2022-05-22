@@ -203,7 +203,24 @@ const clinicianViewData = async (req, res) => {
 
             // sort the data 
             healthDatas.sort((a, b) =>{ return a.time.getUTCMilliseconds() - b.time.getUTCMilliseconds()})
-
+            thresholdDict = {
+                "bgl": {
+                    lower:  thisPatient.health_data["blood glucose level"].lower,
+                    upper: thisPatient.health_data["blood glucose level"].upper
+                }, 
+                "insulin" : {
+                    lower:  thisPatient.health_data["insulin take"].lower,
+                    upper: thisPatient.health_data["insulin take"].upper
+                },
+                "weight": {
+                    lower:  thisPatient.health_data["weight"].lower,
+                    upper: thisPatient.health_data["weight"].upper
+                },
+                "exercise": {
+                    lower:  thisPatient.health_data["exercise"].lower,
+                    upper: thisPatient.health_data["exercise"].upper
+                }
+            }
             let dateDict = {}
             healthDatas.forEach(
                 (data) => {
@@ -217,7 +234,8 @@ const clinicianViewData = async (req, res) => {
                     
                     try{
                         
-                        dateDict[data.time.toLocaleDateString()][key] = data.value
+                        dateDict[data.time.toLocaleDateString()][key] = {value:data.value, upper:thresholdDict[key].upper, lower: thresholdDict[key].lower}
+                
                     }catch(err)
                     {
                         dateDict[data.time.toLocaleDateString()] = {
@@ -226,7 +244,8 @@ const clinicianViewData = async (req, res) => {
                             "insulin": "x",
                             "exercise": "x"
                         }
-                        dateDict[data.time.toLocaleDateString()][key] = data.value
+                        dateDict[data.time.toLocaleDateString()][key] = {value:data.value, upper:thresholdDict[key].upper, lower: thresholdDict[key].lower}
+                
                     }
                 }
             )
@@ -235,9 +254,13 @@ const clinicianViewData = async (req, res) => {
                 let healthData = {date, ...dateDict[date]}
                 array.push(healthData)
             }
-            console.log(array);
+            console.log(date);
             res.render("B_viewData", {
-                date: array, user: clinician, patient: thisPatient, logIn: true, home: "/clinician/dashboard"
+                date: array, 
+                user: clinician,
+                patient: thisPatient,
+                logIn: true, 
+                home: "/clinician/dashboard"
             })
         } else {
             res.status(404).render('error', 
@@ -428,7 +451,7 @@ const renderPatientProfile = async (req, res) => {
     if(patient){
         let today = new Date()
         // calculate the patient engagement rate.
-        let totalDay =  Math.floor((today - patient.created)/ 86400000)
+        let totalDay =  Math.floor((today - patient.created)/ 86400000) + 1
         let engagement = await patientController.findActiveDays(patient._id) / totalDay * 1.0
         let engagementStr = `${engagement.toFixed(2)}%`
 

@@ -21,14 +21,14 @@
             </section>
 
             <section class="blueButton">
-                <p><a class="fontWhiteBold" href="/patient/editProfile">Edit Profile {{engagement}}</a></p>
+                <p><a class="fontWhiteBold" href="/patient/editProfile">Edit Profile</a></p>
             </section>
         </section>
 
         <section id="badges">
             <section id="badgesContent">
                 <p class="fontWhiteBold">Badges</p>
-                <img src="/trophygif.gif" alt="badge image">
+                <img src= {{#if engagement}}"/trophygif.gif" {{else}} "/tickbox.png"{{/if}} alt="badge image">
             </section>
         </section>
 
