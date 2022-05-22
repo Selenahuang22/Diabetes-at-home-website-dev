@@ -2,18 +2,18 @@
 
     <section id="loginLeft">
         <h1 class="fontBlueNormal">Log In To Your Account</h1>
-        <form action="" method="POST">
-            <input type="text" placeholder="UserID or Email Address" name="userid" />
+        <form action="/auth/login" method="POST">
+            <input type="text" placeholder="UserID or Email Address" name="username" />
             <input type="password" placeholder="Password" name="password" />
             <input type="submit" class="fontWhiteBold" value="Sign In" />
         </form>
-        <p>By signing in, you are agreeing to our <br><a href="">Terms of Use</a> and our <a href="">Privacy Prolicy</a></p>
     </section>
 
     <section id="loginRight">
         <h1 class="fontBlueNormal">Create An Account</h1>
         <div id="createAccount">
-            <a class="fontWhiteBold" href="/clinicianSignUp">As Clinician</a>
+            <a class="fontWhiteBold" href="/auth/register/clinician">As Clinician</a>
         </div>
+        <p id="noteContent" class="fontRed">##Note only clinician can create new account!! <br>Don't create a new account if you are a patient.</p>
     </section>
 </section>

@@ -21,7 +21,7 @@
             </section>
 
             <section class="blueButton">
-                <p><a class="fontWhiteBold" href="/editProfile">Edit Profile</a></p>
+                <p><a class="fontWhiteBold" href="/patient/editProfile">Edit Profile</a></p>
             </section>
         </section>
 
@@ -38,7 +38,7 @@
                 <section id="recentMessageHeadTitle"><h3>Clinician Message:</h3></section>
             </section>
             <section id="recentMessageContent">
-                <p class="fontRed">Sunny day! Nice weather! Let's start this wonderful day by breathing in some fresh air!</p>
+                <p class="fontRed">{{thispatient.support_message}}</p>
             </section>
         </section>
     </section>
@@ -52,44 +52,45 @@
 
             <section id="tableHead">
                 <div id="today"><p>Today</p></div>
-                <div id="recordData"><a href="/patient/{{thispatient._id}}/record"><p>Record Data</p></a></div>
-                <div id="viewAll"><a href="/viewData"><p>View All</p></a></div>
+                <div id="recordData"><a href="/patient/record"><p>Record Data</p></a></div>
+                <div id="viewAll"><a href="viewData"><p>View All</p></a></div>
             </section>
             
             <table id="onePatTodayTable">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Blood Glucose Level<br>
-                            (in mmol/L)</th>
-                        <th>Weight (in kg)</th>
-                        <th>Number of Insulin
-                            Doses Taken</th>
-                        <th>Exercises
-                            (step count)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="fontBlueNormal">
-                            {{time}};
-                        </td>
-                        {{#if thispatient.latest_log.length}}
-                            {{#each thispatient.latest_log}}
-                                <td {{#if (is_bgl_in_dangRange this.value)}}class="fontRed"{{/if}} >{{#if (is_blood_glucose this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                                <td>{{#if (is_insulin_take this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                                <td>{{#if (is_weight this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                                <td>{{#if (is_exercises this.name)}}{{this.value}}{{else}}-{{/if}}</td>
-                            {{/each}}
-                        {{else}}
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        {{/if}}
-                    </tr>
-                </tbody>
+                <tr>
+                    <th>Date</th>
+                    <th>Blood Glucose Level<br>
+                        (in mmol/L)</th>
+                    <th>Weight (in kg)</th>
+                    <th>Number of Insulin
+                        Doses Taken</th>
+                    <th>Exercises
+                        (step count)</th>
+                </tr> 
+                <tr>
+                    <td class="fontBlueNormal">
+                        {{time}};
+                    </td>
+                    <td {{#if (is_require_in_dangRange thispatient.bgl)}} class="fontRedBold" {{else}} class="fontBlueNormal" {{/if}}>
+                        {{thispatient.bgl.value}}
+                    </td>
+                    <td {{#if (is_require_in_dangRange thispatient.weight)}} class="fontRedBold" {{else}} class="fontBlueNormal" {{/if}}>
+                        {{thispatient.weight.value}}
+                    </td>
+                    <td {{#if (is_require_in_dangRange thispatient.insulin)}} class="fontRedBold" {{else}} class="fontBlueNormal" {{/if}}>
+                        {{thispatient.insulin.value}}
+                    </td>
+                    <td {{#if (is_require_in_dangRange thispatient.exercise)}} class="fontRedBold" {{else}} class="fontBlueNormal" {{/if}}>
+                        {{thispatient.exercise.value}}
+                </tr>
             </table>
+
+            <section id="tableNote">
+                <p>Note:<br>
+                <tag class="fontRed">x</tag> means this data entry is required for this patient, but he/she hasn't entered yet.<br>
+                <tag class="fontBlueNormal">x</tag> means this data entry is not required for this patient.
+                </p>
+            </section>
         </section>
 
     </section>
@@ -140,7 +141,7 @@
         <h1 id="directHeader" class="fontBlue">Get Accessed To</h1>
 
         <section id="webDetailButtonHolder">
-            <a id="button1" class="reDirectButtonA" href="/viewData"><section class="Jbot">
+            <a id="button1" class="reDirectButtonA" href="viewData"><section class="Jbot">
                 <div class="Jimg"><img src="/dashboard&viewdataicon.jpg" alt="view data"></div>
                 <div class="ButtonAText"><p>View All Data</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
@@ -150,7 +151,7 @@
                 <div class="ButtonAText"><p>Record Data</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
-            <a id="button3" class="reDirectButtonA" href="/editProfile"><section class="Jbot">
+            <a id="button3" class="reDirectButtonA" href="editProfile"><section class="Jbot">
                 <div class="Jimg"><img src="/editprofileicon.png" alt="edit profile"></div>
                 <div class="ButtonAText"><p>Edit Profile</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>

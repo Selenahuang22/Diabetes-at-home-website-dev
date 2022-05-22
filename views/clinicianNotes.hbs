@@ -1,148 +1,32 @@
 <section id="cNotes">
 
     <section id="directP">
-        <h2><a href="/home" class="fontBlueNormal">Home</a> > <a href="" class="fontBlueNormal">Clinician Notes</a></h2>
+        <h2><a href="/clinician/profile" class="fontBlueNormal">Home</a> > <a href="" class="fontBlueNormal">Clinician Notes</a></h2>
     </section>
     
-    <section id="allMessages">
+   <section id="allMessages">
         <table id="oneMessageSearch">
             <tr>
                 <th>
-                    <p class="fontWhiteNormal">Patient List</p>
+                    Patient's Name
+                </th>
+                <th>
+                    Note Content
+                </th>
+                <th>
+                    Time
                 </th>
             </tr> 
         </table>
-        
-        <section id="twoMessageTable">
-            <table id="sectionA">
-                <tr>
-                    <td>
-                        <button>
-                            <section class="pInfo">
-                                <img src="/patienticon.png" alt="default patient img">
-                                <p class="fontWhiteBold">Pat Health</p>
-                            </section>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button>
-                            <section class="pInfo">
-                                <img src="/patienticon.png" alt="default patient img">
-                                <p class="fontWhiteBold">Selena Huang</p>
-                            </section>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button>
-                            <section class="pInfo">
-                                <img src="/patienticon.png" alt="default patient img">
-                                <p class="fontWhiteBold">Test 2</p>
-                            </section>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button>
-                            <section class="pInfo">
-                                <img src="/patienticon.png" alt="default patient img">
-                                <p class="fontWhiteBold">Test3</p>
-                            </section>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button>
-                            <section class="pInfo">
-                                <img src="/patienticon.png" alt="default patient img">
-                                <p class="fontWhiteBold">Test4</p>
-                            </section>
-                        </button>
-                    </td>
-                </tr>
-            </table>
-
-            <table id="sectionB">
-                <tr>
-                    <td>
-                        <section id="startEnd">
-                            <p id="rEnd" class="fontBlueNormal">17/04/2022</p> 
-                            <p id="lStart">Oops, I think I have increasingly gained too much weight lately</p>
-                        </section>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <section id="startEnd">
-                            <p id="rEnd" class="fontBlueNormal">17/04/2022</p> 
-                            <p id="lStart">Oops, I think I have increasingly gained too much weight lately</p>
-                        </section>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <section id="startEnd">
-                            <p id="rEnd" class="fontBlueNormal">17/04/2022</p> 
-                            <p id="lStart">Oops, I think I have increasingly gained too much weight lately</p>
-                        </section>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <section id="startEnd">
-                            <p id="rEnd" class="fontBlueNormal">17/04/2022</p> 
-                            <p id="lStart">Oops, I think I hOops, I think I Oops, I think I have increasingly gained too much weight latelyhave increasingly gained too much weight latelyOops, I think I have increasingly gained too much weight latelyave increasingly gained too much weight lately</p>
-                        </section>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <section id="startEnd">
-                            <p id="rEnd" class="fontBlueNormal">17/04/2022</p> 
-                            <p id="lStart">Oops, Ingly gaineOops, I think I have increasingly gained too much weight latelyd too much weight latelyOops, I think I have increasingly gained too much weight lately</p>
-                        </section>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <section id="startEnd">
-                            <p id="rEnd" class="fontBlueNormal">17/04/2022</p> 
-                            <p id="lStart">Oops, Ioo much weight latelyed too much weight lately</p>
-                        </section>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <section id="startEnd">
-                            <p id="rEnd" class="fontBlueNormal">17/04/2022</p> 
-                            <p id="lStart">Oops, I think Oops, I think I have increasingly gained too much weight latelyI have increasingly gained too much weight lately</p>
-                        </section>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <section id="startEnd">
-                            <p id="rEnd" class="fontBlueNormal">17/04/2022</p> 
-                            <p id="lStart">Oops, I think I hOops, I think I Oops, I think I have increasingly gained too much weight latelyhave increasingly gained too much weight latelyOops, I think I have increasingly gained too much weight latelyave increasingly gained too much weight lately</p>
-                        </section>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <section id="startEnd">
-                            <p id="rEnd" class="fontBlueNormal">17/04/2022</p> 
-                            <p id="lStart">Oops, I think Oops, I think I have increasingly gained too much weight latelyI have increasingly gained too much weight lately</p>
-                        </section>
-                    </td>
-                </tr>
-            </table>
-            
-        </section>
+        <table id="oneMessageTable">     
+            {{#each allNotes}}  
+            <tr>
+                <td><p>{{this.name}}</p></td> 
+                <td><p>{{this.content}}</p></td>
+                <td><p>{{this.time}}</p></td>
+            </tr> 
+            {{/each}}       
+        </table>
     </section>
 
     <section id="directSection">
@@ -155,12 +39,12 @@
                 <div class="ButtonAText"><p>Dashboard</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
-            <a id="button2" class="reDirectButtonA" href="/patientComments"><section class="Jbot">
+            <a id="button2" class="reDirectButtonA" href="patientComments"><section class="Jbot">
                 <div class="Jimg"><img src="/patientcommentsicon.png" alt="patient comments"></div>
                 <div class="ButtonAText"><p>Patient Comments</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
-            <a id="button3" class="reDirectButtonA" href="/home"><section class="Jbot">
+            <a id="button3" class="reDirectButtonA" href="profile"><section class="Jbot">
                 <div class="Jimg"><img src="/editprofileicon.png" alt="edit profile"></div>
                 <div class="ButtonAText"><p>Clinician Profile</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>

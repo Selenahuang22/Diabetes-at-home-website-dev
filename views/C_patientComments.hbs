@@ -3,63 +3,25 @@
 
     <!-- clinician personal information section-->
     <section id="directP">
-        <h2><a href="/clinicianProfile" class="fontBlueNormal">Profile</a> > <a href="" class="fontBlueNormal">Patient Comments</a></h2>
+        <h2><a href="profile" class="fontBlueNormal">Profile</a> > <a href="" class="fontBlueNormal">Patient Comments</a></h2>
     </section>
 
     <section id="allMessages">
         <table id="oneMessageSearch">
             <tr>
                 <th>
-                    All Comments
+                    Recent Comments
                 </th>
             </tr> 
         </table>
-        <table id="oneMessageTable">                
+        <table id="oneMessageTable">     
+            {{#each comments}}    
             <tr>
-                <td><a class="fontRed" href="">Vicky Hamilton</a></td>
-                <td><p class="fontRed">Weight: 76.2<br>Oops, I think I have increasingly gained too much weight lately</p></td>
-                <td><p class="supmessageTime">10:00 AM</p></td>
-            </tr>
-            <tr>
-                <td><a class="fontBlueNormal" href="">Austin Hunter</a></td>
-                <td><p>Blood Glucose Level: 8.4<br>Still quite high I guess</p></td>
-                <td><p class="supmessageTime">9:55 AM</p></td>
-            </tr>
-            <tr>
-                <td><a class="fontBlueNormal" href="">Norma Shaffer</a></td>
-                <td><p href="">Weight: 78.4<br>Getting there, getting there</p></td>
-                <td><p class="supmessageTime">9:20 AM</p></td>
-            </tr>
-            <tr>
-                <td><a class="fontRed" href="">Vicky Hamilton</a></td>
-                <td><p class="fontRed">Weight: 76.2<br>Oops, I think I have increasingly gained too much weight lately</p></td>
-                <td><p class="supmessageTime">10:00 AM</p></td>
-            </tr>
-            <tr>
-                <td><a class="fontBlueNormal" href="">Austin Hunter</a></td>
-                <td><p>Blood Glucose Level: 8.4<br>Still quite high I guess</p></td>
-                <td><p class="supmessageTime">9:55 AM</p></td>
-            </tr>
-            <tr>
-                <td><a class="fontBlueNormal" href="">Norma Shaffer</a></td>
-                <td><p href="">Weight: 78.4<br>Getting there, getting there</p></td>
-                <td><p class="supmessageTime">9:20 AM</p></td>
-            </tr>
-            <tr>
-                <td><a class="fontRed" href="">Vicky Hamilton</a></td>
-                <td><p class="fontRed">Weight: 76.2<br>Oops, I think I have increasingly gained too much weight lately</p></td>
-                <td><p class="supmessageTime">10:00 AM</p></td>
-            </tr>
-            <tr>
-                <td><a class="fontBlueNormal" href="">Austin Hunter</a></td>
-                <td><p>Blood Glucose Level: 8.4<br>Still quite high I guess</p></td>
-                <td><p class="supmessageTime">9:55 AM</p></td>
-            </tr>
-            <tr>
-                <td><a class="fontBlueNormal" href="">Norma Shaffer</a></td>
-                <td><p href="">Weight: 78.4<br>Getting there, getting there</p></td>
-                <td><p class="supmessageTime">9:20 AM</p></td>
-            </tr>
+                <td><a class= {{#if (is_in_dangRange this)}}"fontRed"{{else}}"fontBlueNormal"{{/if}} href="patient/{{this.owner}}">{{this.name}}</a></td>
+                <td><a class= {{#if (is_in_dangRange this)}}"fontRed"{{else}}"fontBlueNormal"{{/if}} href="patient/{{this.owner}}">{{this.data_name}} : {{this.value}}<br>{{this.comment}}</p></td>
+                <td><p class="supmessageTime">{{this.time}}</p></td>
+            </tr>               
+            {{/each}}       
         </table>
     </section>
 
@@ -74,12 +36,12 @@
                 <div class="ButtonAText"><p>Dashboard</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
-            <a id="button2" class="reDirectButtonA" href="/clinicianNotes"><section class="Jbot">
+            <a id="button2" class="reDirectButtonA" href="clinicalNotes"><section class="Jbot">
                 <div class="Jimg"><img src="/contactsicon.png" alt="clinician notes"></div>
                 <div class="ButtonAText"><p>Clinician Notes</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>
             </section></a>
-            <a id="button3" class="reDirectButtonA" href="/clinicianProfile"><section class="Jbot">
+            <a id="button3" class="reDirectButtonA" href="patientRegister"><section class="Jbot">
                 <div class="Jimg"><img src="/clinicalnotes&recorddataicon.png" alt="patient register"></div>
                 <div class="ButtonAText"><p>Patient Register</p></div>
                 <div class="Jarr"><img src="/bluecirclearrow.png" alt="right arrow"></div>

@@ -1,8 +1,8 @@
 <section id="psignUp">
-
     <section id="psignUpLeft">
-        <h1 class="fontBlue">Register Your Patient</h1>
-        <form action="" method="POST">
+        
+        <form class="form" action="registerPatient" method="POST">
+            <div><h1 class="fontBlue">Register Your Patient</h1>
             <b>First Name<tag class="fontRed">*</tag></b><input type="text" placeholder="e.g. John" name="first_name" required />
             <b>Last Name<tag class="fontRed">*</tag></b><input type="text" placeholder="e.g. Smith" name="last_name" required />
             <b>Date of Birth<tag class="fontRed">*</tag></b><input type="text" placeholder="e.g. DD/MM/YYYY" name="DOB" required />
@@ -12,20 +12,15 @@
             <p>*Password must contain at least <tag class="fontRed"> 8 characters </tag> long including:</p>
             <p>-At least <tag class="fontRed"> one </tag> number</p>
             <p>-At least <tag class="fontRed"> one </tag> upper case</p>
-            <p>-At least <tag class="fontRed"> one </tag> lower case</p>
-            <input type="submit" class="fontWhiteBold" value="Save" />
-        </form>
-    </section>
-
-    <section id="psignUpRight">
-        <h1 id="signUpRightTitle">Health Data Entry</h1>
-        <form id="registerDataEntry" action="" method="POST">
+            <p>-At least <tag class="fontRed"> one </tag> lower case</p></div>
+        
+            <div id="registDataEntry"><h1 id="signUpRightTitle">Health Data Entry</h1>       
             <b>Select Required Health Data<tag class="fontRed"><br>(At Least One*)</tag></b><br>
-            <input type="checkbox" name="health_data[]" value="blood_glucose_level"> Blood Glucose Level<br>
+            <input type="checkbox" name="health_data[]" value="blood glucose level"> Blood Glucose Level<br>
             <input type="checkbox" name="health_data[]" value="weight"> Weight<br>
-            <input type="checkbox" name="health_data[]" value="insulin_taken"> Doses of Insulin Taken<br>
-            <input type="checkbox" name="health_data[]" value="exercises"> Exercises<br>
-            <input type="submit" class="fontWhiteBold" value="Register" />
+            <input type="checkbox" name="health_data[]" value="insulin take"> Doses of Insulin Taken<br>
+            <input type="checkbox" name="health_data[]" value="exercise"> Exercises<br>
+            <input type="submit" class="fontWhiteBold" value="Register" /></div>
         </form>
     </section>
     

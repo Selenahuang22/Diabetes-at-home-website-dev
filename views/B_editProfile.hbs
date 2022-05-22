@@ -1,19 +1,19 @@
 <section id="editProfile">
     <section id="directP">
-        <h2><a href="javascript:history.go(-1);" class="fontBlueNormal">Back</a> > <a href="" class="fontBlueNormal">Edit Profile</a></h2>
+        <h2><a href={{home}} class="fontBlueNormal">Home</a> > <a href="" class="fontBlueNormal">Edit Profile</a></h2>
     </section>
 
     <section id="editProfileContent">
         <section id="editProfileContentRight">
             <section id="editForm1">
                 <h1>Account Setting</h1>
-                <form class="form" action="/patient/{{id}}/editProfile" method="POST">
+                <form class="form" action="/{{userType}}/{{id}}/editProfile" method="POST">
                     <div><b>First Name<tag class="fontRed">*</tag></b><input type="text" value={{user.first_name}} name="first_name" />
                     <b>Username(Screen Name)<tag class="fontRed">*</tag></b><input type="text" value={{user.user_name}} name="user_name" />
                     <b>Biography<tag class="fontRed">*</tag></b><textarea name="biography"></textarea></div>                    
                     <div><b>Last Name<tag class="fontRed">*</tag></b><input type="text" value={{user.last_name}} name="last_name" />
                     <b>Date of Birth<tag class="fontRed">*</tag></b><input type="text" value={{user.DOB}} name="DOB" />
-                    <b>Password<tag class="fontRed">*</tag></b><input type="text" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="must contain at least one number and one uppercase and lowercase letter, and be at least 8 characters" value={{user.password}} />
+                    <b>Password<tag class="fontRed">*</tag></b><input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="must contain at least one number and one uppercase and lowercase letter, and be at least 8 characters" value={{user.password}} />
                     <p>*Password must contain at least <tag class="fontRed"> 8 characters </tag> long including:</p>
                     <p>-At least <tag class="fontRed"> one </tag> number</p>
                     <p>-At least <tag class="fontRed"> one </tag> upper case</p>
