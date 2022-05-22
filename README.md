@@ -3,8 +3,9 @@
 First install express, express-handlebars, mongoose, dotenv..
 
 static pages:
-about website: 
-
+about website:
+http://localhost:3000/
+https://diabetic-at-home.herokuapp.com/
 diabetes information: 
 
 
