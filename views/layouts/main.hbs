@@ -24,12 +24,46 @@
         <!-- right -->
         <section id="logout">
             <!-- if login -->
-            <a href="/home"><img src="/baseline_account_circle_black_24dp.png" alt="account img"></a>
-            <a href="/home"><h2 class="fontBlue">Pat Health</h2></a>
-            <form id="logoutButton" action="/logout" method="post">
+            <a href={{home}} ><img  src="/baseline_account_circle_black_24dp.png" alt="account img"></a>
+            <h2> <a href={{home}}  class="fontBlue" >{{user.first_name}} {{user.last_name}} </a> </h2>
+            {{#if logIn}}
+            <form id="logoutButton" action="/auth/logout" method="post">
                 <button class="fontBlue" type="submit">Log Out</button>
             </form>
+            {{/if}}
         </section>
+
+        <section id="ay">
+            <button id="olday"> <p>Scheme</p> </button>
+            <button id="a11y"> <p>A11Y</p> </button>
+        </section>
+        <script>
+            let user = "[[${user}]]";
+            console.log(user.first_name)
+            var root = document.querySelector(':root');
+            var ay = document.querySelector("#olday");
+            ay.addEventListener("click", function() {
+                document.documentElement.style.setProperty("--c-color-b0", "#578ad6");
+                document.documentElement.style.setProperty("--c-color-b1", "#5f8acb");
+                document.documentElement.style.setProperty("--c-color-b2", "#9ab7e2");
+                document.documentElement.style.setProperty("--c-color-b3", "#deebf5");
+                document.documentElement.style.setProperty("--c-color-red", "red");
+                document.documentElement.style.setProperty("---c-color-green", "green");
+                document.documentElement.style.setProperty("--c-color-orange", "orange");
+            });
+            var a11y = document.querySelector("#a11y");
+            a11y.addEventListener("click", function() {
+                //save seeting in db
+                //then if use this for every page
+                document.documentElement.style.setProperty("--c-color-b0", "#222222");
+                document.documentElement.style.setProperty("--c-color-b1", "#00260f");
+                document.documentElement.style.setProperty("--c-color-b2", "#3F7257");
+                document.documentElement.style.setProperty("--c-color-b3", "#687a71");
+                document.documentElement.style.setProperty("--c-color-red", "#D148D4");
+                document.documentElement.style.setProperty("---c-color-green", "#E9CEE1");
+                document.documentElement.style.setProperty("--c-color-orange", "#C49E1F");
+            });
+        </script>
     </header>
 
     <main> 
