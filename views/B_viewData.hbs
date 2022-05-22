@@ -19,11 +19,13 @@
             </table>
             <table id="tableScroll">      
                 {{#each date}}
-                    <td class="fontBlueNormal">{{this.date}}</td>
-                    <td>{{this.bgl}}</td>
-                    <td class="fontBlueNormal">{{this.weight}}</td>
-                    <td>{{this.insulin}}</td>
-                    <td class="fontBlueNormal">{{this.exercise}}</td>           
+                    <tr>
+                        <td class="fontBlueNormal">{{this.date}}</td>
+                        <td>{{this.bgl}}</td>
+                        <td class="fontBlueNormal">{{this.weight}}</td>
+                        <td>{{this.insulin}}</td>
+                        <td class="fontBlueNormal">{{this.exercise}}</td>
+                    </tr>      
                 {{/each}}
 
             </table>
