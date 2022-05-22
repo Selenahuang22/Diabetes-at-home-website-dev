@@ -39,9 +39,7 @@
                 </select>
             </form>
 
-            <section id="chart">
-
-            </section>
+            <section id="chart"></section>
         </section>
         
     </section>
@@ -58,17 +56,24 @@
     var rows = tab.rows;
 
     for(var i = 0; i < rows.length; i++){
-        time.push(rows[i].cells[0].innerHTML);
-        if (output === "Blood") {
+        if (output === "Blood" && ~(rows[i].cells[1].innerHTML === '-')) {
+            time.push(rows[i].cells[0].innerHTML);
             mydata.push(rows[i].cells[1].innerHTML);
-        } else if (output === "Weight"){
+        } else if (output === "Weight" && ~(rows[i].cells[2].innerHTML === '-')){
+            time.push(rows[i].cells[0].innerHTML);
             mydata.push(rows[i].cells[2].innerHTML);
-        } else if (output === "Number"){
+        } else if (output === "Number" && ~(rows[i].cells[3].innerHTML === '-')){
+            time.push(rows[i].cells[0].innerHTML);
             mydata.push(rows[i].cells[3].innerHTML);
-        } else {
+        } else if (output === "Exercise" && ~(rows[i].cells[4].innerHTML === '-')) {
+            time.push(rows[i].cells[0].innerHTML);
             mydata.push(rows[i].cells[4].innerHTML);
         }
     }
+    console.log(rows);
+
+    console.log(time);
+    console.log(mydata);
     
     var myChart = echarts.init(document.getElementById('chart'));
     var option = {
@@ -90,7 +95,7 @@
             {
                 name: "data",
                 type: "line",
-                data: mydata;
+                data: mydata,
                 //data: [5, 20, 36, 10, 10, 20,5, 20, 36, 10, 10, 20,5, 20, 36, 10, 10, 20],
             }
         ],

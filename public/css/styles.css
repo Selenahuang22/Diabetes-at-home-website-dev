@@ -1982,6 +1982,7 @@ footer img:hover {
     grid-area: graphSelect;
     justify-content: left;
     justify-items: left;
+    margin-bottom: calc(var(--bigger-vertical-gap) * 1px);
 }
 
 #graphSelect select {
@@ -1989,6 +1990,10 @@ footer img:hover {
     color: var(--c-color-b0);
     background: var(--c-color-white);
     width: 20%;
+}
+
+#backgroundColor #tableScroll {
+    border: 2px solid var(--c-color-b1);
 }
 
 /* part 4 --------------------------------------------------------- chart*/
