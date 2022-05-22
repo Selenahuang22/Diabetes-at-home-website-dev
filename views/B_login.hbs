@@ -2,6 +2,9 @@
 
     <section id="loginLeft">
         <h1 class="fontBlueNormal">Log In To Your Account</h1>
+        {{#each flash}}
+             <p class="fontRed"> {{this}} </p>
+        {{/each}}
         <form action="/auth/login" method="POST">
             <input type="text" placeholder="UserID or Email Address" name="username" />
             <input type="password" placeholder="Password" name="password" />
