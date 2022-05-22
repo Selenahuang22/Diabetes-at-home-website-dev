@@ -57,32 +57,38 @@
             </section>
             
             <table id="onePatTodayTable">
-                <tr>
-                    <th>Date</th>
-                    <th>Blood Glucose Level<br>
-                        (in mmol/L)</th>
-                    <th>Weight (in kg)</th>
-                    <th>Number of Insulin
-                        Doses Taken</th>
-                    <th>Exercises
-                        (step count)</th>
-                </tr> 
-                <tr>
-                    <td class="fontBlueNormal">
-                        {{time}};
-                    </td>
-                    <td {{#if (is_require_in_dangRange thispatient.bgl)}} class="fontRedBold" {{else}} class="fontBlueNormal" {{/if}}>
-                        {{thispatient.bgl.value}}
-                    </td>
-                    <td {{#if (is_require_in_dangRange thispatient.weight)}} class="fontRedBold" {{else}} class="fontBlueNormal" {{/if}}>
-                        {{thispatient.weight.value}}
-                    </td>
-                    <td {{#if (is_require_in_dangRange thispatient.insulin)}} class="fontRedBold" {{else}} class="fontBlueNormal" {{/if}}>
-                        {{thispatient.insulin.value}}
-                    </td>
-                    <td {{#if (is_require_in_dangRange thispatient.exercise)}} class="fontRedBold" {{else}} class="fontBlueNormal" {{/if}}>
-                        {{thispatient.exercise.value}}
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Blood Glucose Level<br>
+                            (in mmol/L)</th>
+                        <th>Weight (in kg)</th>
+                        <th>Number of Insulin
+                            Doses Taken</th>
+                        <th>Exercises
+                            (step count)</th>
+                    </tr> 
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fontBlueNormal">
+                            {{time}};
+                        </td>
+                        <td {{#if (is_require_in_dangRange thispatient.bgl)}} class="fontRedBold" {{else}} class="fontBlueNormal" {{/if}}>
+                            {{thispatient.bgl.value}}
+                        </td>
+                        <td {{#if (is_require_in_dangRange thispatient.weight)}} class="fontRedBold" {{else}} class="fontBlueNormal" {{/if}}>
+                            {{thispatient.weight.value}}
+                        </td>
+                        <td {{#if (is_require_in_dangRange thispatient.insulin)}} class="fontRedBold" {{else}} class="fontBlueNormal" {{/if}}>
+                            {{thispatient.insulin.value}}
+                        </td>
+                        <td {{#if (is_require_in_dangRange thispatient.exercise)}} class="fontRedBold" {{else}} class="fontBlueNormal" {{/if}}>
+                            {{thispatient.exercise.value}}
+                        </td>
+                    </tr>
+                </tbody>
+                
             </table>
 
             <section id="tableNote">
