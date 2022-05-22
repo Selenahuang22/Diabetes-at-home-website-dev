@@ -19,10 +19,12 @@
             </tr> 
         </table>
         <table id="oneMessageTable">     
-            {{#each allNotes}}   
+            {{#each allNotes}}  
+            <tr>
                 <td><p>{{this.name}}</p></td> 
                 <td><p>{{this.content}}</p></td>
                 <td><p>{{this.time}}</p></td>
+            </tr> 
             {{/each}}       
         </table>
     </section>

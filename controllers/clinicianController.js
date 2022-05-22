@@ -221,10 +221,10 @@ const clinicianViewData = async (req, res) => {
                     }catch(err)
                     {
                         dateDict[data.time.toLocaleDateString()] = {
-                            "bgl": "-",
-                            "weight": "-",
-                            "insulin": "-",
-                            "exercise": "-"
+                            "bgl": "x",
+                            "weight": "x",
+                            "insulin": "x",
+                            "exercise": "x"
                         }
                         dateDict[data.time.toLocaleDateString()][key] = data.value
                     }

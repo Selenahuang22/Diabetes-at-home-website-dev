@@ -16,9 +16,11 @@
         </table>
         <table id="oneMessageTable">     
             {{#each comments}}    
+            <tr>
                 <td><a class= {{#if (is_in_dangRange this)}}"fontRed"{{else}}"fontBlueNormal"{{/if}} href="patient/{{this.owner}}">{{this.name}}</a></td>
                 <td><a class= {{#if (is_in_dangRange this)}}"fontRed"{{else}}"fontBlueNormal"{{/if}} href="patient/{{this.owner}}">{{this.data_name}} : {{this.value}}<br>{{this.comment}}</p></td>
                 <td><p class="supmessageTime">{{this.time}}</p></td>
+            </tr>               
             {{/each}}       
         </table>
     </section>

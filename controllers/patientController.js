@@ -96,7 +96,6 @@ const patientViewData = async (req, res) => {
             let healthData = {date, ...dateDict[date]}
             array.push(healthData)
         }
-        console.log(array);
         res.render("B_viewData", {
             date: array, user: thisPatient, patient: thisPatient, logIn:true,
             home:"/patient/home"

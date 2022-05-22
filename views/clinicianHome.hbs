@@ -25,7 +25,8 @@
             <table id="tableScroll">
                 <!-- Patients from the database -->
                 {{#each patient}}
-                    <td > <a class="fontBlueNormal" href="patient/{{this.id}}" > {{this.name}} </a></td>
+                <tr>
+                    <td> <a class="fontBlueNormal" href="patient/{{this.id}}" > {{this.name}} </a></td>
                     <td {{#if (is_require_in_dangRange this.bgl)}} class="fontRedBold" {{else}} class="fontBlueNormal" {{/if}}>
                         {{this.bgl.value}}
                     </td>
@@ -38,6 +39,7 @@
                     <td {{#if (is_require_in_dangRange this.exercise)}} class="fontRedBold" {{else}} class="fontBlueNormal" {{/if}}>
                         {{this.exercise.value}}
                     </td>
+                </tr>
                 {{/each}}
             </table>
 

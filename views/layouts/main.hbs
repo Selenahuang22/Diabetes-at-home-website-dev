@@ -32,6 +32,38 @@
             </form>
             {{/if}}
         </section>
+
+        <section id="ay">
+            <button id="olday"> <p>Scheme</p> </button>
+            <button id="a11y"> <p>A11Y</p> </button>
+        </section>
+        <script>
+            let user = "[[${user}]]";
+            console.log(user.first_name)
+            var root = document.querySelector(':root');
+            var ay = document.querySelector("#olday");
+            ay.addEventListener("click", function() {
+                document.documentElement.style.setProperty("--c-color-b0", "#578ad6");
+                document.documentElement.style.setProperty("--c-color-b1", "#5f8acb");
+                document.documentElement.style.setProperty("--c-color-b2", "#9ab7e2");
+                document.documentElement.style.setProperty("--c-color-b3", "#deebf5");
+                document.documentElement.style.setProperty("--c-color-red", "red");
+                document.documentElement.style.setProperty("---c-color-green", "green");
+                document.documentElement.style.setProperty("--c-color-orange", "orange");
+            });
+            var a11y = document.querySelector("#a11y");
+            a11y.addEventListener("click", function() {
+                //save seeting in db
+                //then if use this for every page
+                document.documentElement.style.setProperty("--c-color-b0", "#222222");
+                document.documentElement.style.setProperty("--c-color-b1", "#00260f");
+                document.documentElement.style.setProperty("--c-color-b2", "#3F7257");
+                document.documentElement.style.setProperty("--c-color-b3", "#687a71");
+                document.documentElement.style.setProperty("--c-color-red", "#D148D4");
+                document.documentElement.style.setProperty("---c-color-green", "#E9CEE1");
+                document.documentElement.style.setProperty("--c-color-orange", "#C49E1F");
+            });
+        </script>
     </header>
 
     <main> 
