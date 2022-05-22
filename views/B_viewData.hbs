@@ -43,54 +43,57 @@
 
             </section>
         </section>
-
-
-        <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
-        <script type="text/javascript">
-            output = document.getElementsByName("display")[0].value;
-            var time = new Array();
-            var mydata = new Array();
-            /*date.each(function () {
-                time.push(this.date);
-                if (output === "Blood") {
-                    mydata.push(this.bgl);
-                } else if (output === "Weight"){
-                    mydata.push(this.weight);
-                } else if (output === "Number"){
-                    mydata.push(this.insulin);
-                } else {
-                    mydata.push(this.exercise);
-                }
-            })*/
-            
-            var myChart = echarts.init(document.getElementById('chart'));
-            var option = {
-                dataZoom: {
-                    type: "slider", show: true, start: 0, end: 100,
-                },
-                xAxis: [
-                    {
-                        //data: time,
-                        data: ["2011.11.11","2011.11.21","2011.12.11","2012.11.11","2021.11.11","2022.11.11","2011.11.11","2011.11.21","2011.12.11","2012.11.11","2021.11.11","2022.11.11","2011.11.11","2011.11.21","2011.12.11","2012.11.11","2021.11.11","2022.11.11"],
-                    }
-                ],
-                yAxis: [
-                    {
-                        scale: true,
-                    }
-                ],
-                series: [
-                    {
-                        name: "data",
-                        type: "line",
-                        //data: mydata;
-                        data: [5, 20, 36, 10, 10, 20,5, 20, 36, 10, 10, 20,5, 20, 36, 10, 10, 20],
-                    }
-                ],
-            }
-            myChart.setOption(option);
-        </script>
         
     </section>
     
 </section>
+
+<script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+<script type="text/javascript">
+    output = document.getElementsByName("display")[0].value;
+    var time = new Array();
+    var mydata = new Array();
+
+    var tab = document.getElementById("tableScroll");
+    var rows = tab.rows;
+
+    for(var i = 0; i < rows.length; i++){
+        time.push(rows[i].cells[0].innerHTML);
+        if (output === "Blood") {
+            mydata.push(rows[i].cells[1].innerHTML);
+        } else if (output === "Weight"){
+            mydata.push(rows[i].cells[2].innerHTML);
+        } else if (output === "Number"){
+            mydata.push(rows[i].cells[3].innerHTML);
+        } else {
+            mydata.push(rows[i].cells[4].innerHTML);
+        }
+    }
+    
+    var myChart = echarts.init(document.getElementById('chart'));
+    var option = {
+        dataZoom: {
+            type: "slider", show: true, start: 0, end: 100,
+        },
+        xAxis: [
+            {
+                data: time,
+                //data: ["2011.11.11","2011.11.21","2011.12.11","2012.11.11","2021.11.11","2022.11.11","2011.11.11","2011.11.21","2011.12.11","2012.11.11","2021.11.11","2022.11.11","2011.11.11","2011.11.21","2011.12.11","2012.11.11","2021.11.11","2022.11.11"],
+            }
+        ],
+        yAxis: [
+            {
+                scale: true,
+            }
+        ],
+        series: [
+            {
+                name: "data",
+                type: "line",
+                data: mydata;
+                //data: [5, 20, 36, 10, 10, 20,5, 20, 36, 10, 10, 20,5, 20, 36, 10, 10, 20],
+            }
+        ],
+    }
+    myChart.setOption(option);
+</script>
