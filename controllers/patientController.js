@@ -192,7 +192,7 @@ const getOnePatientAndRender = async (req, res) => {
         // calculate the patient engagement rate.
         let totalDay =  Math.floor((today - patient.created)/ 86400000)
         let engagement = await findActiveDays(req.user._id) / totalDay * 1.0
-        engagement = `${engagement.toFixed(2)}%`
+        let engagementStr = `${engagement.toFixed(2)}%`
 
         // find the number of day
         
@@ -204,7 +204,8 @@ const getOnePatientAndRender = async (req, res) => {
             'user': patient,
             'logIn': true,
             'home':"/patient/home",
-            engagement: engagement
+            engagementStr: engagementStr,
+            engagement: (engagement >= 0.8)
         })
     } else {
         res.status(404).render('error', {errorCode: '404', message: 'Page is not accessible.', home:"/"})
