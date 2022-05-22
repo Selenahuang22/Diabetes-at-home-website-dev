@@ -430,7 +430,7 @@ const renderPatientProfile = async (req, res) => {
         // calculate the patient engagement rate.
         let totalDay =  Math.floor((today - patient.created)/ 86400000)
         let engagement = await patientController.findActiveDays(patient._id) / totalDay * 1.0
-        engagement = `${engagement.toFixed(2)}%`
+        let engagementStr = `${engagement.toFixed(2)}%`
 
         res.render("C_patientProfile",
             {
@@ -452,7 +452,8 @@ const renderPatientProfile = async (req, res) => {
                 insulin: patient.health_data["insulin take"].require,
                 exercise: patient.health_data["exercise"].require,
                 dashboard:"/clinician/dashboard",
-                engagement: engagement
+                engagementStr: engagementStr,
+                engagement: engagement.toFixed(2)
             }
         )
     }
