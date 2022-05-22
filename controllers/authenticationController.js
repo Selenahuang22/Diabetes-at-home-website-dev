@@ -2,6 +2,7 @@
 const Patient = require("../models/patient")
 const Clinician = require("../models/clinician")
 const authenticator = require("../util/authenticator")
+const { validationResult } = require("express-validator")
 // handling login route
 
 /**
@@ -45,27 +46,35 @@ const directLogin = async (req, res) => {
 
 const signClicianUp = async (req, res) => {
     // check if the credential is valid
-    if(authenticator.validate(req.body.user_name, req.body.password, req.body.email)){
-        
-        // hash the password then store it
-        return authenticator.generateHash(req.body, async (data, hash) => {
-            data.password = hash
-            let clinician = new Clinician(data)
-            try{
-                await clinician.save()
-                res.redirect('/clinician/dashboard')
-            }catch(err){
-                res.status(404).render('error', {errorCode: '404', message: err}) 
-            }
-            /**
-             * @todo: this will be switch to clinician home page when the route is complete
-             */
-            
-        })
+    
+    let errors = validationResult(req)
+    if(!errors.isEmpty() ){
+        console.log(errors);
+        return res.status(404).render('error', {errorCode: '404', message: 'Invalid input.'})
     }
-    else{
-        res.status(404).render('error', {errorCode: '404', message: 'Error occur when try to send Data.'})
-    } 
+    if(await Patient.findOne({user_name: req.body.user_name}).lean()
+        || await Clinician.findOne({user_name: req.body.user_name}).lean()
+        || await Patient.findOne({email: req.body.email}).lean()
+        || await Clinician.findOne({email: req.body.email}).lean()){
+
+        return res.status(404).render('error', {errorCode: '404', message: 'Userid exist.'})
+    }
+    
+    // hash the password then store it
+    return authenticator.generateHash(req.body, async (data, hash) => {
+        data.password = hash
+        let clinician = new Clinician(data)
+        try{
+            await clinician.save()
+            res.redirect('/clinician/dashboard')
+        }catch(err){
+            res.status(404).render('error', {errorCode: '404', message: err}) 
+        }
+
+            
+    })
+    
+    
 }
 
 const getLoginPage = async (req, res) => {

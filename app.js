@@ -7,16 +7,17 @@ app.use(express.static('public'))	// define where static assets live
 app.use(express.static(__dirname + '/images')); // static images
 
 const flash = require('express-flash')
-const session = require('cookie-session')
+const session = require('express-session')
 
 // Flash messages for failed logins, and (possibly) other success/error messages
 app.use(flash())
 app.use(
     session({
         // The secret used to sign session cookies (ADD ENV VAR)
-        secret:'keyboard cat',
+        secret: process.env.SESSION_SECRET ||'keyboard cat',
         name: 'test', // The cookie name (CHANGE THIS)
         saveUninitialized: false,
+        proxy: process.env.NODE_ENV === 'production', //  to work on Heroku
         resave: false,
         cookie: {
             sameSite: 'strict',
@@ -89,9 +90,9 @@ app.get('/diabetesInfo', async (req, res) => {
         user = req.user
         logIn = true
         if(await Patient.findById(req.user._id).lean()){
-            home = "http://localhost:3000/patient/home"
+            home = "/patient/home"
         } else{
-            home = "http://localhost:3000/clinician/profile"
+            home = "/clinician/profile"
         }
     }
 

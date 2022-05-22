@@ -27,57 +27,7 @@ const checkHash = async (password, hash, cb) => {
     })
 }
 
-const validatePass = async (password) => {
-    if(password.length < 8){
-        return false
-    }
-    
-    let foundNumber = false
-    let foundLowerCase = false
-    let foundUpperCase = false
-
-    for(letter of password){
-        if(!Number.isNaN(letter)){
-            foundNumber = true 
-        }
-
-        if(letter === letter.toUpperCase()){
-            foundUpperCase = true 
-        }
-
-        if(letter === letter.toLowerCase()){
-            foundLowerCase = true 
-        }
-
-    }
-    return foundNumber && foundLowerCase && foundUpperCase
-}
-
-const validate =  async (userName, password, email) => {
-    // check if all of the item are valid according to our conffig
-    for(letter of INVALID_CHARACTER){
-        if(userName.includes(letter)){
-            return false
-        }
-    }
-
-    // check if userName is unique
-    if(await Patient.findOne({user_name: userName})){
-        return false
-    }
-    if(await Clinician.findOne({user_name: userName})){
-        return false
-    }
-
-    // let just assume email is valid, normmally will have to send a validation token to the email
-    // then follow that link to verify email, but in this case, it is outside the scope of this project.
-    return validatePass(password)
-    
-}
-
 module.exports = {
     generateHash,
     checkHash,
-    validate, 
-    validatePass
 }

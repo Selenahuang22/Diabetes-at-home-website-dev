@@ -1,6 +1,7 @@
 const express = require('express')
 const passport = require('passport')
 const authController = require("../controllers/authenticationController")
+const {body, validationResult, check} = require("express-validator")
 
 const authRouter = express.Router()
 
@@ -23,9 +24,15 @@ authRouter.post("/login",
     (req, res) => authController.directLogin(req, res)
 )
 
-authRouter.post("/register/clinician", (req, res) => {
-    authController.signClicianUp(req, res)
-})
+authRouter.post("/register/clinician",
+    body("first_name", "cannot be empty").not().isEmpty().escape(),
+    body("last_name", "cannot be empty").not().isEmpty().escape(),
+    body("email", "must be an email address").isEmail().escape(),
+    body("password", "must be at least 10 characters long").isLength({min: 10}).escape(),
+    (req, res) => {
+        authController.signClicianUp(req, res)
+    }
+)
 authRouter.get("/register/clinician", (req, res) => {
     authController.getClinicianSignUpPage(req, res)
 })
