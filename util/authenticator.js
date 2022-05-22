@@ -1,9 +1,6 @@
 const bcrypt = require("bcrypt")
 const Patient = require("../models/patient")
 const Clinician = require("../models/clinician")
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
 
 const SALT_ROUND = 10
 const INVALID_CHARACTER = "!?*&$#~=+-[{}] ,.<>/\|@()"
