@@ -1,4 +1,4 @@
-<section id="patientData">
+ <section id="patientData">
 
     <!-- patient personal information section-->
     
@@ -22,10 +22,10 @@
                 {{#each date}}
                 <tr>
                     <td class="fontBlueNormal">{{this.date}}</td>
-                    <td>{{this.bgl}}</td>
-                    <td>{{this.weight}}</td>
-                    <td>{{this.insulin}}</td>
-                    <td>{{this.exercise}}</td>
+                    <td class= {{#if (is_in_dangRange_ver2 this.bgl)}}"fontRed"{{else}}"fontBlueNormal"{{/if}}>{{this.bgl.value}}</td>
+                    <td class= {{#if (is_in_dangRange_ver2 this.weight)}}"fontRed"{{else}}"fontBlueNormal"{{/if}}>{{this.weight.value}}</td>
+                    <td class= {{#if (is_in_dangRange_ver2 this.insulin)}}"fontRed"{{else}}"fontBlueNormal"{{/if}}>{{this.insulin.value}}</td>
+                    <td class= {{#if (is_in_dangRange_ver2 this.exercise)}}"fontRed"{{else}}"fontBlueNormal"{{/if}}>{{this.exercise.value}}</td>
                 </tr>
                                
                 {{/each}}          

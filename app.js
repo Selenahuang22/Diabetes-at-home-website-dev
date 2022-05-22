@@ -47,6 +47,7 @@ app.engine('hbs', exphbs.engine({
        is_exercises: x => x == "exercises",
        is_bgl_in_dangRange: (x, low, high) =>( x < low || x > high),
        is_in_dangRange: x => ( x.value < x.lower || x.value > x.upper),
+       is_in_dangRange_ver2: x => (x.value!="x") &&( x.value < x.lower || x.value > x.upper),
        is_require_in_dangRange: x => (x.require && ( x.value == "x" || (x.value < x.lower || x.value > x.upper)))
     }
 }))
