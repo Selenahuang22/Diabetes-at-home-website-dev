@@ -18,7 +18,6 @@ if you interested in how to place footer at bottom refer to line 625 (give the g
     --big-vertical-gap: 20;
     --bigger-vertical-gap: 50;
 }
-
 div,
 section {
     display: grid;
