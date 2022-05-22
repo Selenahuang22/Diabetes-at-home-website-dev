@@ -69,7 +69,7 @@ const signClicianUp = async (req, res) => {
 }
 
 const getLoginPage = async (req, res) => {
-    res.render("B_login" , {home: "/", logIn: false, user: {first_name: "Guess"}, flash: req.flash('error')})
+    res.render("B_login" , {home: "/", logIn: false, user: {first_name: "Guess"}})
 }
 
 const getClinicianSignUpPage = async (req, res) => {

@@ -45,18 +45,11 @@ passport.use(
                     if(valid){
                         return done(undefined, user)
                     }
-                    return done(undefined, false, {
-                        message: 'Incorrect username/password',
-                        })
-                        
                 }
             )
         }
 
-        return done(undefined, false, {
-            message: 'Incorrect username/password',
-            })
-            
+        done(new Error('Bad User'), undefined)
     })
 )
 
