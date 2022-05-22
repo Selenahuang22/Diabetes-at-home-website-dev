@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== 'production') {
 const mongoose = require("mongoose")
 
 
-mongoose.connect( process.env.MONGO_URL || 'mongodb://localhost', {
+mongoose.connect( process.env.MONGO_URL || 'mongodb+srv://info30005:info30005123456@cluster0.vffd2.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   dbName: "d1"
