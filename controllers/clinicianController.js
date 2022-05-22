@@ -16,14 +16,15 @@ const renderProfile = async (req, res) => {
        {
            thisClinician: clinician, 
            user: clinician,
-           home: "http://localhost:3000/clinician/profile"
+           logIn: true,
+           home: "/clinician/profile"
         })
     } else {
         res.status(404).render('error', 
         {
             errorCode: '404', 
             message: 'Clinician Does Not exist.',
-            home: "http://localhost:3000/clinician/profile",
+            home: "/",
             user: req.user
         })
         
@@ -57,25 +58,25 @@ const renderDashBoard = async (req, res) => {
                     lower:  patient.health_data["blood glucose level"].lower,
                     upper: patient.health_data["blood glucose level"].upper,
                     require: patient.health_data["blood glucose level"].require,
-                    value: "-"
+                    value: "x"
                 },
                 extractData.insulin = {
                     lower:  patient.health_data["insulin take"].lower,
                     upper: patient.health_data["insulin take"].upper,
                     require: patient.health_data["insulin take"].require,
-                    value: "-"
+                    value: "x"
                 }
                 extractData.exercise = {
                     lower:  patient.health_data["exercise"].lower,
                     upper: patient.health_data["exercise"].upper,
                     require: patient.health_data["exercise"].require,
-                    value: "-"
+                    value: "x"
                 }
                 extractData.weight = {
                     lower:  patient.health_data["weight"].lower,
                     upper: patient.health_data["weight"].upper,
                     require: patient.health_data["weight"].require,
-                    value: "-"
+                    value: "x"
                 }
                 patient.latest_log.forEach(
                     data => {
@@ -102,11 +103,12 @@ const renderDashBoard = async (req, res) => {
             {
                 patient: formatedPatientList,
                 user: clinician,
-                home: "http://localhost:3000/clinician/profile"
+                logIn: true,
+                home: "/clinician/profile"
             })
     }    
     res.status(404).render('error', {errorCode: '404', message: 'Clinician Does Not exist.',
-    home: "http://localhost:3000/clinician/profile"})
+    home: "/"})
 
 }
 
@@ -119,13 +121,14 @@ const showProfile = async (req, res) => {
             "user": clinician,
             "userType": 'clinician',
             "homeType": 'profile',
-            home: "http://localhost:3000/clinician/profile"
+            "logIn": true,
+            "home": "/clinician/profile",
         })
     else res.status(404).render('error', 
     {
         errorCode: '404', 
         message: 'Clinician Does Not exist.',
-        home: "http://localhost:3000/clinician/profile",
+        home: "/",
         user: req.user
     })
 }
@@ -184,7 +187,7 @@ const editProfile = async (req, res) => {
         {
             errorCode: '404', 
             message: 'Clinician Does Not exist.',
-            home: "http://localhost:3000/clinician/profile",
+            home: "/",
             user: req.user
         })
     }
@@ -234,14 +237,14 @@ const clinicianViewData = async (req, res) => {
             }
             console.log(array);
             res.render("B_viewData", {
-                date: array, user: clinician, patient: thisPatient
+                date: array, user: clinician, patient: thisPatient, logIn: true, home: "/clinician/dashboard"
             })
         } else {
             res.status(404).render('error', 
         {
             errorCode: '404', 
             message: 'Clinician Does Not exist.',
-            home: "http://localhost:3000/clinician/profile",
+            home: "/",
             user: req.user
         })}
     }else{
@@ -249,7 +252,7 @@ const clinicianViewData = async (req, res) => {
         {
             errorCode: '404', 
             message: 'Clinician Does Not exist.',
-            home: "http://localhost:3000/clinician/profile",
+            home: "/",
             user: req.user
         })}
 }
@@ -257,7 +260,7 @@ const clinicianViewData = async (req, res) => {
 
 const renderPatientRegisterPage = async (req, res) => {
     let clinician = req.user
-    res.render("C_patientRegister", {id: req.params.id, user: clinician, home:"http://localhost:3000/clinician/profile"})
+    res.render("C_patientRegister", {id: req.params.id, user: clinician, logIn: true, home:"/clinician/profile"})
 }
 
 const registerPatient = async (req, res) => {
@@ -303,7 +306,7 @@ const registerPatient = async (req, res) => {
         {
             errorCode: '404', 
             message: 'Clinician Does Not exist.',
-            home: "http://localhost:3000/clinician/profile",
+            home: "/",
             user: req.user
         })
     }
@@ -340,7 +343,8 @@ const renderClinicalNotes = async (req, res) => {
                 allNotes: allNotes,
                 id: req.params.id,
                 user: clinician,
-                home: "http://localhost:3000/clinician/profile",
+                logIn: true,
+                home: "/clinician/profile",
             }
         )
     } else {
@@ -348,7 +352,7 @@ const renderClinicalNotes = async (req, res) => {
         {
             errorCode: '404', 
             message: 'Clinician Does Not exist.',
-            home: "http://localhost:3000/clinician/profile",
+            home: "/",
             user: req.user
         })
     }
@@ -408,7 +412,8 @@ const renderPatientComments = async (req, res) => {
                 comments: comments,
                 id: req.params.id,
                 user: clinician,
-                home:"http://localhost:3000/clinician/profile"
+                logIn: true,
+                home:"/clinician/profile"
             }
         )
     }
@@ -426,6 +431,7 @@ const renderPatientProfile = async (req, res) => {
                 thispatient: patient,
                 clinicianid: req.params.id,
                 user: clinician,
+                logIn: true,
                 id: req.params.id,
                 bgl_lower: patient.health_data["blood glucose level"].lower,
                 bgl_upper: patient.health_data["blood glucose level"].upper,
@@ -439,7 +445,7 @@ const renderPatientProfile = async (req, res) => {
                 weight: patient.health_data["weight"].require,
                 insulin: patient.health_data["insulin take"].require,
                 exercise: patient.health_data["exercise"].require,
-                home:"http://localhost:3000/clinician/profile"
+                dashboard:"/clinician/dashboard"
             }
         )
     }

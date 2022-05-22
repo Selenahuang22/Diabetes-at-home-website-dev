@@ -23,7 +23,7 @@ const directLogin = async (req, res) => {
                 return res.redirect("/auth/login");
             }
            
-            res.redirect(`/clinician/dashboard`)
+            res.redirect(`/clinician/profile`)
             
         })
     }
@@ -69,11 +69,11 @@ const signClicianUp = async (req, res) => {
 }
 
 const getLoginPage = async (req, res) => {
-    res.render("B_login" , {home: "/", user: {first_name: "Guess"}})
+    res.render("B_login" , {home: "/", logIn: false, user: {first_name: "Guess"}})
 }
 
 const getClinicianSignUpPage = async (req, res) => {
-    res.render("clinicianSignUp")
+    res.render("clinicianSignUp", {home: "/", logIn: false, user: {first_name: "Guess"}})
 }
 
 module.exports = { directLogin, signClicianUp, getLoginPage, getClinicianSignUpPage}

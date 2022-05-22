@@ -82,10 +82,10 @@ const patientViewData = async (req, res) => {
                 }catch(err)
                 {
                     dateDict[data.time.toLocaleDateString()] = {
-                        "bgl": "-",
-                        "weight": "-",
-                        "insulin": "-",
-                        "exercise": "-"
+                        "bgl": "x",
+                        "weight": "x",
+                        "insulin": "x",
+                        "exercise": "x"
                     }
                     dateDict[data.time.toLocaleDateString()][key] = data.value
                 }
@@ -98,11 +98,11 @@ const patientViewData = async (req, res) => {
         }
         console.log(array);
         res.render("B_viewData", {
-            date: array, user: thisPatient, patient: thisPatient,
-            home:"http://localhost:3000/patient/home"
+            date: array, user: thisPatient, patient: thisPatient, logIn:true,
+            home:"/patient/home"
         })
     } else {
-        res.status(404).render('error', {errorCode: '404', message: 'Page is not accessible.', home:"http://localhost:3000/patient/home"})
+        res.status(404).render('error', {errorCode: '404', message: 'Page is not accessible.', home:"/patient/home"})
     }
     
 }
@@ -121,31 +121,33 @@ const getOnePatientAndRender = async (req, res) => {
             last_name: patient.last_name,
             user_name: patient.user_name,
             DOB: patient.DOB,
-            biography: patient.biography
+            biography: patient.biography,
+            email: patient.email,
+            support_message: patient.support_message
         }
         extractData.bgl = {
             lower:  patient.health_data["blood glucose level"].lower,
             upper: patient.health_data["blood glucose level"].upper,
             require: patient.health_data["blood glucose level"].require,
-            value: "-"
+            value: "x"
         },
         extractData.insulin = {
             lower:  patient.health_data["insulin take"].lower,
             upper: patient.health_data["insulin take"].upper,
             require: patient.health_data["insulin take"].require,
-            value: "-"
+            value: "x"
         }
         extractData.exercise = {
             lower:  patient.health_data["exercise"].lower,
             upper: patient.health_data["exercise"].upper,
             require: patient.health_data["exercise"].require,
-            value: "-"
+            value: "x"
         }
         extractData.weight = {
             lower:  patient.health_data["weight"].lower,
             upper: patient.health_data["weight"].upper,
             require: patient.health_data["weight"].require,
-            value:  "-"
+            value:  "x"
         }
         patient.latest_log.forEach(
             data => {
@@ -166,15 +168,6 @@ const getOnePatientAndRender = async (req, res) => {
         extractData.name = `${patient.first_name} ${patient.last_name}`
         extractData.id = patient._id
         
-        // find the support message
-        let msg = await Message.find({
-            patient_id: patient._id
-        }).sort({"time":-1})
-        if(msg != []){
-            msg = msg[0].content
-        }else{
-            msg = ""
-        }
         let today = new Date()
         // calculate the patient engagement rate.
         let totalDay =  today - patient.created
@@ -186,11 +179,11 @@ const getOnePatientAndRender = async (req, res) => {
             "clinician": clinician,
             'time': new Date().toLocaleDateString(),
             'user': patient,
-            home:"http://localhost:3000/patient/home",
-            support_message: msg
+            'logIn': true,
+            'home':"/patient/home",
         })
     } else {
-        res.status(404).render('error', {errorCode: '404', message: 'Page is not accessible.', home:"http://localhost:3000/patient/home"})
+        res.status(404).render('error', {errorCode: '404', message: 'Page is not accessible.', home:"/"})
     }
         
 }
@@ -242,10 +235,11 @@ const onePatientRecord = async (req, res) => {
             required_weight: required_weight,
             required_insulin: required_insulin,
             required_exercise: required_exercise,
-            user: patient
+            user: patient,
+            logIn: true
         })
     } else{
-        res.status(404).render('error', {errorCode: '404', message: 'Page is not accessible.', home:"http://localhost:3000/patient/home"})
+        res.status(404).render('error', {errorCode: '404', message: 'Page is not accessible.', home:"/"})
     }
     
 }
@@ -263,10 +257,11 @@ const showProfile = async (req, res) => {
             "user": patient,
             "userType": 'patient',
             "homeType": 'home',
-            home:"http://localhost:3000/patient/home"
+            "logIn": true,
+            'home':"/patient/home"
         })
     }
-    else res.status(404).render('error', {errorCode: '404', message: 'Page is not accessible.', home:"http://localhost:3000/patient/home"})
+    else res.status(404).render('error', {errorCode: '404', message: 'Page is not accessible.', home:"/"})
 }
 
 const editProfile = async (req, res) => {
@@ -319,7 +314,7 @@ const editProfile = async (req, res) => {
     }
     catch (err){
         console.log(err);
-        res.status(404).render('error', {errorCode: '404', message: 'Error occur when try to send new Data.', home:"http://localhost:3000/patient/home"}) 
+        res.status(404).render('error', {errorCode: '404', message: 'Error occur when try to send new Data.', home:"/"}) 
     }
 }
 
@@ -387,7 +382,7 @@ const submitLog = async (req, res) => {
     }
     (result)
         ? res.redirect(directPath)        
-        : res.status(404).render('error', {errorCode: '404', message: 'Error occur when try to send Data.', home:"http://localhost:3000/patient/home"}) 
+        : res.status(404).render('error', {errorCode: '404', message: 'Error occur when try to send Data.', home:"/"}) 
 }
 
 

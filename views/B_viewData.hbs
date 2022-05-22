@@ -3,7 +3,7 @@
     <!-- patient personal information section-->
     
     <section id="directP">
-        <h2><a href="javascript:history.go(-1);" class="fontBlueNormal">Back</a> > <a href="" class="fontBlueNormal">View All Data</a></h2>
+        <h2><a href={{home}} class="fontBlueNormal">Home</a> > <a href="" class="fontBlueNormal">View All Data</a></h2>
         <h2>Patient: {{patient.first_name}} {{patient.last_name}}</h2>
     </section>    
     
@@ -22,12 +22,19 @@
                 {{#each date}}
                     <td class="fontBlueNormal">{{this.date}}</td>
                     <td>{{this.bgl}}</td>
-                    <td class="fontBlueNormal">{{this.weight}}</td>
+                    <td>{{this.weight}}</td>
                     <td>{{this.insulin}}</td>
-                    <td class="fontBlueNormal">{{this.exercise}}</td>           
+                    <td>{{this.exercise}}</td>           
                 {{/each}}          
 
             </table>
+        </section>
+
+        <section id="tableNote">
+            <p>Note:<br>
+            <tag class="fontRed">x</tag> means this data entry is required for this patient, but he/she hasn't entered yet.<br>
+            <tag class="fontBlueNormal">x</tag> means this data entry is not required for this patient.
+            </p>
         </section>
 
         <section id="graphSelect">

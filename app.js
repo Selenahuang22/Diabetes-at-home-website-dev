@@ -47,7 +47,7 @@ app.engine('hbs', exphbs.engine({
        is_exercises: x => x == "exercises",
        is_bgl_in_dangRange: (x, low, high) =>( x < low || x > high),
        is_in_dangRange: x => ( x.value < x.lower || x.value > x.upper),
-       is_require_in_dangRange: x => (x.require && ( x.value == "-" || (x.value < x.lower || x.value > x.upper)))
+       is_require_in_dangRange: x => (x.require && ( x.value == "x" || (x.value < x.lower || x.value > x.upper)))
     }
 }))
 app.set('view engine', 'hbs')
@@ -106,7 +106,8 @@ app.use('/auth/', authRouter)
 
 /*all others pages*/
 app.all('*', (req, res) => {  // 'default' route to catch user errors
-	res.status(404).render('error', {errorCode: '404', message: 'That route is invalid.'})
+    let user = {first_name: "Guess"}
+	res.status(404).render('error', {user: user, logIn: false, errorCode: '404', message: 'That route is invalid.'})
 })
 
 // start server and listen for HTTP requests

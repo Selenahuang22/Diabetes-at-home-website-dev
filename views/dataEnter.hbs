@@ -77,7 +77,7 @@
                 {{#if log_exercise}}
                     <section class="recordRight">
                         <form class="recordArea" method="POST" action="/patient/submit_log">
-                            <b>Health Data Name</b><input type="text" value="exercises" {{#if required_exercise}}  {{else}} class="fixed" {{/if}} name="data_name" readonly/>
+                            <b>Health Data Name</b><input type="text" value="exercise" {{#if required_exercise}}  {{else}} class="fixed" {{/if}} name="data_name" readonly/>
                             <b>Value</b><input type="text" pattern="^[+]{0,1}(\d+)$" title="must enter a non-negative integer" name="value" {{#if required_exercise}}  {{else}} class="fixed" {{/if}} />
                             <b>Comments</b><input type="text" name="comment" {{#if required_exercise}}  {{else}} class="fixed" {{/if}} />
                             <input type="submit" value="Save" {{#if required_exercise}} class="fontWhiteBold" {{else}} class="fixed" {{/if}}>  
