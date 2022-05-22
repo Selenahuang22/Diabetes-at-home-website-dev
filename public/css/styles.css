@@ -2053,6 +2053,10 @@ footer img:hover {
         grid-template-areas: ". hl . logout ay";
     }
 
+    #ay button {
+        font-size: medium;
+    }
+
     #logout {
         grid-template-columns: 25% 35% 40%;
     }
@@ -2317,6 +2321,14 @@ footer img:hover {
     header {
         grid-template-columns: 2% 50% 35% 13%;
         grid-template-areas: ". hl logout ay";
+    }
+
+    #ay {
+        grid-template-columns: 100%;
+    }
+
+    #ay button {
+        font-size: 10px;
     }
 
     #headLeft {
