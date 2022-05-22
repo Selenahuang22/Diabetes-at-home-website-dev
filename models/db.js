@@ -1,4 +1,3 @@
-require('dotenv').config()    // for database login details
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()

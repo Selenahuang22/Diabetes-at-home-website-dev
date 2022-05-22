@@ -1,5 +1,4 @@
 const bcrypt = require("bcrypt")
-const dotenv = require("dotenv")
 const Patient = require("../models/patient")
 const Clinician = require("../models/clinician")
 if (process.env.NODE_ENV !== 'production') {
