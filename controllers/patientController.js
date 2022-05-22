@@ -118,7 +118,7 @@ const patientViewData = async (req, res) => {
             date: array,
             user: thisPatient, 
             patient: thisPatient,
-            logIn:true,
+            logIn: true,
             home:"/patient/home"
         })
     } else {
@@ -190,8 +190,11 @@ const getOnePatientAndRender = async (req, res) => {
         
         let today = new Date()
         // calculate the patient engagement rate.
-        let totalDay =  today - patient.created
-        totalDay = Math.floor(totalDay / 86400000) * 86400000
+        let totalDay =  Math.floor((today - patient.created)/ 86400000)
+        let engagement = await findActiveDays(req.user._id) / totalDay * 1.0
+        engagement = `${engagement.toFixed(2)}%`
+
+        // find the number of day
         
         res.render('patientHome', {
             "id": req.params.id,
@@ -201,11 +204,27 @@ const getOnePatientAndRender = async (req, res) => {
             'user': patient,
             'logIn': true,
             'home':"/patient/home",
+            engagement: engagement
         })
     } else {
         res.status(404).render('error', {errorCode: '404', message: 'Page is not accessible.', home:"/"})
     }
         
+}
+
+const findActiveDays = async (id) => {
+    let healthDatas = await HealthData.find({owner: id})
+    dateDict = new Set()
+    healthDatas.forEach(
+        data => {
+            if(data.time.toLocaleDateString in dateDict){
+
+            } else{
+                dateDict.add(data.time.toLocaleDateString())
+            }
+        }
+    )
+    return dateDict.size
 }
 
 const onePatientRecord = async (req, res) => {
@@ -477,5 +496,6 @@ module.exports = {
     editProfile,
     showProfile,
     createNewPatient,
-    patientViewData 
+    patientViewData,
+    findActiveDays
 }
