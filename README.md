@@ -1,6 +1,6 @@
 # INFO30005-project
 
-First install express, express-handlebars, mongoose, dotev..
+First install express, express-handlebars, mongoose, dotenv..
 
 static pages:
 about website: 
