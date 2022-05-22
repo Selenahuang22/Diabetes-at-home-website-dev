@@ -451,7 +451,7 @@ const renderPatientProfile = async (req, res) => {
     if(patient){
         let today = new Date()
         // calculate the patient engagement rate.
-        let totalDay =  Math.floor((today - patient.created)/ 86400000)
+        let totalDay =  Math.floor((today - patient.created)/ 86400000) + 1
         let engagement = await patientController.findActiveDays(patient._id) / totalDay * 1.0
         let engagementStr = `${engagement.toFixed(2)}%`
 
