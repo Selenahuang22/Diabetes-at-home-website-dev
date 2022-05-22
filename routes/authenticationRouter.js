@@ -28,7 +28,7 @@ authRouter.post("/register/clinician",
     body("first_name", "cannot be empty").not().isEmpty().escape(),
     body("last_name", "cannot be empty").not().isEmpty().escape(),
     body("email", "must be an email address").isEmail().escape(),
-    body("password", "must be at least 10 characters long").isLength({min: 10}).escape(),
+    body("password", "must be at least 8 characters long").isLength({min: 8}).escape(),
     (req, res) => {
         authController.signClicianUp(req, res)
     }
