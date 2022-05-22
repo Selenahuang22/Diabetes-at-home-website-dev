@@ -302,11 +302,36 @@ header {
     display: grid;
     grid-area: h;
     grid-template-columns: 7% 41% 15% 30% 7%;
-    grid-template-areas: ". hl . logout .";
-    border-bottom: 15px solid var(--c-color-b0);;
+    grid-template-areas: ". hl . logout ay";
+    border-bottom: 15px solid var(--c-color-b0);
     margin-bottom: 10px;
 }
 
+#ay {
+    grid-area: ay;
+    grid-template-columns: 60%;
+    row-gap: 10px;
+    grid-template-areas:
+        "olday"
+        "a11y";
+}
+
+#ay button {
+    border-radius: 3vh;
+    color: var(--c-color-white);
+    font-weight: bold;
+    font-size: large;
+}
+
+#olday {
+    grid-area: olday;
+    background-color: #578ad6;
+}
+
+#a11y {
+    grid-area: a11y;
+    background-color: #00260f;
+}
 #headLeft {
     grid-area: hl;
     grid-template-columns: 15% 3% 82%;
@@ -644,10 +669,14 @@ footer img:hover {
 #psignUp {
     font-size: 1.4em;
     margin-bottom: calc(var(--bigger-vertical-gap) * 1px);
-    grid-template-columns: 7% 3% 40% 3% 40% 7%;
+    grid-template-columns: 10% 80% 10%;
     grid-template-areas:
-        ". signUpText signUpText signUpText signUpText ."
-        ". . signUpLeft . signUpRight .";
+        ". signUpText ."
+        ". signUpLeft .";
+}
+
+#psignUp form div {
+    justify-items: left;
 }
 
 #psignUpLeft {
@@ -891,7 +920,7 @@ footer img:hover {
 #clinicianInfo {
     grid-area: ci;
     grid-template-columns: 7% 86% 7%;
-    grid-template-areas: 
+    grid-template-areas:
         ". directP .";
 }
 
@@ -965,9 +994,9 @@ footer img:hover {
 #loginSession {
     font-size: 1.4em;
     height: calc(var(--middle-page-height) * 1vh);
-    grid-template-columns: 7% 3% 40% 40% 3% 7% ;
+    grid-template-columns: 7% 3% 40% 40% 3% 7%;
     grid-template-rows: 5vh auto;
-    grid-template-areas: 
+    grid-template-areas:
         ". . . . . ."
         ". . loginLeft loginRight . .";
 }
@@ -1958,9 +1987,10 @@ footer img:hover {
     background: var(--c-color-b3);
     grid-template-columns: 7% 86% 7%;
     align-items: start;
-    grid-template-areas: 
-        ". dataTables ." 
-        ". graphSelect ." ;
+    grid-template-areas:
+        ". dataTables ."
+        ". tableNote ."
+        ". graphSelect .";
 }
 
 #dataTables {
@@ -2298,7 +2328,11 @@ footer img:hover {
         grid-template-columns: 2% 50% 1% 45% 2%;
         grid-template-areas: ". hl . logout .";
     }
-
+    
+    #headRight {
+        grid-template-columns: 15% 80% 5%;
+        grid-template-rows: 40% 20% 40%;
+    }
     #headLeft {
         grid-area: hl;
         grid-template-columns: 15% 3% 82%;
