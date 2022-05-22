@@ -64,8 +64,26 @@ const patientViewData = async (req, res) => {
 
         // sort the data 
         healthDatas.sort((a, b) =>{ return a.time.getUTCMilliseconds() - b.time.getUTCMilliseconds()})
-
+        thresholdDict = {
+            "bgl": {
+                lower:  thisPatient.health_data["blood glucose level"].lower,
+                upper: thisPatient.health_data["blood glucose level"].upper
+            }, 
+            "insulin" : {
+                lower:  thisPatient.health_data["insulin take"].lower,
+                upper: thisPatient.health_data["insulin take"].upper
+            },
+            "weight": {
+                lower:  thisPatient.health_data["weight"].lower,
+                upper: thisPatient.health_data["weight"].upper
+            },
+            "exercise": {
+                lower:  thisPatient.health_data["exercise"].lower,
+                upper: thisPatient.health_data["exercise"].upper
+            }
+        }
         let dateDict = {}
+        console.log(healthDatas);
         healthDatas.forEach(
             (data) => {
                 let key = data.data_name
@@ -78,16 +96,16 @@ const patientViewData = async (req, res) => {
                     
                 try{
                         
-                    dateDict[data.time.toLocaleDateString()][key] = data.value
+                    dateDict[data.time.toLocaleDateString()][key] = {value:data.value, upper:thresholdDict[key].upper, lower: thresholdDict[key].lower}
                 }catch(err)
                 {
                     dateDict[data.time.toLocaleDateString()] = {
-                        "bgl": "x",
-                        "weight": "x",
-                        "insulin": "x",
-                        "exercise": "x"
+                        "bgl": {value:"x"},
+                        "weight":  {value:"x"},
+                        "insulin":  {value:"x"},
+                        "exercise":  {value:"x"},
                     }
-                    dateDict[data.time.toLocaleDateString()][key] = data.value
+                    dateDict[data.time.toLocaleDateString()][key] = {value:data.value, upper:thresholdDict[key].upper, lower: thresholdDict[key].lower}
                 }
             }
         )
@@ -97,7 +115,10 @@ const patientViewData = async (req, res) => {
             array.push(healthData)
         }
         res.render("B_viewData", {
-            date: array, user: thisPatient, patient: thisPatient, logIn:true,
+            date: array,
+            user: thisPatient, 
+            patient: thisPatient,
+            logIn:true,
             home:"/patient/home"
         })
     } else {
