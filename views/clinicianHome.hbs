@@ -26,16 +26,16 @@
                 <!-- Patients from the database -->
                 {{#each patient}}
                     <td > <a class="fontBlueNormal" href="patient/{{this.id}}" > {{this.name}} </a></td>
-                    <td {{#if (is_require_in_dangRange this.bgl)}} class="fontRed" {{else}} class="fontBlueNormal" {{/if}}>
+                    <td {{#if (is_require_in_dangRange this.bgl)}} class="fontRedBold" {{else}} class="fontBlueNormal" {{/if}}>
                         {{this.bgl.value}}
                     </td>
-                    <td {{#if (is_require_in_dangRange this.weight)}} class="fontRed" {{else}} class="fontBlueNormal" {{/if}}>
+                    <td {{#if (is_require_in_dangRange this.weight)}} class="fontRedBold" {{else}} class="fontBlueNormal" {{/if}}>
                         {{this.weight.value}}
                     </td>
-                    <td {{#if (is_require_in_dangRange this.insulin)}} class="fontRed" {{else}} class="fontBlueNormal" {{/if}}>
+                    <td {{#if (is_require_in_dangRange this.insulin)}} class="fontRedBold" {{else}} class="fontBlueNormal" {{/if}}>
                         {{this.insulin.value}}
                     </td>
-                    <td {{#if (is_require_in_dangRange this.exercise)}} class="fontRed" {{else}} class="fontBlueNormal" {{/if}}>
+                    <td {{#if (is_require_in_dangRange this.exercise)}} class="fontRedBold" {{else}} class="fontBlueNormal" {{/if}}>
                         {{this.exercise.value}}
                     </td>
                 {{/each}}
