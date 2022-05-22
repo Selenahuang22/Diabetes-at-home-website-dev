@@ -83,7 +83,6 @@ const patientViewData = async (req, res) => {
             }
         }
         let dateDict = {}
-        console.log(healthDatas);
         healthDatas.forEach(
             (data) => {
                 let key = data.data_name
